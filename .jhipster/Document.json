@@ -1,0 +1,27 @@
+{
+    "name": "Document",
+    "fields": [
+        {
+            "fieldName": "lien",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "document"
+        }
+    ],
+    "changelogDate": "20190211141318",
+    "entityTableName": "document",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

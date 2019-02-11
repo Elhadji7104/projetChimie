@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity FicheArticle.
+    -->
+    <changeSet id="20190211141310-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id"
+                                 baseTableName="fiche_article_document"
+                                 constraintName="fk_fiche_article_document_fiche_articles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_article"/>
+        <addForeignKeyConstraint baseColumnNames="documents_id"
+                                 baseTableName="fiche_article_document"
+                                 constraintName="fk_fiche_article_document_documents_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document"/>
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id"
+                                 baseTableName="fiche_article_unite"
+                                 constraintName="fk_fiche_article_unite_fiche_articles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_article"/>
+        <addForeignKeyConstraint baseColumnNames="unites_id"
+                                 baseTableName="fiche_article_unite"
+                                 constraintName="fk_fiche_article_unite_unites_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unite"/>
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id"
+                                 baseTableName="fiche_article_fiche_produit_chimique"
+                                 constraintName="fk_fiche_article_fiche_produit_chimique_fiche_articles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_article"/>
+        <addForeignKeyConstraint baseColumnNames="fiche_produit_chimiques_id"
+                                 baseTableName="fiche_article_fiche_produit_chimique"
+                                 constraintName="fiche_article_fiche_produit_chi_fiche_produit_chimiques_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_produit_chimique"/>
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id"
+                                 baseTableName="fiche_article_classification"
+                                 constraintName="fk_fiche_article_classification_fiche_articles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_article"/>
+        <addForeignKeyConstraint baseColumnNames="classifications_id"
+                                 baseTableName="fiche_article_classification"
+                                 constraintName="fk_fiche_article_classification_classifications_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="classification"/>
+        
+        <addForeignKeyConstraint baseColumnNames="droit_daccee_produit_id"
+                                 baseTableName="fiche_article"
+                                 constraintName="fk_fiche_article_droit_daccee_produit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="droit_daccee_produit"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,42 @@
+{
+    "name": "FicheDeCommandeProduit",
+    "fields": [
+        {
+            "fieldName": "quantite",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "dateDeCommande",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateLivraison",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "ficheDeCommandeProduit",
+            "relationshipName": "fournisseur",
+            "otherEntityName": "fournisseur",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141313",
+    "entityTableName": "fiche_de_commande_produit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

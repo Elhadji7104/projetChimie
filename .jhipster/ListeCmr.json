@@ -1,0 +1,26 @@
+{
+    "name": "ListeCmr",
+    "fields": [
+        {
+            "fieldName": "refListe",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ficheProduitChimique",
+            "otherEntityName": "ficheProduitChimique",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141321",
+    "entityTableName": "liste_cmr",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

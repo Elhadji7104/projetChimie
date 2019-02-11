@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="droitDacceeProduit">
+            <h2><span jhiTranslate="projetChimieApp.droitDacceeProduit.detail.title">Droit Daccee Produit</span> {{droitDacceeProduit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.nom">Nom</span></dt>
+                <dd>
+                    <span>{{droitDacceeProduit.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe">Nom Groupe</span></dt>
+                <dd>
+                    <span>{{droitDacceeProduit.nomGroupe}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.etatDroit">Etat Droit</span></dt>
+                <dd>
+                    <span>{{droitDacceeProduit.etatDroit}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.groupe">Groupe</span></dt>
+                <dd>
+                    <div *ngIf="droitDacceeProduit.groupe">
+                        <a [routerLink]="['/groupe', droitDacceeProduit.groupe?.id, 'view']">{{droitDacceeProduit.groupe?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

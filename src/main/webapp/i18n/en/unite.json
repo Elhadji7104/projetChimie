@@ -1,0 +1,22 @@
+{
+    "projetChimieApp": {
+        "unite": {
+            "home": {
+                "title": "Unites",
+                "createLabel": "Create a new Unite",
+                "createOrEditLabel": "Create or edit a Unite"
+            },
+            "created": "A new Unite is created with identifier {{ param }}",
+            "updated": "A Unite is updated with identifier {{ param }}",
+            "deleted": "A Unite is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Unite {{ id }}?"
+            },
+            "detail": {
+                "title": "Unite"
+            },
+            "libelleUnite": "Libelle Unite",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

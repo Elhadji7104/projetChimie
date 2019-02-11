@@ -1,0 +1,22 @@
+{
+    "projetChimieApp": {
+        "listeMotsCles": {
+            "home": {
+                "title": "ListeMotsCles",
+                "createLabel": "Créer un nouveau Liste Mots Cles",
+                "createOrEditLabel": "Créer ou éditer un Liste Mots Cles"
+            },
+            "created": "Un nouveau Liste Mots Cles a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Liste Mots Cles avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Liste Mots Cles avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Liste Mots Cles {{ id }} ?"
+            },
+            "detail": {
+                "title": "Liste Mots Cles"
+            },
+            "libelleMot": "Libelle Mot",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

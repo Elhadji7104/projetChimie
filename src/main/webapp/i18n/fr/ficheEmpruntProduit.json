@@ -1,0 +1,23 @@
+{
+    "projetChimieApp": {
+        "ficheEmpruntProduit": {
+            "home": {
+                "title": "FicheEmpruntProduits",
+                "createLabel": "Créer un nouveau Fiche Emprunt Produit",
+                "createOrEditLabel": "Créer ou éditer un Fiche Emprunt Produit"
+            },
+            "created": "Un nouveau Fiche Emprunt Produit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Fiche Emprunt Produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Fiche Emprunt Produit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Fiche Emprunt Produit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fiche Emprunt Produit"
+            },
+            "quantite": "Quantite",
+            "dateEmprunt": "Date Emprunt",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

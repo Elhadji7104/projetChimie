@@ -1,0 +1,121 @@
+
+entity User
+{
+
+}
+entity Groupe {
+	  nomGroupe String,
+	  nombreMembre Integer,
+      localGroupe String
+}
+entity DroitDacceeProduit {
+	nom String,
+	nomGroupe String,
+	etatDroit Boolean
+}
+enum DisponibliteArticle {
+DISPONIBLE,INDISPONIBLE, FINDESTOCK,ENCOMMANDE
+}
+
+entity MailGestionnaire{
+mail String
+}
+entity FicheArticle {
+	refArticle String,
+    etatPhysique String,
+    codeInterne String,
+    codeBarre String,
+    disponibliteArticle DisponibliteArticle,
+	typeDesuivi Boolean,
+    accessibilite Boolean
+}
+entity FicheProduitChimique{
+	cas String,
+    codeProduit String,
+	nom String,
+    acronyme String,
+	mm String,
+    codeNacre String,
+}
+entity ListeMotsCles {
+	libelleMot  String
+}
+entity FicheDeCommandeProduit {
+	quantite Float,
+    dateDeCommande LocalDate,
+	dateLivraison LocalDate
+}
+entity FicheEmpruntProduit {		
+	quantite Double,
+	dateEmprunt LocalDate
+}
+entity FicheRetourProduit {
+	quantite Float,
+	dateRetour LocalDate
+}
+entity Fournisseur{
+	nomFournisseur String,
+    adresse String,
+    mail String,
+    telephone String
+    
+}
+entity TypeDeConditionnement{
+libelleConditionnement String,
+}
+entity Document{
+lien String,
+}
+entity Localisation{
+adresse String,
+codePostal String,
+ville String,
+pays  String,
+quantite Float
+}
+entity Unite{
+libelleUnite String,
+}
+entity ListeCmr{
+refListe String,
+}
+entity TypeLieuStockage{
+	libelleLieu String,
+	temperature Float
+
+}
+
+entity Classification{
+	nomClassification String
+}
+entity ListeGroupeInvite{
+	 nomGroupe String
+}
+relationship OneToMany  {
+	FicheArticle to FicheEmpruntProduit 
+    FicheArticle to FicheRetourProduit 
+    FicheArticle to FicheDeCommandeProduit
+    DroitDacceeProduit to Groupe
+    Groupe to DroitDacceeProduit
+    FicheArticle to ListeMotsCles
+	FicheArticle to TypeDeConditionnement
+    FicheArticle to Localisation
+    Localisation to TypeLieuStockage
+    Groupe to MailGestionnaire
+    Groupe to ListeGroupeInvite
+    FicheProduitChimique to ListeCmr
+    DroitDacceeProduit to FicheArticle
+}
+
+
+relationship ManyToMany{
+	FicheArticle to Document
+	FicheArticle to Unite
+	FicheArticle to FicheProduitChimique
+	FicheArticle to Classification
+	FicheDeCommandeProduit to Fournisseur
+}
+
+
+	
+

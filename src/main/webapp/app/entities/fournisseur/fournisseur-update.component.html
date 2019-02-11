@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-fournisseur-heading" jhiTranslate="projetChimieApp.fournisseur.home.createOrEditLabel">Create or edit a Fournisseur</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fournisseur.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fournisseur.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.fournisseur.nomFournisseur" for="field_nomFournisseur">Nom Fournisseur</label>
+                    <input type="text" class="form-control" name="nomFournisseur" id="field_nomFournisseur"
+                        [(ngModel)]="fournisseur.nomFournisseur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.fournisseur.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                        [(ngModel)]="fournisseur.adresse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.fournisseur.mail" for="field_mail">Mail</label>
+                    <input type="text" class="form-control" name="mail" id="field_mail"
+                        [(ngModel)]="fournisseur.mail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.fournisseur.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                        [(ngModel)]="fournisseur.telephone" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

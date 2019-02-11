@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fournisseur">
+            <h2><span jhiTranslate="projetChimieApp.fournisseur.detail.title">Fournisseur</span> {{fournisseur.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetChimieApp.fournisseur.nomFournisseur">Nom Fournisseur</span></dt>
+                <dd>
+                    <span>{{fournisseur.nomFournisseur}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.fournisseur.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{fournisseur.adresse}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.fournisseur.mail">Mail</span></dt>
+                <dd>
+                    <span>{{fournisseur.mail}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.fournisseur.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{fournisseur.telephone}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fournisseur', fournisseur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

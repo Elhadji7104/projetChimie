@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141307_added_entity_Groupe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141308_added_entity_DroitDacceeProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141309_added_entity_MailGestionnaire.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141310_added_entity_FicheArticle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141311_added_entity_FicheProduitChimique.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141312_added_entity_ListeMotsCles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141313_added_entity_FicheDeCommandeProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141314_added_entity_FicheEmpruntProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141315_added_entity_FicheRetourProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141316_added_entity_Fournisseur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141317_added_entity_TypeDeConditionnement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141318_added_entity_Document.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141319_added_entity_Localisation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141320_added_entity_Unite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141321_added_entity_ListeCmr.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141322_added_entity_TypeLieuStockage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141323_added_entity_Classification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141324_added_entity_ListeGroupeInvite.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190211141307_added_entity_constraints_Groupe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141308_added_entity_constraints_DroitDacceeProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141309_added_entity_constraints_MailGestionnaire.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141310_added_entity_constraints_FicheArticle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141312_added_entity_constraints_ListeMotsCles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141313_added_entity_constraints_FicheDeCommandeProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141314_added_entity_constraints_FicheEmpruntProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141315_added_entity_constraints_FicheRetourProduit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141317_added_entity_constraints_TypeDeConditionnement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141319_added_entity_constraints_Localisation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141321_added_entity_constraints_ListeCmr.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141322_added_entity_constraints_TypeLieuStockage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190211141324_added_entity_constraints_ListeGroupeInvite.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

@@ -1,0 +1,48 @@
+{
+    "name": "Localisation",
+    "fields": [
+        {
+            "fieldName": "adresse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codePostal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ville",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pays",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "typeLieuStockage",
+            "otherEntityName": "typeLieuStockage",
+            "otherEntityRelationshipName": "localisation"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141319",
+    "entityTableName": "localisation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

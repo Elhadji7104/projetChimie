@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ficheDeCommandeProduit">
+            <h2><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.detail.title">Fiche De Commande Produit</span> {{ficheDeCommandeProduit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ficheDeCommandeProduit.quantite}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.dateDeCommande">Date De Commande</span></dt>
+                <dd>
+                    <span>{{ficheDeCommandeProduit.dateDeCommande}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.dateLivraison">Date Livraison</span></dt>
+                <dd>
+                    <span>{{ficheDeCommandeProduit.dateLivraison}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.fournisseur">Fournisseur</span></dt>
+                <dd>
+                    <span *ngFor="let fournisseur of ficheDeCommandeProduit.fournisseurs; let last = last">
+                        <a [routerLink]="['/fournisseur', fournisseur?.id, 'view' ]">{{fournisseur.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.ficheArticle">Fiche Article</span></dt>
+                <dd>
+                    <div *ngIf="ficheDeCommandeProduit.ficheArticle">
+                        <a [routerLink]="['/fiche-article', ficheDeCommandeProduit.ficheArticle?.id, 'view']">{{ficheDeCommandeProduit.ficheArticle?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fiche-de-commande-produit', ficheDeCommandeProduit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{
+    "projetChimieApp": {
+        "mailGestionnaire": {
+            "home": {
+                "title": "MailGestionnaires",
+                "createLabel": "Créer un nouveau Mail Gestionnaire",
+                "createOrEditLabel": "Créer ou éditer un Mail Gestionnaire"
+            },
+            "created": "Un nouveau Mail Gestionnaire a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Mail Gestionnaire avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Mail Gestionnaire avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Mail Gestionnaire {{ id }} ?"
+            },
+            "detail": {
+                "title": "Mail Gestionnaire"
+            },
+            "mail": "Mail",
+            "groupe": "Groupe"
+        }
+    }
+}

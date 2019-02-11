@@ -1,0 +1,119 @@
+{
+    "name": "FicheArticle",
+    "fields": [
+        {
+            "fieldName": "refArticle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etatPhysique",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeInterne",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeBarre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "disponibliteArticle",
+            "fieldType": "DisponibliteArticle",
+            "fieldValues": "DISPONIBLE,INDISPONIBLE,FINDESTOCK,ENCOMMANDE"
+        },
+        {
+            "fieldName": "typeDesuivi",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "accessibilite",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ficheEmpruntProduit",
+            "otherEntityName": "ficheEmpruntProduit",
+            "otherEntityRelationshipName": "ficheArticle"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ficheRetourProduit",
+            "otherEntityName": "ficheRetourProduit",
+            "otherEntityRelationshipName": "ficheArticle"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ficheDeCommandeProduit",
+            "otherEntityName": "ficheDeCommandeProduit",
+            "otherEntityRelationshipName": "ficheArticle"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "listeMotsCles",
+            "otherEntityName": "listeMotsCles",
+            "otherEntityRelationshipName": "ficheArticle"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "typeDeConditionnement",
+            "otherEntityName": "typeDeConditionnement",
+            "otherEntityRelationshipName": "ficheArticle"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "localisation",
+            "otherEntityName": "localisation",
+            "otherEntityRelationshipName": "ficheArticle"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "ficheArticle",
+            "relationshipName": "document",
+            "otherEntityName": "document",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "ficheArticle",
+            "relationshipName": "unite",
+            "otherEntityName": "unite",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "ficheArticle",
+            "relationshipName": "ficheProduitChimique",
+            "otherEntityName": "ficheProduitChimique",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "ficheArticle",
+            "relationshipName": "classification",
+            "otherEntityName": "classification",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "droitDacceeProduit",
+            "otherEntityName": "droitDacceeProduit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141310",
+    "entityTableName": "fiche_article",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

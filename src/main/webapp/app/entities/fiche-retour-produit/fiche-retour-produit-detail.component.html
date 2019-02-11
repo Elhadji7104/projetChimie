@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ficheRetourProduit">
+            <h2><span jhiTranslate="projetChimieApp.ficheRetourProduit.detail.title">Fiche Retour Produit</span> {{ficheRetourProduit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetChimieApp.ficheRetourProduit.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ficheRetourProduit.quantite}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheRetourProduit.dateRetour">Date Retour</span></dt>
+                <dd>
+                    <span>{{ficheRetourProduit.dateRetour}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheRetourProduit.ficheArticle">Fiche Article</span></dt>
+                <dd>
+                    <div *ngIf="ficheRetourProduit.ficheArticle">
+                        <a [routerLink]="['/fiche-article', ficheRetourProduit.ficheArticle?.id, 'view']">{{ficheRetourProduit.ficheArticle?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fiche-retour-produit', ficheRetourProduit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

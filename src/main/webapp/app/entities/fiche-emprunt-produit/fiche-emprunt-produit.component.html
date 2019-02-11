@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="projetChimieApp.ficheEmpruntProduit.home.title">Fiche Emprunt Produits</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-emprunt-produit" [routerLink]="['/fiche-emprunt-produit/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="projetChimieApp.ficheEmpruntProduit.home.createLabel">
+            Create new Fiche Emprunt Produit
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="ficheEmpruntProduits">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.quantite">Quantite</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.dateEmprunt">Date Emprunt</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.ficheArticle">Fiche Article</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ficheEmpruntProduit of ficheEmpruntProduits ;trackBy: trackId">
+                <td><a [routerLink]="['/fiche-emprunt-produit', ficheEmpruntProduit.id, 'view' ]">{{ficheEmpruntProduit.id}}</a></td>
+                <td>{{ficheEmpruntProduit.quantite}}</td>
+                <td>{{ficheEmpruntProduit.dateEmprunt | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="ficheEmpruntProduit.ficheArticle">
+                        <a [routerLink]="['../fiche-article', ficheEmpruntProduit.ficheArticle?.id, 'view' ]" >{{ficheEmpruntProduit.ficheArticle?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/fiche-emprunt-produit', ficheEmpruntProduit.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fiche-emprunt-produit', ficheEmpruntProduit.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fiche-emprunt-produit/'+ ficheEmpruntProduit.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

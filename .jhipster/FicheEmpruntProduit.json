@@ -1,0 +1,30 @@
+{
+    "name": "FicheEmpruntProduit",
+    "fields": [
+        {
+            "fieldName": "quantite",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateEmprunt",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141314",
+    "entityTableName": "fiche_emprunt_produit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

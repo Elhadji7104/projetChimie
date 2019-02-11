@@ -1,0 +1,39 @@
+{
+    "name": "Fournisseur",
+    "fields": [
+        {
+            "fieldName": "nomFournisseur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "ficheDeCommandeProduit",
+            "otherEntityName": "ficheDeCommandeProduit",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "fournisseur"
+        }
+    ],
+    "changelogDate": "20190211141316",
+    "entityTableName": "fournisseur",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

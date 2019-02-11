@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="projetChimieApp.ficheProduitChimique.home.title">Fiche Produit Chimiques</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-produit-chimique" [routerLink]="['/fiche-produit-chimique/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="projetChimieApp.ficheProduitChimique.home.createLabel">
+            Create new Fiche Produit Chimique
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="ficheProduitChimiques">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheProduitChimique.cas">Cas</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheProduitChimique.codeProduit">Code Produit</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheProduitChimique.nom">Nom</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme">Acronyme</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheProduitChimique.mm">Mm</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre">Code Nacre</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ficheProduitChimique of ficheProduitChimiques ;trackBy: trackId">
+                <td><a [routerLink]="['/fiche-produit-chimique', ficheProduitChimique.id, 'view' ]">{{ficheProduitChimique.id}}</a></td>
+                <td>{{ficheProduitChimique.cas}}</td>
+                <td>{{ficheProduitChimique.codeProduit}}</td>
+                <td>{{ficheProduitChimique.nom}}</td>
+                <td>{{ficheProduitChimique.acronyme}}</td>
+                <td>{{ficheProduitChimique.mm}}</td>
+                <td>{{ficheProduitChimique.codeNacre}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/fiche-produit-chimique', ficheProduitChimique.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fiche-produit-chimique', ficheProduitChimique.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fiche-produit-chimique/'+ ficheProduitChimique.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

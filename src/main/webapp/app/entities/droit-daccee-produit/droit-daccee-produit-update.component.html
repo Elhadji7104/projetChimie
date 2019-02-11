@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-droit-daccee-produit-heading" jhiTranslate="projetChimieApp.droitDacceeProduit.home.createOrEditLabel">Create or edit a Droit Daccee Produit</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!droitDacceeProduit.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="droitDacceeProduit.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="droitDacceeProduit.nom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe" for="field_nomGroupe">Nom Groupe</label>
+                    <input type="text" class="form-control" name="nomGroupe" id="field_nomGroupe"
+                        [(ngModel)]="droitDacceeProduit.nomGroupe" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.etatDroit" for="field_etatDroit">Etat Droit</label>
+                    <input type="checkbox" class="form-control" name="etatDroit" id="field_etatDroit"
+                        [(ngModel)]="droitDacceeProduit.etatDroit" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.groupe" for="field_groupe">Groupe</label>
+                    <select class="form-control" id="field_groupe" name="groupe" [(ngModel)]="droitDacceeProduit.groupe" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupeOption.id === droitDacceeProduit.groupe?.id ? droitDacceeProduit.groupe : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

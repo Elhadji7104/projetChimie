@@ -1,0 +1,30 @@
+{
+    "name": "FicheRetourProduit",
+    "fields": [
+        {
+            "fieldName": "quantite",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "dateRetour",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141315",
+    "entityTableName": "fiche_retour_produit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

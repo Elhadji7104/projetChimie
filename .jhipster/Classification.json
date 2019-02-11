@@ -1,0 +1,27 @@
+{
+    "name": "Classification",
+    "fields": [
+        {
+            "fieldName": "nomClassification",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "classification"
+        }
+    ],
+    "changelogDate": "20190211141323",
+    "entityTableName": "classification",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

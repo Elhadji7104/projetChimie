@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mailGestionnaire">
+            <h2><span jhiTranslate="projetChimieApp.mailGestionnaire.detail.title">Mail Gestionnaire</span> {{mailGestionnaire.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetChimieApp.mailGestionnaire.mail">Mail</span></dt>
+                <dd>
+                    <span>{{mailGestionnaire.mail}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.mailGestionnaire.groupe">Groupe</span></dt>
+                <dd>
+                    <div *ngIf="mailGestionnaire.groupe">
+                        <a [routerLink]="['/groupe', mailGestionnaire.groupe?.id, 'view']">{{mailGestionnaire.groupe?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mail-gestionnaire', mailGestionnaire.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

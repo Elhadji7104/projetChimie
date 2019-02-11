@@ -1,0 +1,11 @@
+{
+    "projetChimieApp": {
+        "DisponibliteArticle": {
+            "null": "",
+            "DISPONIBLE": "DISPONIBLE",
+            "INDISPONIBLE": "INDISPONIBLE",
+            "FINDESTOCK": "FINDESTOCK",
+            "ENCOMMANDE": "ENCOMMANDE"
+        }
+    }
+}

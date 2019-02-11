@@ -1,0 +1,26 @@
+{
+    "name": "TypeDeConditionnement",
+    "fields": [
+        {
+            "fieldName": "libelleConditionnement",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141317",
+    "entityTableName": "type_de_conditionnement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

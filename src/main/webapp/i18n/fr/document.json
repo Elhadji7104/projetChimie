@@ -1,0 +1,22 @@
+{
+    "projetChimieApp": {
+        "document": {
+            "home": {
+                "title": "Documents",
+                "createLabel": "Créer un nouveau Document",
+                "createOrEditLabel": "Créer ou éditer un Document"
+            },
+            "created": "Un nouveau Document a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Document avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Document avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Document {{ id }} ?"
+            },
+            "detail": {
+                "title": "Document"
+            },
+            "lien": "Lien",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

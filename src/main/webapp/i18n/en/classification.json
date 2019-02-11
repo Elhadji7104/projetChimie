@@ -1,0 +1,22 @@
+{
+    "projetChimieApp": {
+        "classification": {
+            "home": {
+                "title": "Classifications",
+                "createLabel": "Create a new Classification",
+                "createOrEditLabel": "Create or edit a Classification"
+            },
+            "created": "A new Classification is created with identifier {{ param }}",
+            "updated": "A Classification is updated with identifier {{ param }}",
+            "deleted": "A Classification is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Classification {{ id }}?"
+            },
+            "detail": {
+                "title": "Classification"
+            },
+            "nomClassification": "Nom Classification",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

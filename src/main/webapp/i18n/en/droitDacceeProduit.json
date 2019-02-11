@@ -1,0 +1,26 @@
+{
+    "projetChimieApp": {
+        "droitDacceeProduit": {
+            "home": {
+                "title": "Droit Daccee Produits",
+                "createLabel": "Create a new Droit Daccee Produit",
+                "createOrEditLabel": "Create or edit a Droit Daccee Produit"
+            },
+            "created": "A new Droit Daccee Produit is created with identifier {{ param }}",
+            "updated": "A Droit Daccee Produit is updated with identifier {{ param }}",
+            "deleted": "A Droit Daccee Produit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Droit Daccee Produit {{ id }}?"
+            },
+            "detail": {
+                "title": "Droit Daccee Produit"
+            },
+            "nom": "Nom",
+            "nomGroupe": "Nom Groupe",
+            "etatDroit": "Etat Droit",
+            "groupe": "Groupe",
+            "ficheArticle": "Fiche Article",
+            "groupe": "Groupe"
+        }
+    }
+}

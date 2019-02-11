@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Type Lieu Stockages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-lieu-stockage" [routerLink]="['/type-lieu-stockage/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="projetChimieApp.typeLieuStockage.home.createLabel">
+            Create new Type Lieu Stockage
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="typeLieuStockages">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="projetChimieApp.typeLieuStockage.libelleLieu">Libelle Lieu</span></th>
+            <th><span jhiTranslate="projetChimieApp.typeLieuStockage.temperature">Temperature</span></th>
+            <th><span jhiTranslate="projetChimieApp.typeLieuStockage.localisation">Localisation</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let typeLieuStockage of typeLieuStockages ;trackBy: trackId">
+                <td><a [routerLink]="['/type-lieu-stockage', typeLieuStockage.id, 'view' ]">{{typeLieuStockage.id}}</a></td>
+                <td>{{typeLieuStockage.libelleLieu}}</td>
+                <td>{{typeLieuStockage.temperature}}</td>
+                <td>
+                    <div *ngIf="typeLieuStockage.localisation">
+                        <a [routerLink]="['../localisation', typeLieuStockage.localisation?.id, 'view' ]" >{{typeLieuStockage.localisation?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/type-lieu-stockage', typeLieuStockage.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/type-lieu-stockage', typeLieuStockage.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'type-lieu-stockage/'+ typeLieuStockage.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

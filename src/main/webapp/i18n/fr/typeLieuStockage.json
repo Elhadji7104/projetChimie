@@ -1,0 +1,23 @@
+{
+    "projetChimieApp": {
+        "typeLieuStockage": {
+            "home": {
+                "title": "TypeLieuStockages",
+                "createLabel": "Créer un nouveau Type Lieu Stockage",
+                "createOrEditLabel": "Créer ou éditer un Type Lieu Stockage"
+            },
+            "created": "Un nouveau Type Lieu Stockage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Lieu Stockage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Lieu Stockage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Lieu Stockage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Lieu Stockage"
+            },
+            "libelleLieu": "Libelle Lieu",
+            "temperature": "Temperature",
+            "localisation": "Localisation"
+        }
+    }
+}

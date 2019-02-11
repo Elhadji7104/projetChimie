@@ -1,0 +1,26 @@
+{
+    "name": "MailGestionnaire",
+    "fields": [
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "groupe",
+            "otherEntityName": "groupe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141309",
+    "entityTableName": "mail_gestionnaire",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

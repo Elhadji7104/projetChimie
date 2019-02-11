@@ -1,0 +1,30 @@
+{
+    "name": "TypeLieuStockage",
+    "fields": [
+        {
+            "fieldName": "libelleLieu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temperature",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "localisation",
+            "otherEntityName": "localisation",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141322",
+    "entityTableName": "type_lieu_stockage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

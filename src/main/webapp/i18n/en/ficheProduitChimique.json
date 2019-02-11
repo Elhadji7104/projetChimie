@@ -1,0 +1,28 @@
+{
+    "projetChimieApp": {
+        "ficheProduitChimique": {
+            "home": {
+                "title": "Fiche Produit Chimiques",
+                "createLabel": "Create a new Fiche Produit Chimique",
+                "createOrEditLabel": "Create or edit a Fiche Produit Chimique"
+            },
+            "created": "A new Fiche Produit Chimique is created with identifier {{ param }}",
+            "updated": "A Fiche Produit Chimique is updated with identifier {{ param }}",
+            "deleted": "A Fiche Produit Chimique is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fiche Produit Chimique {{ id }}?"
+            },
+            "detail": {
+                "title": "Fiche Produit Chimique"
+            },
+            "cas": "Cas",
+            "codeProduit": "Code Produit",
+            "nom": "Nom",
+            "acronyme": "Acronyme",
+            "mm": "Mm",
+            "codeNacre": "Code Nacre",
+            "listeCmr": "Liste Cmr",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

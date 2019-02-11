@@ -1,0 +1,25 @@
+{
+    "projetChimieApp": {
+        "fournisseur": {
+            "home": {
+                "title": "Fournisseurs",
+                "createLabel": "Créer un nouveau Fournisseur",
+                "createOrEditLabel": "Créer ou éditer un Fournisseur"
+            },
+            "created": "Un nouveau Fournisseur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Fournisseur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Fournisseur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fournisseur"
+            },
+            "nomFournisseur": "Nom Fournisseur",
+            "adresse": "Adresse",
+            "mail": "Mail",
+            "telephone": "Telephone",
+            "ficheDeCommandeProduit": "Fiche De Commande Produit"
+        }
+    }
+}

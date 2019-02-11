@@ -1,0 +1,27 @@
+{
+    "projetChimieApp": {
+        "groupe": {
+            "home": {
+                "title": "Groupes",
+                "createLabel": "Create a new Groupe",
+                "createOrEditLabel": "Create or edit a Groupe"
+            },
+            "created": "A new Groupe is created with identifier {{ param }}",
+            "updated": "A Groupe is updated with identifier {{ param }}",
+            "deleted": "A Groupe is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Groupe {{ id }}?"
+            },
+            "detail": {
+                "title": "Groupe"
+            },
+            "nomGroupe": "Nom Groupe",
+            "nombreMembre": "Nombre Membre",
+            "localGroupe": "Local Groupe",
+            "droitDacceeProduit": "Droit Daccee Produit",
+            "mailGestionnaire": "Mail Gestionnaire",
+            "listeGroupeInvite": "Liste Groupe Invite",
+            "droitDacceeProduit": "Droit Daccee Produit"
+        }
+    }
+}

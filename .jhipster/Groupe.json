@@ -1,0 +1,52 @@
+{
+    "name": "Groupe",
+    "fields": [
+        {
+            "fieldName": "nomGroupe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombreMembre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "localGroupe",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "droitDacceeProduit",
+            "otherEntityName": "droitDacceeProduit",
+            "otherEntityRelationshipName": "groupe"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mailGestionnaire",
+            "otherEntityName": "mailGestionnaire",
+            "otherEntityRelationshipName": "groupe"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "listeGroupeInvite",
+            "otherEntityName": "listeGroupeInvite",
+            "otherEntityRelationshipName": "groupe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "droitDacceeProduit",
+            "otherEntityName": "droitDacceeProduit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141307",
+    "entityTableName": "groupe",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

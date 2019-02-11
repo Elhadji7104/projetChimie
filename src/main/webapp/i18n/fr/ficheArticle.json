@@ -1,0 +1,38 @@
+{
+    "projetChimieApp": {
+        "ficheArticle": {
+            "home": {
+                "title": "FicheArticles",
+                "createLabel": "Créer un nouveau Fiche Article",
+                "createOrEditLabel": "Créer ou éditer un Fiche Article"
+            },
+            "created": "Un nouveau Fiche Article a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Fiche Article avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Fiche Article avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Fiche Article {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fiche Article"
+            },
+            "refArticle": "Ref Article",
+            "etatPhysique": "Etat Physique",
+            "codeInterne": "Code Interne",
+            "codeBarre": "Code Barre",
+            "disponibliteArticle": "Disponiblite Article",
+            "typeDesuivi": "Type Desuivi",
+            "accessibilite": "Accessibilite",
+            "ficheEmpruntProduit": "Fiche Emprunt Produit",
+            "ficheRetourProduit": "Fiche Retour Produit",
+            "ficheDeCommandeProduit": "Fiche De Commande Produit",
+            "listeMotsCles": "Liste Mots Cles",
+            "typeDeConditionnement": "Type De Conditionnement",
+            "localisation": "Localisation",
+            "document": "Document",
+            "unite": "Unite",
+            "ficheProduitChimique": "Fiche Produit Chimique",
+            "classification": "Classification",
+            "droitDacceeProduit": "Droit Daccee Produit"
+        }
+    }
+}

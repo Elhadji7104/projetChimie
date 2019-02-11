@@ -1,0 +1,27 @@
+{
+    "name": "Unite",
+    "fields": [
+        {
+            "fieldName": "libelleUnite",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "unite"
+        }
+    ],
+    "changelogDate": "20190211141320",
+    "entityTableName": "unite",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

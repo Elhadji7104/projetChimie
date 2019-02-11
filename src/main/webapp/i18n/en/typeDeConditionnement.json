@@ -1,0 +1,22 @@
+{
+    "projetChimieApp": {
+        "typeDeConditionnement": {
+            "home": {
+                "title": "Type De Conditionnements",
+                "createLabel": "Create a new Type De Conditionnement",
+                "createOrEditLabel": "Create or edit a Type De Conditionnement"
+            },
+            "created": "A new Type De Conditionnement is created with identifier {{ param }}",
+            "updated": "A Type De Conditionnement is updated with identifier {{ param }}",
+            "deleted": "A Type De Conditionnement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Type De Conditionnement {{ id }}?"
+            },
+            "detail": {
+                "title": "Type De Conditionnement"
+            },
+            "libelleConditionnement": "Libelle Conditionnement",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

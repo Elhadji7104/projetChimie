@@ -1,0 +1,23 @@
+{
+    "projetChimieApp": {
+        "ficheRetourProduit": {
+            "home": {
+                "title": "FicheRetourProduits",
+                "createLabel": "Créer un nouveau Fiche Retour Produit",
+                "createOrEditLabel": "Créer ou éditer un Fiche Retour Produit"
+            },
+            "created": "Un nouveau Fiche Retour Produit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Fiche Retour Produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Fiche Retour Produit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Fiche Retour Produit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fiche Retour Produit"
+            },
+            "quantite": "Quantite",
+            "dateRetour": "Date Retour",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

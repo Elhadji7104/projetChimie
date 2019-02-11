@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ficheArticle">
+            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.refArticle">Ref Article</span></dt>
+                <dd>
+                    <span>{{ficheArticle.refArticle}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat Physique</span></dt>
+                <dd>
+                    <span>{{ficheArticle.etatPhysique}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeInterne">Code Interne</span></dt>
+                <dd>
+                    <span>{{ficheArticle.codeInterne}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeBarre">Code Barre</span></dt>
+                <dd>
+                    <span>{{ficheArticle.codeBarre}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponiblite Article</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + ficheArticle.disponibliteArticle}}">{{ficheArticle.disponibliteArticle}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.typeDesuivi">Type Desuivi</span></dt>
+                <dd>
+                    <span>{{ficheArticle.typeDesuivi}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.accessibilite">Accessibilite</span></dt>
+                <dd>
+                    <span>{{ficheArticle.accessibilite}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.document">Document</span></dt>
+                <dd>
+                    <span *ngFor="let document of ficheArticle.documents; let last = last">
+                        <a [routerLink]="['/document', document?.id, 'view' ]">{{document.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span></dt>
+                <dd>
+                    <span *ngFor="let unite of ficheArticle.unites; let last = last">
+                        <a [routerLink]="['/unite', unite?.id, 'view' ]">{{unite.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique">Fiche Produit Chimique</span></dt>
+                <dd>
+                    <span *ngFor="let ficheProduitChimique of ficheArticle.ficheProduitChimiques; let last = last">
+                        <a [routerLink]="['/fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.classification">Classification</span></dt>
+                <dd>
+                    <span *ngFor="let classification of ficheArticle.classifications; let last = last">
+                        <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span></dt>
+                <dd>
+                    <div *ngIf="ficheArticle.droitDacceeProduit">
+                        <a [routerLink]="['/droit-daccee-produit', ficheArticle.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fiche-article', ficheArticle.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

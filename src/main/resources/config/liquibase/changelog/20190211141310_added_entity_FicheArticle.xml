@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity FicheArticle.
+    -->
+    <changeSet id="20190211141310-1" author="jhipster">
+        <createTable tableName="fiche_article">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ref_article" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="etat_physique" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="code_interne" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="code_barre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="disponiblite_article" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="type_desuivi" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="accessibilite" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="droit_daccee_produit_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+        <createTable tableName="fiche_article_document">
+            <column name="documents_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fiche_articles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="fiche_articles_id, documents_id" tableName="fiche_article_document"/>
+        
+        <createTable tableName="fiche_article_unite">
+            <column name="unites_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fiche_articles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="fiche_articles_id, unites_id" tableName="fiche_article_unite"/>
+        
+        <createTable tableName="fiche_article_fiche_produit_chimique">
+            <column name="fiche_produit_chimiques_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fiche_articles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="fiche_articles_id, fiche_produit_chimiques_id" tableName="fiche_article_fiche_produit_chimique"/>
+        
+        <createTable tableName="fiche_article_classification">
+            <column name="classifications_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fiche_articles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="fiche_articles_id, classifications_id" tableName="fiche_article_classification"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

@@ -1,0 +1,25 @@
+{
+    "projetChimieApp": {
+        "ficheDeCommandeProduit": {
+            "home": {
+                "title": "FicheDeCommandeProduits",
+                "createLabel": "Créer un nouveau Fiche De Commande Produit",
+                "createOrEditLabel": "Créer ou éditer un Fiche De Commande Produit"
+            },
+            "created": "Un nouveau Fiche De Commande Produit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Fiche De Commande Produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Fiche De Commande Produit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Fiche De Commande Produit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fiche De Commande Produit"
+            },
+            "quantite": "Quantite",
+            "dateDeCommande": "Date De Commande",
+            "dateLivraison": "Date Livraison",
+            "fournisseur": "Fournisseur",
+            "ficheArticle": "Fiche Article"
+        }
+    }
+}

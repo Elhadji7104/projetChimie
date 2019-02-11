@@ -1,0 +1,60 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="projetChimieApp.fournisseur.home.title">Fournisseurs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fournisseur" [routerLink]="['/fournisseur/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="projetChimieApp.fournisseur.home.createLabel">
+            Create new Fournisseur
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="fournisseurs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="projetChimieApp.fournisseur.nomFournisseur">Nom Fournisseur</span></th>
+            <th><span jhiTranslate="projetChimieApp.fournisseur.adresse">Adresse</span></th>
+            <th><span jhiTranslate="projetChimieApp.fournisseur.mail">Mail</span></th>
+            <th><span jhiTranslate="projetChimieApp.fournisseur.telephone">Telephone</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fournisseur of fournisseurs ;trackBy: trackId">
+                <td><a [routerLink]="['/fournisseur', fournisseur.id, 'view' ]">{{fournisseur.id}}</a></td>
+                <td>{{fournisseur.nomFournisseur}}</td>
+                <td>{{fournisseur.adresse}}</td>
+                <td>{{fournisseur.mail}}</td>
+                <td>{{fournisseur.telephone}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/fournisseur', fournisseur.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fournisseur', fournisseur.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fournisseur/'+ fournisseur.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

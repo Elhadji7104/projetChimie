@@ -1,0 +1,46 @@
+{
+    "name": "DroitDacceeProduit",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomGroupe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etatDroit",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "groupe",
+            "otherEntityName": "groupe",
+            "otherEntityRelationshipName": "droitDacceeProduit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "otherEntityRelationshipName": "droitDacceeProduit"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "groupe",
+            "otherEntityName": "groupe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190211141308",
+    "entityTableName": "droit_daccee_produit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

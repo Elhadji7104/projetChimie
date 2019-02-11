@@ -1,0 +1,53 @@
+{
+    "name": "FicheProduitChimique",
+    "fields": [
+        {
+            "fieldName": "cas",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeProduit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "acronyme",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mm",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeNacre",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "listeCmr",
+            "otherEntityName": "listeCmr",
+            "otherEntityRelationshipName": "ficheProduitChimique"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "ficheArticle",
+            "otherEntityName": "ficheArticle",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "ficheProduitChimique"
+        }
+    ],
+    "changelogDate": "20190211141311",
+    "entityTableName": "fiche_produit_chimique",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

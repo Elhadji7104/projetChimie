@@ -1,0 +1,96 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="projetChimieApp.ficheArticle.home.title">Fiche Articles</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-article" [routerLink]="['/fiche-article/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="projetChimieApp.ficheArticle.home.createLabel">
+            Create new Fiche Article
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="ficheArticles">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.refArticle">Ref Article</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat Physique</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.codeInterne">Code Interne</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.codeBarre">Code Barre</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponiblite Article</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.typeDesuivi">Type Desuivi</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.accessibilite">Accessibilite</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.document">Document</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique">Fiche Produit Chimique</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.classification">Classification</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ficheArticle of ficheArticles ;trackBy: trackId">
+                <td><a [routerLink]="['/fiche-article', ficheArticle.id, 'view' ]">{{ficheArticle.id}}</a></td>
+                <td>{{ficheArticle.refArticle}}</td>
+                <td>{{ficheArticle.etatPhysique}}</td>
+                <td>{{ficheArticle.codeInterne}}</td>
+                <td>{{ficheArticle.codeBarre}}</td>
+                <td jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + ficheArticle.disponibliteArticle}}">{{ficheArticle.disponibliteArticle}}</td>
+                <td>{{ficheArticle.typeDesuivi}}</td>
+                <td>{{ficheArticle.accessibilite}}</td>
+                <td>
+                    <span *ngFor="let document of ficheArticle.documents; let last = last">
+                            <a class="form-control-static" [routerLink]="['../document', document?.id, 'view' ]">{{document.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let unite of ficheArticle.unites; let last = last">
+                            <a class="form-control-static" [routerLink]="['../unite', unite?.id, 'view' ]">{{unite.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let ficheProduitChimique of ficheArticle.ficheProduitChimiques; let last = last">
+                            <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let classification of ficheArticle.classifications; let last = last">
+                            <a class="form-control-static" [routerLink]="['../classification', classification?.id, 'view' ]">{{classification.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="ficheArticle.droitDacceeProduit">
+                        <a [routerLink]="['../droit-daccee-produit', ficheArticle.droitDacceeProduit?.id, 'view' ]" >{{ficheArticle.droitDacceeProduit?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/fiche-article', ficheArticle.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fiche-article', ficheArticle.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ ficheArticle.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

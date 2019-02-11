@@ -1,0 +1,22 @@
+{
+    "projetChimieApp": {
+        "listeGroupeInvite": {
+            "home": {
+                "title": "Liste Groupe Invites",
+                "createLabel": "Create a new Liste Groupe Invite",
+                "createOrEditLabel": "Create or edit a Liste Groupe Invite"
+            },
+            "created": "A new Liste Groupe Invite is created with identifier {{ param }}",
+            "updated": "A Liste Groupe Invite is updated with identifier {{ param }}",
+            "deleted": "A Liste Groupe Invite is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Liste Groupe Invite {{ id }}?"
+            },
+            "detail": {
+                "title": "Liste Groupe Invite"
+            },
+            "nomGroupe": "Nom Groupe",
+            "groupe": "Groupe"
+        }
+    }
+}

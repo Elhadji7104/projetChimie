@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "demochimie",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "monolith",
+    "baseName": "projetChimie",
+    "packageName": "demochimie",
+    "packageFolder": "demochimie",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NTExNjI4ZTJiMjBjZjM0MzFhYmEzN2U0YmU0MWQwZjA0MjFlM2VkMDEyMTFhYWUzZGRkMjM5MGNlZjlkNTZkMjMyODY5YjBjZDE5OGNhYzA2ZmM2NjE3MTE0NzkzYTNkMGZmYTkyZTU3NDY0NjMyYjcwNGRjNDEwYThmYTA2Zjg=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr",
+      "en"
+    ]
+  }
+}
