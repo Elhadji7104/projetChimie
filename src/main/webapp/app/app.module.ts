@@ -20,10 +20,17 @@ import { ProjetChimieEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTableModule } from 'primeng/primeng';
+import { PaginatorModule } from 'primeng/primeng';
+import { TableModule } from 'primeng/table';
 @NgModule({
     imports: [
+        TableModule,
+        DataTableModule,
+        PaginatorModule,
         BrowserModule,
+        BrowserAnimationsModule,
         ProjetChimieAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         NgJhipsterModule.forRoot({
