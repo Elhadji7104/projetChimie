@@ -18,6 +18,7 @@ import { ProjetChimieListeCmrModule } from './liste-cmr/liste-cmr.module';
 import { ProjetChimieTypeLieuStockageModule } from './type-lieu-stockage/type-lieu-stockage.module';
 import { ProjetChimieClassificationModule } from './classification/classification.module';
 import { ProjetChimieListeGroupeInviteModule } from './liste-groupe-invite/liste-groupe-invite.module';
+
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({

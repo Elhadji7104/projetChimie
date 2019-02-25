@@ -11,11 +11,21 @@ import {
     ficheArticleRoute,
     ficheArticlePopupRoute
 } from './';
-
+import { TableModule } from 'primeng/table';
+import { DataTableModule } from 'primeng/primeng';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
 
 @NgModule({
-    imports: [ProjetChimieSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [
+        ProjetChimieSharedModule,
+        RouterModule.forChild(ENTITY_STATES),
+        TableModule,
+        DataTableModule,
+        BrowserModule,
+        BrowserAnimationsModule
+    ],
     declarations: [
         FicheArticleComponent,
         FicheArticleDetailComponent,
