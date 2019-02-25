@@ -33,6 +33,16 @@ public class FicheEmpruntProduit implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("ficheEmpruntProduits")
     private FicheArticle ficheArticle;
+    private Long iDFicheArtiticle;
+
+    public void setiDFicheArtiticle(Long iDFicheArtiticle) {
+        this.iDFicheArtiticle = iDFicheArtiticle;
+    }
+
+    public Long getiDFicheArtiticle() {
+        return iDFicheArtiticle;
+    }
+
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -79,7 +89,7 @@ public class FicheEmpruntProduit implements Serializable {
     }
 
     public void setFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticle = ficheArticle;
+        this.iDFicheArtiticle = ficheArticle.getId();
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
