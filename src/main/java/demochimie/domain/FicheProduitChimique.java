@@ -37,6 +37,9 @@ public class FicheProduitChimique implements Serializable {
     @Column(name = "acronyme")
     private String acronyme;
 
+    @Column(name = "formule")
+    private String formule;
+
     @Column(name = "mm")
     private String mm;
 

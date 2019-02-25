@@ -37,5 +37,10 @@
     <include file="config/liquibase/changelog/20190211141321_added_entity_constraints_ListeCmr.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190211141322_added_entity_constraints_TypeLieuStockage.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190211141324_added_entity_constraints_ListeGroupeInvite.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20190225145211_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190225153529_changelog.xml" relativeToChangelogFile="false"/>
+
+
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -35,6 +35,27 @@ public class FicheEmpruntProduit implements Serializable {
     private FicheArticle ficheArticle;
     private Long iDFicheArtiticle;
 
+
+    @ManyToOne
+    @JsonIgnoreProperties("ficheEmpruntProduits")
+    private User user;
+    private Long iDUser;
+
+    public Long getiDUser() {
+        return iDUser;
+    }
+
+    public void setiDUser(Long iDUser) {
+        this.iDUser = iDUser;
+    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.iDUser = user.getId();
+    }
+
     public void setiDFicheArtiticle(Long iDFicheArtiticle) {
         this.iDFicheArtiticle = iDFicheArtiticle;
     }
