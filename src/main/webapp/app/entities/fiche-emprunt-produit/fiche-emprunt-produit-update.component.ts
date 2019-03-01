@@ -9,6 +9,7 @@ import { IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.mod
 import { FicheEmpruntProduitService } from './fiche-emprunt-produit.service';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
+import {Account, AccountService} from "app/core";
 
 @Component({
     selector: 'jhi-fiche-emprunt-produit-update',
@@ -17,15 +18,17 @@ import { FicheArticleService } from 'app/entities/fiche-article';
 export class FicheEmpruntProduitUpdateComponent implements OnInit {
     ficheEmpruntProduit: IFicheEmpruntProduit;
     isSaving: boolean;
+    account: Account;
 
     fichearticles: IFicheArticle[];
     dateEmpruntDp: any;
-
+    idUser: any;
     constructor(
+        private accountService: AccountService,
         protected jhiAlertService: JhiAlertService,
         protected ficheEmpruntProduitService: FicheEmpruntProduitService,
         protected ficheArticleService: FicheArticleService,
-        protected activatedRoute: ActivatedRoute
+        protected activatedRoute: ActivatedRoute,
     ) {}
 
     ngOnInit() {
@@ -33,12 +36,9 @@ export class FicheEmpruntProduitUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ ficheEmpruntProduit }) => {
             this.ficheEmpruntProduit = ficheEmpruntProduit;
         });
-        this.ficheArticleService.query().subscribe(
-            (res: HttpResponse<IFicheArticle[]>) => {
-                this.fichearticles = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        this.accountService.identity().then(account => {
+            this.account = account;
+        });
     }
 
     previousState() {

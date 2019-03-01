@@ -17,7 +17,8 @@
             },
             "quantite": "Quantite",
             "dateEmprunt": "Date Emprunt",
-            "ficheArticle": "Fiche Article"
+            "ficheArticle": "Fiche Article",
+            "iDUser" : "ID Utilisateur"
         }
     }
 }

@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" xmlns:username="http://www.w3.org/1999/xhtml">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
             <h2 id="jhi-fiche-emprunt-produit-heading" jhiTranslate="projetChimieApp.ficheEmpruntProduit.home.createOrEditLabel">Create or edit a Fiche Emprunt Produit</h2>
@@ -7,37 +7,51 @@
                 <div class="form-group" [hidden]="!ficheEmpruntProduit.id">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="ficheEmpruntProduit.id" readonly />
+                           [(ngModel)]="ficheEmpruntProduit.id" readonly/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.quantite" for="field_quantite">Quantite</label>
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.quantite"
+                           for="field_quantite">Quantite</label>
                     <input type="number" class="form-control" name="quantite" id="field_quantite"
-                        [(ngModel)]="ficheEmpruntProduit.quantite" />
+                           [(ngModel)]="ficheEmpruntProduit.quantite"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.dateEmprunt" for="field_dateEmprunt">Date Emprunt</label>
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.dateEmprunt"
+                           for="field_dateEmprunt">Date Emprunt</label>
                     <div class="input-group">
-                        <input id="field_dateEmprunt" type="text" class="form-control" name="dateEmprunt" ngbDatepicker  #dateEmpruntDp="ngbDatepicker" [(ngModel)]="ficheEmpruntProduit.dateEmprunt"
+                        <input id="field_dateEmprunt" type="text" class="form-control" name="dateEmprunt" ngbDatepicker
+                               #dateEmpruntDp="ngbDatepicker" [(ngModel)]="ficheEmpruntProduit.dateEmprunt"
                         />
                         <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="dateEmpruntDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            <button type="button" class="btn btn-secondary" (click)="dateEmpruntDp.toggle()"><fa-icon
+                                [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.ficheArticle" for="field_ficheArticle">Fiche Article</label>
-                    <select class="form-control" id="field_ficheArticle" name="ficheArticle" [(ngModel)]="ficheEmpruntProduit.ficheArticle" >
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.ficheArticle"
+                           for="field_ficheArticle">Fiche Article</label>
+                    <select class="form-control" id="field_ficheArticle" name="ficheArticle"
+                            [(ngModel)]="ficheEmpruntProduit.ficheArticle">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ficheArticleOption.id === ficheEmpruntProduit.ficheArticle?.id ? ficheEmpruntProduit.ficheArticle : ficheArticleOption" *ngFor="let ficheArticleOption of fichearticles; trackBy: trackFicheArticleById">{{ficheArticleOption.id}}</option>
+                        <option
+                            [ngValue]="ficheArticleOption.id === ficheEmpruntProduit.ficheArticle?.id ? ficheEmpruntProduit.ficheArticle : ficheArticleOption"
+                            *ngFor="let ficheArticleOption of fichearticles; trackBy: trackFicheArticleById">
+                            {{ficheArticleOption.id}}
+                        </option>
                     </select>
                 </div>
-            </div>
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.iDUser"
+                           for="field_idUser">ID Utilisateur</label>
+                    <input id="field_idUser" type="text" class="form-control" name="iDUser" value="{{account.login}}" readonly />
+                </div>
+
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                        class="btn btn-primary">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
                 </button>
             </div>

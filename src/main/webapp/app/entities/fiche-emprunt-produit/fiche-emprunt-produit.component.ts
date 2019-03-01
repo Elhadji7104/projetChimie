@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.model';
-import { AccountService } from 'app/core';
+import {Account, AccountService} from 'app/core';
 import { FicheEmpruntProduitService } from './fiche-emprunt-produit.service';
 
 @Component({
@@ -12,15 +12,15 @@ import { FicheEmpruntProduitService } from './fiche-emprunt-produit.service';
     templateUrl: './fiche-emprunt-produit.component.html'
 })
 export class FicheEmpruntProduitComponent implements OnInit, OnDestroy {
+    account: Account;
     ficheEmpruntProduits: IFicheEmpruntProduit[];
-    currentAccount: any;
     eventSubscriber: Subscription;
-
+    currentAccount :any;
     constructor(
         protected ficheEmpruntProduitService: FicheEmpruntProduitService,
+        private accountService: AccountService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
-        protected accountService: AccountService
     ) {}
 
     loadAll() {
@@ -33,9 +33,8 @@ export class FicheEmpruntProduitComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
         this.accountService.identity().then(account => {
-            this.currentAccount = account;
+            this.account = account;
         });
         this.registerChangeInFicheEmpruntProduits();
     }

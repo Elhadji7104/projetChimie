@@ -34,8 +34,6 @@ public class FicheEmpruntProduit implements Serializable {
     @JsonIgnoreProperties("ficheEmpruntProduits")
     private FicheArticle ficheArticle;
     private Long iDFicheArtiticle;
-
-
     @ManyToOne
     @JsonIgnoreProperties("ficheEmpruntProduits")
     private User user;
@@ -140,6 +138,7 @@ public class FicheEmpruntProduit implements Serializable {
             "id=" + getId() +
             ", quantite=" + getQuantite() +
             ", dateEmprunt='" + getDateEmprunt() + "'" +
+            ", iDUser='" + getiDUser() + "'" +
             "}";
     }
 }
