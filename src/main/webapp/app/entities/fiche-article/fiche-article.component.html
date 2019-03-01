@@ -14,55 +14,55 @@
 <p-table class="table table-striped" [columns]="cols" [value]="ficheArticles" sortMode="multiple" #dt  >
     <ng-template pTemplate="header" let-columns>
         <tr>
-    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+    <th *ngFor="let col of columns" [pSortableColumn]="col.field" (input)="sort($event.target.value,col.field)">
         {{col.header}}
-                <p-sortIcon [field]="col.field"></p-sortIcon>
+                <p-sortIcon [field]="col.field" ></p-sortIcon>
             </th>
 
             <th></th>
         </tr>
         <tr>
-            <th *ngFor="let col of columns" [ngSwitch]="col.field">
-                <input pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+           <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                <input *ngSwitchCase="'refArticle'" [(ngModel)]="refArticle" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
+                <input *ngSwitchCase="'cas'" [(ngModel)]="cas" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
+                <input *ngSwitchCase="'nom'"  [(ngModel)]="nom" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
+                <input *ngSwitchCase="'acronyme'" [(ngModel)]="acronyme" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
+               <!-- <input *ngSwitchCase="'classification'" [(ngModel)]="classification" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
+             -->  <p-multiSelect *ngSwitchCase="'classification'" [(ngModel)]="valeursSelect" [options]="getOptions()" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+               <!-- <input *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
+               -->
+               <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [options]="dispo" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
             </th>
         </tr>
     </ng-template>
+
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
-            <th><a [routerLink]="['/fiche-article', rowData.id, 'view' ]">{{rowData.id}}</a></th>
-            <td>{{rowData.refArticle}}</td>
-            <td>{{rowData.etatPhysique}}</td>
-            <td>{{rowData.codeInterne}}</td>
-            <td>{{rowData.codeBarre}}</td>
-            <td jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + rowData.disponibliteArticle}}">{{rowData.disponibliteArticle}}</td>
-            <td>{{rowData.typeDesuivi}}</td>
-            <td>{{rowData.accessibilite}}</td>
+            <td><a [routerLink]="['/fiche-article', rowData.id, 'view' ]">{{rowData.refArticle}}</a></td>
             <td>
-                    <span *ngFor="let document of rowData.documents; let last = last">
-                            <a class="form-control-static" [routerLink]="['../document', document?.id, 'view' ]">{{document.id}}</a>{{last ? '' : ', '}}
-                        </span>
-            </td>
-            <td>
-                    <span *ngFor="let unite of rowData.unites; let last = last">
-                            <a class="form-control-static" [routerLink]="['../unite', unite?.id, 'view' ]">{{unite.libelleUnite}}</a>{{last ? '' : ', '}}
+                    <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">
+                            <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.cas}}</a>{{last ? '' : ', '}}
                         </span>
             </td>
             <td>
                     <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">
-                            <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.nom}}</a>{{last ? '' : ', '}}
+                        </span>
+            </td>
+
+            <td>
+                    <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">
+                            <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.acronyme}}</a>{{last ? '' : ', '}}
                         </span>
             </td>
             <td>
                     <span *ngFor="let classification of rowData.classifications; let last = last">
-                            <a class="form-control-static" [routerLink]="['../classification', classification?.id, 'view' ]">{{classification.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
                         </span>
             </td>
+            <td jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + rowData.disponibliteArticle}}">{{rowData.disponibliteArticle}}</td>
+
             <td>
-                <div *ngIf="rowData.droitDacceeProduit">
-                    <a [routerLink]="['../droit-daccee-produit', rowData.droitDacceeProduit?.id, 'view' ]" >{{rowData.droitDacceeProduit?.id}}</a>
-                </div>
-            </td>
-            <td class="text-right">
                 <div class="btn-group flex-btn-group-container">
                     <button type="submit"
                             [routerLink]="['/fiche-article', rowData.id, 'view' ]"

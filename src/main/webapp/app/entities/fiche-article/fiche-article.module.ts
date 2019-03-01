@@ -12,7 +12,7 @@ import {
     ficheArticlePopupRoute
 } from './';
 import { TableModule } from 'primeng/table';
-import { DataTableModule } from 'primeng/primeng';
+import { DataTableModule, InputMaskModule, MultiSelectModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
@@ -24,7 +24,9 @@ const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
         TableModule,
         DataTableModule,
         BrowserModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MultiSelectModule,
+        InputMaskModule
     ],
     declarations: [
         FicheArticleComponent,
