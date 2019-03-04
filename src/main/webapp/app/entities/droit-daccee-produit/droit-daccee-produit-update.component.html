@@ -16,8 +16,9 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe" for="field_nomGroupe">Nom Groupe</label>
-                    <input type="text" class="form-control" name="nomGroupe" id="field_nomGroupe"
-                        [(ngModel)]="droitDacceeProduit.nomGroupe" />
+                    <select class="form-control" name="nomGroupe" id="field_nomGroupe" [(ngModel)]="droitDacceeProduit.nomGroupe" >
+                         <option [ngValue]="groupeOption.id === droitDacceeProduit.nomGroupe?.id ? droitDacceeProduit.nomGroupe : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.id}}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.etatDroit" for="field_etatDroit">Etat Droit</label>
@@ -28,7 +29,6 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.groupe" for="field_groupe">Groupe</label>
                     <select class="form-control" id="field_groupe" name="groupe" [(ngModel)]="droitDacceeProduit.groupe" >
-                        <option [ngValue]="null"></option>
                         <option [ngValue]="groupeOption.id === droitDacceeProduit.groupe?.id ? droitDacceeProduit.groupe : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.id}}</option>
                     </select>
                 </div>

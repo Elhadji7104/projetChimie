@@ -182,7 +182,6 @@ public class DroitDacceeProduit implements Serializable {
         return "DroitDacceeProduit{" +
             "id=" + getId() +
             ", nom='" + getNom() + "'" +
-            ", nomGroupe='" + getNomGroupe() + "'" +
             ", etatDroit='" + isEtatDroit() + "'" +
             "}";
     }

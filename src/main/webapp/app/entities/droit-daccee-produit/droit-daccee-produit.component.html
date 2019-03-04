@@ -25,7 +25,11 @@
             <tr *ngFor="let droitDacceeProduit of droitDacceeProduits ;trackBy: trackId">
                 <td><a [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'view' ]">{{droitDacceeProduit.id}}</a></td>
                 <td>{{droitDacceeProduit.nom}}</td>
-                <td>{{droitDacceeProduit.nomGroupe}}</td>
+                <td>
+                    <div *ngIf="droitDacceeProduit.nomGroupe">
+                        <a [routerLink]="['../groupe', droitDacceeProduit.nomGroupe?.id, 'view' ]" >{{droitDacceeProduit.nomGroupe?.id}}</a>
+                    </div>
+                </td>
                 <td>{{droitDacceeProduit.etatDroit}}</td>
                 <td>
                     <div *ngIf="droitDacceeProduit.groupe">

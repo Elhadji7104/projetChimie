@@ -11,7 +11,9 @@
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe">Nom Groupe</span></dt>
                 <dd>
-                    <span>{{droitDacceeProduit.nomGroupe}}</span>
+                    <div *ngIf="droitDacceeProduit.nomGroupe">
+                        <a [routerLink]="['/groupe', droitDacceeProduit.nomGroupe?.id, 'view']">{{droitDacceeProduit.nomGroupe?.id}}</a>
+                    </div>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.etatDroit">Etat Droit</span></dt>
                 <dd>
