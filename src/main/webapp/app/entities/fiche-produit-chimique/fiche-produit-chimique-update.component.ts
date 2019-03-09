@@ -19,6 +19,8 @@ export class FicheProduitChimiqueUpdateComponent implements OnInit {
 
     fichearticles: IFicheArticle[];
 
+    val1: string;
+
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
