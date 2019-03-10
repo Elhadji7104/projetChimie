@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{typeDeConditionnement.libelleConditionnement}}</span>
                 </dd>
-                <dt><span jhiTranslate="projetChimieApp.typeDeConditionnement.ficheArticle">Fiche Article</span></dt>
-                <dd>
-                    <div *ngIf="typeDeConditionnement.ficheArticle">
-                        <a [routerLink]="['/fiche-article', typeDeConditionnement.ficheArticle?.id, 'view']">{{typeDeConditionnement.ficheArticle?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

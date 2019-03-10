@@ -9,14 +9,6 @@
                     <input type="text" class="form-control" name="libelleConditionnement" id="field_libelleConditionnement"
                         [(ngModel)]="typeDeConditionnement.libelleConditionnement" />
                 </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.typeDeConditionnement.ficheArticle" for="field_ficheArticle">Fiche Article</label>
-                    <select class="form-control" id="field_ficheArticle" name="ficheArticle" [(ngModel)]="typeDeConditionnement.ficheArticle" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="ficheArticleOption.id === typeDeConditionnement.ficheArticle?.id ? typeDeConditionnement.ficheArticle : ficheArticleOption" *ngFor="let ficheArticleOption of fichearticles; trackBy: trackFicheArticleById">{{ficheArticleOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
