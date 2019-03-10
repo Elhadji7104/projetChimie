@@ -26,11 +26,6 @@
                     <span>{{localisation.quantite}}</span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.localisation.ficheArticle">Fiche Article</span></dt>
-                <dd>
-                    <div *ngIf="localisation.ficheArticle">
-                        <a [routerLink]="['/fiche-article', localisation.ficheArticle?.id, 'view']">{{localisation.ficheArticle?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

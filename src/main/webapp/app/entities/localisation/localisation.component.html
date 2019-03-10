@@ -30,11 +30,6 @@
                 <td>{{localisation.ville}}</td>
                 <td>{{localisation.pays}}</td>
                 <td>{{localisation.quantite}}</td>
-                <td>
-                    <div *ngIf="localisation.ficheArticle">
-                        <a [routerLink]="['../fiche-article', localisation.ficheArticle?.id, 'view' ]" >{{localisation.ficheArticle?.id}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
