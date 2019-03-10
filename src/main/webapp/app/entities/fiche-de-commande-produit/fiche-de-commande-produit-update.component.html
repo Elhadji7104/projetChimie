@@ -33,14 +33,14 @@
                 <div class="form-group">
                     <label jhiTranslate="projetChimieApp.ficheDeCommandeProduit.fournisseur" for="field_fournisseur">Fournisseur</label>
                     <select class="form-control" id="field_fournisseur" multiple name="fournisseur" [(ngModel)]="ficheDeCommandeProduit.fournisseurs">
-                        <option [ngValue]="getSelected(ficheDeCommandeProduit.fournisseurs, fournisseurOption)" *ngFor="let fournisseurOption of fournisseurs; trackBy: trackFournisseurById">{{fournisseurOption.id}}</option>
+                        <option [ngValue]="getSelected(ficheDeCommandeProduit.fournisseurs, fournisseurOption)" *ngFor="let fournisseurOption of fournisseurs; trackBy: trackFournisseurById">{{fournisseurOption.nomFournisseur}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheDeCommandeProduit.ficheArticle" for="field_ficheArticle">Fiche Article</label>
                     <select class="form-control" id="field_ficheArticle" name="ficheArticle" [(ngModel)]="ficheDeCommandeProduit.ficheArticle" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ficheArticleOption.id === ficheDeCommandeProduit.ficheArticle?.id ? ficheDeCommandeProduit.ficheArticle : ficheArticleOption" *ngFor="let ficheArticleOption of fichearticles; trackBy: trackFicheArticleById">{{ficheArticleOption.id}}</option>
+                        <option [ngValue]="ficheArticleOption.id === ficheDeCommandeProduit.ficheArticle?.id ? ficheDeCommandeProduit.ficheArticle : ficheArticleOption" *ngFor="let ficheArticleOption of fichearticles; trackBy: trackFicheArticleById">{{ficheArticleOption.refArticle}}</option>
                     </select>
                 </div>
             </div>
