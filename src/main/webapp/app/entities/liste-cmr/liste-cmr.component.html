@@ -1,9 +1,10 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="projetChimieApp.listeCmr.home.title">Liste Cmrs</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-liste-cmr" [routerLink]="['/liste-cmr/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-liste-cmr"
+                [routerLink]="['/liste-cmr/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="projetChimieApp.listeCmr.home.createLabel">
+            <span jhiTranslate="projetChimieApp.listeCmr.home.createLabel">
             Create new Liste Cmr
             </span>
         </button>
@@ -14,16 +15,27 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="projetChimieApp.listeCmr.refListe">Ref Liste</span></th>
-            <th><span jhiTranslate="projetChimieApp.listeCmr.ficheProduitChimique">Fiche Produit Chimique</span></th>
-            <th></th>
+                <th><span jhiTranslate="projetChimieApp.listeCmr.ficheProduitChimique">Cas</span></th>
+                <th><span jhiTranslate="projetChimieApp.listeCmr.ficheProduitChimique">Nom</span></th>
+                <th><span jhiTranslate="projetChimieApp.listeCmr.ficheProduitChimique">acronyme</span></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let listeCmr of listeCmrs ;trackBy: trackId">
                 <td>
                     <div *ngIf="listeCmr.ficheProduitChimique">
-                        <a [routerLink]="['../fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view' ]" >{{listeCmr.ficheProduitChimique?.cas}}</a>
+                        <a [routerLink]="['../fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view' ]">{{listeCmr.ficheProduitChimique?.cas}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="listeCmr.ficheProduitChimique">
+                        <a [routerLink]="['../fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view' ]">{{listeCmr.ficheProduitChimique?.nom}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="listeCmr.ficheProduitChimique">
+                        <a [routerLink]="['../fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view' ]">{{listeCmr.ficheProduitChimique?.acronyme}}</a>
                     </div>
                 </td>
                 <td class="text-right">
