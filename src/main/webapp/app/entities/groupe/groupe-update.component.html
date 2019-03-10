@@ -4,11 +4,7 @@
             <h2 id="jhi-groupe-heading" jhiTranslate="projetChimieApp.groupe.home.createOrEditLabel">Create or edit a Groupe</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!groupe.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="groupe.id" readonly />
-                </div>
+
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.groupe.nomGroupe" for="field_nomGroupe">Nom Groupe</label>
                     <input type="text" class="form-control" name="nomGroupe" id="field_nomGroupe"

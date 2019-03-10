@@ -4,11 +4,6 @@
             <h2 id="jhi-classification-heading" jhiTranslate="projetChimieApp.classification.home.createOrEditLabel">Create or edit a Classification</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!classification.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="classification.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.classification.nomClassification" for="field_nomClassification">Nom Classification</label>
                     <input type="text" class="form-control" name="nomClassification" id="field_nomClassification"

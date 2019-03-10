@@ -4,11 +4,6 @@
             <h2 id="jhi-type-de-conditionnement-heading" jhiTranslate="projetChimieApp.typeDeConditionnement.home.createOrEditLabel">Create or edit a Type De Conditionnement</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!typeDeConditionnement.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="typeDeConditionnement.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.typeDeConditionnement.libelleConditionnement" for="field_libelleConditionnement">Libelle Conditionnement</label>
                     <input type="text" class="form-control" name="libelleConditionnement" id="field_libelleConditionnement"

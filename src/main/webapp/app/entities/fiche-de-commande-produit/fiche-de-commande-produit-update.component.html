@@ -4,11 +4,6 @@
             <h2 id="jhi-fiche-de-commande-produit-heading" jhiTranslate="projetChimieApp.ficheDeCommandeProduit.home.createOrEditLabel">Create or edit a Fiche De Commande Produit</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!ficheDeCommandeProduit.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="ficheDeCommandeProduit.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheDeCommandeProduit.quantite" for="field_quantite">Quantite</label>
                     <input type="number" class="form-control" name="quantite" id="field_quantite"

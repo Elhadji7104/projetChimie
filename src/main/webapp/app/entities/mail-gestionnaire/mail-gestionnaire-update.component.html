@@ -4,11 +4,6 @@
             <h2 id="jhi-mail-gestionnaire-heading" jhiTranslate="projetChimieApp.mailGestionnaire.home.createOrEditLabel">Create or edit a Mail Gestionnaire</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!mailGestionnaire.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="mailGestionnaire.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.mailGestionnaire.mail" for="field_mail">Mail</label>
                     <input type="text" class="form-control" name="mail" id="field_mail"

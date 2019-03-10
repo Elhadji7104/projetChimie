@@ -4,11 +4,6 @@
             <h2 id="jhi-unite-heading" jhiTranslate="projetChimieApp.unite.home.createOrEditLabel">Create or edit a Unite</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!unite.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="unite.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.unite.libelleUnite" for="field_libelleUnite">Libelle Unite</label>
                     <input type="text" class="form-control" name="libelleUnite" id="field_libelleUnite"

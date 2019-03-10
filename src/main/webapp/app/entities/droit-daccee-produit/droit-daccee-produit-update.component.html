@@ -4,11 +4,6 @@
             <h2 id="jhi-droit-daccee-produit-heading" jhiTranslate="projetChimieApp.droitDacceeProduit.home.createOrEditLabel">Create or edit a Droit Daccee Produit</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!droitDacceeProduit.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="droitDacceeProduit.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.droitDacceeProduit.nom" for="field_nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="field_nom"

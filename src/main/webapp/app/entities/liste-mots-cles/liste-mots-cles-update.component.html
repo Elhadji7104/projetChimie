@@ -4,11 +4,6 @@
             <h2 id="jhi-liste-mots-cles-heading" jhiTranslate="projetChimieApp.listeMotsCles.home.createOrEditLabel">Create or edit a Liste Mots Cles</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!listeMotsCles.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="listeMotsCles.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.listeMotsCles.libelleMot" for="field_libelleMot">Libelle Mot</label>
                     <input type="text" class="form-control" name="libelleMot" id="field_libelleMot"

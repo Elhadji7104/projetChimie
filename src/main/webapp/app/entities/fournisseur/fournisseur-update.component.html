@@ -4,11 +4,6 @@
             <h2 id="jhi-fournisseur-heading" jhiTranslate="projetChimieApp.fournisseur.home.createOrEditLabel">Create or edit a Fournisseur</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!fournisseur.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="fournisseur.id" readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.fournisseur.nomFournisseur" for="field_nomFournisseur">Nom Fournisseur</label>
                     <input type="text" class="form-control" name="nomFournisseur" id="field_nomFournisseur"

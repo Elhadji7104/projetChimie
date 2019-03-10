@@ -4,11 +4,6 @@
             <h2 id="jhi-fiche-emprunt-produit-heading" jhiTranslate="projetChimieApp.ficheEmpruntProduit.home.createOrEditLabel">Create or edit a Fiche Emprunt Produit</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!ficheEmpruntProduit.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                           [(ngModel)]="ficheEmpruntProduit.id" readonly/>
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.quantite"
                            for="field_quantite">Quantite</label>
