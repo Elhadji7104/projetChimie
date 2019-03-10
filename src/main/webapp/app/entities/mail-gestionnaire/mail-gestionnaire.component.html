@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.mailGestionnaire.mail">Mail</span></th>
             <th><span jhiTranslate="projetChimieApp.mailGestionnaire.groupe">Groupe</span></th>
             <th></th>
@@ -22,8 +21,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let mailGestionnaire of mailGestionnaires ;trackBy: trackId">
-                <td><a [routerLink]="['/mail-gestionnaire', mailGestionnaire.id, 'view' ]">{{mailGestionnaire.id}}</a></td>
-                <td>{{mailGestionnaire.mail}}</td>
+                <td><a [routerLink]="['/mail-gestionnaire', mailGestionnaire.id, 'view' ]">{{mailGestionnaire.mail}}</a></td>
                 <td>
                     <div *ngIf="mailGestionnaire.groupe">
                         <a [routerLink]="['../groupe', mailGestionnaire.groupe?.id, 'view' ]" >{{mailGestionnaire.groupe?.id}}</a>

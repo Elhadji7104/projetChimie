@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe">Nom Groupe</span></th>
             <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.etatDroit">Etat Droit</span></th>
             <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe">Groupe</span></th>
@@ -23,8 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let droitDacceeProduit of droitDacceeProduits ;trackBy: trackId">
-                <td><a [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'view' ]">{{droitDacceeProduit.id}}</a></td>
-                <td>{{droitDacceeProduit.nom}}</td>
+                <td><a [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'view' ]">{{droitDacceeProduit.nom}}</a></td>
                 <td>
                     <div *ngIf="droitDacceeProduit.nomGroupe">
                         <a [routerLink]="['../groupe', droitDacceeProduit.nomGroupe?.id, 'view' ]" >{{droitDacceeProduit.nomGroupe?.id}}</a>

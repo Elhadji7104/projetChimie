@@ -14,15 +14,13 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.document.lien">Lien</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let document of documents ;trackBy: trackId">
-                <td><a [routerLink]="['/document', document.id, 'view' ]">{{document.id}}</a></td>
-                <td>{{document.lien}}</td>
+                <td><a [routerLink]="['/document', document.id, 'view' ]">{{document.lien}}</a></td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

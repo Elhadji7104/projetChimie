@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.typeDeConditionnement.libelleConditionnement">Libelle Conditionnement</span></th>
             <th><span jhiTranslate="projetChimieApp.typeDeConditionnement.ficheArticle">Fiche Article</span></th>
             <th></th>
@@ -22,8 +21,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let typeDeConditionnement of typeDeConditionnements ;trackBy: trackId">
-                <td><a [routerLink]="['/type-de-conditionnement', typeDeConditionnement.id, 'view' ]">{{typeDeConditionnement.id}}</a></td>
-                <td>{{typeDeConditionnement.libelleConditionnement}}</td>
+                <td><a [routerLink]="['/type-de-conditionnement', typeDeConditionnement.id, 'view' ]">{{typeDeConditionnement.libelleConditionnement}}</a></td>
                 <td>
                     <div *ngIf="typeDeConditionnement.ficheArticle">
                         <a [routerLink]="['../fiche-article', typeDeConditionnement.ficheArticle?.id, 'view' ]" >{{typeDeConditionnement.ficheArticle?.id}}</a>

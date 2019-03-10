@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.quantite">Quantite</span></th>
             <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.dateRetour">Date Retour</span></th>
             <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.ficheArticle">Fiche Article</span></th>
@@ -23,8 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let ficheRetourProduit of ficheRetourProduits ;trackBy: trackId">
-                <td><a [routerLink]="['/fiche-retour-produit', ficheRetourProduit.id, 'view' ]">{{ficheRetourProduit.id}}</a></td>
-                <td>{{ficheRetourProduit.quantite}}</td>
+                <td><a [routerLink]="['/fiche-retour-produit', ficheRetourProduit.id, 'view' ]">{{ficheRetourProduit.quantite}}</a></td>
                 <td>{{ficheRetourProduit.dateRetour | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="ficheRetourProduit.ficheArticle">

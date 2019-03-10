@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.listeGroupeInvite.nomGroupe">Nom Groupe</span></th>
             <th><span jhiTranslate="projetChimieApp.listeGroupeInvite.groupe">Groupe</span></th>
             <th></th>
@@ -22,8 +21,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let listeGroupeInvite of listeGroupeInvites ;trackBy: trackId">
-                <td><a [routerLink]="['/liste-groupe-invite', listeGroupeInvite.id, 'view' ]">{{listeGroupeInvite.id}}</a></td>
-                <td>{{listeGroupeInvite.nomGroupe}}</td>
+                <td><a [routerLink]="['/liste-groupe-invite', listeGroupeInvite.id, 'view' ]">{{listeGroupeInvite.nomGroupe}}</a></td>
                 <td>
                     <div *ngIf="listeGroupeInvite.groupe">
                         <a [routerLink]="['../groupe', listeGroupeInvite.groupe?.id, 'view' ]" >{{listeGroupeInvite.groupe?.id}}</a>

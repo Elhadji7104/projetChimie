@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.localisation.adresse">Adresse</span></th>
             <th><span jhiTranslate="projetChimieApp.localisation.codePostal">Code Postal</span></th>
             <th><span jhiTranslate="projetChimieApp.localisation.ville">Ville</span></th>
@@ -26,8 +25,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let localisation of localisations ;trackBy: trackId">
-                <td><a [routerLink]="['/localisation', localisation.id, 'view' ]">{{localisation.id}}</a></td>
-                <td>{{localisation.adresse}}</td>
+                <td><a [routerLink]="['/localisation', localisation.id, 'view' ]">{{localisation.adresse}}</a></td>
                 <td>{{localisation.codePostal}}</td>
                 <td>{{localisation.ville}}</td>
                 <td>{{localisation.pays}}</td>

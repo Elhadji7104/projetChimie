@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.listeCmr.refListe">Ref Liste</span></th>
             <th><span jhiTranslate="projetChimieApp.listeCmr.ficheProduitChimique">Fiche Produit Chimique</span></th>
             <th></th>
@@ -22,8 +21,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let listeCmr of listeCmrs ;trackBy: trackId">
-                <td><a [routerLink]="['/liste-cmr', listeCmr.id, 'view' ]">{{listeCmr.id}}</a></td>
-                <td>{{listeCmr.refListe}}</td>
+                <td><a [routerLink]="['/liste-cmr', listeCmr.id, 'view' ]">{{listeCmr.refListe}}</a></td>
                 <td>
                     <div *ngIf="listeCmr.ficheProduitChimique">
                         <a [routerLink]="['../fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view' ]" >{{listeCmr.ficheProduitChimique?.id}}</a>

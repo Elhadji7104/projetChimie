@@ -14,15 +14,13 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.classification.nomClassification">Nom Classification</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let classification of classifications ;trackBy: trackId">
-                <td><a [routerLink]="['/classification', classification.id, 'view' ]">{{classification.id}}</a></td>
-                <td>{{classification.nomClassification}}</td>
+                <td><a [routerLink]="['/classification', classification.id, 'view' ]">{{classification.nomClassification}}</a></td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -41,6 +41,9 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
                 this.CodeNacreSelect = [];
 
                 for (let value of this.ficheProduitChimiques) {
+                    console.log('sully ' + value.acronyme + ' bool ');
+                    console.log(this.AcronymeSelect.indexOf({ label: 'Paracétamol', value: 'Paracétamol' }));
+
                     if (value !== undefined) {
                         if (
                             value.cas !== undefined &&
@@ -51,6 +54,7 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
                         ) {
                             this.CasSelect.push({ label: value.cas, value: value.cas });
                         }
+
                         if (
                             value.nom !== undefined &&
                             this.NomSelect.indexOf({
@@ -61,11 +65,8 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
                             this.NomSelect.push({ label: value.nom, value: value.nom });
                         }
                         if (
-                            value.nom !== undefined &&
-                            this.AcronymeSelect.indexOf({
-                                label: value.acronyme,
-                                value: value.acronyme
-                            }) === -1
+                            value.acronyme !== undefined &&
+                            !this.AcronymeSelect.includes({ label: value.acronyme, value: value.acronyme })
                         ) {
                             this.AcronymeSelect.push({ label: value.acronyme, value: value.acronyme });
                         }
@@ -99,7 +100,6 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
         });
-
         this.registerChangeInFicheProduitChimiques();
         this.cols = [
             { field: 'cas', header: 'cas' },

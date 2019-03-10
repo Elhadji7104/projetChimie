@@ -14,7 +14,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="projetChimieApp.groupe.nomGroupe">Nom Groupe</span></th>
             <th><span jhiTranslate="projetChimieApp.groupe.nombreMembre">Nombre Membre</span></th>
             <th><span jhiTranslate="projetChimieApp.groupe.localGroupe">Local Groupe</span></th>
@@ -24,8 +23,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let groupe of groupes ;trackBy: trackId">
-                <td><a [routerLink]="['/groupe', groupe.id, 'view' ]">{{groupe.id}}</a></td>
-                <td>{{groupe.nomGroupe}}</td>
+                <td><a [routerLink]="['/groupe', groupe.id, 'view' ]">{{groupe.nomGroupe}}</a></td>
                 <td>{{groupe.nombreMembre}}</td>
                 <td>{{groupe.localGroupe}}</td>
                 <td>
