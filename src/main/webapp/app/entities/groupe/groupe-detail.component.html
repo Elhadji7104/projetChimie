@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="groupe">
-            <h2><span jhiTranslate="projetChimieApp.groupe.detail.title">Groupe</span> {{groupe.id}}</h2>
+            <h2><span jhiTranslate="projetChimieApp.groupe.detail.title">Groupe</span> {{groupe.nomGroupe}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
@@ -20,7 +20,7 @@
                 <dt><span jhiTranslate="projetChimieApp.groupe.droitDacceeProduit">Droit Daccee Produit</span></dt>
                 <dd>
                     <div *ngIf="groupe.droitDacceeProduit">
-                        <a [routerLink]="['/droit-daccee-produit', groupe.droitDacceeProduit?.id, 'view']">{{groupe.droitDacceeProduit?.id}}</a>
+                        <a [routerLink]="['/droit-daccee-produit', groupe.droitDacceeProduit?.id, 'view']">{{groupe.droitDacceeProduit?.nomGroupe}}</a>
                     </div>
                 </dd>
             </dl>

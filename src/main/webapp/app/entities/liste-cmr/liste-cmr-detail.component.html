@@ -1,14 +1,14 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="listeCmr">
-            <h2><span jhiTranslate="projetChimieApp.listeCmr.detail.title">Liste Cmr</span> {{listeCmr.id}}</h2>
+            <h2><span jhiTranslate="projetChimieApp.listeCmr.detail.title">Liste Cmr</span> {{listeCmr.refListe}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="projetChimieApp.listeCmr.ficheProduitChimique">Fiche Produit Chimique</span></dt>
                 <dd>
                     <div *ngIf="listeCmr.ficheProduitChimique">
-                        <a [routerLink]="['/fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view']">{{listeCmr.ficheProduitChimique?.id}}</a>
+                        <a [routerLink]="['/fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view']">{{listeCmr.ficheProduitChimique?.cas}}</a>
                     </div>
                 </dd>
             </dl>

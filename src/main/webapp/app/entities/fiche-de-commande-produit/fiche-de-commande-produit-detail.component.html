@@ -20,13 +20,13 @@
                 <dt><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.fournisseur">Fournisseur</span></dt>
                 <dd>
                     <span *ngFor="let fournisseur of ficheDeCommandeProduit.fournisseurs; let last = last">
-                        <a [routerLink]="['/fournisseur', fournisseur?.id, 'view' ]">{{fournisseur.id}}</a>{{last ? '' : ', '}}
+                        <a [routerLink]="['/fournisseur', fournisseur?.id, 'view' ]">{{fournisseur.nomFournisseur}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.ficheArticle">Fiche Article</span></dt>
                 <dd>
                     <div *ngIf="ficheDeCommandeProduit.ficheArticle">
-                        <a [routerLink]="['/fiche-article', ficheDeCommandeProduit.ficheArticle?.id, 'view']">{{ficheDeCommandeProduit.ficheArticle?.id}}</a>
+                        <a [routerLink]="['/fiche-article', ficheDeCommandeProduit.ficheArticle?.id, 'view']">{{ficheDeCommandeProduit.ficheArticle?.refArticle}}</a>
                     </div>
                 </dd>
             </dl>
