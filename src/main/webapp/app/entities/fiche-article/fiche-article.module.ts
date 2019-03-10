@@ -15,6 +15,11 @@ import { TableModule } from 'primeng/table';
 import { DataTableModule, InputMaskModule, MultiSelectModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { SplitButtonModule } from 'primeng/splitbutton';
 const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
 
 @NgModule({
@@ -26,7 +31,12 @@ const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
         BrowserModule,
         BrowserAnimationsModule,
         MultiSelectModule,
-        InputMaskModule
+        InputMaskModule,
+        InputTextModule,
+        InputSwitchModule,
+        DropdownModule,
+        ButtonModule,
+        SplitButtonModule
     ],
     declarations: [
         FicheArticleComponent,

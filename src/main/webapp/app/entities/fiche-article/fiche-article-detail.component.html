@@ -1,7 +1,11 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="ficheArticle">
-            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle.id}}</h2>
+
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle.refArticle}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
@@ -21,6 +25,7 @@
                 <dd>
                     <span>{{ficheArticle.codeBarre}}</span>
                 </dd>
+
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponiblite Article</span></dt>
                 <dd>
                     <span jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + ficheArticle.disponibliteArticle}}">{{ficheArticle.disponibliteArticle}}</span>
@@ -36,7 +41,8 @@
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.document">Document</span></dt>
                 <dd>
                     <span *ngFor="let document of ficheArticle.documents; let last = last">
-                        <a [routerLink]="['/document', document?.id, 'view' ]">{{document.id}}</a>{{last ? '' : ', '}}
+                        <button [routerLink]="['/document', document?.id, 'edit' ]" pButton type="button" label="Modifier URL" class="ui-button-rounded ui-button-warning"></button>
+                        <button (click)="gotoLien(document.lien)" pButton type="button" label="Securite" class="ui-button-rounded ui-button-danger"></button>
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span></dt>
@@ -63,7 +69,11 @@
                         <a [routerLink]="['/droit-daccee-produit', ficheArticle.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.id}}</a>
                     </div>
                 </dd>
-            </dl>
+            </dl>Localisation article
+            Condictionnement article
+            <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Localisation article</span></dt>
+            <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Condictionnement article</span></dt>
+
 
             <button type="submit"
                     (click)="previousState()"
@@ -79,3 +89,4 @@
         </div>
     </div>
 </div>
+

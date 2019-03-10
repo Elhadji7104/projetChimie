@@ -11,83 +11,80 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="table-responsive"  *ngIf="ficheArticles">
-<p-table class="table table-striped" [columns]="cols" [value]="ficheArticles" sortMode="multiple" #dt  >
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-    <th *ngFor="let col of columns" [pSortableColumn]="col.field" (input)="sort($event.target.value,col.field)">
-        {{col.header}}
-                <p-sortIcon [field]="col.field" ></p-sortIcon>
-            </th>
+        <p-table class="table table-striped" [columns]="cols" [value]="ficheArticles" sortMode="multiple" #dt  >
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field" (input)="dt.filter($event.value, col.field, 'in')">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ></p-sortIcon>
+                    </th>
 
-            <th></th>
-        </tr>
-        <tr>
-           <th *ngFor="let col of columns" [ngSwitch]="col.field">
-                <input *ngSwitchCase="'refArticle'" [(ngModel)]="refArticle" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
-                <input *ngSwitchCase="'cas'" [(ngModel)]="cas" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
-                <input *ngSwitchCase="'nom'"  [(ngModel)]="nom" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
-                <input *ngSwitchCase="'acronyme'" [(ngModel)]="acronyme" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
-               <!-- <input *ngSwitchCase="'classification'" [(ngModel)]="classification" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
-             -->  <p-multiSelect *ngSwitchCase="'classification'" [(ngModel)]="valeursSelect" [options]="getOptions()" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
-               <!-- <input *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle" pInputText type="text" (input)="filtre($event.target.value,col.field, 'contains')">
-               -->
-               <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [options]="dispo" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-            </th>
-        </tr>
-    </ng-template>
+                    <th></th>
+                </tr>
+                   <tr>
+                      <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                          <p-multiSelect *ngSwitchCase="'classification'" [(ngModel)]="classification" [options]="classificationO" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle" [options]="disponibliteArticleO" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'nom'" [options]="nomO"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'acronyme'" [options]="acronymeO"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'cas'" [options]="casO"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'refArticle'" [options]="refArticleO"  [(ngModel)]="refArticle" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                      </td>
+                   </tr>
+            </ng-template>
 
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-            <td><a [routerLink]="['/fiche-article', rowData.id, 'view' ]">{{rowData.refArticle}}</a></td>
-            <td>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td><a [routerLink]="['/fiche-article', rowData.id, 'view' ]">{{rowData.refArticle}}</a></td>
+                    <td>
                     <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">
                             <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.cas}}</a>{{last ? '' : ', '}}
                         </span>
-            </td>
-            <td>
+                    </td>
+                    <td>
                     <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">
                             <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.nom}}</a>{{last ? '' : ', '}}
                         </span>
-            </td>
+                    </td>
 
-            <td>
+                    <td>
                     <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">
                             <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.acronyme}}</a>{{last ? '' : ', '}}
                         </span>
-            </td>
-            <td>
+                    </td>
+                    <td>
                     <span *ngFor="let classification of rowData.classifications; let last = last">
                             <a class="form-control-static" [routerLink]="['../classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
                         </span>
-            </td>
-            <td jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + rowData.disponibliteArticle}}">{{rowData.disponibliteArticle}}</td>
+                    </td>
+                    <td jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + rowData.disponibliteArticle}}">{{rowData.disponibliteArticle}}</td>
 
-            <td>
-                <div class="btn-group flex-btn-group-container">
-                    <button type="submit"
-                            [routerLink]="['/fiche-article', rowData.id, 'view' ]"
-                            class="btn btn-info btn-sm">
-                        <fa-icon [icon]="'eye'"></fa-icon>
-                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                    </button>
-                    <button type="submit"
-                            [routerLink]="['/fiche-article', rowData.id, 'edit']"
-                            class="btn btn-primary btn-sm">
-                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                        <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                    </button>
-                    <button type="submit"
-                            [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.id + '/delete'} }]"
-                            replaceUrl="true"
-                            queryParamsHandling="merge"
-                            class="btn btn-danger btn-sm">
-                        <fa-icon [icon]="'times'"></fa-icon>
-                        <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                    </button>
-                </div>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
-</div>
+                    <td>
+                        <div class="table table-striped">
+                            <button type="submit"
+                                    [routerLink]="['/fiche-article', rowData.id, 'view' ]"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/fiche-article', rowData.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.id + '/delete'} }]"
+                                    replaceUrl="true"
+                                    queryParamsHandling="merge"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>

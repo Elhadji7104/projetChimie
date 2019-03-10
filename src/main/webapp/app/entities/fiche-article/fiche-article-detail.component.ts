@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 
@@ -20,5 +20,8 @@ export class FicheArticleDetailComponent implements OnInit {
 
     previousState() {
         window.history.back();
+    }
+    gotoLien(lien: string) {
+        window.location.href = lien;
     }
 }

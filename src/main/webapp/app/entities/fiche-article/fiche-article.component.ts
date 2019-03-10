@@ -21,26 +21,19 @@ interface User {
     templateUrl: './fiche-article.component.html'
 })
 export class FicheArticleComponent implements OnInit, OnDestroy {
-    refArticle: string = '';
-    cas: string = '';
-    nom: string = '';
-    acronyme: string = '';
-    classification: string = '';
-    disponibliteArticle: string = '';
-    valeursSelect: any[];
-
     users: User[];
     cols: any[];
     ficheArticles: IFicheArticle[];
-    ficheArticlesCopie: IFicheArticle[];
     currentAccount: any;
     eventSubscriber: Subscription;
-    dispo: SelectItem[];
     classifi: IClassification[];
-    classifiSelect: SelectItem[];
-    private i: boolean;
-    private ficheArticlesFiltre: IFicheArticle[];
-    private filtreSauvegarde: IFicheArticle[];
+
+    refArticleO: SelectItem[];
+    casO: SelectItem[];
+    acronymeO: SelectItem[];
+    disponibliteArticleO: SelectItem[];
+    nomO: SelectItem[];
+    classificationO: SelectItem[];
 
     constructor(
         protected classificationService: ClassificationService,
@@ -49,20 +42,70 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
         protected eventManager: JhiEventManager,
         protected accountService: AccountService
     ) {}
-
-    getOptions() {
-        this.classifiSelect = [];
-        for (let value of this.classifi) {
-            this.classifiSelect.push({ label: value.nomClassification, value: value.nomClassification });
-        }
-        return this.classifiSelect;
-    }
-
     loadAll() {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
-                this.ficheArticlesCopie = this.ficheArticles;
+
+                this.refArticleO = [];
+                this.casO = [];
+                this.acronymeO = [];
+                this.disponibliteArticleO = [];
+                this.nomO = [];
+
+                for (let value of this.ficheArticles) {
+                    if (value !== undefined) {
+                        if (
+                            value.refArticle !== undefined &&
+                            this.refArticleO.indexOf({
+                                label: value.refArticle,
+                                value: value.refArticle
+                            }) === -1
+                        ) {
+                            this.refArticleO.push({ label: value.refArticle, value: value.refArticle });
+                        }
+
+                        if (
+                            value.ficheProduitChimiques[0].cas !== undefined &&
+                            this.casO.indexOf({
+                                label: value.ficheProduitChimiques[0].cas,
+                                value: value.ficheProduitChimiques[0].cas
+                            }) === -1
+                        ) {
+                            this.casO.push({ label: value.ficheProduitChimiques[0].cas, value: value.ficheProduitChimiques[0].cas });
+                        }
+                        if (
+                            value.ficheProduitChimiques[0].acronyme !== undefined &&
+                            !this.acronymeO.includes({
+                                label: value.ficheProduitChimiques[0].acronyme,
+                                value: value.ficheProduitChimiques[0].acronyme
+                            })
+                        ) {
+                            this.acronymeO.push({
+                                label: value.ficheProduitChimiques[0].acronyme,
+                                value: value.ficheProduitChimiques[0].acronyme
+                            });
+                        }
+                        if (
+                            value.disponibliteArticle !== undefined &&
+                            this.disponibliteArticleO.indexOf({
+                                label: value.disponibliteArticle,
+                                value: value.disponibliteArticle
+                            }) === -1
+                        ) {
+                            this.disponibliteArticleO.push({ label: value.disponibliteArticle, value: value.disponibliteArticle });
+                        }
+                        if (
+                            value.ficheProduitChimiques[0].nom !== undefined &&
+                            this.nomO.indexOf({
+                                label: value.ficheProduitChimiques[0].nom,
+                                value: value.ficheProduitChimiques[0].nom
+                            }) === -1
+                        ) {
+                            this.nomO.push({ label: value.ficheProduitChimiques[0].nom, value: value.ficheProduitChimiques[0].nom });
+                        }
+                    }
+                }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -72,6 +115,10 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
         this.classificationService.query().subscribe(
             (res: HttpResponse<IClassification[]>) => {
                 this.classifi = res.body;
+                this.classificationO = [];
+                for (let value of this.classifi) {
+                    this.classificationO.push({ label: value.nomClassification, value: value.nomClassification });
+                }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -92,7 +139,7 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
             { field: 'disponibliteArticle', header: 'disponibliteArticle' }
         ];
 
-        this.dispo = [
+        this.disponibliteArticleO = [
             { label: 'DISPONIBLE', value: 'DISPONIBLE' },
             { label: 'INDISPONIBLE', value: 'INDISPONIBLE' },
             { label: 'FINDESTOCK', value: 'FINDESTOCK' },
@@ -113,103 +160,9 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
         this.eventSubscriber = this.eventManager.subscribe('ficheArticleListModification', response => this.loadAll());
     }
 
-    ficheInitial() {
-        this.ficheArticles = this.ficheArticlesCopie;
-    }
+    protected;
 
-    filtre(values, field) {
-        this.ficheInitial();
-
-        console.log(this.valeursSelect);
-
-        this.i = true;
-        for (let value of this.valeursSelect) {
-            if (this.i == true) {
-                this.ficheArticlesFiltre = this.ficheArticles.filter(
-                    ficheArticles =>
-                        ficheArticles.classifications.filter(classe => classe.nomClassification.toLowerCase().indexOf(value) >= 0).length >
-                        0
-                );
-            } else {
-                this.filtreSauvegarde = this.ficheArticles.filter(
-                    ficheArticles =>
-                        ficheArticles.classifications.filter(classe => classe.nomClassification.toLowerCase().indexOf(value) >= 0).length >
-                        0
-                );
-                for (let value of this.filtreSauvegarde) {
-                    if (this.ficheArticlesFiltre.indexOf(value) < 0) {
-                        this.ficheArticlesFiltre.push(value);
-                    }
-                }
-            }
-            this.i = false;
-        }
-        this.ficheArticles = this.ficheArticlesFiltre;
-        this.i = true;
-        if (this.refArticle !== '') {
-            this.ficheArticles = this.ficheArticles.filter(
-                ficheArticles => ficheArticles.refArticle.toLowerCase().indexOf(this.refArticle) >= 0
-            );
-        }
-        if (this.cas !== '') {
-            this.ficheArticles = this.ficheArticles.filter(
-                ficheArticles => ficheArticles.ficheProduitChimiques[0].cas.toLowerCase().indexOf(this.cas) >= 0
-            );
-        }
-        if (this.nom !== '') {
-            this.ficheArticles = this.ficheArticles.filter(
-                ficheArticles => ficheArticles.ficheProduitChimiques[0].nom.toLowerCase().indexOf(this.nom) >= 0
-            );
-        }
-        if (this.acronyme !== '') {
-            this.ficheArticles = this.ficheArticles.filter(
-                ficheArticles => ficheArticles.ficheProduitChimiques[0].acronyme.toLowerCase().indexOf(this.acronyme) >= 0
-            );
-        }
-    }
-
-    protected onError(errorMessage: string) {
+    onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
-
-    methodThatOrdersTBodyRows(sort1: Sort) {
-        this.ficheArticles.sort((a: IFicheArticle, b: IFicheArticle) => {
-            if ((a.codeBarre || '').toLowerCase() < (b.codeBarre || '').toLowerCase()) {
-                console.log('a.refArticle-1', a.codeBarre);
-                console.log('b.refArticle-1', b.codeBarre);
-                return -1;
-            } else if ((a.codeBarre || '').toLowerCase() > (b.codeBarre || '').toLowerCase()) {
-                console.log('a.refArticle1', a.codeBarre);
-                console.log('b.refArticle1', b.codeBarre);
-                return 1;
-            } else {
-                console.log('a.refArticle0', a.codeBarre);
-                console.log('b.refArticle0', b.codeBarre);
-                return 0;
-            }
-        });
-    }
-
-    sortData(sort: Sort) {
-        console.log(sort);
-        if (!sort.active || sort.direction === '') {
-            this.ficheArticles = this.ficheArticles;
-            return;
-        }
-
-        this.ficheArticles = this.ficheArticles.sort((a, b) => {
-            const isAsc = sort.direction === 'asc';
-            console.log(sort.active);
-            switch (sort.active) {
-                case 'id':
-                    return compare(a.id, b.id, isAsc);
-                default:
-                    return 0;
-            }
-        });
-    }
-}
-
-function compare(a, b, isAsc) {
-    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

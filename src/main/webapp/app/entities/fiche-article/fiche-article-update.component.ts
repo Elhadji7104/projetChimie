@@ -34,6 +34,12 @@ export class FicheArticleUpdateComponent implements OnInit {
     classifications: IClassification[];
 
     droitdacceeproduits: IDroitDacceeProduit[];
+    private unitesSelect: any[];
+    private produitSelect: any[];
+    private etatSelect: any[];
+    private dispoSelect: any;
+    private docSelect: any;
+    private classiSelect: any;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -87,6 +93,51 @@ export class FicheArticleUpdateComponent implements OnInit {
         window.history.back();
     }
 
+    getOptions() {
+        this.unitesSelect = [];
+        for (let value of this.unites) {
+            this.unitesSelect.push({ label: value.libelleUnite, value: value.libelleUnite });
+        }
+        return this.unitesSelect;
+    }
+
+    getOptionsProduit() {
+        this.produitSelect = [];
+        for (let value of this.ficheproduitchimiques) {
+            this.produitSelect.push({ label: value.nom + '-' + value.cas + '-' + value.acronyme, value: value });
+        }
+        return this.produitSelect;
+    }
+    getOptionsEtat() {
+        this.etatSelect = [];
+        this.etatSelect.push({ label: 'SOLIDE', value: 'SOLIDE' });
+        this.etatSelect.push({ label: 'LIQUIDE', value: 'LIQUIDE' });
+        this.etatSelect.push({ label: 'GAZEUX', value: 'GAZEUX' });
+        return this.etatSelect;
+    }
+    getOptionsDispo() {
+        this.dispoSelect = [];
+        this.dispoSelect.push({ label: 'DISPONIBLE', value: 'SOLIDE' });
+        this.dispoSelect.push({ label: 'INDISPONIBLE', value: 'LIQUIDE' });
+        this.dispoSelect.push({ label: 'ENCOMMANDE', value: 'GAZEUX' });
+        this.dispoSelect.push({ label: 'FINDESTOCK', value: 'GAZEUX' });
+        return this.dispoSelect;
+    }
+
+    documentSelected() {
+        this.docSelect = [];
+        for (let value of this.documents) {
+            this.docSelect.push({ label: value.lien, value: value });
+        }
+        return this.docSelect;
+    }
+    classiSelected() {
+        this.classiSelect = [];
+        for (let value of this.classifications) {
+            this.classiSelect.push({ label: value.nomClassification, value: value });
+        }
+        return this.classiSelect;
+    }
     save() {
         this.isSaving = true;
         if (this.ficheArticle.id !== undefined) {
