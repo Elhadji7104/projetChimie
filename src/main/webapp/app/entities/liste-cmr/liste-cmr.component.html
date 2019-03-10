@@ -21,10 +21,9 @@
             </thead>
             <tbody>
             <tr *ngFor="let listeCmr of listeCmrs ;trackBy: trackId">
-                <td><a [routerLink]="['/liste-cmr', listeCmr.id, 'view' ]">{{listeCmr.refListe}}</a></td>
                 <td>
                     <div *ngIf="listeCmr.ficheProduitChimique">
-                        <a [routerLink]="['../fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view' ]" >{{listeCmr.ficheProduitChimique?.id}}</a>
+                        <a [routerLink]="['../fiche-produit-chimique', listeCmr.ficheProduitChimique?.id, 'view' ]" >{{listeCmr.ficheProduitChimique?.cas}}</a>
                     </div>
                 </td>
                 <td class="text-right">
