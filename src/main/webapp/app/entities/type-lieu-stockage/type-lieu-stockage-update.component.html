@@ -9,17 +9,12 @@
                     <input type="text" class="form-control" name="libelleLieu" id="field_libelleLieu"
                         [(ngModel)]="typeLieuStockage.libelleLieu" />
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.typeLieuStockage.temperature" for="field_temperature">Temperature</label>
-                    <input type="number" class="form-control" name="temperature" id="field_temperature"
-                        [(ngModel)]="typeLieuStockage.temperature" />
-                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.typeLieuStockage.localisation" for="field_localisation">Localisation</label>
                     <select class="form-control" id="field_localisation" name="localisation" [(ngModel)]="typeLieuStockage.localisation" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="localisationOption.id === typeLieuStockage.localisation?.id ? typeLieuStockage.localisation : localisationOption" *ngFor="let localisationOption of localisations; trackBy: trackLocalisationById">{{localisationOption.id}}</option>
+                        <option [ngValue]="localisationOption.id === typeLieuStockage.localisation?.id ? typeLieuStockage.localisation : localisationOption" *ngFor="let localisationOption of localisations; trackBy: trackLocalisationById">{{localisationOption.adresse}}</option>
                     </select>
                 </div>
             </div>

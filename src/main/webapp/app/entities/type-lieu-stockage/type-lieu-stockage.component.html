@@ -23,10 +23,9 @@
             <tbody>
             <tr *ngFor="let typeLieuStockage of typeLieuStockages ;trackBy: trackId">
                 <td><a [routerLink]="['/type-lieu-stockage', typeLieuStockage.id, 'view' ]">{{typeLieuStockage.libelleLieu}}</a></td>
-                <td>{{typeLieuStockage.temperature}}</td>
                 <td>
                     <div *ngIf="typeLieuStockage.localisation">
-                        <a [routerLink]="['../localisation', typeLieuStockage.localisation?.id, 'view' ]" >{{typeLieuStockage.localisation?.id}}</a>
+                        <a [routerLink]="['../localisation', typeLieuStockage.localisation?.id, 'view' ]" >{{typeLieuStockage.localisation?.adresse}}</a>
                     </div>
                 </td>
                 <td class="text-right">
