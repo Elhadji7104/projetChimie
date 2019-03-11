@@ -51,7 +51,7 @@
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']" type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'fiche-de-commande-produit/'+ ficheDeCommandeProduit.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
