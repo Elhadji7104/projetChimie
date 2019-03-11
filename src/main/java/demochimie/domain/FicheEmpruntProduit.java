@@ -37,21 +37,13 @@ public class FicheEmpruntProduit implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("ficheEmpruntProduits")
     private User user;
-    private Long iDUser;
 
-    public Long getiDUser() {
-        return iDUser;
-    }
-
-    public void setiDUser(Long iDUser) {
-        this.iDUser = iDUser;
-    }
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
-        this.iDUser = user.getId();
+        this.user = user;
     }
 
     public void setiDFicheArtiticle(Long iDFicheArtiticle) {
@@ -138,7 +130,7 @@ public class FicheEmpruntProduit implements Serializable {
             "id=" + getId() +
             ", quantite=" + getQuantite() +
             ", dateEmprunt='" + getDateEmprunt() + "'" +
-            ", iDUser='" + getiDUser() + "'" +
+            ", iDUser='" + getUser() + "'" +
             "}";
     }
 }
