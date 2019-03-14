@@ -30,10 +30,12 @@ public class FicheEmpruntProduit implements Serializable {
     @Column(name = "date_emprunt")
     private LocalDate dateEmprunt;
 
+
+
     @ManyToOne
     @JsonIgnoreProperties("ficheEmpruntProduits")
     private FicheArticle ficheArticle;
-    private Long iDFicheArtiticle;
+
     @ManyToOne
     @JsonIgnoreProperties("ficheEmpruntProduits")
     private User user;
@@ -46,13 +48,7 @@ public class FicheEmpruntProduit implements Serializable {
         this.user = user;
     }
 
-    public void setiDFicheArtiticle(Long iDFicheArtiticle) {
-        this.iDFicheArtiticle = iDFicheArtiticle;
-    }
 
-    public Long getiDFicheArtiticle() {
-        return iDFicheArtiticle;
-    }
 
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -94,14 +90,14 @@ public class FicheEmpruntProduit implements Serializable {
         return ficheArticle;
     }
 
+    public void setFicheArticle(FicheArticle ficheArticle) {
+        this.ficheArticle = ficheArticle;
+    }
     public FicheEmpruntProduit ficheArticle(FicheArticle ficheArticle) {
         this.ficheArticle = ficheArticle;
         return this;
     }
 
-    public void setFicheArticle(FicheArticle ficheArticle) {
-        this.iDFicheArtiticle = ficheArticle.getId();
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -130,7 +126,7 @@ public class FicheEmpruntProduit implements Serializable {
             "id=" + getId() +
             ", quantite=" + getQuantite() +
             ", dateEmprunt='" + getDateEmprunt() + "'" +
-            ", iDUser='" + getUser() + "'" +
+            ", iDUser='" + getUser()+ "'" +
             "}";
     }
 }
