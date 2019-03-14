@@ -24,10 +24,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTableModule } from 'primeng/primeng';
 import { PaginatorModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
-import { EmpruntRetour2Component } from './emprunt-retour2/emprunt-retour2.component';
 import { ProjetChimieFicheEmpruntProduitModule } from './entities/fiche-emprunt-produit/fiche-emprunt-produit.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { EmpruntRetourComponent } from './emprunt-retour/emprunt-retour.component';
 
 @NgModule({
     imports: [
@@ -62,7 +62,7 @@ import { ButtonModule } from 'primeng/button';
         PageRibbonComponent,
         ActiveMenuDirective,
         FooterComponent,
-        EmpruntRetour2Component
+        EmpruntRetourComponent
     ],
     providers: [
         {

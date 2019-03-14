@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 
 import { HomeComponent } from './';
-import { EmpruntRetour2Component } from '../emprunt-retour2/emprunt-retour2.component';
+import { EmpruntRetourComponent } from '../emprunt-retour/emprunt-retour.component';
 
 export const HOME_ROUTE: Route = {
     path: '',
@@ -12,9 +12,9 @@ export const HOME_ROUTE: Route = {
     }
 };
 
-export const EMPRUNTPRODUIT2: Route = {
+export const EMPRUNTPRODUIT: Route = {
     path: 'emprunt-produit',
-    component: EmpruntRetour2Component,
+    component: EmpruntRetourComponent,
     data: {
         authorities: [],
         pageTitle: 'home.title'
