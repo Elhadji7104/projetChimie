@@ -11,19 +11,6 @@
                            [(ngModel)]="ficheEmpruntProduit.quantite"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.dateEmprunt"
-                           for="field_dateEmprunt">Date Emprunt</label>
-                    <div class="input-group">
-                        <input id="field_dateEmprunt" type="text" class="form-control" name="dateEmprunt" ngbDatepicker
-                               #dateEmpruntDp="ngbDatepicker" [(ngModel)]="ficheEmpruntProduit.dateEmprunt"
-                        />
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="dateEmpruntDp.toggle()"><fa-icon
-                                [icon]="'calendar-alt'"></fa-icon></button>
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.ficheArticle"
                            for="field_ficheArticle">Fiche Article</label>
                     <select class="form-control" id="field_ficheArticle" name="ficheArticle"

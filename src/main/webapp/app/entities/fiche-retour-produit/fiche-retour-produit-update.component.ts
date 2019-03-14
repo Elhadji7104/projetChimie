@@ -9,6 +9,8 @@ import { IFicheRetourProduit } from 'app/shared/model/fiche-retour-produit.model
 import { FicheRetourProduitService } from './fiche-retour-produit.service';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
+import { Account, AccountService } from 'app/core';
+import _date = moment.unitOfTime._date;
 
 @Component({
     selector: 'jhi-fiche-retour-produit-update',
@@ -17,11 +19,12 @@ import { FicheArticleService } from 'app/entities/fiche-article';
 export class FicheRetourProduitUpdateComponent implements OnInit {
     ficheRetourProduit: IFicheRetourProduit;
     isSaving: boolean;
+    account: Account;
 
     fichearticles: IFicheArticle[];
-    dateRetourDp: any;
 
     constructor(
+        private accountService: AccountService,
         protected jhiAlertService: JhiAlertService,
         protected ficheRetourProduitService: FicheRetourProduitService,
         protected ficheArticleService: FicheArticleService,
@@ -39,6 +42,13 @@ export class FicheRetourProduitUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        this.accountService.identity().then(account => {
+            this.account = account;
+        });
+        var dateString = Date.now();
+        var dateObj = new Date(dateString);
+        var momentObj = moment(dateObj);
+        this.ficheRetourProduit.dateRetour = momentObj;
     }
 
     previousState() {

@@ -40,6 +40,8 @@ export class EmpruntRetourComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInClassifications();
+
+        this.items1 = [{ label: 'Emprunt', icon: 'fa fa-fw fa-bar-chart' }, { label: 'Retour', icon: 'fa fa-fw fa-calendar' }];
     }
 
     ngOnDestroy() {

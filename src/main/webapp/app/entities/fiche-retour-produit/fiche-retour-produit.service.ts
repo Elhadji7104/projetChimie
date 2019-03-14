@@ -20,6 +20,7 @@ export class FicheRetourProduitService {
 
     create(ficheRetourProduit: IFicheRetourProduit): Observable<EntityResponseType> {
         const copy = this.convertDateFromClient(ficheRetourProduit);
+        console.log(ficheRetourProduit);
         return this.http
             .post<IFicheRetourProduit>(this.resourceUrl, copy, { observe: 'response' })
             .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));

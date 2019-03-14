@@ -10,23 +10,17 @@
                         [(ngModel)]="ficheRetourProduit.quantite" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheRetourProduit.dateRetour" for="field_dateRetour">Date Retour</label>
-                    <div class="input-group">
-                        <input id="field_dateRetour" type="text" class="form-control" name="dateRetour" ngbDatepicker  #dateRetourDp="ngbDatepicker" [(ngModel)]="ficheRetourProduit.dateRetour"
-                        />
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="dateRetourDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheRetourProduit.ficheArticle" for="field_ficheArticle">Fiche Article</label>
                     <select class="form-control" id="field_ficheArticle" name="ficheArticle" [(ngModel)]="ficheRetourProduit.ficheArticle" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="ficheArticleOption.id === ficheRetourProduit.ficheArticle?.id ? ficheRetourProduit.ficheArticle : ficheArticleOption" *ngFor="let ficheArticleOption of fichearticles; trackBy: trackFicheArticleById">{{ficheArticleOption.id}}</option>
                     </select>
                 </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="projetChimieApp.ficheEmpruntProduit.iDUser"
+                       for="field_idUser">ID Utilisateur</label>
+                <input id="field_idUser" type="text" class="form-control" name="iDUser" value="{{account.login}}"  />
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

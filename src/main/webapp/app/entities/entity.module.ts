@@ -19,6 +19,7 @@ import { ProjetChimieTypeLieuStockageModule } from './type-lieu-stockage/type-li
 import { ProjetChimieClassificationModule } from './classification/classification.module';
 import { ProjetChimieListeGroupeInviteModule } from './liste-groupe-invite/liste-groupe-invite.module';
 import { ProjetListeLocalisationModule } from './liste-localisation/liste-localisation.module';
+import { ProjetEmpruntRetourModule } from 'app/entities/emprunt-retour/emprunt-retour.module';
 
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
@@ -43,7 +44,8 @@ import { ProjetListeLocalisationModule } from './liste-localisation/liste-locali
         ProjetChimieTypeLieuStockageModule,
         ProjetChimieClassificationModule,
         ProjetChimieListeGroupeInviteModule,
-        ProjetListeLocalisationModule
+        ProjetListeLocalisationModule,
+        ProjetEmpruntRetourModule
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
