@@ -38,9 +38,9 @@ export class FicheEmpruntProduitUpdateComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
-        var dateString = Date.now();
-        var dateObj = new Date(dateString);
-        var momentObj = moment(dateObj);
+        const dateString = Date.now();
+        const dateObj = new Date(dateString);
+        const momentObj = moment(dateObj);
         this.ficheEmpruntProduit.dateEmprunt = momentObj;
         this.ficheEmpruntProduit.demandeur = this.account;
         console.log(this.ficheEmpruntProduit.demandeur);

@@ -24,6 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTableModule } from 'primeng/primeng';
 import { PaginatorModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
+import { EmpruntRetour2Component } from './emprunt-retour2/emprunt-retour2.component';
+import { ProjetChimieFicheEmpruntProduitModule } from './entities/fiche-emprunt-produit/fiche-emprunt-produit.module';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+
 @NgModule({
     imports: [
         TableModule,
@@ -45,9 +50,20 @@ import { TableModule } from 'primeng/table';
         ProjetChimieHomeModule,
         ProjetChimieAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
-        ProjetChimieEntityModule
+        ProjetChimieEntityModule,
+        ProjetChimieFicheEmpruntProduitModule,
+        InputTextModule,
+        ButtonModule
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        ActiveMenuDirective,
+        FooterComponent,
+        EmpruntRetour2Component
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

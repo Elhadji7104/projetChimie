@@ -19,7 +19,7 @@ import { ProjetChimieTypeLieuStockageModule } from './type-lieu-stockage/type-li
 import { ProjetChimieClassificationModule } from './classification/classification.module';
 import { ProjetChimieListeGroupeInviteModule } from './liste-groupe-invite/liste-groupe-invite.module';
 import { ProjetListeLocalisationModule } from './liste-localisation/liste-localisation.module';
-import { ProjetEmpruntRetourModule } from 'app/entities/emprunt-retour/emprunt-retour.module';
+import { FicheEmpruntProduitUpdateComponent } from './fiche-emprunt-produit/fiche-emprunt-produit-update.component';
 
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
@@ -44,9 +44,30 @@ import { ProjetEmpruntRetourModule } from 'app/entities/emprunt-retour/emprunt-r
         ProjetChimieTypeLieuStockageModule,
         ProjetChimieClassificationModule,
         ProjetChimieListeGroupeInviteModule,
-        ProjetListeLocalisationModule,
-        ProjetEmpruntRetourModule
+        ProjetListeLocalisationModule
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
+    ],
+    exports: [
+        ProjetChimieGroupeModule,
+        ProjetChimieDroitDacceeProduitModule,
+        ProjetChimieMailGestionnaireModule,
+        ProjetChimieFicheArticleModule,
+        ProjetChimieFicheProduitChimiqueModule,
+        ProjetChimieListeMotsClesModule,
+        ProjetChimieFicheDeCommandeProduitModule,
+        ProjetChimieFicheEmpruntProduitModule,
+        ProjetChimieFicheRetourProduitModule,
+        ProjetChimieFournisseurModule,
+        ProjetChimieTypeDeConditionnementModule,
+        ProjetChimieDocumentModule,
+        ProjetChimieLocalisationModule,
+        ProjetChimieUniteModule,
+        ProjetChimieListeCmrModule,
+        ProjetChimieTypeLieuStockageModule,
+        ProjetChimieClassificationModule,
+        ProjetChimieListeGroupeInviteModule,
+        ProjetListeLocalisationModule,
+        FicheEmpruntProduitUpdateComponent
     ],
     declarations: [],
     entryComponents: [],
