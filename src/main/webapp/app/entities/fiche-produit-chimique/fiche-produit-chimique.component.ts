@@ -41,9 +41,6 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
                 this.CodeNacreSelect = [];
 
                 for (let value of this.ficheProduitChimiques) {
-                    console.log('sully ' + value.acronyme + ' bool ');
-                    console.log(this.AcronymeSelect.indexOf({ label: 'Paracétamol', value: 'Paracétamol' }));
-
                     if (value !== undefined) {
                         if (
                             value.cas !== undefined &&

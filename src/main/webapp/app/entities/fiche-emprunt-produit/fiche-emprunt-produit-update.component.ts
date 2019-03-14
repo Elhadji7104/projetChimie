@@ -9,7 +9,7 @@ import { IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.mod
 import { FicheEmpruntProduitService } from './fiche-emprunt-produit.service';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
-import {Account, AccountService} from "app/core";
+import { Account, AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-fiche-emprunt-produit-update',
@@ -21,14 +21,13 @@ export class FicheEmpruntProduitUpdateComponent implements OnInit {
     account: Account;
 
     fichearticles: IFicheArticle[];
-    dateEmpruntDp: any;
-    idUser: any;
+
     constructor(
         private accountService: AccountService,
         protected jhiAlertService: JhiAlertService,
         protected ficheEmpruntProduitService: FicheEmpruntProduitService,
         protected ficheArticleService: FicheArticleService,
-        protected activatedRoute: ActivatedRoute,
+        protected activatedRoute: ActivatedRoute
     ) {}
 
     ngOnInit() {
@@ -39,6 +38,12 @@ export class FicheEmpruntProduitUpdateComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
+        const dateString = Date.now();
+        const dateObj = new Date(dateString);
+        const momentObj = moment(dateObj);
+        this.ficheEmpruntProduit.dateEmprunt = momentObj;
+        this.ficheEmpruntProduit.demandeur = this.account;
+        console.log(this.ficheEmpruntProduit.demandeur);
     }
 
     previousState() {

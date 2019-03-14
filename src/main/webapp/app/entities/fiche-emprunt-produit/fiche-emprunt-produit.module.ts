@@ -16,6 +16,7 @@ const ENTITY_STATES = [...ficheEmpruntProduitRoute, ...ficheEmpruntProduitPopupR
 
 @NgModule({
     imports: [ProjetChimieSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    exports: [FicheEmpruntProduitUpdateComponent],
     declarations: [
         FicheEmpruntProduitComponent,
         FicheEmpruntProduitDetailComponent,
