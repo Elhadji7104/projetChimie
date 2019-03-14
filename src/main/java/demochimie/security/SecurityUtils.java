@@ -73,4 +73,26 @@ public final class SecurityUtils {
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals(authority)))
             .orElse(false);
     }
+
+    /**
+     * If the current user has a specific authority (security role).
+     * @param
+     * @return true if the current user has the authority, false otherwise
+     */
+    public static String isCurrentGroupeUser() {
+	String login = getCurrentUserLogin()+"";
+    String groupeName="";
+    switch(login){
+        case "ADMIN":
+        groupeName = "groupe1";
+        case "HYGIENE_ET_SECURITE":
+        groupeName = "groupe2";
+        case "VALIDEUR":
+        groupeName = "groupe3";
+        case "GESTIONNAIRE_DE_BASE":
+        groupeName = "groupe4";    
+        break;    
+    }
+        return groupeName;
+    }
 }
