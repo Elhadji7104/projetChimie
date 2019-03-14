@@ -1,12 +1,10 @@
 import './vendor.ts';
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { NgJhipsterModule } from 'ng-jhipster';
-
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
@@ -18,7 +16,6 @@ import { ProjetChimieHomeModule } from './home/home.module';
 import { ProjetChimieAccountModule } from './account/account.module';
 import { ProjetChimieEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
-// jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTableModule } from 'primeng/primeng';
@@ -28,6 +25,8 @@ import { ProjetChimieFicheEmpruntProduitModule } from './entities/fiche-emprunt-
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { EmpruntRetourComponent } from './emprunt-retour/emprunt-retour.component';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { KeyFilterModule } from 'primeng/keyfilter';
 
 @NgModule({
     imports: [
@@ -53,7 +52,9 @@ import { EmpruntRetourComponent } from './emprunt-retour/emprunt-retour.componen
         ProjetChimieEntityModule,
         ProjetChimieFicheEmpruntProduitModule,
         InputTextModule,
-        ButtonModule
+        ButtonModule,
+        TabMenuModule,
+        KeyFilterModule
     ],
     declarations: [
         JhiMainComponent,

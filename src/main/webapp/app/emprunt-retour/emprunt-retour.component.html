@@ -1,3 +1,30 @@
-<p>
-  emprunt-retour works!
-</p>
+<p-tabMenu [model]="empruntRetour" [activeItem]="activeItem"></p-tabMenu>
+
+<div>
+    <p></p>
+    <div class="first" *ngIf="choix">
+        <h3 class="first">Saisir l'article à retourner :</h3>
+    </div>
+    <div class="first" *ngIf="!choix">
+        <h3 class="first">Saisir l'article à emprunter :</h3>
+    </div>
+    <div class="first">
+        <input id="produitChoix" type="text" size="30" pInputText [(ngModel)]="produitChoix" required>
+    </div>
+    <div class="first" *ngIf="choix">
+        <h3 class="first">Saisir la quantité retourné (pour alerter des fin de stock) :</h3>
+    </div>
+    <div class="first" *ngIf="!choix">
+        <h3 class="first">Saisir la quantité initial :</h3>
+    </div>
+    <div class="first">
+        <input [(ngModel)]="quantite" type="text" size="30" pInputText pKeyFilter="num" placeholder="Numbers">
+    </div>
+    <p></p>
+    <div class="first">
+        <button type="submit" id="save-entity"
+                class="btn btn-primary">
+            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</div>
