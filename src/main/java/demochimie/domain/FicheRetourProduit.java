@@ -36,7 +36,7 @@ public class FicheRetourProduit implements Serializable {
 
 
     @ManyToOne
-    @JsonIgnoreProperties("ficheEmpruntProduits")
+    @JsonIgnoreProperties("ficheRetourProduits")
     private User user;
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
