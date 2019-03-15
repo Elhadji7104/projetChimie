@@ -3,7 +3,6 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from '../fiche-article';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
-
 import { Subscription } from 'rxjs';
 import { FicheEmpruntProduitService } from '../fiche-emprunt-produit';
 import { FicheEmpruntProduit, IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.model';
@@ -35,6 +34,7 @@ export class EmpruntRetourComponent implements OnInit {
     private user: IUser = new User();
     private ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
     articleOption: SelectItem[] = [];
+    unite: String = 'Article non choisi';
 
     constructor(
         protected ficheArticleService: FicheArticleService,
@@ -104,7 +104,6 @@ export class EmpruntRetourComponent implements OnInit {
         /*this.ficheArticleService.find(1).subscribe(result => {
             this.ficheArticle = result.body;
         });*/
-
         if (this.choix) {
             this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
             this.user = this.currentAccount;
@@ -125,6 +124,12 @@ export class EmpruntRetourComponent implements OnInit {
             this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
                 console.log(result);
             });
+        }
+    }
+
+    actuUnite() {
+        if (this.ficheArticle.unites.length !== 0) {
+            this.unite = this.ficheArticle.unites[0].libelleUnite;
         }
     }
 }

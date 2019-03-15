@@ -9,7 +9,7 @@
             <h3 class="first">Saisir l'article à emprunter :</h3>
         </div>
         <div class="first">
-            <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" required>
+            <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" (onChange)="actuUnite()" required>
 
                 <ng-template let-art pTemplate="item">
                     <div class="ui-helper-clearfix" style="vertical-align:middle;height: 25px;">
@@ -25,7 +25,8 @@
             <h3 class="first">Saisir la quantité initial :</h3>
         </div>
         <div class="first">
-            <input [(ngModel)]="quantite" type="text" size="30" pInputText pKeyFilter="num" placeholder="Numbers">
+            <input [(ngModel)]="quantite" type="text" size="30" pInputText pKeyFilter="num">
+            {{unite}}
         </div>
         <p></p>
         <div class="first">
