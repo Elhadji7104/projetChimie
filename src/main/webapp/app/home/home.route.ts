@@ -16,7 +16,7 @@ export const EMPRUNTPRODUIT: Route = {
     path: 'emprunt-produit',
     component: EmpruntRetourComponent,
     data: {
-        authorities: [],
+        authorities: ['ROLE_USER'],
         pageTitle: 'home.title'
     }
 };
