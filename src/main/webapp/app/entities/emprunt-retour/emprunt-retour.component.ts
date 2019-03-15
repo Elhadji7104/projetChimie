@@ -1,4 +1,4 @@
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem, MessageService, SelectItem } from 'primeng/api';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from '../fiche-article';
@@ -6,12 +6,18 @@ import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 import { Subscription } from 'rxjs';
 import { FicheEmpruntProduitService } from '../fiche-emprunt-produit';
 import { FicheEmpruntProduit, IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.model';
-import moment = require('moment');
 import { FicheRetourProduit, IFicheRetourProduit } from 'app/shared/model/fiche-retour-produit.model';
 import { FicheRetourProduitService } from '../fiche-retour-produit';
-import { SelectItem } from 'primeng/api';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountService, IUser, User } from 'app/core';
+import moment = require('moment');
+
+export const enum DisponibliteArticle {
+    DISPONIBLE = 'DISPONIBLE',
+    INDISPONIBLE = 'INDISPONIBLE',
+    FINDESTOCK = 'FINDESTOCK',
+    ENCOMMANDE = 'ENCOMMANDE'
+}
 
 @Component({
     selector: 'jhi-emprunt-retour',
@@ -36,6 +42,7 @@ export class EmpruntRetourComponent implements OnInit {
     private ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
     articleOption: SelectItem[] = [];
     unite: String = 'Article non choisi';
+    private dispo: boolean = true;
 
     constructor(
         protected ficheArticleService: FicheArticleService,
@@ -86,7 +93,7 @@ export class EmpruntRetourComponent implements OnInit {
                 }
             }
         ];
-
+        this.activeItem = this.empruntRetour[0];
         this.accountService.identity().then(account => {
             this.currentAccount = account;
         });
@@ -147,6 +154,33 @@ export class EmpruntRetourComponent implements OnInit {
             });
         } else {
             this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Erreur' });
+        }
+    }
+    actuDispon() {
+        this.dispo = true;
+        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.INDISPONIBLE.toString()) {
+            this.dispo = false;
+            this.messageService.add({
+                severity: 'error',
+                summary: "L'article n'est pas disponible",
+                detail: 'erreur'
+            });
+        }
+        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.ENCOMMANDE.toString()) {
+            this.dispo = false;
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Commande article en cours de traitement',
+                detail: 'erreur'
+            });
+        }
+        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.FINDESTOCK.toString()) {
+            this.dispo = false;
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Article en fin de stock veuillez lancer la commande',
+                detail: 'erreur'
+            });
         }
     }
 }
