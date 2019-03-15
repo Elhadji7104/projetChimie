@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 
 import { HomeComponent } from './';
-import { EmpruntRetourComponent } from '../emprunt-retour/emprunt-retour.component';
+import { EmpruntRetourComponent } from '../entities/emprunt-retour/emprunt-retour.component';
 import { UserRouteAccessService } from 'app/core';
 
 export const HOME_ROUTE: Route = {

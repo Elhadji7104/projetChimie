@@ -102,6 +102,24 @@
                         </a>
                     </li>
                     <li>
+                        <a class="dropdown-item" routerLink="fiche-emprunt-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.ficheEmpruntProduit">Fiche Emprunt Produit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="fiche-retour-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.ficheRetourProduit">Fiche Retour Produit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="classification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.classification">Classification</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" routerLink="type-de-conditionnement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.typeDeConditionnement">Type De Conditionnement</span>
@@ -119,12 +137,6 @@
                             <span jhiTranslate="global.menu.entities.typeLieuStockage">Type Lieu Stockage</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="classification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.classification">Classification</span>
-                        </a>
-                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
@@ -137,6 +149,12 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="rech-empr-menu">
                     <li>
+                        <a class="dropdown-item" routerLink="emprunt-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="projetChimieApp.ficheEmpruntProduit.empruntRetour">Emprunt</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" routerLink="fiche-article" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.ficheArticle">Fiche Article</span>
@@ -148,18 +166,7 @@
                             <span jhiTranslate="global.menu.entities.ficheProduitChimique">Fiche Produit Chimique</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="fiche-emprunt-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ficheEmpruntProduit">Fiche Emprunt Produit</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="fiche-retour-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ficheRetourProduit">Fiche Retour Produit</span>
-                        </a>
-                    </li>
+
                     <li>
                         <a class="dropdown-item" routerLink="document" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>

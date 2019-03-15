@@ -1,17 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
-import { FicheArticleService } from 'app/entities/fiche-article';
+import { FicheArticleService } from '../fiche-article';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
-import { AccountService, IUser, User } from 'app/core';
+
 import { Subscription } from 'rxjs';
-import { FicheEmpruntProduitService } from 'app/entities/fiche-emprunt-produit';
+import { FicheEmpruntProduitService } from '../fiche-emprunt-produit';
 import { FicheEmpruntProduit, IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.model';
 import moment = require('moment');
 import { FicheRetourProduit, IFicheRetourProduit } from 'app/shared/model/fiche-retour-produit.model';
-import { FicheRetourProduitService } from 'app/entities/fiche-retour-produit';
+import { FicheRetourProduitService } from '../fiche-retour-produit';
 import { SelectItem } from 'primeng/api';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AccountService, IUser, User } from 'app/core';
 
 @Component({
     selector: 'jhi-emprunt-retour',
