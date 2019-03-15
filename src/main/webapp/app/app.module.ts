@@ -24,7 +24,7 @@ import { TableModule } from 'primeng/table';
 import { ProjetChimieFicheEmpruntProduitModule } from './entities/fiche-emprunt-produit/fiche-emprunt-produit.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { EmpruntRetourComponent } from './emprunt-retour/emprunt-retour.component';
+import { EmpruntRetourComponent } from './entities/emprunt-retour/emprunt-retour.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { KeyFilterModule } from 'primeng/keyfilter';
 
