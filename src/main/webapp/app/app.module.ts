@@ -27,7 +27,7 @@ import { ButtonModule } from 'primeng/button';
 import { EmpruntRetourComponent } from './entities/emprunt-retour/emprunt-retour.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { KeyFilterModule } from 'primeng/keyfilter';
-
+import { ToastModule } from 'primeng/toast';
 @NgModule({
     imports: [
         TableModule,
@@ -55,7 +55,8 @@ import { KeyFilterModule } from 'primeng/keyfilter';
         ButtonModule,
         TabMenuModule,
         KeyFilterModule,
-        DropdownModule
+        DropdownModule,
+        ToastModule
     ],
     declarations: [
         JhiMainComponent,

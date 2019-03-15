@@ -1,3 +1,5 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
 <p-tabMenu [model]="empruntRetour" [activeItem]="activeItem"></p-tabMenu>
 
     <div>
@@ -30,9 +32,9 @@
         </div>
         <p></p>
         <div class="first">
-            <button type="submit" id="save-entity"
-                    class="btn btn-primary" (click)="save()">
-                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <button pButton  (click)="save()" type="submit" id="save-entity" label="Save"></button>
+            <button pButton class="ui-button-success" label="Back" class="nav-link" routerLink="/">
             </button>
-        </div>
+
+          </div>
     </div>

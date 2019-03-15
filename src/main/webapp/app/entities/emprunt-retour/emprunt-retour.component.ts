@@ -1,4 +1,4 @@
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from '../fiche-article';
@@ -16,7 +16,8 @@ import { AccountService, IUser, User } from 'app/core';
 @Component({
     selector: 'jhi-emprunt-retour',
     templateUrl: './emprunt-retour.component.html',
-    styles: []
+    styles: [],
+    providers: [MessageService]
 })
 export class EmpruntRetourComponent implements OnInit {
     @ViewChild('menuItems') menu: MenuItem[];
@@ -42,7 +43,8 @@ export class EmpruntRetourComponent implements OnInit {
         protected eventManager: JhiEventManager,
         protected accountService: AccountService,
         protected ficheEmpruntProduitService: FicheEmpruntProduitService,
-        protected ficheRetourProduitService: FicheRetourProduitService
+        protected ficheRetourProduitService: FicheRetourProduitService,
+        private messageService: MessageService
     ) {}
 
     loadAll() {
@@ -104,32 +106,47 @@ export class EmpruntRetourComponent implements OnInit {
         /*this.ficheArticleService.find(1).subscribe(result => {
             this.ficheArticle = result.body;
         });*/
-        if (this.choix) {
-            this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
-            this.user = this.currentAccount;
-            this.ficheEmpruntProduit.demandeur = this.user;
-            console.log(this.ficheEmpruntProduit.demandeur);
-            this.ficheEmpruntProduit.dateEmprunt = moment(new Date(Date.now()));
-            this.ficheEmpruntProduit.quantite = this.quantite;
-            this.ficheEmpruntProduitService.create(this.ficheEmpruntProduit).subscribe(result => {
-                console.log(result);
-            });
-        } else {
-            this.ficheRetourProduit.ficheArticle = this.ficheArticle;
-            this.user = this.currentAccount;
-            this.ficheRetourProduit.demandeur = this.user;
-            console.log(this.ficheRetourProduit.demandeur);
-            this.ficheRetourProduit.dateRetour = moment(new Date(Date.now()));
-            this.ficheRetourProduit.quantite = this.quantite;
-            this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
-                console.log(result);
-            });
+        this.show();
+        if (this.ficheArticle.refArticle !== undefined) {
+            if (this.choix) {
+                this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
+                this.user = this.currentAccount;
+                this.ficheEmpruntProduit.demandeur = this.user;
+                console.log(this.ficheEmpruntProduit.demandeur);
+                this.ficheEmpruntProduit.dateEmprunt = moment(new Date(Date.now()));
+                this.ficheEmpruntProduit.quantite = this.quantite;
+                this.ficheEmpruntProduitService.create(this.ficheEmpruntProduit).subscribe(result => {
+                    console.log(result);
+                });
+            } else {
+                this.ficheRetourProduit.ficheArticle = this.ficheArticle;
+                this.user = this.currentAccount;
+                this.ficheRetourProduit.demandeur = this.user;
+                console.log(this.ficheRetourProduit.demandeur);
+                this.ficheRetourProduit.dateRetour = moment(new Date(Date.now()));
+                this.ficheRetourProduit.quantite = this.quantite;
+                this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
+                    console.log(result);
+                });
+            }
         }
     }
 
     actuUnite() {
         if (this.ficheArticle.unites.length !== 0) {
             this.unite = this.ficheArticle.unites[0].libelleUnite;
+        }
+    }
+
+    show() {
+        if (this.ficheArticle.refArticle !== undefined) {
+            this.messageService.add({
+                severity: 'success',
+                summary: "L'article est emprunté",
+                detail: 'Order submitted'
+            });
+        } else {
+            this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Erreur' });
         }
     }
 }
