@@ -1,41 +1,39 @@
-
-
 <p-tabMenu [model]="empruntRetour" [activeItem]="activeItem"></p-tabMenu>
 
-<div>
-    <p></p>
-    <div class="first" *ngIf="choix">
-        <h3 class="first">Saisir l'article à retourner :</h3>
-    </div>
-    <div class="first" *ngIf="!choix">
-        <h3 class="first">Saisir l'article à emprunter :</h3>
-    </div>
-    <div class="first">
-    <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" required>
+    <div>
+        <p></p>
+        <div class="first" *ngIf="choix">
+            <h3 class="first">Saisir l'article à retourner :</h3>
+        </div>
+        <div class="first" *ngIf="!choix">
+            <h3 class="first">Saisir l'article à emprunter :</h3>
+        </div>
+        <div class="first">
+            <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" required>
 
-        <ng-template let-art pTemplate="item">
-            <div class="ui-helper-clearfix" style="vertical-align:middle;height: 25px;">
-                <div style="font-size:14px;float:right;margin-top:4px">{{art.label}}</div>
-            </div>
-        </ng-template>
-    </p-dropdown>
+                <ng-template let-art pTemplate="item">
+                    <div class="ui-helper-clearfix" style="vertical-align:middle;height: 25px;">
+                        <div style="font-size:14px;float:right;margin-top:4px">{{art.label}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
 
 
+        </div>
+        <div class="first" *ngIf="choix">
+            <h3 class="first">Saisir la quantité retournée (pour alerter des fins de stock) :</h3>
+        </div>
+        <div class="first" *ngIf="!choix">
+            <h3 class="first">Saisir la quantité initial :</h3>
+        </div>
+        <div class="first">
+            <input [(ngModel)]="quantite" type="text" size="30" pInputText pKeyFilter="num" placeholder="Numbers">
+        </div>
+        <p></p>
+        <div class="first">
+            <button type="submit" id="save-entity"
+                    class="btn btn-primary" (click)="save()">
+                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
     </div>
-    <div class="first" *ngIf="choix">
-        <h3 class="first">Saisir la quantité retournée (pour alerter des fins de stock) :</h3>
-    </div>
-    <div class="first" *ngIf="!choix">
-        <h3 class="first">Saisir la quantité initial :</h3>
-    </div>
-    <div class="first">
-        <input [(ngModel)]="quantite" type="text" size="30" pInputText pKeyFilter="num" placeholder="Numbers">
-    </div>
-    <p></p>
-    <div class="first">
-        <button type="submit" id="save-entity"
-                class="btn btn-primary" (click)="save()">
-            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-        </button>
-    </div>
-</div>
