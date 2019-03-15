@@ -18,7 +18,7 @@ import { ProjetChimieEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DataTableModule } from 'primeng/primeng';
+import { DataTableModule, DropdownModule } from 'primeng/primeng';
 import { PaginatorModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { ProjetChimieFicheEmpruntProduitModule } from './entities/fiche-emprunt-produit/fiche-emprunt-produit.module';
@@ -54,7 +54,8 @@ import { KeyFilterModule } from 'primeng/keyfilter';
         InputTextModule,
         ButtonModule,
         TabMenuModule,
-        KeyFilterModule
+        KeyFilterModule,
+        DropdownModule
     ],
     declarations: [
         JhiMainComponent,
