@@ -35,8 +35,9 @@
         </div>
         <p></p>
         <div class="first">
-            <button pButton  (click)="save()"  *ngIf="dispo" type="submit" id="save-entity" label="Save"></button>
             <button pButton class="ui-button-success" label="Back" class="nav-link" routerLink="/">
             </button>
+            <button pButton  (click)="save()"  *ngIf="dispo" type="submit" id="save-entity" label="Save"></button>
+            <button pButton (click)="demandeCommande()"  class="ui-button-success" *ngIf="commande" label="Commander" class="nav-link" label="Commande"></button>
         </div>
     </div>

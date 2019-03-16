@@ -1,6 +1,6 @@
 import { MenuItem, MessageService, SelectItem } from 'primeng/api';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
+import { DisponibliteArticle, FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from '../fiche-article';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 import { Subscription } from 'rxjs';
@@ -11,13 +11,6 @@ import { FicheRetourProduitService } from '../fiche-retour-produit';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountService, IUser, User } from 'app/core';
 import moment = require('moment');
-
-export const enum DisponibliteArticle {
-    DISPONIBLE = 'DISPONIBLE',
-    INDISPONIBLE = 'INDISPONIBLE',
-    FINDESTOCK = 'FINDESTOCK',
-    ENCOMMANDE = 'ENCOMMANDE'
-}
 
 @Component({
     selector: 'jhi-emprunt-retour',
@@ -43,6 +36,7 @@ export class EmpruntRetourComponent implements OnInit {
     articleOption: SelectItem[] = [];
     unite: String = 'Article non choisi';
     private dispo: boolean = true;
+    commande: boolean = false;
 
     constructor(
         protected ficheArticleService: FicheArticleService,
@@ -158,6 +152,7 @@ export class EmpruntRetourComponent implements OnInit {
     }
     actuDispon() {
         this.dispo = true;
+        this.commande = false;
         if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.INDISPONIBLE.toString()) {
             this.dispo = false;
             this.messageService.add({
@@ -176,11 +171,16 @@ export class EmpruntRetourComponent implements OnInit {
         }
         if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.FINDESTOCK.toString()) {
             this.dispo = false;
+            this.commande = true;
             this.messageService.add({
                 severity: 'error',
                 summary: 'Article en fin de stock veuillez lancer la commande',
                 detail: 'erreur'
             });
         }
+    }
+
+    demandeCommande() {
+        //this.ficheArticle.disponibliteArticle = DisponibliteArticle.ENCOMMANDE;
     }
 }
