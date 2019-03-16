@@ -11,6 +11,8 @@ import { FicheRetourProduitService } from '../fiche-retour-produit';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountService, IUser, User } from 'app/core';
 import moment = require('moment');
+import { FicheDeCommandeProduitService } from 'app/entities/fiche-de-commande-produit';
+import { FicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 
 @Component({
     selector: 'jhi-emprunt-retour',
@@ -37,8 +39,10 @@ export class EmpruntRetourComponent implements OnInit {
     unite: String = 'Article non choisi';
     private dispo: boolean = true;
     commande: boolean = false;
+    private ficheCommande: FicheDeCommandeProduit;
 
     constructor(
+        protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
         protected ficheArticleService: FicheArticleService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
@@ -178,9 +182,5 @@ export class EmpruntRetourComponent implements OnInit {
                 detail: 'erreur'
             });
         }
-    }
-
-    demandeCommande() {
-        //this.ficheArticle.disponibliteArticle = DisponibliteArticle.ENCOMMANDE;
     }
 }

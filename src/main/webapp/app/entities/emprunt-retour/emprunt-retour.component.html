@@ -38,6 +38,6 @@
             <button pButton class="ui-button-success" label="Back" class="nav-link" routerLink="/">
             </button>
             <button pButton  (click)="save()"  *ngIf="dispo" type="submit" id="save-entity" label="Save"></button>
-            <button pButton (click)="demandeCommande()"  class="ui-button-success" *ngIf="commande" label="Commander" class="nav-link" label="Commande"></button>
+            <button pButton  class="ui-button-success" *ngIf="commande" label="Commander" class="nav-link" routerLink="/fiche-de-commande-produit/new" label="Demande_Commander"></button>
         </div>
     </div>
