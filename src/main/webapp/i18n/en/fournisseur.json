@@ -1,0 +1,25 @@
+{
+    "projetChimieApp": {
+        "fournisseur": {
+            "home": {
+                "title": "Supplier",
+                "createLabel": "Create a new Supplier",
+                "createOrEditLabel": "Create or edit a Supplier"
+            },
+            "created": "A new Supplier created with identifier {{ param }}",
+            "updated": "A Supplier is updated with identifier {{ param }}",
+            "deleted": "A Supplier is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Supplier {{ id }}?"
+            },
+            "detail": {
+                "title": "Supplier"
+            },
+            "nomFournisseur": "Supplier name",
+            "adresse": "Adress",
+            "mail": "Email",
+            "telephone": "Phone",
+            "ficheDeCommandeProduit": "Product order card"
+        }
+    }
+}
