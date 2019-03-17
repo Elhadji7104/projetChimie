@@ -79,7 +79,6 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         //this.ficheDeCommandeProduit.ficheArticle = this.ficheArticle;
         this.ficheDeCommandeProduit.fournisseurs = this.fournisseurs;
         this.isSaving = true;
-        console.log(this.ficheDeCommandeProduit);
         if (this.ficheDeCommandeProduit.id !== undefined) {
             this.subscribeToSaveResponse(this.ficheDeCommandeProduitService.update(this.ficheDeCommandeProduit));
         } else {
