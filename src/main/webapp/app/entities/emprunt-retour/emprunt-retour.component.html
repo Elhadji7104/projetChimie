@@ -1,3 +1,5 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
 <p-tabMenu [model]="empruntRetour" [activeItem]="activeItem"></p-tabMenu>
 
     <div>
@@ -9,7 +11,7 @@
             <h3 class="first">Saisir l'article à emprunter :</h3>
         </div>
         <div class="first">
-            <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" required>
+            <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" (onChange)="actuUnite();actuDispon()" required>
 
                 <ng-template let-art pTemplate="item">
                     <div class="ui-helper-clearfix" style="vertical-align:middle;height: 25px;">
@@ -18,6 +20,9 @@
                 </ng-template>
             </p-dropdown>
         </div>
+        <div class="first" *ngIf="dispo==false">
+            <h3 style="font-size: small;color: red" class="first">L'article n'est plus disponible:</h3>
+        </div>
         <div class="first" *ngIf="choix">
             <h3 class="first">Saisir la quantité retournée (pour alerter des fins de stock) :</h3>
         </div>
@@ -25,13 +30,14 @@
             <h3 class="first">Saisir la quantité initial :</h3>
         </div>
         <div class="first">
-            <input [(ngModel)]="quantite" type="text" size="30" pInputText pKeyFilter="num" placeholder="Numbers">
+            <input [(ngModel)]="quantite"  type="text" size="30" pInputText pKeyFilter="num">
+            {{unite}}
         </div>
         <p></p>
         <div class="first">
-            <button type="submit" id="save-entity"
-                    class="btn btn-primary" (click)="save()">
-                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <button pButton class="ui-button-success" label="Back" class="nav-link" routerLink="/">
             </button>
+            <button pButton  (click)="save()"  *ngIf="dispo" type="submit" id="save-entity" label="Save"></button>
+            <button pButton  class="ui-button-success" *ngIf="commande" label="Commander" class="nav-link" routerLink="/fiche-de-commande-produit/new" label="Demande_Commander"></button>
         </div>
     </div>

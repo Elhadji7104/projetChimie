@@ -1,33 +1,47 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FicheArticleService } from 'app/entities/fiche-article';
+import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
+import { AccountService } from 'app/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
-import { Sort } from '@angular/material';
-import { IFicheArticle } from 'app/shared/model/fiche-article.model';
-import { AccountService, User } from 'app/core';
-import { FicheArticleService } from './fiche-article.service';
-import { SelectItem, SortEvent } from 'primeng/api';
-import { ClassificationService } from 'app/entities/classification';
+import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
+import { FicheArticleProduit, IFicheArticleProduit } from 'app/shared/model/fiche-article-produit.model';
+import { SelectItem } from 'primeng/api';
 import { IClassification } from 'app/shared/model/classification.model';
+import { ClassificationService } from 'app/entities/classification';
 
 @Component({
-    selector: 'jhi-fiche-article',
-    templateUrl: './fiche-article.component.html'
+    selector: 'jhi-recherche',
+    templateUrl: './recherche.component.html',
+    styles: []
 })
-export class FicheArticleComponent implements OnInit, OnDestroy {
-    users: User[];
-    cols: any[];
-    ficheArticles: IFicheArticle[];
-    currentAccount: any;
-    eventSubscriber: Subscription;
-    classifi: IClassification[];
-
+export class RechercheComponent implements OnInit {
+    private cols: ({ field: string; header: string })[];
+    private ficheArticles: IFicheArticle[] = [];
+    private ficheArticleProduits: IFicheArticleProduit[] = [];
     refArticleO: SelectItem[];
     casO: SelectItem[];
     acronymeO: SelectItem[];
     disponibliteArticleO: SelectItem[];
     nomO: SelectItem[];
     classificationO: SelectItem[];
+    private classifi: any;
+    private valeursSelect: any[];
+    private ficheArticlesFiltre: IFicheArticle[];
+    private ficheArticlesCopie: IFicheArticle[];
+
+    ngOnInit() {
+        this.cols = [
+            { field: 'refArticle', header: 'refArticle' },
+            { field: 'cas', header: 'cas' },
+            { field: 'nom', header: 'nom' },
+            { field: 'acronyme', header: 'acronyme' },
+            { field: 'classifications', header: 'classifications' },
+            { field: 'disponibliteArticle', header: 'disponibliteArticle' }
+        ];
+        this.loadAll();
+        this.loadAllClassi();
+        this.ficheInitial();
+    }
 
     constructor(
         protected classificationService: ClassificationService,
@@ -36,12 +50,24 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
         protected eventManager: JhiEventManager,
         protected accountService: AccountService
     ) {}
+
     loadAll() {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
-                console.log(res.body);
-
+                for (let value of this.ficheArticles) {
+                    let ficheArticleProduit = new FicheArticleProduit();
+                    ficheArticleProduit.acronyme = value.ficheProduitChimiques[0].acronyme;
+                    console.log(value.ficheProduitChimiques[0].acronyme);
+                    ficheArticleProduit.cas = value.ficheProduitChimiques[0].cas;
+                    ficheArticleProduit.classifications = value.classifications;
+                    ficheArticleProduit.nom = value.ficheProduitChimiques[0].nom;
+                    ficheArticleProduit.refArticle = value.refArticle;
+                    ficheArticleProduit.disponibliteArticle = value.disponibliteArticle;
+                    ficheArticleProduit.idArticle = value.id;
+                    ficheArticleProduit.idProduit = value.ficheProduitChimiques[0].id;
+                    this.ficheArticleProduits.push(ficheArticleProduit);
+                }
                 this.refArticleO = [];
                 this.casO = [];
                 this.acronymeO = [];
@@ -67,7 +93,10 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
                                 value: value.ficheProduitChimiques[0].cas
                             }) === -1
                         ) {
-                            this.casO.push({ label: value.ficheProduitChimiques[0].cas, value: value.ficheProduitChimiques[0].cas });
+                            this.casO.push({
+                                label: value.ficheProduitChimiques[0].cas,
+                                value: value.ficheProduitChimiques[0].cas
+                            });
                         }
                         if (
                             value.ficheProduitChimiques[0].acronyme !== undefined &&
@@ -88,7 +117,10 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
                                 value: value.disponibliteArticle
                             }) === -1
                         ) {
-                            this.disponibliteArticleO.push({ label: value.disponibliteArticle, value: value.disponibliteArticle });
+                            this.disponibliteArticleO.push({
+                                label: value.disponibliteArticle,
+                                value: value.disponibliteArticle
+                            });
                         }
                         if (
                             value.ficheProduitChimiques[0].nom !== undefined &&
@@ -97,7 +129,10 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
                                 value: value.ficheProduitChimiques[0].nom
                             }) === -1
                         ) {
-                            this.nomO.push({ label: value.ficheProduitChimiques[0].nom, value: value.ficheProduitChimiques[0].nom });
+                            this.nomO.push({
+                                label: value.ficheProduitChimiques[0].nom,
+                                value: value.ficheProduitChimiques[0].nom
+                            });
                         }
                     }
                 }
@@ -112,43 +147,32 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
                 this.classifi = res.body;
                 this.classificationO = [];
                 for (let value of this.classifi) {
-                    this.classificationO.push({ label: value.nomClassification, value: value.nomClassification });
+                    this.classificationO.push({ label: value.nomClassification, value: value });
                 }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
 
-    ngOnInit() {
-        this.loadAll();
-        this.accountService.identity().then(account => {
-            this.currentAccount = account;
-        });
-        this.registerChangeInFicheArticles();
-        this.cols = [
-            { field: 'refArticle', header: 'refArticle' },
-            { field: 'cas', header: 'cas' },
-            { field: 'nom', header: 'nom' },
-            { field: 'acronyme', header: 'acronyme' },
-            { field: 'classification', header: 'classification' },
-            { field: 'disponibliteArticle', header: 'disponibliteArticle' }
-        ];
-
-        this.disponibliteArticleO = [
-            { label: 'DISPONIBLE', value: 'DISPONIBLE' },
-            { label: 'INDISPONIBLE', value: 'INDISPONIBLE' },
-            { label: 'FINDESTOCK', value: 'FINDESTOCK' },
-            { label: 'ENCOMMANDE', value: 'ENCOMMANDE' }
-        ];
-        this.loadAllClassi();
+    ficheInitial() {
+        this.ficheArticlesCopie = this.ficheArticles;
     }
 
-    ngOnDestroy() {
-        this.eventManager.destroy(this.eventSubscriber);
-    }
-
-    registerChangeInFicheArticles() {
-        this.eventSubscriber = this.eventManager.subscribe('ficheArticleListModification', response => this.loadAll());
+    filtre() {
+        this.ficheArticles = this.ficheArticlesCopie;
+        for (let value of this.valeursSelect) {
+            console.log(this.ficheArticleProduits[0].classifications[0].nomClassification.toLowerCase().toString());
+            console.log(value);
+            console.log(
+                this.ficheArticleProduits[0].classifications[0].nomClassification
+                    .toLowerCase()
+                    .toString()
+                    .indexOf(value[0].nomClassification) >= 0
+            );
+            this.ficheArticleProduits = this.ficheArticleProduits.filter(
+                fiche => fiche.classifications.filter(classe => classe.nomClassification.toLowerCase().indexOf(value) >= 0).length > 0
+            );
+        }
     }
 
     onError(errorMessage: string) {

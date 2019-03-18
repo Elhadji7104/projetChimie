@@ -18,7 +18,7 @@ import { ProjetChimieEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DataTableModule, DropdownModule } from 'primeng/primeng';
+import { DataTableModule, DropdownModule, InputMaskModule, InputSwitchModule, SplitButtonModule } from 'primeng/primeng';
 import { PaginatorModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { ProjetChimieFicheEmpruntProduitModule } from './entities/fiche-emprunt-produit/fiche-emprunt-produit.module';
@@ -27,7 +27,9 @@ import { ButtonModule } from 'primeng/button';
 import { EmpruntRetourComponent } from './entities/emprunt-retour/emprunt-retour.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { KeyFilterModule } from 'primeng/keyfilter';
-
+import { ToastModule } from 'primeng/toast';
+import { RechercheComponent } from './recherche/recherche.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 @NgModule({
     imports: [
         TableModule,
@@ -55,7 +57,20 @@ import { KeyFilterModule } from 'primeng/keyfilter';
         ButtonModule,
         TabMenuModule,
         KeyFilterModule,
-        DropdownModule
+        DropdownModule,
+        ToastModule,
+        MultiSelectModule,
+        TableModule,
+        DataTableModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MultiSelectModule,
+        InputMaskModule,
+        InputTextModule,
+        InputSwitchModule,
+        DropdownModule,
+        ButtonModule,
+        SplitButtonModule
     ],
     declarations: [
         JhiMainComponent,
@@ -64,7 +79,8 @@ import { KeyFilterModule } from 'primeng/keyfilter';
         PageRibbonComponent,
         ActiveMenuDirective,
         FooterComponent,
-        EmpruntRetourComponent
+        EmpruntRetourComponent,
+        RechercheComponent
     ],
     providers: [
         {

@@ -1,23 +1,24 @@
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService, SelectItem } from 'primeng/api';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
+import { DisponibliteArticle, FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from '../fiche-article';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
-
 import { Subscription } from 'rxjs';
 import { FicheEmpruntProduitService } from '../fiche-emprunt-produit';
 import { FicheEmpruntProduit, IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.model';
-import moment = require('moment');
 import { FicheRetourProduit, IFicheRetourProduit } from 'app/shared/model/fiche-retour-produit.model';
 import { FicheRetourProduitService } from '../fiche-retour-produit';
-import { SelectItem } from 'primeng/api';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountService, IUser, User } from 'app/core';
+import moment = require('moment');
+import { FicheDeCommandeProduitService } from 'app/entities/fiche-de-commande-produit';
+import { FicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 
 @Component({
     selector: 'jhi-emprunt-retour',
     templateUrl: './emprunt-retour.component.html',
-    styles: []
+    styles: [],
+    providers: [MessageService]
 })
 export class EmpruntRetourComponent implements OnInit {
     @ViewChild('menuItems') menu: MenuItem[];
@@ -35,14 +36,20 @@ export class EmpruntRetourComponent implements OnInit {
     private user: IUser = new User();
     private ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
     articleOption: SelectItem[] = [];
+    unite: String = 'Article non choisi';
+    private dispo: boolean = true;
+    commande: boolean = false;
+    private ficheCommande: FicheDeCommandeProduit;
 
     constructor(
+        protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
         protected ficheArticleService: FicheArticleService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected accountService: AccountService,
         protected ficheEmpruntProduitService: FicheEmpruntProduitService,
-        protected ficheRetourProduitService: FicheRetourProduitService
+        protected ficheRetourProduitService: FicheRetourProduitService,
+        private messageService: MessageService
     ) {}
 
     loadAll() {
@@ -84,7 +91,7 @@ export class EmpruntRetourComponent implements OnInit {
                 }
             }
         ];
-
+        this.activeItem = this.empruntRetour[0];
         this.accountService.identity().then(account => {
             this.currentAccount = account;
         });
@@ -104,26 +111,75 @@ export class EmpruntRetourComponent implements OnInit {
         /*this.ficheArticleService.find(1).subscribe(result => {
             this.ficheArticle = result.body;
         });*/
+        this.show();
+        if (this.ficheArticle.refArticle !== undefined) {
+            if (this.choix) {
+                this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
+                this.user = this.currentAccount;
+                this.ficheEmpruntProduit.demandeur = this.user;
+                console.log(this.ficheEmpruntProduit.demandeur);
+                this.ficheEmpruntProduit.dateEmprunt = moment(new Date(Date.now()));
+                this.ficheEmpruntProduit.quantite = this.quantite;
+                this.ficheEmpruntProduitService.create(this.ficheEmpruntProduit).subscribe(result => {
+                    console.log(result);
+                });
+            } else {
+                this.ficheRetourProduit.ficheArticle = this.ficheArticle;
+                this.user = this.currentAccount;
+                this.ficheRetourProduit.demandeur = this.user;
+                console.log(this.ficheRetourProduit.demandeur);
+                this.ficheRetourProduit.dateRetour = moment(new Date(Date.now()));
+                this.ficheRetourProduit.quantite = this.quantite;
+                this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
+                    console.log(result);
+                });
+            }
+        }
+    }
 
-        if (this.choix) {
-            this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
-            this.user = this.currentAccount;
-            this.ficheEmpruntProduit.demandeur = this.user;
-            console.log(this.ficheEmpruntProduit.demandeur);
-            this.ficheEmpruntProduit.dateEmprunt = moment(new Date(Date.now()));
-            this.ficheEmpruntProduit.quantite = this.quantite;
-            this.ficheEmpruntProduitService.create(this.ficheEmpruntProduit).subscribe(result => {
-                console.log(result);
+    actuUnite() {
+        if (this.ficheArticle.unites.length !== 0) {
+            this.unite = this.ficheArticle.unites[0].libelleUnite;
+        }
+    }
+
+    show() {
+        if (this.ficheArticle.refArticle !== undefined) {
+            this.messageService.add({
+                severity: 'success',
+                summary: "L'article est emprunté",
+                detail: 'Order submitted'
             });
         } else {
-            this.ficheRetourProduit.ficheArticle = this.ficheArticle;
-            this.user = this.currentAccount;
-            this.ficheRetourProduit.demandeur = this.user;
-            console.log(this.ficheRetourProduit.demandeur);
-            this.ficheRetourProduit.dateRetour = moment(new Date(Date.now()));
-            this.ficheRetourProduit.quantite = this.quantite;
-            this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
-                console.log(result);
+            this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Erreur' });
+        }
+    }
+    actuDispon() {
+        this.dispo = true;
+        this.commande = false;
+        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.INDISPONIBLE.toString()) {
+            this.dispo = false;
+            this.messageService.add({
+                severity: 'error',
+                summary: "L'article n'est pas disponible",
+                detail: 'erreur'
+            });
+        }
+        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.ENCOMMANDE.toString()) {
+            this.dispo = false;
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Commande article en cours de traitement',
+                detail: 'erreur'
+            });
+        }
+        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.FINDESTOCK.toString()) {
+            this.dispo = false;
+            this.commande = true;
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Article en fin de stock veuillez lancer la commande',
+                detail: 'erreur'
             });
         }
     }

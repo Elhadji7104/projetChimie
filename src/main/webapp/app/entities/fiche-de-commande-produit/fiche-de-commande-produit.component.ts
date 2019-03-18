@@ -1,11 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 
-import { IFicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
+import { FicheDeCommandeProduit, IFicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 import { AccountService } from 'app/core';
 import { FicheDeCommandeProduitService } from './fiche-de-commande-produit.service';
+import { FicheArticleService } from 'app/entities/fiche-article';
+import { DisponibliteArticle, FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
+import moment = require('moment');
 
 @Component({
     selector: 'jhi-fiche-de-commande-produit',
@@ -15,12 +18,15 @@ export class FicheDeCommandeProduitComponent implements OnInit, OnDestroy {
     ficheDeCommandeProduits: IFicheDeCommandeProduit[];
     currentAccount: any;
     eventSubscriber: Subscription;
+    private ficheArticle: IFicheArticle = new FicheArticle();
+    private ficheDeCommandeProduit: IFicheDeCommandeProduit = new FicheDeCommandeProduit();
 
     constructor(
         protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
-        protected accountService: AccountService
+        protected accountService: AccountService,
+        protected ficheArticleService: FicheArticleService
     ) {}
 
     loadAll() {
@@ -54,5 +60,16 @@ export class FicheDeCommandeProduitComponent implements OnInit, OnDestroy {
 
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    livraison(id) {
+        this.ficheDeCommandeProduitService.find(id).subscribe(fiche => (this.ficheDeCommandeProduit = fiche.body));
+
+        this.ficheArticle = this.ficheDeCommandeProduit.ficheArticle;
+        this.ficheDeCommandeProduit.dateLivraison = moment(new Date(Date.now()));
+        this.ficheDeCommandeProduitService.update(this.ficheDeCommandeProduit);
+        console.log(this.ficheDeCommandeProduit);
+        //this.ficheArticle.disponibliteArticle = DisponibliteArticle.DISPONIBLE;
+        //this.ficheArticleService.update(this.ficheArticle)
     }
 }

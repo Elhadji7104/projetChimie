@@ -7,10 +7,11 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IFicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 import { FicheDeCommandeProduitService } from './fiche-de-commande-produit.service';
-import { IFournisseur } from 'app/shared/model/fournisseur.model';
+import { Fournisseur, IFournisseur } from 'app/shared/model/fournisseur.model';
 import { FournisseurService } from 'app/entities/fournisseur';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
+import { SelectItem } from 'primeng/api';
 
 @Component({
     selector: 'jhi-fiche-de-commande-produit-update',
@@ -19,12 +20,16 @@ import { FicheArticleService } from 'app/entities/fiche-article';
 export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     ficheDeCommandeProduit: IFicheDeCommandeProduit;
     isSaving: boolean;
+    articleOption: SelectItem[] = [];
+    fournisseurs: IFournisseur[] = [];
 
-    fournisseurs: IFournisseur[];
-
-    fichearticles: IFicheArticle[];
     dateDeCommandeDp: any;
     dateLivraisonDp: any;
+    private unite: string;
+    private fichearticles: IFicheArticle[];
+    private ficheArticle: any;
+    fournisseurOption: SelectItem[] = [];
+    private quantite: number;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -42,12 +47,24 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         this.fournisseurService.query().subscribe(
             (res: HttpResponse<IFournisseur[]>) => {
                 this.fournisseurs = res.body;
+                for (let value of this.fournisseurs) {
+                    this.fournisseurOption.push({ label: value.nomFournisseur, value: value.nomFournisseur });
+                }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.fichearticles = res.body;
+                for (let value of this.fichearticles) {
+                    if (value !== undefined && value.refArticle !== undefined) {
+                        this.articleOption.push({
+                            label:
+                                value.refArticle + ' : ' + value.ficheProduitChimiques[0].cas + ' : ' + value.ficheProduitChimiques[0].nom,
+                            value: value
+                        });
+                    }
+                }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -58,6 +75,9 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     }
 
     save() {
+        this.ficheDeCommandeProduit.dateDeCommande = moment(new Date(Date.now()));
+        //this.ficheDeCommandeProduit.ficheArticle = this.ficheArticle;
+        this.ficheDeCommandeProduit.fournisseurs = this.fournisseurs;
         this.isSaving = true;
         if (this.ficheDeCommandeProduit.id !== undefined) {
             this.subscribeToSaveResponse(this.ficheDeCommandeProduitService.update(this.ficheDeCommandeProduit));
@@ -103,5 +123,11 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
             }
         }
         return option;
+    }
+
+    actuUnite() {
+        if (this.ficheArticle.unites.length !== 0) {
+            this.unite = this.ficheArticle.unites[0].libelleUnite;
+        }
     }
 }

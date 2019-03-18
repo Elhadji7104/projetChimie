@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="projetChimieApp.ficheArticle.home.title">Fiche Articles</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-article"
+                [routerLink]="['/fiche-article/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span jhiTranslate="projetChimieApp.ficheArticle.home.createLabel">
+            Create new Fiche Article
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="ficheArticleProduits">
+        <p-table class="table table-striped" [columns]="cols" [value]="ficheArticleProduits" sortMode="multiple" #dt>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <p-multiSelect *ngSwitchCase="'classifications'" [(ngModel)]="classification"
+                                       [(ngModel)]="valeursSelect" [options]="classificationO" defaultLabel="All disponibilite"
+                                       (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle"
+                                       [options]="disponibliteArticleO" defaultLabel="All disponibilite"
+                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'nom'" [options]="nomO" [(ngModel)]="nom"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'acronyme'" [options]="acronymeO" [(ngModel)]="acronyme"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'cas'" [options]="casO" [(ngModel)]="cas"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'refArticle'" [options]="refArticleO" [(ngModel)]="refArticle"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td><a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData.refArticle}}</a></td>
+                    <td>
+                        <a class="form-control-static"
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData.cas}}</a>
+                    </td>
+                    <td>
+                        <a class="form-control-static"
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData.nom}}</a>
+                    </td>
+                    <td>
+                        <a class="form-control-static"
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData.acronyme}}</a>
+                    </td>
+                    <td>
+                       <span *ngFor="let classification of rowData.classifications; let last = last">
+                            <a class="form-control-static" [routerLink]="['../classification', classification?.id, 'view' ]"> {{classification.nomClassification}}</a>{{last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData.disponibliteArticle}}</a>
+                    </td>
+                    <td>
+                        <div class="table table-striped">
+                            <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
+                                    type="submit"
+                                    [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.idProduit + '/delete'} }]"
+                                    replaceUrl="true"
+                                    queryParamsHandling="merge"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

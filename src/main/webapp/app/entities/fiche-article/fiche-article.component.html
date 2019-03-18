@@ -14,20 +14,19 @@
         <p-table class="table table-striped" [columns]="cols" [value]="ficheArticles" sortMode="multiple" #dt  >
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th *ngFor="let col of columns" [pSortableColumn]="col.field" (input)="dt.filter($event.value, col.field, 'in')">
+                   <th *ngFor="let col of columns" [pSortableColumn]="col.field" (input)="dt.filter($event.value, col.field, 'in')">
                         {{col.header}}
                         <p-sortIcon [field]="col.field" ></p-sortIcon>
                     </th>
-
                     <th></th>
                 </tr>
                    <tr>
                       <td *ngFor="let col of columns" [ngSwitch]="col.field">
                           <p-multiSelect *ngSwitchCase="'classification'" [(ngModel)]="classification" [options]="classificationO" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                           <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle" [options]="disponibliteArticleO" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                          <p-multiSelect *ngSwitchCase="'nom'" [options]="nomO"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                          <p-multiSelect *ngSwitchCase="'acronyme'" [options]="acronymeO"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                          <p-multiSelect *ngSwitchCase="'cas'" [options]="casO"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'nom'" [options]="nomO"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="test($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'acronyme'" [options]="acronymeO"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="test($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'cas'" [options]="casO"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="test($event.value, col.field, 'in')"></p-multiSelect>
                           <p-multiSelect *ngSwitchCase="'refArticle'" [options]="refArticleO"  [(ngModel)]="refArticle" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                       </td>
                    </tr>
@@ -37,9 +36,7 @@
                 <tr>
                     <td><a [routerLink]="['/fiche-article', rowData.id, 'view' ]">{{rowData.refArticle}}</a></td>
                     <td>
-                    <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">
-                            <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.cas}}</a>{{last ? '' : ', '}}
-                        </span>
+                        <a class="form-control-static" [routerLink]="['../fiche-produit-chimique', rowData.ficheProduitChimiques[0]?.id, 'view' ]">{{rowData.ficheProduitChimiques[0].cas}}</a>
                     </td>
                     <td>
                     <span *ngFor="let ficheProduitChimique of rowData.ficheProduitChimiques; let last = last">

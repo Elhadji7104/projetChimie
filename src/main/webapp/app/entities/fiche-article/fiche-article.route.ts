@@ -30,15 +30,6 @@ export class FicheArticleResolve implements Resolve<IFicheArticle> {
 
 export const ficheArticleRoute: Routes = [
     {
-        path: 'fiche-article',
-        component: FicheArticleComponent,
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'projetChimieApp.ficheArticle.home.title'
-        },
-        canActivate: [UserRouteAccessService]
-    },
-    {
         path: 'fiche-article/:id/view',
         component: FicheArticleDetailComponent,
         resolve: {

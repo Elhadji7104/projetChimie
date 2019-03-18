@@ -34,7 +34,7 @@ export interface IFicheArticle {
     localisations?: ILocalisation[];
     documents?: IDocument[];
     unites?: IUnite[];
-    ficheProduitChimiques?: IFicheProduitChimique[];
+    ficheProduitChimiques?: IFicheProduitChimique;
     classifications?: IClassification[];
     droitDacceeProduit?: IDroitDacceeProduit;
 }
@@ -57,7 +57,7 @@ export class FicheArticle implements IFicheArticle {
         public localisations?: ILocalisation[],
         public documents?: IDocument[],
         public unites?: IUnite[],
-        public ficheProduitChimiques?: IFicheProduitChimique[],
+        public ficheProduitChimiques?: IFicheProduitChimique,
         public classifications?: IClassification[],
         public droitDacceeProduit?: IDroitDacceeProduit
     ) {
