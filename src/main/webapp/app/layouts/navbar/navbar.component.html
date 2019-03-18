@@ -1,5 +1,5 @@
 <!--<nav class="navbar navbar-dark navbar-expand-md bg-dark">-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-dark navbar-expand-md bg-success">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span>ISCR</span>
     </a>
@@ -16,81 +16,81 @@
                     </span>
                 </a>
             </li>
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle="active" href="javascript:void(0);" id="annuaire-menu">
                     <span>
                         <fa-icon icon="book"></fa-icon>
-                        <span>Annuaire</span>
+                        <span jhiTranslate="global.menu.yearbook.main">Yearbook</span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="annuaire-menu">
                     <li>
                         <a class="dropdown-item" routerLink="groupe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.groupe">Groupe</span>
+                            <span jhiTranslate="global.menu.yearbook.groupe">Group</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="fournisseur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.fournisseur">Fournisseur</span>
+                            <span jhiTranslate="global.menu.yearbook.fournisseur">Supplier</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="localisation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.localisation">Localisation</span>
+                            <span jhiTranslate="global.menu.yearbook.localisation">Localisation</span>
                         </a>
                     </li>
                     <li>
                         <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="droit-daccee-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.droitDacceeProduit">Droit Daccee Produit</span>
+                            <span jhiTranslate="global.menu.yearbook.droitDacceeProduit">Droit Daccee Produit</span>
                         </a>
                     </li>
                     <li>
                         <a *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']" class="dropdown-item" routerLink="liste-groupe-invite" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.listeGroupeInvite">Liste Groupe Invite</span>
+                            <span jhiTranslate="global.menu.yearbook.listeGroupeInvite">Liste Groupe Invite</span>
                         </a>
                     </li>
                     <li>
                         <a *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE']" class="dropdown-item" routerLink="mail-gestionnaire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.mailGestionnaire">Mail Gestionnaire</span>
+                            <span jhiTranslate="global.menu.yearbook.mailGestionnaire">Mail Gestionnaire</span>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_HYGIENE_ET_SECURITE']" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle="active" href="javascript:void(0);" id="security-menu">
                     <span>
                         <fa-icon icon="hdd"></fa-icon>
-                        <span>Sécurité</span>
+                        <span jhiTranslate="global.menu.security.main">Security</span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="security-menu">
                     <li>
                         <a class="dropdown-item" routerLink="liste-cmr" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.listeCmr">Liste Cmr</span>
+                            <span jhiTranslate="global.menu.security.listeCmr">Liste Cmr</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="liste-localisation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span>Liste Localisation</span>
+                            <span jhiTranslate="global.menu.security.listeLocalisation">Liste Localisation</span>
                         </a>
                     </li>
                 </ul>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-            <li *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
-                        <span>
-                            Gestion de la base
+                        <span jhiTranslate="global.menu.management of the base.main">
+                            "management of the base"
                         </span>
                     </span>
                 </a>
@@ -98,84 +98,85 @@
                     <li>
                         <a class="dropdown-item" routerLink="fiche-de-commande-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ficheDeCommandeProduit">Fiche De Commande Produit</span>
+                            <span jhiTranslate="global.menu.management of the base.ficheDeCommandeProduit">Fiche De Commande Produit</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="fiche-emprunt-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ficheEmpruntProduit">Fiche Emprunt Produit</span>
+                            <span jhiTranslate="global.menu.management of the base.ficheEmpruntProduit">Fiche Emprunt Produit</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="fiche-retour-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ficheRetourProduit">Fiche Retour Produit</span>
+                            <span jhiTranslate="global.menu.management of the base.ficheRetourProduit">Fiche Retour Produit</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="classification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.classification">Classification</span>
+                            <span jhiTranslate="global.menu.management of the base.classification">Classification</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="type-de-conditionnement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.typeDeConditionnement">Type De Conditionnement</span>
+                            <span jhiTranslate="global.menu.management of the base.typeDeConditionnement">Type De Conditionnement</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="unite" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.unite">Unite</span>
+                            <span jhiTranslate="global.menu.management of the base.unite">Unite</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="type-lieu-stockage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.typeLieuStockage">Type Lieu Stockage</span>
+                            <span jhiTranslate="global.menu.management of the base.typeLieuStockage">Type Lieu Stockage</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+           <!-- ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
+            <li ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="rech-empr-menu">
                     <span>
                         <fa-icon icon="search"></fa-icon>
-                        <span>Recherche / Emprunt</span>
+                        <span jhiTranslate="global.menu.research/borrowing.main">Research/Borrowing</span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="rech-empr-menu">
                     <li>
                         <a class="dropdown-item" routerLink="emprunt-produit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="projetChimieApp.ficheEmpruntProduit.empruntRetour">Emprunt</span>
+                            <span jhiTranslate="global.menu.research/borrowing.borrowing/return">Emprunt</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="fiche-article" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ficheArticle">Fiche Article</span>
+                            <span jhiTranslate="global.menu.research/borrowing.ficheArticle">Fiche Article</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="fiche-produit-chimique" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.ficheProduitChimique">Fiche Produit Chimique</span>
+                            <span jhiTranslate="global.menu.research/borrowing.ficheProduitChimique">Fiche Produit Chimique</span>
                         </a>
                     </li>
 
                     <li>
                         <a class="dropdown-item" routerLink="document" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.document">Document</span>
+                            <span jhiTranslate="global.menu.research/borrowing.document">Document</span>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
                         <fa-icon icon="user-plus"></fa-icon>
