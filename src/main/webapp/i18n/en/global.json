@@ -5,27 +5,36 @@
         "menu": {
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
-            "entities": {
-                "main": "Entities",
-                "groupe": "Groupe",
-                "droitDacceeProduit": "Droit Daccee Produit",
-                "mailGestionnaire": "Mail Gestionnaire",
-                "ficheArticle": "Fiche Article",
-                "ficheProduitChimique": "Fiche Produit Chimique",
-                "listeMotsCles": "Liste Mots Cles",
-                "ficheDeCommandeProduit": "Fiche De Commande Produit",
-                "ficheEmpruntProduit": "Fiche Emprunt Produit",
-                "ficheRetourProduit": "Fiche Retour Produit",
-                "fournisseur": "Fournisseur",
-                "typeDeConditionnement": "Type De Conditionnement",
-                "document": "Document",
-                "localisation": "Localisation",
-                "unite": "Unite",
-                "listeCmr": "Liste Cmr",
-                "typeLieuStockage": "Type Lieu Stockage",
+            "yearbook": {
+                "main": "Yearbook",
+                "groupe": "Group",
+                "fournisseur": "Supplier",
+                "localisation": "Location",
+                "droitDacceeProduit": "Product Access Right",
+                "mailGestionnaire": "managerial mail",
+                "listeGroupeInvite": "Invited Group list"
+            },
+            "security": {
+                "main": "Security",
+                "listeCmr": "Cmr List",
+                "listeLocalisation": "Location List"
+            },
+            "management of the base": {
+                "main": "Management of the base",
+                "ficheDeCommandeProduit": "Product Order Form",
+                "ficheEmpruntProduit": "Product Borrowing Form",
+                "ficheRetourProduit": "Product Return Form",
                 "classification": "Classification",
-                "listeGroupeInvite": "Liste Groupe Invite",
-                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+                "typeDeConditionnement": "Packaging Type",
+                "unite": "Unity",
+                "typeLieuStockage": "Type Location Storage"
+            },
+            "research/borrowing": {
+                "main": "Research/Borrowing",
+                "borrowing/return": "borrowing/return",
+                "ficheArticle": "Article Form",
+                "ficheProduitChimique": "Chemical Product Form",
+                "document": "Document"
             },
             "account": {
                 "main": "Account",
