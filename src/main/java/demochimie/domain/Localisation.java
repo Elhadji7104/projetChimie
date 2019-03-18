@@ -38,9 +38,6 @@ public class Localisation implements Serializable {
     @Column(name = "pays")
     private String pays;
 
-    @Column(name = "quantite")
-    private Float quantite;
-
     @OneToMany(mappedBy = "localisation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TypeLieuStockage> typeLieuStockages = new HashSet<>();
@@ -107,19 +104,6 @@ public class Localisation implements Serializable {
 
     public void setPays(String pays) {
         this.pays = pays;
-    }
-
-    public Float getQuantite() {
-        return quantite;
-    }
-
-    public Localisation quantite(Float quantite) {
-        this.quantite = quantite;
-        return this;
-    }
-
-    public void setQuantite(Float quantite) {
-        this.quantite = quantite;
     }
 
     public Set<TypeLieuStockage> getTypeLieuStockages() {
@@ -189,7 +173,6 @@ public class Localisation implements Serializable {
             ", codePostal='" + getCodePostal() + "'" +
             ", ville='" + getVille() + "'" +
             ", pays='" + getPays() + "'" +
-            ", quantite=" + getQuantite() +
             "}";
     }
 }

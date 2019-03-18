@@ -40,6 +40,9 @@ public class FicheArticle implements Serializable {
     @Column(name = "code_barre")
     private String codeBarre;
 
+    @Column(name = "quantite")
+    private Float quantite;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "disponiblite_article")
     private DisponibliteArticle disponibliteArticle;
@@ -174,6 +177,14 @@ public class FicheArticle implements Serializable {
         this.disponibliteArticle = disponibliteArticle;
     }
 
+
+    public Float getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(Float quantite) {
+        this.quantite = quantite;
+    }
     public Boolean isTypeDesuivi() {
         return typeDesuivi;
     }

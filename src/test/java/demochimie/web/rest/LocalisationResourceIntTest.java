@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
@@ -100,8 +101,7 @@ public class LocalisationResourceIntTest {
             .adresse(DEFAULT_ADRESSE)
             .codePostal(DEFAULT_CODE_POSTAL)
             .ville(DEFAULT_VILLE)
-            .pays(DEFAULT_PAYS)
-            .quantite(DEFAULT_QUANTITE);
+            .pays(DEFAULT_PAYS);
         return localisation;
     }
 
@@ -129,7 +129,6 @@ public class LocalisationResourceIntTest {
         assertThat(testLocalisation.getCodePostal()).isEqualTo(DEFAULT_CODE_POSTAL);
         assertThat(testLocalisation.getVille()).isEqualTo(DEFAULT_VILLE);
         assertThat(testLocalisation.getPays()).isEqualTo(DEFAULT_PAYS);
-        assertThat(testLocalisation.getQuantite()).isEqualTo(DEFAULT_QUANTITE);
     }
 
     @Test
@@ -211,9 +210,7 @@ public class LocalisationResourceIntTest {
             .adresse(UPDATED_ADRESSE)
             .codePostal(UPDATED_CODE_POSTAL)
             .ville(UPDATED_VILLE)
-            .pays(UPDATED_PAYS)
-            .quantite(UPDATED_QUANTITE);
-
+            .pays(UPDATED_PAYS);
         restLocalisationMockMvc.perform(put("/api/localisations")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(updatedLocalisation)))
@@ -227,7 +224,6 @@ public class LocalisationResourceIntTest {
         assertThat(testLocalisation.getCodePostal()).isEqualTo(UPDATED_CODE_POSTAL);
         assertThat(testLocalisation.getVille()).isEqualTo(UPDATED_VILLE);
         assertThat(testLocalisation.getPays()).isEqualTo(UPDATED_PAYS);
-        assertThat(testLocalisation.getQuantite()).isEqualTo(UPDATED_QUANTITE);
     }
 
     @Test
