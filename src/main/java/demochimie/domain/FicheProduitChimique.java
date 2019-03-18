@@ -37,6 +37,7 @@ public class FicheProduitChimique implements Serializable {
     @Column(name = "acronyme")
     private String acronyme;
 
+
     @Column(name = "formule")
     private String formule;
 
@@ -113,6 +114,13 @@ public class FicheProduitChimique implements Serializable {
 
     public void setAcronyme(String acronyme) {
         this.acronyme = acronyme;
+    }
+    public String getFormule() {
+        return formule;
+    }
+
+    public void setFormule(String formule) {
+        this.formule = formule;
     }
 
     public String getMm() {
@@ -222,6 +230,7 @@ public class FicheProduitChimique implements Serializable {
             ", acronyme='" + getAcronyme() + "'" +
             ", mm='" + getMm() + "'" +
             ", codeNacre='" + getCodeNacre() + "'" +
+            ", formule='" + getFormule() + "'" +
             "}";
     }
 }

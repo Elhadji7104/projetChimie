@@ -22,7 +22,7 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
     AcronymeSelect: SelectItem[];
     MmSelect: SelectItem[];
     CodeNacreSelect: SelectItem[];
-
+    formuleSelect: SelectItem[];
     constructor(
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
         protected jhiAlertService: JhiAlertService,
@@ -39,6 +39,7 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
                 this.AcronymeSelect = [];
                 this.MmSelect = [];
                 this.CodeNacreSelect = [];
+                this.formuleSelect = [];
 
                 for (let value of this.ficheProduitChimiques) {
                     if (value !== undefined) {
@@ -85,6 +86,15 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
                         ) {
                             this.CodeNacreSelect.push({ label: value.codeNacre, value: value.codeNacre });
                         }
+                        if (
+                            value.formule !== undefined &&
+                            this.formuleSelect.indexOf({
+                                label: value.formule,
+                                value: value.formule
+                            }) === -1
+                        ) {
+                            this.formuleSelect.push({ label: value.formule, value: value.formule });
+                        }
                     }
                 }
             },
@@ -103,7 +113,8 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
             { field: 'nom', header: 'nom' },
             { field: 'acronyme', header: 'acronyme' },
             { field: 'mm', header: 'mm' },
-            { field: 'codeNacre', header: 'codeNacre' }
+            { field: 'codeNacre', header: 'codeNacre' },
+            { field: 'formule', header: 'formule' }
         ];
     }
 

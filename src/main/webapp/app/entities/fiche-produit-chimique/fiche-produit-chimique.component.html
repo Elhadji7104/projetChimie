@@ -28,6 +28,8 @@
                   <p-multiSelect *ngSwitchCase="'acronyme'"[options]="AcronymeSelect"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                   <p-multiSelect *ngSwitchCase="'mm'" [options]="MmSelect" [(ngModel)]="mm" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                   <p-multiSelect *ngSwitchCase="'codeNacre'"[options]="CodeNacreSelect"  [(ngModel)]="codeNacre" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'formule'"[options]="formuleSelect"  [(ngModel)]="formule" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+
               </td>
                           </tr>
 
@@ -39,6 +41,8 @@
                 <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.acronyme}}</a></td>
                 <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.mm}}</a></td>
                 <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.codeNacre}}</a></td>
+                <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.formule}}</a></td>
+
                 <td>
                     <div class="table table-striped">
                         <button type="submit"

@@ -34,8 +34,14 @@
                                      [(ngModel)]="ficheProduitChimique.codeNacre" value="NA21"  mask="aa99"></p-inputMask>
 
                     </div></div>
+                <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.formule" for="field_formule">Formule chimique</label>
+                <div>
 
-            </div>
+                    <p-inputMask name="formule" id="field_formule"
+                                 [(ngModel)]="ficheProduitChimique.formule" value="NA21"  mask="aa99"></p-inputMask>
+
+                </div>
+                </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

@@ -9,6 +9,7 @@ export interface IFicheProduitChimique {
     acronyme?: string;
     mm?: string;
     codeNacre?: string;
+    formule?: string;
     listeCmrs?: IListeCmr[];
     ficheArticles?: IFicheArticle[];
 }
@@ -22,6 +23,7 @@ export class FicheProduitChimique implements IFicheProduitChimique {
         public acronyme?: string,
         public mm?: string,
         public codeNacre?: string,
+        public formule?: string,
         public listeCmrs?: IListeCmr[],
         public ficheArticles?: IFicheArticle[]
     ) {}
