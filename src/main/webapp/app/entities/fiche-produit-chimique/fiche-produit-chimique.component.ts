@@ -109,12 +109,12 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
         });
         this.registerChangeInFicheProduitChimiques();
         this.cols = [
-            { field: 'cas', header: 'cas' },
-            { field: 'nom', header: 'nom' },
-            { field: 'acronyme', header: 'acronyme' },
-            { field: 'mm', header: 'mm' },
-            { field: 'codeNacre', header: 'codeNacre' },
-            { field: 'formule', header: 'formule' }
+            { field: 'cas', header: 'CAS' },
+            { field: 'nom', header: 'Nom' },
+            { field: 'acronyme', header: 'Acronyme' },
+            { field: 'mm', header: 'MM' },
+            { field: 'codeNacre', header: 'Code Nacre' },
+            { field: 'formule', header: 'Formule Chimique' }
         ];
     }
 
