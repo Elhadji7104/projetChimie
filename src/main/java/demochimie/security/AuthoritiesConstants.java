@@ -15,7 +15,7 @@ public final class AuthoritiesConstants {
 
     public static final String GESTIONNAIRE_DE_BASE ="ROLE_GESTIONNAIRE_DE_BASE";
 
-    public static final String VALIDEUR ="VALIDEUR";
+    public static final String ROLE_VALIDEUR ="ROLE_VALIDEUR";
     private AuthoritiesConstants() {
     }
 }
