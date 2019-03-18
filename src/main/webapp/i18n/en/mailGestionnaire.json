@@ -13,10 +13,10 @@
                 "question": "Are you sure you want to delete Mail Gestionnaire {{ id }}?"
             },
             "detail": {
-                "title": "Mail Gestionnaire"
+                "title": "Email Gestionnaire"
             },
-            "mail": "Mail",
-            "groupe": "Groupe"
+            "mail": "Email",
+            "groupe": "Group"
         }
     }
 }

@@ -15,11 +15,11 @@
             "detail": {
                 "title": "Fiche De Commande Produit"
             },
-            "quantite": "Quantite",
+            "quantite": "Quantity",
             "dateDeCommande": "Date De Commande",
             "dateLivraison": "Date Livraison",
-            "fournisseur": "Fournisseur",
-            "ficheArticle": "Fiche Article"
+            "fournisseur": "Supplier",
+            "ficheArticle": "Article Form"
         }
     }
 }

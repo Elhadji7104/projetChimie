@@ -15,9 +15,9 @@
             "detail": {
                 "title": "Groupe"
             },
-            "nomGroupe": "Nom Groupe",
-            "nombreMembre": "Nombre Membre",
-            "localGroupe": "Local Groupe",
+            "nomGroupe": "Group Name",
+            "nombreMembre": "Member Number",
+            "localGroupe": "Local Group",
             "droitDacceeProduit": "Droit Daccee Produit",
             "mailGestionnaire": "Mail Gestionnaire",
             "listeGroupeInvite": "Liste Groupe Invite",

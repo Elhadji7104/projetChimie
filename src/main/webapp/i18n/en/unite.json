@@ -13,10 +13,10 @@
                 "question": "Are you sure you want to delete Unite {{ id }}?"
             },
             "detail": {
-                "title": "Unite"
+                "title": "Unity"
             },
             "libelleUnite": "Libelle Unite",
-            "ficheArticle": "Fiche Article"
+            "ficheArticle": "Article Form"
         }
     }
 }

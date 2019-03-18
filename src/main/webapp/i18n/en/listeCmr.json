@@ -2,21 +2,21 @@
     "projetChimieApp": {
         "listeCmr": {
             "home": {
-                "title": "Liste Cmrs",
+                "title": "Cmrs List",
                 "createLabel": "Create a new Liste Cmr",
-                "createOrEditLabel": "Create or edit a Liste Cmr"
+                "createOrEditLabel": "Create or edit a Cmr List"
             },
             "created": "A new Liste Cmr is created with identifier {{ param }}",
             "updated": "A Liste Cmr is updated with identifier {{ param }}",
             "deleted": "A Liste Cmr is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Liste Cmr {{ id }}?"
+                "question": "Are you sure you want to delete Cmr List{{ id }}?"
             },
             "detail": {
-                "title": "Liste Cmr"
+                "title": "Cmr List"
             },
-            "refListe": "Ref Liste",
-            "ficheProduitChimique": "Fiche Produit Chimique"
+            "refListe": "List Ref",
+            "ficheProduitChimique": "Chemical Product Sheet"
         }
     }
 }

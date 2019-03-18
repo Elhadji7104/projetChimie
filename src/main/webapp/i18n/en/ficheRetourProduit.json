@@ -15,9 +15,9 @@
             "detail": {
                 "title": "Fiche Retour Produit"
             },
-            "quantite": "Quantite",
+            "quantite": "Quantity",
             "dateRetour": "Date Retour",
-            "ficheArticle": "Fiche Article"
+            "ficheArticle": "Article Form"
         }
     }
 }

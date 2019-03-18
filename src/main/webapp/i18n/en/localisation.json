@@ -15,13 +15,13 @@
             "detail": {
                 "title": "Localisation"
             },
-            "adresse": "Adresse",
+            "adresse": "Adress",
             "codePostal": "Code Postal",
             "ville": "Ville",
             "pays": "Pays",
-            "quantite": "Quantite",
+            "quantite": "Quantity",
             "typeLieuStockage": "Type Lieu Stockage",
-            "ficheArticle": "Fiche Article"
+            "ficheArticle": "Article Form"
         }
     }
 }

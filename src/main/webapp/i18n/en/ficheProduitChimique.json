@@ -17,12 +17,12 @@
             },
             "cas": "Cas",
             "codeProduit": "Code Produit",
-            "nom": "Nom",
+            "nom": "Name",
             "acronyme": "Acronyme",
             "mm": "Mm",
             "codeNacre": "Code Nacre",
-            "listeCmr": "Liste Cmr",
-            "ficheArticle": "Fiche Article"
+            "listeCmr": "Cmr List",
+            "ficheArticle": "Article Form"
         }
     }
 }

@@ -17,7 +17,7 @@
             },
             "libelleLieu": "Libelle Lieu",
             "temperature": "Temperature",
-            "localisation": "Localisation"
+            "localisation": "Location"
         }
     }
 }
