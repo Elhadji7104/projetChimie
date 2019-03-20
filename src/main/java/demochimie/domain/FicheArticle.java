@@ -40,6 +40,10 @@ public class FicheArticle implements Serializable {
     @Column(name = "code_barre")
     private String codeBarre;
 
+    @Column(name = "quantite")
+    private Float quantite;
+
+
     @Enumerated(EnumType.STRING)
     @Column(name = "disponiblite_article")
     private DisponibliteArticle disponibliteArticle;
@@ -143,7 +147,13 @@ public class FicheArticle implements Serializable {
         this.codeInterne = codeInterne;
         return this;
     }
+    public Float getQuantite() {
+        return quantite;
+    }
 
+    public void setQuantite(Float quantite) {
+        this.quantite = quantite;
+    }
     public void setCodeInterne(String codeInterne) {
         this.codeInterne = codeInterne;
     }
@@ -492,6 +502,7 @@ public class FicheArticle implements Serializable {
             ", etatPhysique='" + getEtatPhysique() + "'" +
             ", codeInterne='" + getCodeInterne() + "'" +
             ", codeBarre='" + getCodeBarre() + "'" +
+            ", quantite='" + getQuantite() + "'" +
             ", disponibliteArticle='" + getDisponibliteArticle() + "'" +
             ", typeDesuivi='" + isTypeDesuivi() + "'" +
             ", accessibilite='" + isAccessibilite() + "'" +

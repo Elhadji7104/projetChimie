@@ -19,6 +19,7 @@
             "etatPhysique": "Physical State",
             "codeInterne": "Internal Code",
             "codeBarre": "Code Barre",
+            "quantite": "Quantité ",
             "disponibliteArticle": "Disponiblite Article",
             "typeDesuivi": "Type Desuivi",
             "accessibilite": "Accessibilite",
