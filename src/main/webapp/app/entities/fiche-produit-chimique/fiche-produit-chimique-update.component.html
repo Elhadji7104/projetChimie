@@ -37,8 +37,8 @@
                 <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.formule" for="field_formule">Formule chimique</label>
                 <div>
 
-                    <p-inputMask name="formule" id="field_formule"
-                                 [(ngModel)]="ficheProduitChimique.formule" value="NA21"  mask="aa99"></p-inputMask>
+                    <input name="formule" id="field_formule" type="text"  pInputText name="acronyme" 
+                           [(ngModel)]="ficheProduitChimique.formule" required/>
 
                 </div>
                 </div>

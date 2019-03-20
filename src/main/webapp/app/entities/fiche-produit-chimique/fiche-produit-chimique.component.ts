@@ -23,6 +23,7 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
     MmSelect: SelectItem[];
     CodeNacreSelect: SelectItem[];
     formuleSelect: SelectItem[];
+
     constructor(
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
         protected jhiAlertService: JhiAlertService,
@@ -43,56 +44,23 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
 
                 for (let value of this.ficheProduitChimiques) {
                     if (value !== undefined) {
-                        if (
-                            value.cas !== undefined &&
-                            this.CasSelect.indexOf({
-                                label: value.cas,
-                                value: value.cas
-                            }) === -1
-                        ) {
+                        if (value.cas !== undefined && this.verifiDoublon(value.cas, this.CasSelect)) {
                             this.CasSelect.push({ label: value.cas, value: value.cas });
                         }
 
-                        if (
-                            value.nom !== undefined &&
-                            this.NomSelect.indexOf({
-                                label: value.nom,
-                                value: value.nom
-                            }) === -1
-                        ) {
+                        if (value.nom !== undefined && this.verifiDoublon(value.nom, this.NomSelect)) {
                             this.NomSelect.push({ label: value.nom, value: value.nom });
                         }
-                        if (
-                            value.acronyme !== undefined &&
-                            !this.AcronymeSelect.includes({ label: value.acronyme, value: value.acronyme })
-                        ) {
+                        if (value.acronyme !== undefined && this.verifiDoublon(value.acronyme, this.AcronymeSelect)) {
                             this.AcronymeSelect.push({ label: value.acronyme, value: value.acronyme });
                         }
-                        if (
-                            value.mm !== undefined &&
-                            this.MmSelect.indexOf({
-                                label: value.mm,
-                                value: value.mm
-                            }) === -1
-                        ) {
+                        if (value.mm !== undefined && this.verifiDoublon(value.mm, this.MmSelect)) {
                             this.MmSelect.push({ label: value.mm, value: value.mm });
                         }
-                        if (
-                            value.codeNacre !== undefined &&
-                            this.CodeNacreSelect.indexOf({
-                                label: value.codeNacre,
-                                value: value.codeNacre
-                            }) === -1
-                        ) {
+                        if (value.codeNacre !== undefined && this.verifiDoublon(value.codeNacre, this.CodeNacreSelect)) {
                             this.CodeNacreSelect.push({ label: value.codeNacre, value: value.codeNacre });
                         }
-                        if (
-                            value.formule !== undefined &&
-                            this.formuleSelect.indexOf({
-                                label: value.formule,
-                                value: value.formule
-                            }) === -1
-                        ) {
+                        if (value.formule !== undefined && this.verifiDoublon(value.formule, this.formuleSelect)) {
                             this.formuleSelect.push({ label: value.formule, value: value.formule });
                         }
                     }
@@ -100,6 +68,15 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+    }
+
+    verifiDoublon(label: string, Select: SelectItem[]) {
+        for (let value of Select) {
+            if (value.label === label) {
+                return false;
+            }
+        }
+        return true;
     }
 
     ngOnInit() {
