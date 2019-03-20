@@ -23,6 +23,7 @@ export interface IFicheArticle {
     etatPhysique?: string;
     codeInterne?: string;
     codeBarre?: string;
+    quantite?: string;
     disponibliteArticle?: DisponibliteArticle;
     typeDesuivi?: boolean;
     accessibilite?: boolean;
@@ -46,6 +47,7 @@ export class FicheArticle implements IFicheArticle {
         public etatPhysique?: string,
         public codeInterne?: string,
         public codeBarre?: string,
+        public quantite?: string,
         public disponibliteArticle?: DisponibliteArticle,
         public typeDesuivi?: boolean,
         public accessibilite?: boolean,

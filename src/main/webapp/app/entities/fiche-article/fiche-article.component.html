@@ -26,6 +26,7 @@
                           <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle" [options]="disponibliteArticleO" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                           <p-multiSelect *ngSwitchCase="'nom'" [options]="nomO"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="test($event.value, col.field, 'in')"></p-multiSelect>
                           <p-multiSelect *ngSwitchCase="'acronyme'" [options]="acronymeO"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="test($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect *ngSwitchCase="'quantite'" [options]="quantiteO"  [(ngModel)]="quantite" defaultLabel="All disponibilite" (onChange)="test($event.value, col.field, 'in')"></p-multiSelect>
                           <p-multiSelect *ngSwitchCase="'cas'" [options]="casO"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="test($event.value, col.field, 'in')"></p-multiSelect>
                           <p-multiSelect *ngSwitchCase="'refArticle'" [options]="refArticleO"  [(ngModel)]="refArticle" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                       </td>

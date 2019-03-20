@@ -59,6 +59,7 @@ describe('Service Tests', () => {
                         codeProduit: 'BBBBBB',
                         nom: 'BBBBBB',
                         acronyme: 'BBBBBB',
+                        quantite: 'BBBBBB',
                         mm: 'BBBBBB',
                         codeNacre: 'BBBBBB'
                     },
@@ -81,6 +82,7 @@ describe('Service Tests', () => {
                         codeProduit: 'BBBBBB',
                         nom: 'BBBBBB',
                         acronyme: 'BBBBBB',
+                        quantite: 'BBBBBB',
                         mm: 'BBBBBB',
                         codeNacre: 'BBBBBB'
                     },

@@ -10,6 +10,7 @@ export interface IFicheArticleProduit {
     cas?: string;
     nom?: string;
     acronyme?: string;
+    quantite?: number;
 }
 
 export class FicheArticleProduit implements IFicheArticleProduit {
@@ -21,6 +22,7 @@ export class FicheArticleProduit implements IFicheArticleProduit {
         public classifications?: IClassification[],
         public cas?: string,
         public nom?: string,
-        public acronyme?: string
+        public acronyme?: string,
+        public quantite?: number
     ) {}
 }
