@@ -114,39 +114,6 @@
             "dev": "Development"
         },
         "item-count": "Showing {{first}} - {{second}} of {{total}} items.",
-        "entity": {
-            "action": {
-                "addblob": "Add blob",
-                "addimage": "Add image",
-                "back": "Back",
-                "cancel": "Cancel",
-                "delete": "Delete",
-                "edit": "Edit",
-                "open": "Open",
-                "save": "Save",
-                "view": "View"
-            },
-            "detail": {
-                "field": "Field",
-                "value": "Value"
-            },
-            "delete": {
-                "title": "Confirm delete operation"
-            },
-            "validation": {
-                "required": "This field is required.",
-                "minlength": "This field is required to be at least {{ min }} characters.",
-                "maxlength": "This field cannot be longer than {{ max }} characters.",
-                "min": "This field should be at least {{ min }}.",
-                "max": "This field cannot be more than {{ max }}.",
-                "minbytes": "This field should be at least {{ min }} bytes.",
-                "maxbytes": "This field cannot be more than {{ max }} bytes.",
-                "pattern": "This field should follow pattern for {{ pattern }}.",
-                "number": "This field should be a number.",
-                "datetimelocal": "This field should be a date and time.",
-                "patternLogin": "This field can only contain letters, digits and e-mail addresses."
-            }
-        },
         "error": {
             "internalServerError": "Internal server error",
             "server.not.reachable": "Server not reachable",
@@ -157,7 +124,40 @@
             "emailexists": "Email is already in use!",
             "idexists": "A new {{ entityName }} cannot already have an ID",
             "idnull": "Invalid ID"
+        }
+    },
+    "footer": "This is your footer",
+    "entity": {
+        "action": {
+            "addblob": "Add blob",
+            "addimage": "Add image",
+            "back": "Back",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "edit": "Edit",
+            "open": "Open",
+            "save": "Save",
+            "view": "View"
         },
-        "footer": "This is your footer"
+        "detail": {
+            "field": "Field",
+            "value": "Value"
+        },
+        "delete": {
+            "title": "Confirm delete operation"
+        },
+        "validation": {
+            "required": "This field is required.",
+            "minlength": "This field is required to be at least {{ min }} characters.",
+            "maxlength": "This field cannot be longer than {{ max }} characters.",
+            "min": "This field should be at least {{ min }}.",
+            "max": "This field cannot be more than {{ max }}.",
+            "minbytes": "This field should be at least {{ min }} bytes.",
+            "maxbytes": "This field cannot be more than {{ max }} bytes.",
+            "pattern": "This field should follow pattern for {{ pattern }}.",
+            "number": "This field should be a number.",
+            "datetimelocal": "This field should be a date and time.",
+            "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+        }
     }
 }
