@@ -21,6 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(FicheArticleService);
             httpMock = injector.get(HttpTestingController);
 
+            // @ts-ignore
             elemDefault = new FicheArticle(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', DisponibliteArticle.DISPONIBLE, false, false);
         });
 
@@ -59,6 +60,7 @@ describe('Service Tests', () => {
                         etatPhysique: 'BBBBBB',
                         codeInterne: 'BBBBBB',
                         codeBarre: 'BBBBBB',
+                        quantite: 'BBBBBB',
                         disponibliteArticle: 'BBBBBB',
                         typeDesuivi: true,
                         accessibilite: true
@@ -82,6 +84,7 @@ describe('Service Tests', () => {
                         etatPhysique: 'BBBBBB',
                         codeInterne: 'BBBBBB',
                         codeBarre: 'BBBBBB',
+                        quantite: 'BBBBBB',
                         disponibliteArticle: 'BBBBBB',
                         typeDesuivi: true,
                         accessibilite: true

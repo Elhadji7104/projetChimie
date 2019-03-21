@@ -91,7 +91,7 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
             { field: 'acronyme', header: 'Acronyme' },
             { field: 'mm', header: 'MM' },
             { field: 'codeNacre', header: 'Code Nacre' },
-            { field: 'formule', header: 'Formule Chimique' }
+            { field: 'formule', header: 'Formule Brute' }
         ];
     }
 

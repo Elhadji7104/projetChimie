@@ -66,6 +66,13 @@
                 </div>
 
                 <div class="form-group">
+                        <label jhiTranslate="projetChimieApp.ficheArticle.quantite">Quantité *</label>
+                </div>
+                <div class="form-group">
+                        <input type="text" size="30" name="quantite" id="field_quantite"
+                               [(ngModel)]="ficheArticle.quantite" pInputText required>
+                </div>
+                <div class="form-group">
                     <label jhiTranslate="projetChimieApp.ficheArticle.unite" for="field_unite">Unite *</label>
                     <select class="form-control" id="field_unite" multiple name="unite" [(ngModel)]="ficheArticle.unites">
                         <option [ngValue]="getSelected(ficheArticle.unites, uniteOption)" *ngFor="let uniteOption of unites; trackBy: trackUniteById">{{uniteOption.id}}</option>

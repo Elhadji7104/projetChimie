@@ -25,6 +25,7 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
     refArticleO: SelectItem[];
     casO: SelectItem[];
     acronymeO: SelectItem[];
+    quantiteO: SelectItem[];
     disponibliteArticleO: SelectItem[];
     nomO: SelectItem[];
     classificationO: SelectItem[];
@@ -45,6 +46,7 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
                 this.refArticleO = [];
                 this.casO = [];
                 this.acronymeO = [];
+                this.quantiteO = [];
                 this.disponibliteArticleO = [];
                 this.nomO = [];
 
@@ -80,6 +82,15 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
                                 label: value.ficheProduitChimiques[0].acronyme,
                                 value: value.ficheProduitChimiques[0].acronyme
                             });
+                        }
+                        if (
+                            value.quantite !== undefined &&
+                            this.quantiteO.indexOf({
+                                label: value.quantite,
+                                value: value.quantite
+                            }) === -1
+                        ) {
+                            this.quantiteO.push({ label: value.quantite, value: value.quantite });
                         }
                         if (
                             value.disponibliteArticle !== undefined &&
@@ -126,12 +137,13 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
         });
         this.registerChangeInFicheArticles();
         this.cols = [
-            { field: 'refArticle', header: 'refArticle' },
-            { field: 'cas', header: 'cas' },
-            { field: 'nom', header: 'nom' },
-            { field: 'acronyme', header: 'acronyme' },
-            { field: 'classification', header: 'classification' },
-            { field: 'disponibliteArticle', header: 'disponibliteArticle' }
+            { field: 'refArticle', header: 'Référence' },
+            { field: 'cas', header: 'CAS' },
+            { field: 'nom', header: 'Nom' },
+            { field: 'acronyme', header: 'Acronyme' },
+            { field: 'quantite', header: 'Quantite' },
+            { field: 'classification', header: 'Classification' },
+            { field: 'disponibliteArticle', header: 'DisponibliteArticle' }
         ];
 
         this.disponibliteArticleO = [

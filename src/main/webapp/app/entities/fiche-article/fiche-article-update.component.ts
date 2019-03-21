@@ -40,7 +40,7 @@ export class FicheArticleUpdateComponent implements OnInit {
     private dispoSelect: any;
     private docSelect: any;
     private classiSelect: any;
-
+    private quantiteSelect: any;
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected ficheArticleService: FicheArticleService,
