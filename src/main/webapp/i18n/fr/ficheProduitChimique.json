@@ -2,7 +2,7 @@
     "projetChimieApp": {
         "ficheProduitChimique": {
             "home": {
-                "title": "FicheProduitChimiques",
+                "title": "FicheProduitChimique",
                 "createLabel": "Créer un nouveau Fiche Produit Chimique",
                 "createOrEditLabel": "Créer ou éditer un Fiche Produit Chimique"
             },
@@ -15,6 +15,7 @@
             "detail": {
                 "title": "Fiche Produit Chimique"
             },
+
             "cas": "Cas",
             "codeProduit": "Code Produit",
             "nom": "Nom",
