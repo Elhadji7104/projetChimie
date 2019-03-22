@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 22 Mars 2019 à 12:49
+-- Généré le :  Ven 22 Mars 2019 à 13:21
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -164,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `fiche_article` (
   `etat_physique` varchar(255) DEFAULT NULL,
   `code_interne` varchar(255) DEFAULT NULL,
   `code_barre` varchar(255) DEFAULT NULL,
+  `quantite` int(11) NOT NULL,
   `disponiblite_article` varchar(255) DEFAULT NULL,
   `type_desuivi` bit(1) DEFAULT NULL,
   `accessibilite` bit(1) DEFAULT NULL,
