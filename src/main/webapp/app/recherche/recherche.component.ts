@@ -76,22 +76,13 @@ export class RechercheComponent implements OnInit {
 
                 for (let value of this.ficheArticles) {
                     if (value !== undefined) {
-                        if (
-                            value.refArticle !== undefined &&
-                            this.refArticleO.indexOf({
-                                label: value.refArticle,
-                                value: value.refArticle
-                            }) === -1
-                        ) {
+                        if (value.refArticle !== undefined && this.verifiDoublon(value.refArticle, this.refArticleO)) {
                             this.refArticleO.push({ label: value.refArticle, value: value.refArticle });
                         }
 
                         if (
                             value.ficheProduitChimiques[0].cas !== undefined &&
-                            this.casO.indexOf({
-                                label: value.ficheProduitChimiques[0].cas,
-                                value: value.ficheProduitChimiques[0].cas
-                            }) === -1
+                            this.verifiDoublon(value.ficheProduitChimiques[0].cas, this.casO)
                         ) {
                             this.casO.push({
                                 label: value.ficheProduitChimiques[0].cas,
@@ -100,10 +91,7 @@ export class RechercheComponent implements OnInit {
                         }
                         if (
                             value.ficheProduitChimiques[0].acronyme !== undefined &&
-                            !this.acronymeO.includes({
-                                label: value.ficheProduitChimiques[0].acronyme,
-                                value: value.ficheProduitChimiques[0].acronyme
-                            })
+                            this.verifiDoublon(value.ficheProduitChimiques[0].acronyme, this.acronymeO)
                         ) {
                             this.acronymeO.push({
                                 label: value.ficheProduitChimiques[0].acronyme,
@@ -112,10 +100,7 @@ export class RechercheComponent implements OnInit {
                         }
                         if (
                             value.disponibliteArticle !== undefined &&
-                            this.disponibliteArticleO.indexOf({
-                                label: value.disponibliteArticle,
-                                value: value.disponibliteArticle
-                            }) === -1
+                            this.verifiDoublon(value.disponibliteArticle, this.disponibliteArticleO)
                         ) {
                             this.disponibliteArticleO.push({
                                 label: value.disponibliteArticle,
@@ -124,10 +109,7 @@ export class RechercheComponent implements OnInit {
                         }
                         if (
                             value.ficheProduitChimiques[0].nom !== undefined &&
-                            this.nomO.indexOf({
-                                label: value.ficheProduitChimiques[0].nom,
-                                value: value.ficheProduitChimiques[0].nom
-                            }) === -1
+                            this.verifiDoublon(value.ficheProduitChimiques[0].nom, this.nomO)
                         ) {
                             this.nomO.push({
                                 label: value.ficheProduitChimiques[0].nom,
@@ -173,6 +155,15 @@ export class RechercheComponent implements OnInit {
                 fiche => fiche.classifications.filter(classe => classe.nomClassification.toLowerCase().indexOf(value) >= 0).length > 0
             );
         }
+    }
+
+    verifiDoublon(label: string, Select: SelectItem[]) {
+        for (let value of Select) {
+            if (value.label === label) {
+                return false;
+            }
+        }
+        return true;
     }
 
     onError(errorMessage: string) {
