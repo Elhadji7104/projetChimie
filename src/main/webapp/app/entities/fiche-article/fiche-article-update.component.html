@@ -91,7 +91,14 @@
                 <div class="form-group">
                     <label jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique" for="field_ficheProduitChimique">Fiche Produit Chimique *</label>
                     <select class="form-control" id="field_ficheProduitChimique" multiple name="ficheProduitChimique" [(ngModel)]="ficheArticle.ficheProduitChimiques" required>
-                        <option [ngValue]="getSelected(ficheArticle.ficheProduitChimiques, ficheProduitChimiqueOption)" *ngFor="let ficheProduitChimiqueOption of ficheproduitchimiques; trackBy: trackFicheProduitChimiqueById">{{ficheProduitChimiqueOption.id}}</option>
+                        <option [ngValue]="getSelected(ficheArticle.ficheProduitChimiques, ficheProduitChimiqueOption)" *ngFor="let ficheProduitChimiqueOption of ficheproduitchimiques; trackBy: trackFicheProduitChimiqueById">{{ficheProduitChimiqueOption.id +'  '+ficheProduitChimiqueOption.nom+'  '+ ficheProduitChimiqueOption.formule +'  '+ ficheProduitChimiqueOption.cas+'  '+ ficheProduitChimiqueOption.acronyme }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.localisation" for="field_localisation">Localisation</label>
+                    <select class="form-control" id="field_localisation" name="localisation" [(ngModel)]="ficheArticle.localisations" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="localisationOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.localisations : localisationOption" *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">{{droitDacceeProduitOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
