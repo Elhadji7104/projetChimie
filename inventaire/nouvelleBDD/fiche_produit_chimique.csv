@@ -10,7 +10,7 @@ id;cas;code_produit;nom;acronyme;mm;code_nacre;formule
 9;207683-19-0;;S(-)-b-Citronellol, 99+%;;;;NaSH.xH2O
 10;13822-56-5;;1,2-dimethoxyethane, anhydrous;;;;C6H17NO3Si
 11;14040-11-0;;Tungstosilicic acid hydrate;;;;C6O6W
-12;6959-47-3;;Perchloric acid;;;;C6H6ClN · HCl 
+12;6959-47-3;;Perchloric acid;;;;C6H6ClN ï¿½ HCl 
 13;99-76-3;;Lithium hexafluoroarsenate(V);;;;C8H8O3
 14;30931-67-0;;1,4-Diiodobutane;;;;C18H18N4O6S4.2NH3
 15;1121-60-4;;Potassium nitrosodisulfonate, 50-75%;;;;C6H5NO
@@ -45,12 +45,12 @@ id;cas;code_produit;nom;acronyme;mm;code_nacre;formule
 44;151-21-3;;Cadmium acetate monohydrate;;;;CH3(CH2)11OSO3Na
 45;2986-17-6;;Ammonium tetrathiomolybdate(VI);;;;(CH3)2CHNHCSNHCH(CH3)2
 46;  544-92-3;;Copper(I) cyanide;;;;
-47;  592-41-6;;1-Hexene, 99%, AcroSeal™;;;;
+47;  592-41-6;;1-Hexene, 99%, AcroSealï¿½;;;;
 48; 4111-54-0;;Lithium diisopropylamide  (2.0 M solution);;;;
 49; 75-65-0;;tert-Butanol, 99%;;;;
 50; 928-97-2 ;;trans-3-Hexen-1-ol;;;;
-51; 694-80-4;;1-Bromo-2-chlorobenzene;;;;
-52; 7328-91-8;;2,2-Dimethyl-1,3-propanediamine;;;;
+51;ï¿½694-80-4;;1-Bromo-2-chlorobenzene;;;;
+52;ï¿½7328-91-8;;2,2-Dimethyl-1,3-propanediamine;;;;
 53;"
 7446-70-0";;Aluminium chloride;;;;
 54;10049-05-5;;Chromium(II) chloride;;;;
@@ -79,7 +79,7 @@ id;cas;code_produit;nom;acronyme;mm;code_nacre;formule
 78;853-39-4;;decafluorobenzophenone 98%;;;;
 79;86-29-3;;Diphenylacetonitrile;;;;
 80;865-47-4;;Potassium-t-butoxide 95-99%;;;;
-82;865-48-5;;Sodium tert-butoxide 97%;;;;
+82;865-48-5;;Sodiumï¿½tert-butoxide 97%;;;;
 83;865-48-5 ;;Sodium tert-butoxide;;;;
 84;86-73-7;;Fluorene 98%;;;;
 85;86-74-8;;carbazole;;;;
@@ -208,7 +208,7 @@ Tributylphosphane";;202.32;;
 159;3344-70-5 ;;1,12-dibromodecane ;;;;
 160;3375-31-3 ;;Palladium acetate ;;;;
 161;03/05/7440;;Palladium(0) on activated charcoal ;;;;
-162;7440-66-6 ;;Zinc dust <10µ 98% ;;;;
+162;7440-66-6 ;;Zinc dust <10ï¿½ 98% ;;;;
 163;7446-70-0;;Aluminium chloride;;;;
 164;7446-70-0 ;;Aluminium chloride anydrous 98.5% ;;;;
 165;7447-41-8 ;;Lithium chloride 99% ;;;;
@@ -266,7 +266,7 @@ Tributylphosphane";;202.32;;
 220;;;Octadecyl isocyanate;;;;
 221;;;Methyl trifluoromethanesulfonate;;;;
 222;;;chlorodiphenylphosphine, 98 %;;;;
-223;;; (S)-(?)-5,5?-Bis(diphenylphosphino)-4,4?-bi-1,3-benzodioxole;;;;
+223;;;ï¿½(S)-(?)-5,5?-Bis(diphenylphosphino)-4,4?-bi-1,3-benzodioxole;;;;
 224;;;Triphenylphosphine hydrobromide, 97%;;;;
 225;;;Phosphate-buffered saline (PBS, 10X), pH 7.4;;;;
 226;;;Hydrochloric acid;;;;
@@ -319,7 +319,7 @@ Tributylphosphane";;202.32;;
 273;64-17-5;;Ethanol abs;;;;
 274;109-99-9;;Tetrahydrofurane;;;;
 275;75-09-2;;Dichloromethane;;;;
-276;67-64-1;;Acétone;;;;
+276;67-64-1;;Acï¿½tone;;;;
 277;;;N-cetylN,N,N trimethylammoniumbromide;;;;
 278;;;Triton X100;;;;
 279;9036-19-5;;Igepal CA-630;;;;
@@ -392,7 +392,7 @@ Tributylphosphane";;202.32;;
 346;;;Ethylenetrithiocarbonate 97%;;;;C3H4S3
 347;;;Anilin 99%;;;;C6H5NH2
 348;;;d3,3-diethoxy-1-propyne;;;;
-349;;;m6-methyl-2-pyridinecarboxaldéhyde;;;;C7H7NO 
+349;;;m6-methyl-2-pyridinecarboxaldï¿½hyde;;;;C7H7NO 
 350;;;Methyl-4-formylbenzoate;;;;
 351;;;Ammonium hydroxyde 25%;;;;NH4OH
 352;;;p4-pyrydin-3-ylbenzaldehyde 97%;;;;C12H9NO
@@ -411,7 +411,7 @@ Tributylphosphane";;202.32;;
 365;;;bis(tetramethylcyclopentadienyl)iron 97%;;;;
 366;;;d2(dicyclohexylphosphino)2',4',6'-triisopropylbiphenyl;;;;
 367;;;d2'-4'-dichloroacetophenone;;;;
-368;;;d-3,5-dibromobenzaldéhyde;;;;
+368;;;d-3,5-dibromobenzaldï¿½hyde;;;;
 369;;;Diphenylphosphonic azide;;;;C12H10N3O3P
 370;;;Malononitrile;;;;C3H2N2
 371;;;Methyltriphenyl phosphonium iodide 97%;;;;C19H18BrP
@@ -419,7 +419,7 @@ Tributylphosphane";;202.32;;
 373;;;b2'-bromoacetophenone;;;;
 374;;;b4-bromoacetophenone 98%;;;;BrC6H4COCH3
 375;;;Tetrathiafulvalene 97%;;;;C6H4S4
-376;;;Formyltetrathiafulvène;;;;
+376;;;Formyltetrathiafulvï¿½ne;;;;
 377;;;ferrocencarboxaldehyde;;;;
-378;;;b3'-bromoacétophénone;;;;
+378;;;b3'-bromoacï¿½tophï¿½none;;;;
 379;;;Dimethyl 5-bromoisophtalate;;;;

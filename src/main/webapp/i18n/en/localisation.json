@@ -2,25 +2,25 @@
     "projetChimieApp": {
         "localisation": {
             "home": {
-                "title": "Localisations",
-                "createLabel": "Create a new Localisation",
-                "createOrEditLabel": "Create or edit a Localisation"
+                "title": "Location",
+                "createLabel": "Create a new Location",
+                "createOrEditLabel": "Create or edit a Location"
             },
-            "created": "A new Localisation is created with identifier {{ param }}",
-            "updated": "A Localisation is updated with identifier {{ param }}",
-            "deleted": "A Localisation is deleted with identifier {{ param }}",
+            "created": "A new Location is created with identifier {{ param }}",
+            "updated": "A Location is updated with identifier {{ param }}",
+            "deleted": "A Location is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Localisation {{ id }}?"
+                "question": "Are you sure you want to delete Location {{ id }}?"
             },
             "detail": {
-                "title": "Localisation"
+                "title": "Location"
             },
             "adresse": "Adress",
-            "codePostal": "Code Postal",
-            "ville": "Ville",
-            "pays": "Pays",
+            "codePostal": "Postal Code",
+            "ville": "City",
+            "pays": "country",
             "quantite": "Quantity",
-            "typeLieuStockage": "Type Lieu Stockage",
+            "typeLieuStockage": "Type Storage Location",
             "ficheArticle": "Article Form"
         }
     }

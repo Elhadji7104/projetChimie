@@ -29,6 +29,7 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
     disponibliteArticleO: SelectItem[];
     nomO: SelectItem[];
     classificationO: SelectItem[];
+    localisationO: SelectItem[];
 
     constructor(
         protected classificationService: ClassificationService,

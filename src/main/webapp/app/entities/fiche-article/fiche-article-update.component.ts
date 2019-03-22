@@ -16,6 +16,8 @@ import { IClassification } from 'app/shared/model/classification.model';
 import { ClassificationService } from 'app/entities/classification';
 import { IDroitDacceeProduit } from 'app/shared/model/droit-daccee-produit.model';
 import { DroitDacceeProduitService } from 'app/entities/droit-daccee-produit';
+import { ILocalisation } from 'app/shared/model/localisation.model';
+import { LocalisationService } from 'app/entities/localisation';
 
 @Component({
     selector: 'jhi-fiche-article-update',
@@ -33,6 +35,8 @@ export class FicheArticleUpdateComponent implements OnInit {
 
     classifications: IClassification[];
 
+    localisations: ILocalisation[];
+
     droitdacceeproduits: IDroitDacceeProduit[];
     private unitesSelect: any[];
     private produitSelect: any[];
@@ -49,7 +53,8 @@ export class FicheArticleUpdateComponent implements OnInit {
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
         protected classificationService: ClassificationService,
         protected droitDacceeProduitService: DroitDacceeProduitService,
-        protected activatedRoute: ActivatedRoute
+        protected activatedRoute: ActivatedRoute,
+        protected localisationService: LocalisationService
     ) {}
 
     ngOnInit() {
@@ -84,6 +89,12 @@ export class FicheArticleUpdateComponent implements OnInit {
         this.droitDacceeProduitService.query().subscribe(
             (res: HttpResponse<IDroitDacceeProduit[]>) => {
                 this.droitdacceeproduits = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.localisationService.query().subscribe(
+            (res: HttpResponse<ILocalisation[]>) => {
+                this.localisations = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -181,6 +192,10 @@ export class FicheArticleUpdateComponent implements OnInit {
     }
 
     trackDroitDacceeProduitById(index: number, item: IDroitDacceeProduit) {
+        return item.id;
+    }
+
+    tracklocalisationtById(index: number, item: ILocalisation) {
         return item.id;
     }
 

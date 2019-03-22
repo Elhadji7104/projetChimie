@@ -66,16 +66,19 @@
                         <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.id}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.localisation">Localisation</span></dt>
+                <dd>
+                    <span *ngFor="let localisation  of ficheArticle.localisations; let last = last">
+                            <a [routerLink]="['../localisation', localisation?.id, 'view' ]">{{localisation.adresse}}</a>{{last ? '' : ', '}}
+                        </span>
+                </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span></dt>
                 <dd>
                     <div *ngIf="ficheArticle.droitDacceeProduit">
                         <a [routerLink]="['/droit-daccee-produit', ficheArticle.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.id}}</a>
                     </div>
                 </dd>
-            </dl>Localisation article
-            Condictionnement article
-            <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Localisation article</span></dt>
-            <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Condictionnement article</span></dt>
+            </dl>
 
 
             <button type="submit"
