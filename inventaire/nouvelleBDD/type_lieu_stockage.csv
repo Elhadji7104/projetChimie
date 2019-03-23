@@ -1,79 +1,79 @@
 id;libelle_lieu;temperature;localisation_id
-;R;;
-;armoire solvants 006/bunker;;
-;armoire solvants 006;;
-;armoire solvant 006;;
-;Labo 006;;
-;Frigo 006;;
-;sorbonne 4;;
-;congélo 001;;
-;R4;;
-;R3;;
-;R2;;
-;R1;;
-;frigo Bld;;
-;Carton 2;;
-;Frigo (congel);;
-;Frigo;;
-;Boite Verte;;
-;Armoire Solvant;;
-;Etagère polymère;;
-;Labo;;
-;Boite 3;;
-;Boite Bleue;;
-;Carton 1;;
-;Armoire Jaune;;
-;Carton 3;;
-;Xavier;;
-;Hanieh;;
-;Anabella;;
-;Fabien;;
-;Main cupboard;;
-;Thierry;;
-;Romain ;;
-;Yann;;
-;Romain;;
-;"BAG ""wet""";;
-;Paillasse Eva (EK);;
-;Romain (Ghislaine);;
-;Cyril;;
-;Reserve;;
-;Labo orga;;
-;Reserve DL;;
-;Fridge labo DL;;
-;Fridge orga;;
-;Labo Fred;;
-;Labo Simonet;;
-;Freezer Bruno;;
-;Fridge Dominique;;
-;Labo Bruno;;
-;Arm Vit;;
-;Placard Bal;;
-;Arm Vit + aliquots Congel;;
-;Placard;;
-;Placard MO;;
-;Placard sorb;;
-;Arm Sécu;;
-;Placard Four;;
-;Congel;;
-;Frigo + aliquots Congel;;
-;Congel + aliquots;;
-;Frigo + aliqots Congel;;
-;Placard + aliquots congel;;
-;Frigo + Congel;;
-;Paillasse;;
-;Placard Bal + Arm Vit;;
-;Placard Sorb + Placard MO;;
-;Sorbonne;;
-;Arm secu;;
-;Arm Sécu + Placard Sorb;;
-;Placard + Frigo;;
-;Congel + Frigo;;
-;Frigo +  aliquot congel;;
-;C1-E3;;
-;C1-E4;;
-;C1-E1;;
-;C1-E6;;
-;E3A;;
-;C1-E5;;
-;E14B;;
+1;R;;3
+2;armoire solvants 006/bunker;;3
+3;armoire solvants 006;;3
+4;armoire solvant 006;;3
+5;Labo 006;;3
+6;Frigo 006;;3
+7;sorbonne 4;;3
+8;congélo 001;;3
+9;R4;;3
+10;R3;;3
+11;R2;;3
+12;R1;;3
+13;frigo Bld;;3
+14;Carton 2;;3
+15;Frigo (congel);;3
+16;Frigo;;3
+17;Boite Verte;;3
+18;Armoire Solvant;;3
+19;Etagère polymère;;3
+20;Labo;;3
+21;Boite 3;;3
+22;Boite Bleue;;3
+23;Carton 1;;3
+24;Armoire Jaune;;3
+25;Carton 3;;3
+26;Xavier;;3
+27;Hanieh;;3
+28;Anabella;;3
+29;Fabien;;3
+30;Main cupboard;;3
+31;Thierry;;3
+32;Romain ;;3
+33;Yann;;3
+34;Romain;;3
+35;"BAG ""wet""";;3
+36;Paillasse Eva (EK);;3
+37;Romain (Ghislaine);;3
+38;Cyril;;3
+39;Reserve;;3
+40;Labo orga;;3
+41;Reserve DL;;3
+42;Fridge labo DL;;3
+43;Fridge orga;;3
+44;Labo Fred;;3
+45;Labo Simonet;;3
+46;Freezer Bruno;;3
+47;Fridge Dominique;;3
+48;Labo Bruno;;3
+49;Arm Vit;;3
+50;Placard Bal;;3
+51;Arm Vit + aliquots Congel;;3
+52;Placard;;3
+53;Placard MO;;3
+54;Placard sorb;;3
+55;Arm Sécu;;3
+56;Placard Four;;3
+57;Congel;;3
+58;Frigo + aliquots Congel;;3
+59;Congel + aliquots;;3
+60;Frigo + aliqots Congel;;3
+61;Placard + aliquots congel;;3
+62;Frigo + Congel;;3
+63;Paillasse;;3
+64;Placard Bal + Arm Vit;;3
+65;Placard Sorb + Placard MO;;3
+66;Sorbonne;;3
+67;Arm secu;;3
+68;Arm Sécu + Placard Sorb;;3
+69;Placard + Frigo;;3
+70;Congel + Frigo;;3
+71;Frigo +  aliquot congel;;3
+72;C1-E3;;3
+73;C1-E4;;3
+74;C1-E1;;3
+75;C1-E6;;3
+76;E3A;;3
+77;C1-E5;;3
+78;E14B;;3

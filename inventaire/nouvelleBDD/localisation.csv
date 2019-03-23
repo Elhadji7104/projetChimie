@@ -1,43 +1,42 @@
-id;adresse;code_postal;ville;pays;quantite;fiche_article_id
-;DRIm;35000;Rennes;France;;
-;EA 3913;35001;Rennes;France;;
-;EA 7449;35002;Rennes;France;;
-;EA Géoarchitecture;35003;Rennes;France;;
-;ENSSAT;35004;Rennes;France;;
-;ESIR;35005;Rennes;France;;
-;Faculté de médecine;35006;Rennes;France;;
-;Faculté de pharmacie;35007;Rennes;France;;
-;Faculté d'odontologie;35008;Rennes;France;;
-;Imprimerie centrale de Beaulieu;35009;Rennes;France;;
-;IUT Lannion;35010;Rennes;France;;
-;IUT Rennes;35011;Rennes;France;;
-;IUT St. Brieuc;35012;Rennes;France;;
-;IUT St. Malo;35013;Rennes;France;;
-;OSUR;35014;Rennes;France;;
-;SIUAPS;35015;Rennes;France;;
-;SQSE;35016;Rennes;France;;
-;Station biologique Paimpont;35017;Rennes;France;;
-;Service Culturel;35018;Rennes;France;;
-;UFR ISTIC;35019;Rennes;France;;
-;UFR SPM;35020;Rennes;France;;
-;UFR SVE;35021;Rennes;France;;
-;UMR 1349;35022;Rennes;France;;
-;UMR 6082;35023;Rennes;France;;
-;UMR 6118;35024;Rennes;France;;
-;UMR 6164;35025;Rennes;France;;
-;UMR 6226;35026;Rennes;France;;
-;UMR 6251;35027;Rennes;France;;
-;UMR 6290;35028;Rennes;France;;
-;UMR 6552;35029;Rennes;France;;
-;UMR 6553;35030;Rennes;France;;
-;UMR 6566;35031;Rennes;France;;
-;UMR S 1085;35032;Rennes;France;;
-;UMR S 1099;35033;Rennes;France;;
-;UMR S 1230;35034;Rennes;France;;
-;UMR S 1236;35035;Rennes;France;;
-;UMR S 1241;35036;Rennes;France;;
-;UMR S 1242;35037;Rennes;France;;
-;UMS 2001;35038;Rennes;France;;
-;UMS 3343;35039;Rennes;France;;
-;UMS 3387;35040;Rennes;France;;
-;UMS 3480;35041;Rennes;France;;
+1;DRIm;35000;Rennes;France;;2
+2;EA 3913;35001;Rennes;France;;2
+3;EA 7449;35002;Rennes;France;;2
+4;EA Géoarchitecture;35003;Rennes;France;;2
+5;ENSSAT;35004;Rennes;France;;2
+6;ESIR;35005;Rennes;France;;2
+7;Faculté de médecine;35006;Rennes;France;;2
+8;Faculté de pharmacie;35007;Rennes;France;;2
+9;Faculté d'odontologie;35008;Rennes;France;;2
+10;Imprimerie centrale de Beaulieu;35009;Rennes;France;;2
+11;IUT Lannion;35010;Rennes;France;;2
+12;IUT Rennes;35011;Rennes;France;;2
+13;IUT St. Brieuc;35012;Rennes;France;;2
+14;IUT St. Malo;35013;Rennes;France;;2
+15;OSUR;35014;Rennes;France;;2
+16;SIUAPS;35015;Rennes;France;;2
+17;SQSE;35016;Rennes;France;;2
+18;Station biologique Paimpont;35017;Rennes;France;;2
+19;Service Culturel;35018;Rennes;France;;2
+20;UFR ISTIC;35019;Rennes;France;;2
+21;UFR SPM;35020;Rennes;France;;2
+22;UFR SVE;35021;Rennes;France;;2
+23;UMR 1349;35022;Rennes;France;;2
+24;UMR 6082;35023;Rennes;France;;2
+25;UMR 6118;35024;Rennes;France;;2
+26;UMR 6164;35025;Rennes;France;;2
+27;UMR 6226;35026;Rennes;France;;2
+28;UMR 6251;35027;Rennes;France;;2
+29;UMR 6290;35028;Rennes;France;;2
+30;UMR 6552;35029;Rennes;France;;2
+31;UMR 6553;35030;Rennes;France;;2
+32;UMR 6566;35031;Rennes;France;;2
+33;UMR S 1085;35032;Rennes;France;;2
+34;UMR S 1099;35033;Rennes;France;;2
+35;UMR S 1230;35034;Rennes;France;;2
+36;UMR S 1236;35035;Rennes;France;;2
+37;UMR S 1241;35036;Rennes;France;;2
+38;UMR S 1242;35037;Rennes;France;;2
+39;UMS 2001;35038;Rennes;France;;2
+40;UMS 3343;35039;Rennes;France;;2
+41;UMS 3387;35040;Rennes;France;;2
+42;UMS 3480;35041;Rennes;France;;2

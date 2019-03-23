@@ -1,79 +1,79 @@
 id;libelle_conditionnement;fiche_article_id
-;R;
-;armoire solvants 006/bunker;
-;armoire solvants 006;
-;armoire solvant 006;
-;Labo 006;
-;Frigo 006;
-;sorbonne 4;
-;congélo 001;
-;R4;
-;R3;
-;R2;
-;R1;
-;frigo Bld;
-;Carton 2;
-;Frigo (congel);
-;Frigo;
-;Boite Verte;
-;Armoire Solvant;
-;Etagère polymère;
-;Labo;
-;Boite 3;
-;Boite Bleue;
-;Carton 1;
-;Armoire Jaune;
-;Carton 3;
-;Xavier;
-;Hanieh;
-;Anabella;
-;Fabien;
-;Main cupboard;
-;Thierry;
-;Romain ;
-;Yann;
-;Romain;
-;"BAG ""wet""";
-;Paillasse Eva (EK);
-;Romain (Ghislaine);
-;Cyril;
-;Reserve;
-;Labo orga;
-;Reserve DL;
-;Fridge labo DL;
-;Fridge orga;
-;Labo Fred;
-;Labo Simonet;
-;Freezer Bruno;
-;Fridge Dominique;
-;Labo Bruno;
-;Arm Vit;
-;Placard Bal;
-;Arm Vit + aliquots Congel;
-;Placard;
-;Placard MO;
-;Placard sorb;
-;Arm Sécu;
-;Placard Four;
-;Congel;
-;Frigo + aliquots Congel;
-;Congel + aliquots;
-;Frigo + aliqots Congel;
-;Placard + aliquots congel;
-;Frigo + Congel;
-;Paillasse;
-;Placard Bal + Arm Vit;
-;Placard Sorb + Placard MO;
-;Sorbonne;
-;Arm secu;
-;Arm Sécu + Placard Sorb;
-;Placard + Frigo;
-;Congel + Frigo;
-;Frigo +  aliquot congel;
-;C1-E3;
-;C1-E4;
-;C1-E1;
-;C1-E6;
-;E3A;
-;C1-E5;
-;E14B;
+1;R;11
+2;armoire solvants 006/bunker;11
+3;armoire solvants 006;11
+4;armoire solvant 006;11
+5;Labo 006;11
+6;Frigo 006;11
+7;sorbonne 4;11
+8;congélo 001;11
+9;R4;11
+10;R3;11
+11;R2;11
+12;R1;11
+13;frigo Bld;11
+14;Carton 2;11
+15;Frigo (congel);11
+16;Frigo;11
+17;Boite Verte;11
+18;Armoire Solvant;11
+19;Etagère polymère;11
+20;Labo;11
+21;Boite 3;11
+22;Boite Bleue;11
+23;Carton 1;11
+24;Armoire Jaune;11
+25;Carton 3;11
+26;Xavier;11
+27;Hanieh;11
+28;Anabella;11
+29;Fabien;11
+30;Main cupboard;11
+31;Thierry;11
+32;Romain ;11
+33;Yann;11
+34;Romain;11
+35;"BAG ""wet""";11
+36;Paillasse Eva (EK);11
+37;Romain (Ghislaine);11
+38;Cyril;11
+39;Reserve;11
+40;Labo orga;11
+41;Reserve DL;11
+42;Fridge labo DL;11
+43;Fridge orga;11
+44;Labo Fred;11
+45;Labo Simonet;11
+46;Freezer Bruno;11
+47;Fridge Dominique;11
+48;Labo Bruno;11
+49;Arm Vit;11
+50;Placard Bal;11
+51;Arm Vit + aliquots Congel;11
+52;Placard;11
+53;Placard MO;11
+54;Placard sorb;11
+55;Arm Sécu;11
+56;Placard Four;11
+57;Congel;11
+58;Frigo + aliquots Congel;11
+59;Congel + aliquots;11
+60;Frigo + aliqots Congel;11
+61;Placard + aliquots congel;11
+62;Frigo + Congel;11
+63;Paillasse;11
+64;Placard Bal + Arm Vit;11
+65;Placard Sorb + Placard MO;11
+66;Sorbonne;11
+67;Arm secu;11
+68;Arm Sécu + Placard Sorb;11
+69;Placard + Frigo;11
+70;Congel + Frigo;11
+71;Frigo +  aliquot congel;11
+72;C1-E3;11
+73;C1-E4;11
+74;C1-E1;11
+75;C1-E6;11
+76;E3A;11
+77;C1-E5;11
+78;E14B;11
