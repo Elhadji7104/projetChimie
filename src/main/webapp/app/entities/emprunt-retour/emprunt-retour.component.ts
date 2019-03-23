@@ -13,6 +13,7 @@ import { AccountService, IUser, User } from 'app/core';
 import moment = require('moment');
 import { FicheDeCommandeProduitService } from 'app/entities/fiche-de-commande-produit';
 import { FicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'jhi-emprunt-retour',
@@ -49,7 +50,8 @@ export class EmpruntRetourComponent implements OnInit {
         protected accountService: AccountService,
         protected ficheEmpruntProduitService: FicheEmpruntProduitService,
         protected ficheRetourProduitService: FicheRetourProduitService,
-        private messageService: MessageService
+        private messageService: MessageService,
+        protected activatedRoute: ActivatedRoute
     ) {}
 
     loadAll() {
@@ -74,6 +76,7 @@ export class EmpruntRetourComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
+
         this.loadAll();
         this.empruntRetour = [
             {
@@ -96,7 +99,10 @@ export class EmpruntRetourComponent implements OnInit {
             this.currentAccount = account;
         });
         this.registerChangeInFicheArticles();
-        //console.log(this.ficheArticles);
+        this.activatedRoute.data.subscribe(({ ficheArticle }) => {
+            this.ficheArticle = ficheArticle;
+        });
+        console.log(this.ficheArticle);
     }
 
     registerChangeInFicheArticles() {
@@ -154,6 +160,7 @@ export class EmpruntRetourComponent implements OnInit {
             this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Erreur' });
         }
     }
+
     actuDispon() {
         this.dispo = true;
         this.commande = false;

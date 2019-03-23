@@ -69,6 +69,18 @@
                     </td>
                     <td>
                         <div class="table table-striped">
+                            <button type="submit"
+                                    [routerLink]="['/fiche-article', rowData.id, 'view' ]"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" >Commander</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/emprunt-produit', rowData.id, 'edit' ]"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" >Emprunter</span>
+                            </button>
                             <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
                                     type="submit"
                                     [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.idProduit + '/delete'} }]"
