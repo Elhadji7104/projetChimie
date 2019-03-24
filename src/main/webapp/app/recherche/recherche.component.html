@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                        <p-multiSelect *ngSwitchCase="'classifications'" [(ngModel)]="classification"
+                        <p-multiSelect *ngSwitchCase="'classifications'"
                                        [(ngModel)]="valeursSelect" [options]="classificationO" defaultLabel="All disponibilite"
                                        (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
                         <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle"

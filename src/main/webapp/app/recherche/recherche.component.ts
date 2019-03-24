@@ -26,7 +26,9 @@ export class RechercheComponent implements OnInit {
     classificationO: SelectItem[];
     private classifi: any;
     private valeursSelect: any[];
-    private ficheArticlesCopie: IFicheArticle[];
+    private ficheArticlesProduitsCopie: IFicheArticleProduit[];
+    private conserve: IFicheArticleProduit[];
+    tableauMultiselection: IFicheArticleProduit[] = [];
 
     ngOnInit() {
         this.cols = [
@@ -142,23 +144,31 @@ export class RechercheComponent implements OnInit {
     }
 
     ficheInitial() {
-        this.ficheArticlesCopie = this.ficheArticles;
+        this.ficheArticlesProduitsCopie = this.ficheArticleProduits;
     }
 
-    filtre() {
-        this.ficheArticles = this.ficheArticlesCopie;
-        for (let value of this.valeursSelect) {
-            console.log(this.ficheArticleProduits[0].classifications[0].nomClassification.toLowerCase().toString());
-            console.log(value);
-            console.log(
-                this.ficheArticleProduits[0].classifications[0].nomClassification
-                    .toLowerCase()
-                    .toString()
-                    .indexOf(value[0].nomClassification) >= 0
+    filtre(tab: IClassification[], field: any, sens: any) {
+        console.log(tab);
+
+        this.ficheArticleProduits = this.ficheArticlesProduitsCopie;
+        this.tableauMultiselection = [];
+        for (let value of tab) {
+            let tableau = this.ficheArticlesProduitsCopie;
+            tableau = tableau.filter(
+                fiche =>
+                    fiche.classifications.filter(classe => classe.nomClassification.toLowerCase().indexOf(value.nomClassification) >= 0)
+                        .length > 0
             );
-            this.ficheArticleProduits = this.ficheArticleProduits.filter(
-                fiche => fiche.classifications.filter(classe => classe.nomClassification.toLowerCase().indexOf(value) >= 0).length > 0
-            );
+            for (let choix of tableau) {
+                if (!this.tableauMultiselection.includes(choix)) {
+                    this.tableauMultiselection.push(choix);
+                }
+            }
+        }
+        if (this.tableauMultiselection.length === 0) {
+            this.ficheArticleProduits = this.ficheArticlesProduitsCopie;
+        } else {
+            this.ficheArticleProduits = this.tableauMultiselection;
         }
     }
 
