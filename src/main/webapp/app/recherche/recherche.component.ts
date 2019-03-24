@@ -24,6 +24,7 @@ export class RechercheComponent implements OnInit {
     disponibliteArticleO: SelectItem[];
     nomO: SelectItem[];
     classificationO: SelectItem[];
+    formuleO: SelectItem[];
     private classifi: any;
     private valeursSelect: any[];
     private ficheArticlesProduitsCopie: IFicheArticleProduit[];
@@ -36,6 +37,7 @@ export class RechercheComponent implements OnInit {
             { field: 'cas', header: 'cas' },
             { field: 'nom', header: 'nom' },
             { field: 'acronyme', header: 'acronyme' },
+            { field: 'formule', header: 'formule' },
             { field: 'classifications', header: 'classifications' },
             { field: 'disponibliteArticle', header: 'disponibliteArticle' }
         ];
@@ -65,6 +67,7 @@ export class RechercheComponent implements OnInit {
                         ficheArticleProduit.cas = value.ficheProduitChimiques[0].cas;
                         ficheArticleProduit.idProduit = value.ficheProduitChimiques[0].id;
                         ficheArticleProduit.nom = value.ficheProduitChimiques[0].nom;
+                        ficheArticleProduit.formule = value.ficheProduitChimiques[0].formule;
                     }
                     ficheArticleProduit.classifications = value.classifications;
                     ficheArticleProduit.codeBarre = value.codeBarre;
@@ -78,6 +81,7 @@ export class RechercheComponent implements OnInit {
                 this.acronymeO = [];
                 this.disponibliteArticleO = [];
                 this.nomO = [];
+                this.formuleO = [];
 
                 for (let value of this.ficheArticles) {
                     if (value !== undefined) {
@@ -102,6 +106,15 @@ export class RechercheComponent implements OnInit {
                                 this.acronymeO.push({
                                     label: value.ficheProduitChimiques[0].acronyme,
                                     value: value.ficheProduitChimiques[0].acronyme
+                                });
+                            }
+                            if (
+                                value.ficheProduitChimiques[0].formule !== undefined &&
+                                this.verifiDoublon(value.ficheProduitChimiques[0].formule, this.formuleO)
+                            ) {
+                                this.formuleO.push({
+                                    label: value.ficheProduitChimiques[0].formule,
+                                    value: value.ficheProduitChimiques[0].formule
                                 });
                             }
                             if (

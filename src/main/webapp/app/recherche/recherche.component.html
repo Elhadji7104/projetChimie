@@ -41,6 +41,9 @@
                         <p-multiSelect *ngSwitchCase="'codeBarre'" [options]="codeBarreO" [(ngModel)]="codeBarre"
                                        defaultLabel="All disponibilite"
                                        (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'formule'" [options]="formuleO" [(ngModel)]="formule"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                     </td>
                 </tr>
             </ng-template>
@@ -58,6 +61,10 @@
                     <td>
                         <a class="form-control-static"
                            [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.acronyme}}</a>
+                    </td>
+                    <td>
+                        <a class="form-control-static"
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.formule}}</a>
                     </td>
                     <td>
                        <span *ngFor="let classification of rowData.classifications; let last = last">
