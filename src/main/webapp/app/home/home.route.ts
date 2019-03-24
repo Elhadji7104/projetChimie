@@ -4,7 +4,6 @@ import { HomeComponent } from './';
 import { EmpruntRetourComponent } from '../entities/emprunt-retour/emprunt-retour.component';
 import { UserRouteAccessService } from 'app/core';
 import { RechercheComponent } from 'app/recherche/recherche.component';
-import { ListeCmrResolve } from 'app/entities/liste-cmr';
 import { FicheArticleResolve } from 'app/entities/fiche-article';
 
 export const HOME_ROUTE: Route = {

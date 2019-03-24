@@ -70,20 +70,20 @@
                     <td>
                         <div class="table table-striped">
                             <button type="submit"
-                                    [routerLink]="['/fiche-article', rowData.id, 'view' ]"
+                                    [routerLink]="['/fiche-de-commande-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-info btn-sm">
                                 <fa-icon [icon]="'eye'"></fa-icon>
                                 <span class="d-none d-md-inline" >Commander</span>
                             </button>
                             <button type="submit"
-                                    [routerLink]="['/emprunt-produit', rowData.id, 'edit' ]"
+                                    [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-info btn-sm">
                                 <fa-icon [icon]="'eye'"></fa-icon>
                                 <span class="d-none d-md-inline" >Emprunter</span>
                             </button>
                             <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
                                     type="submit"
-                                    [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.idProduit + '/delete'} }]"
+                                    [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.idArticle + '/delete'} }]"
                                     replaceUrl="true"
                                     queryParamsHandling="merge"
                                     class="btn btn-danger btn-sm">
