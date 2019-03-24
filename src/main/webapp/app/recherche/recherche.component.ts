@@ -85,8 +85,8 @@ export class RechercheComponent implements OnInit {
 
                 for (let value of this.ficheArticles) {
                     if (value !== undefined) {
-                        if (value.refArticle !== undefined && this.verifiDoublon(value.refArticle, this.codeBarreO)) {
-                            this.codeBarreO.push({ label: value.refArticle, value: value.refArticle });
+                        if (value.codeBarre !== undefined && this.verifiDoublon(value.codeBarre, this.codeBarreO)) {
+                            this.codeBarreO.push({ label: value.codeBarre, value: value.codeBarre });
                         }
                         if (value.ficheProduitChimiques[0] !== undefined) {
                             if (

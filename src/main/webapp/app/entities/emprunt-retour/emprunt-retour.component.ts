@@ -32,7 +32,6 @@ export class EmpruntRetourComponent implements OnInit {
     ficheEmpruntProduit: IFicheEmpruntProduit = new FicheEmpruntProduit();
     empruntRetour: MenuItem[];
     choix = true;
-    produitChoix: any;
     quantite: any;
     private user: IUser = new User();
     private ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
@@ -40,7 +39,6 @@ export class EmpruntRetourComponent implements OnInit {
     unite: String = 'Article non choisi';
     private dispo: boolean = true;
     commande: boolean = false;
-    private ficheCommande: FicheDeCommandeProduit;
 
     constructor(
         protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
@@ -59,10 +57,10 @@ export class EmpruntRetourComponent implements OnInit {
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
                 for (let value of this.ficheArticles) {
-                    if (value !== undefined && value.refArticle !== undefined) {
+                    if (value !== undefined && value.codeBarre !== undefined) {
                         this.articleOption.push({
                             label:
-                                value.refArticle + ' : ' + value.ficheProduitChimiques[0].cas + ' : ' + value.ficheProduitChimiques[0].nom,
+                                value.codeBarre + ' : ' + value.ficheProduitChimiques[0].cas + ' : ' + value.ficheProduitChimiques[0].nom,
                             value: value
                         });
                     }
