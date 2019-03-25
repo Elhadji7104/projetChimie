@@ -39,6 +39,7 @@ export class EmpruntRetourComponent implements OnInit {
     unite: String = 'Article non choisi';
     private dispo: boolean = true;
     commande: boolean = false;
+    private labelString: string;
 
     constructor(
         protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
@@ -57,10 +58,19 @@ export class EmpruntRetourComponent implements OnInit {
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
                 for (let value of this.ficheArticles) {
-                    if (value !== undefined && value.codeBarre !== undefined) {
+                    this.labelString = '';
+                    if (value !== undefined && value.ficheProduitChimiques !== undefined) {
+                        if (value.codeBarre !== undefined) {
+                            this.labelString = this.labelString + value.codeBarre;
+                        }
+                        if (value.ficheProduitChimiques.cas !== undefined) {
+                            this.labelString = this.labelString + ';' + value.ficheProduitChimiques.cas;
+                        }
+                        if (value.ficheProduitChimiques.nom !== undefined) {
+                            this.labelString = this.labelString + ';' + value.ficheProduitChimiques.nom;
+                        }
                         this.articleOption.push({
-                            label:
-                                value.codeBarre + ' : ' + value.ficheProduitChimiques[0].cas + ' : ' + value.ficheProduitChimiques[0].nom,
+                            label: this.labelString,
                             value: value
                         });
                     }

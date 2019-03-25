@@ -27,6 +27,7 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     private ficheArticle: any;
     fournisseurOption: SelectItem[] = [];
     private quantite: number;
+    private labelString: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -57,12 +58,23 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.fichearticles = res.body;
                 for (let value of this.fichearticles) {
-                    if (value !== undefined && value.refArticle !== undefined) {
-                        this.articleOption.push({
-                            label:
-                                value.refArticle + ' : ' + value.ficheProduitChimiques[0].cas + ' : ' + value.ficheProduitChimiques[0].nom,
-                            value: value
-                        });
+                    if (value !== undefined && value.ficheProduitChimiques !== undefined) {
+                        this.labelString = '';
+                        if (value !== undefined && value.ficheProduitChimiques !== undefined) {
+                            if (value.codeBarre !== undefined) {
+                                this.labelString = this.labelString.concat(value.codeBarre);
+                            }
+                            if (value.ficheProduitChimiques.cas !== undefined) {
+                                this.labelString = this.labelString.concat('; ' + value.ficheProduitChimiques.cas);
+                            }
+                            if (value.ficheProduitChimiques.nom !== undefined) {
+                                this.labelString = this.labelString.concat('; ' + value.ficheProduitChimiques.nom);
+                            }
+                            this.articleOption.push({
+                                label: this.labelString,
+                                value: value
+                            });
+                        }
                     }
                 }
             },
