@@ -87,11 +87,11 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
                         if (
                             value.quantite !== undefined &&
                             this.quantiteO.indexOf({
-                                label: value.quantite,
+                                label: value.quantite.toString(),
                                 value: value.quantite
                             }) === -1
                         ) {
-                            this.quantiteO.push({ label: value.quantite, value: value.quantite });
+                            this.quantiteO.push({ label: value.quantite.toString(), value: value.quantite });
                         }
                         if (
                             value.disponibliteArticle !== undefined &&
