@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                        <p-multiSelect *ngSwitchCase="'classifications'" [(ngModel)]="classification"
+                        <p-multiSelect *ngSwitchCase="'classifications'"
                                        [(ngModel)]="valeursSelect" [options]="classificationO" defaultLabel="All disponibilite"
                                        (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
                         <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle"
@@ -38,7 +38,10 @@
                         <p-multiSelect *ngSwitchCase="'cas'" [options]="casO" [(ngModel)]="cas"
                                        defaultLabel="All disponibilite"
                                        (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'refArticle'" [options]="refArticleO" [(ngModel)]="refArticle"
+                        <p-multiSelect *ngSwitchCase="'codeBarre'" [options]="codeBarreO" [(ngModel)]="codeBarre"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'formule'" [options]="formuleO" [(ngModel)]="formule"
                                        defaultLabel="All disponibilite"
                                        (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                     </td>
@@ -46,18 +49,22 @@
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
-                    <td><a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData.refArticle}}</a></td>
+                    <td><a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData?.codeBarre}}</a></td>
                     <td>
                         <a class="form-control-static"
-                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData.cas}}</a>
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.cas}}</a>
                     </td>
                     <td>
                         <a class="form-control-static"
-                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData.nom}}</a>
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.nom}}</a>
                     </td>
                     <td>
                         <a class="form-control-static"
-                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData.acronyme}}</a>
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.acronyme}}</a>
+                    </td>
+                    <td>
+                        <a class="form-control-static"
+                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.formule}}</a>
                     </td>
                     <td>
                        <span *ngFor="let classification of rowData.classifications; let last = last">
@@ -65,13 +72,25 @@
                         </span>
                     </td>
                     <td>
-                        <a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData.disponibliteArticle}}</a>
+                        <a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData?.disponibliteArticle}}</a>
                     </td>
                     <td>
                         <div class="table table-striped">
+                            <button type="submit"
+                                    [routerLink]="['/fiche-de-commande-produit', rowData.idArticle, 'edit' ]"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" >Commander</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" >Emprunter</span>
+                            </button>
                             <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
                                     type="submit"
-                                    [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.idProduit + '/delete'} }]"
+                                    [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.idArticle + '/delete'} }]"
                                     replaceUrl="true"
                                     queryParamsHandling="merge"
                                     class="btn btn-danger btn-sm">

@@ -5,13 +5,13 @@
             <tr></tr>
             <tr></tr>
             <tr></tr>
-            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle.refArticle}}</h2>
+            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle.codeBarre}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.refArticle">Ref Article</span></dt>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeBarre">Code Barre</span></dt>
                 <dd>
-                    <span>{{ficheArticle.refArticle}}</span>
+                    <span>{{ficheArticle.codeBarre}}</span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat Physique</span></dt>
                 <dd>
@@ -20,10 +20,6 @@
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeInterne">Code Interne</span></dt>
                 <dd>
                     <span>{{ficheArticle.codeInterne}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeBarre">Code Barre</span></dt>
-                <dd>
-                    <span>{{ficheArticle.codeBarre}}</span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.quantite">Quantité</span></dt>
                 <dd>
@@ -51,19 +47,19 @@
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span></dt>
                 <dd>
                     <span *ngFor="let unite of ficheArticle.unites; let last = last">
-                        <a [routerLink]="['/unite', unite?.id, 'view' ]">{{unite.id}}</a>{{last ? '' : ', '}}
+                        <a [routerLink]="['/unite', unite?.id, 'view' ]">{{unite.libelleUnite}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique">Fiche Produit Chimique</span></dt>
                 <dd>
                     <span *ngFor="let ficheProduitChimique of ficheArticle.ficheProduitChimiques; let last = last">
-                        <a [routerLink]="['/fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.id}}</a>{{last ? '' : ', '}}
+                        <a [routerLink]="['/fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.nom}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.classification">Classification</span></dt>
                 <dd>
                     <span *ngFor="let classification of ficheArticle.classifications; let last = last">
-                        <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.id}}</a>{{last ? '' : ', '}}
+                        <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.localisation">Localisation</span></dt>
@@ -75,7 +71,7 @@
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span></dt>
                 <dd>
                     <div *ngIf="ficheArticle.droitDacceeProduit">
-                        <a [routerLink]="['/droit-daccee-produit', ficheArticle.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.id}}</a>
+                        <a [routerLink]="['/droit-daccee-produit', ficheArticle.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.nom}}</a>
                     </div>
                 </dd>
             </dl>

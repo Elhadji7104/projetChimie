@@ -1,1093 +1,425 @@
-1;7072-00-6;;m10-methylanthracene-9-carboxaldehyde 96%;;;NA21;C16H12O
-2;827-52-1;;Cyclohexylbenzene 96%;;;;C12H16
-3;75-05-8;;Acetonitrile;;;;C2H3N
-4;75-74-4;;Chlorotrimethylsilane reditilled;;;;(CH3)3SiCl
-5;60-29-7;;Ether diethylique purex;;;;C4H10O
-6;109-66-0;;Pentane 98%;;;;CH3(CH2)3CH3
-7;93-61-8;;N-methylformanilid 99%;;;;C8H9ON
-8;7440-23-5;;Sodium cubes in mineral oil 99.95%;;;;Na
-9;541-41-3;;Ethyl chloroformate 99%;;;;
-10;1165-79-6;;t2,2,2-trimethoxy-4,5-dimethyl-1,3,2-dioxaphospholene;;;;
-11;14047-29-1;;c4-Carboxybenzeneboronic acid 97%;;;;
-12;1461-22-9;;Tributyltin chloride 96%;;;;C12H27ClSn
-13;109-66-1;;Pentane anhydre extra pur;;;;CH3(CH2)3CH2
-14;5424-21-5;;d2,4-dichloro-6-methylpyrimidine;;;;
-15;930-35-8;;Vinylene trithiocarbonate 98%;;;;C3H2S3
-16;822-38-8;;Ethylenetrithiocarbonate 97%;;;;C3H4S3
-17;62-53-3;;Anilin 99%;;;;C6H5NH2
-18;10160-87-9;;d3,3-diethoxy-1-propyne;;;;
-19;1122-72-1;;m6-methyl-2-pyridinecarboxaldéhyde;;;;C7H7NO 
-20;15-71-08-0;;Methyl-4-formylbenzoate;;;;
-21;1336-21-6;;Ammonium hydroxyde 25%;;;;NH4OH
-22;127406-55-7;;p4-pyrydin-3-ylbenzaldehyde 97%;;;;C12H9NO
-23;0112-2-7;;h(1-hexadecyl)trimethylammonium chloride;;;;C19H42ClN
-24;7251-61-8;;m2-methylquinoxaline 97%;;;;
-25;6018-89-9;;Nickel acetate tetrahydrate 98%;;;;C4H6NiO4, 4H2O
-26;122-00-9;;m4'-Methylacetophenone 95%;;;;(CH3)2COC6H4
-27;78-67-1;;a2,2-azobis-2-methylpropionitrile 0,2M toluene;;;;C8H12N4
-28;0128-8-5;;bN-bromosuccinimide;;;;C4H4BrNO2
-29;53566-95-3;;d4,4'-diformyltriphenylamine;;;;
-30;3609-53-8;;Methyl-4-acetylbenzoate;;;;
-31;2672-58-4;;Trimethyl-1,3,5-benzene tricarboxylate;;;;
-32;111-87-5;;o1-octanol;;;;
-33;521-31-3;;a3-aminophtalhydrazide;;;;
-34;2446-83-5;;azodicarboxylic acide diisopropyl ester;;;;
-35;59568-28-4;;bis(tetramethylcyclopentadienyl)iron 97%;;;;
-36;564483-18-7;;d2(dicyclohexylphosphino)2',4',6'-triisopropylbiphenyl;;;;
-37;2234-16-4;;d2'-4'-dichloroacetophenone;;;;
-38;569990-02-4;;d-3,5-dibromobenzaldéhyde;;;;
-39;26386-88-9;;Diphenylphosphonic azide;;;;C12H10N3O3P
-40;109-77-3;;Malononitrile;;;;C3H2N2
-41;1779-49-3;;Methyltriphenyl phosphonium iodide 97%;;;;C19H18BrP
-42;04/08/7446;;Selenium dioxyde;;;;SeO2
-43;3141-69-0;;b2'-bromoacetophenone;;;;
-44;99-90-1;;b4-bromoacetophenone 98%;;;;BrC6H4COCH3
-45;31366-25-3;;Tetrathiafulvalene 97%;;;;C6H4S4
-46;68128-94-9;;Formyltetrathiafulvène;;;;
-47;12093-10-6;;ferrocencarboxaldehyde;;;;
-48;2142-63-4;;b3'-bromoacétophénone;;;;
-49;51760-21-5;;Dimethyl 5-bromoisophtalate;;;;
-50;12612-37-2;;Dowex 50w x2-100;;;;/
-51;/;;Peptidoglycan N-acetylglucosamine deacetylase 4A;;;;NZYTech (CZ02241)
-52;140681-55-6;;1-chloromethyl-4-fluoro-1,4-diazonia-bicyclo[2.2.2]octane bis(tetrafluoroborate);;;;C7H14B2ClF9N2
-53;7446-70-0;;aluminium chloride;;;;AlCl3
-54;/;;competent cell one shot BL21 star;;;;C6010-03 invitrogen
-55;109-66-0;;pentane_synthese_23051-0050_NA.06;;;;C5H12
-56;S1797-10X5ML;;milieu de transformation SOC;;;;sigma 
-57; 74-89-5 ;;Methylamine solution;;;;CH3NH2
-58;-;;x-rhodamine-5(86)-isothiocyanate;;;;-
-59;106;;Tube de dialyse ReadyLyzer - volume 3 ml - 12 - 14 KDa;;;;115782
-60;/;;Vivaspin 20 300kD;;;;Ugap
-61; 78957-07-0 ;;crotonic anhydride;;;;C8 H10 O3
-62;1076-43-3;;Benzene D6_mag_29200-0100_NA.11;;;;C6D6
-63;1634-04-4;;tert-butyl methyl ether;;;;C5H12O
-64;693-02-7;;1-hexyne;;;;C6H10
-65;14014-06-3;;sodium hydroxide deuterie (12N in D2O);;;;DNaO
-66;10043-35-3;;boric acid;;;;BH3O3
-67;DD-17-5255-01;;colonne HisTrap;;;;purification de protÃƒÂ©ines
-68;7726-95-6;;bromine;;;;Br2
-69;-;;Toruzyme 3.0L;;;;enzyme
-70;6867-30-7;;lithium acetylide, ethylenediamine complex;;;;C2HLi.C2H8N2
-71;/;;ELectrolyte sonde PH, KCL 3M;;;;K Cl
-72;9002-84-0;;granular PTFE;;;;PTFE
-73;9001-62-1;;Lipase from Mucor javanicus;;;;-
-74;7440-70-2;;calcium;;;;Ca
-75;7787-35-1;;Baryum manganate;;;;BaMnO4
-76;7789-78-8;;calcium hydride;;;;H2Ca
-77;10022-70-5;;Sodium Hypochlorite Pentahydrate;;;;Na Cl O  Ã‚Â·5H2O
-78;choisir ref sur ugap;;lessive pour linge labo;;;;choisir ref sur ugap
-79;1333-82-0;;chromium (VI) oxide (chromic acid);;;;CrO3
-80;110-82-7;;Cyclohexane pour HPLC 99.9%_NA.06;;;;C6H12
-81;627-19-0;;1-pentyne;;;;C5H8
-82; 43064-96-6;;tetrabutylammonium cynaoborohydride;;;;(CH3CH2CH2CH2)4N(BH3CN) 
-83;-;;Luria Bertani broth;;;;LB
-84;108-24-7;;acetic anhydride;;;;C4H6O3
-85;74-94-2;;borane dimethylamine;;;;C2 H10 B N
-86;775-12-2;;diphenylsilane;;;;C12H12Si
-87;39339-85-0;;Amberlyst A-26(OH);;;;-
-88;7440-31-5;;etain;;;;Sn
-89;1516-08-1 ;;ethanol deuterie D6;;;;C2D6O
-90;06/05/7694;;deuterium chloride 37% dans D2O;;;;ClD
-91;10034-85-2;;iodhydric acid;;;;HI
-92;9001-78-9 ;;phosphatase alcaline from calf intestine;;;;*
-93;9001-62-1;;Lipase from Candida rugosa Type VII;;;;*
-94;W3399D fisher;;marqueur de proteines;;;;benchmark protein ladder
-95;9001-62-1;;Lipase from porcine pancreas;;;;-
-96;7553-56-2;;iodine (bi-sublime);;;;I2
-97;902-18-0;;agar, fine powder;;;;*
-98;666-52-4;;Acetone D6_mag_11200-1000_NA.11;;;;C3D6O
-99;7697-37-2;;Acide nitrique 68%;;;;
-100;7647-01-0;;Acide chlorhydrique 35%;;;;
-101;111-86-4;;octylamine;;;;
-102;121-44-8;;triethylamine;;;;
-103;3030-47-5;;1,1,4,7,7 pentamethyldiethylentriamine;;;;
-104;;;Vert brillant;;;;
-105;;;Naphtol-1-phtaleine;;;;
-106;;;Vert de methyle;;;;
-107;62625-29-0;;Rouge de Cresol;;;;
-108;;;Bleu de cresyl brillant;;;;
-109;56-86-0;;Acide L-glutamique;;;;
-110;13463-67-6;;Titanium (IV) oxide Aeroxide P25;;;;
-111;;;NM105 Titanium (IV) oxide rutile-anatase;;;;
-112;;;NM101 Titanium (IV) dioxide ;;;;
-113;;;NM110 Zn-oxide rutile;;;;
-114;;;NM200 SiO2 amorphe ;;;;
-115;;;NM201 SiO2 amorphe ;;;;
-116;;;NM202 SiO2 amorphe ;;;;
-117;;;NM100 Titanium (IV) oxide pigment;;;;
-118;;;NM102 Titanium (IV) dioxide anatase;;;;
-119;;;NM104 Titanium (IV) oxide, hydrophilic, rutile;;;;
-120;;;NM203 SiO2 amorphe ;;;;
-121;9002-98-6;;polyethyleneimine 60000 50%;;;;
-122;79-10-7;;acide acrylique;;;;
-123;04/01/9003;;polyacide acrylique 3000000;;;;
-124;9003-39-8;;Polyvinylpyrrolidone 55000;;;;
-125;;;carboxy PMMA telechelique 6000;;;;
-126;;;di-carboxy PMMA telechelique 5000;;;;
-127;110-26-9;;N,N' methylene bisacrylamide;;;;
-128;110-26-9;;Bis-N,N' methylene bisacrylamide;;;;
-129;;;Iodure de potassium;;;;
-130;7727-54-0;;Persulfate d'ammonium;;;;
-131;7787-70-4;;copper (I) bromide;;;;
-132;;;Acide citrique, monhydrate;;;;
-133;7487-88-9;;magnesium sulfate ;;;;
-134;110-86-1;;Pyridine;;;;
-135;142-82-5;;n-Heptane;;;;
-136;64-17-5;;Ethanol 96%;;;;
-137;64-17-5;;Ethanol abs;;;;
-138;109-99-9;;Tetrahydrofurane;;;;
-139;75-09-2;;Dichloromethane;;;;
-140;67-64-1;;Acétone;;;;
-141;;;N-cetylN,N,N trimethylammoniumbromide;;;;
-142;;;Triton X100;;;;
-143;9036-19-5;;Igepal CA-630;;;;
-144;220622-96-8;;Glycolic acid ethoxylate lauryl ether 690;;;;
-145;112-55-0;;1-dodecanthiol;;;;
-146;142-45-0;;Acetylenedicarboxylic acid;;;;
-147;74003-55-7;;3,4-dibromobenzaldehyde;;;;
-148;75-85-4;;2-Methyl-2-butanol;;;;
-149;17345-77-6;;4-Bromocatechol;;;;
-150;50-00-0 ;;Formaldehyde 37 % wt. in water;;;;
-151;58442-17-4;;1H-Benzimidazole-5-carbaldehyde, 97%;;;;
-152;71605-72-6;;2,1,3-Benzothiadiazole-5-carbaldehyde, 97%;;;;
-153;105-07-7;;4-Cyanobenzaldehyde;;;;
-154;108-94-1 ;;Cyclohexanone 99%;;;;
-155;02/03/3988;;4,4-DIBROMOBENZOPHENONE;;;;
-156;98-53-3;;4-tert-Butylcyclohexanone;;;;
-157;68-12-2;;N,N-Dimethylformamide, anhydrous, 99.8%;;;;
-158;68-12-2;;N,N-Dimethylformamide;;;;
-159;108-01-0;;N,N-Dimethylethanolamine;;;;
-160;104-75-6;;2-Ethylhexylamine, 99%;;;;
-161;768-94-5;;1-Adamantylamine;;;;
-162;24544-04-5 ;;2,6-Diisopropylaniline, 92%;;;;
-163;34160-40-2;;6-Bromopyridine-2-carbaldehyde, ?95%;;;;
-164;1122-72-1;;6-Methyl-2-pyridinecarboxaldehyde;;;;
-165;17573-94-3;;4-ethynyl-N,N'-dimethylaniline;;;;
-166;1640-39-7;;2,3,3-Trimethylindolenine;;;;
-167;1125-80-0;;3-Methylisoquinoline;;;;
-168;107-06-2;;1,2-dichloroethane;;;;
-169;694-80-4;;1-Bromo-2-chlorobenzene;;;;
-170;33685-54-0 ;;1,1,2,2-Tetrachloroethane-d2;;;;
-171;580-13-2;;2-Bromonaphthalene, 99%;;;;
-172;583-53-9;;1,2-Dibromobenzene;;;;
-173;108-36-1;;1,3-Dibromobenzene;;;;
-174;108-86-1;;Bromobenzene;;;;
-175;90-11-9;;1-Bromonaphthalene;;;;
-176;75-52-5;;Nitromethane;;;;
-177;31643-49-9;;Nitrophthalonitrile;;;;
-178;112-96-9;;Octadecyl isocyanate;;;;
-179; 333-27-7;;Methyl trifluoromethanesulfonate;;;;
-180;1079-66-9;;chlorodiphenylphosphine, 98 %;;;;
-181;210169-54-3;; (S)-(?)-5,5?-Bis(diphenylphosphino)-4,4?-bi-1,3-benzodioxole;;;;
-182;6399-81-1;;Triphenylphosphine hydrobromide, 97%;;;;
-183;none;;Phosphate-buffered saline (PBS, 10X), pH 7.4;;;;
-184;  7647-01-0;;Hydrochloric acid;;;;
-185;1191-15-7;;Diisobutylaluminium hydride;;;;
-186;128796-39-4;;4-(Trifluoromethyl)phenylboronic acid;;;;
-187;64443-05-6;;Tetrakis(acetonitrile)copper(I) hexafluorophosphate;;;;
-188;1273-73-0;;Bromoferrocene, 95%;;;;
-189;12112-67-3;;Bis(1,5-cyclooctadiene)diiridium(I) dichloride;;;;
-190;1310-58-3;;Potassium hydroxide;;;;
-191;865-47-4;;Potassium tert-butoxide;;;;
-192;109-72-8;;n-Butyllithium;;;;
-193;100-06-01;;4-metoxyacetophenone 99 %;;;;
-194;100-14-1;;4-nitrobenzyl chloride;;;;
-195;100-19-6;;?-nitroacetophenone 97%;;;;
-196;104-88-1;;4-chlorobenzaldehyde 98,5 %;;;;
-197;104-92-7;;4-bromoanisole;;;;
-198;105-07-07;;4-cyanobenzaldehyde;;;;
-199;2923-28-6 ;;Silver trifluoromethane sulfonate 98% ;;;;
-200;2923-28-6 ;;Silver trifluoromethane sulfonate 99% ;;;;
-201;3002-78-6 ;;5-methyl-1,10-phenanthroline ;;;;
-202;30084-90-3;;Fluorene-2-carboxaldehyde 99%;;;;
-203;3016-97-5;;1,4-dibenzoylbenzene 99 %;;;;
-204;3031-68-3;;HO-CH2-(C?C)2-CH2OH;;;;
-205;30525-89-4;;Paraformaldehyde;;;;
-206;01/11/3083;;1,1,4,7,10,10-hexamethyltriethylentriamin 98 %;;;;
-207;31106-82-8;;2-(brommethyl)pyridine hydrobromide;;;;
-208;311-28-4 ;;Tetrabutylammonium iodide ;;;;
-209;3132-99-8;;3-Bromobenzaldehyde;;;;
-210;3140-93-0 ;;2,3-dibromothiophene ;;;;
-211;31558-41-5;;4-Bromo-2,5-dimethoxybenzaldehyde;;;;
-212;3240-34-4;;Iodobenzene diacetate 98 %;;;;
-213;326-91-0;;1-(2-Thenoyl)-3,3,3-trifluoroacetone;;;;
-214;3319-99-1 ;;2-(2-thienyl)pyridine 99% ;;;;
-215;3344-70-5 ;;1,12-dibromodecane ;;;;
-216;3375-31-3 ;;Palladium acetate ;;;;
-217;03/05/7440;;Palladium(0) on activated charcoal ;;;;
-218;7440-66-6 ;;Zinc dust <10µ 98% ;;;;
-219;7446-70-0;;Aluminium chloride;;;;
-220;7446-70-0 ;;Aluminium chloride anydrous 98.5% ;;;;
-221;7447-41-8 ;;Lithium chloride 99% ;;;;
-222;7487-94-7 ;;Mercury(II) chloride ;;;;
-223;74-88-4;;Iodomethane;;;;
-224;74-88-4 ;;Iodomethane, 99% ;;;;
-225;74-96-4 ;;Bromoethane  ;;;;
-226;75-15-0 ;;Carbon disulfit ;;;;
-227;75-18-3 ;;Methyl sulfide ;;;;
-228;75-36-5;;Acetyl chloride;;;;
-229;75425-78-0;;1,2-dibromocyclopentene;;;;
-230;7550-35-8 ;;Lithium bromide anydrous 99% ;;;;
-231;94-36-0;;Dibenzoyl peroxide;;;;
-232;947-91-1;;Diphenylacetaldehyd 97 %;;;;
-233;95-14-7 ;;1H-benzotriazole 99% ;;;;
-234;95-54-5 ;;o-phenylenediamine ;;;;
-235;959-28-4;;Trans-1,2-dibenzoylethylene 97 %;;;;
-236;97-51-8;;2-hydroxy-5-nitrobenzaldehyde;;;;
-237;98-03-03;;2-thiophene carboxaldehyde 98 %;;;;
-238;98-54-4;;4-tert-butylphenol;;;;
-239;98-59-9;;TsCl;;;;
-240;98-80-6;;PhB(OH)2;;;;
-241;68-12-2;;"N,N-Dimethylformamide
-DMF";;;;
-242;74-89-5;;Methylamine;;;;
-243;75-03-6;;IodoEthane (stab with copper);;;;
-244;75-84-3;;"Neopentyl alcohol
-2,2-Dimethyl-1-propanol";;;;
-245;79-41-4;;"Methacrylic acid
-2-Methylpropenoic acid";;;;
-246;80-62-6;;"Methyl methacrylate 
-MMA";;;;
-247;92-69-3;;"4-Phenylphenol
-4-Biphenylol
-4-Hydroxybiphenyl";;;;
-248;92-88-6;;"4,4'-Biphenol
-PPDP
-4,4'-Dihydroxybiphenyl";;;;
-249;92-92-2;;"4-Biphenylcarboxylic acid
-4-Phenylbenzoic acid";;;;
-250;95-01-2;;"2,4-Dihydroxybenzaldehyde
-beta-Resorcylaldehyde";;;;
-251;98-59-9;;"p-Toluenesulfonyl chloride
-Tosyl chloride";;;;
-252;99-24-1;;"Methyl 3,4,5-trihydroxybenzoate
-Methyl gallate";;;;
-253;99-76-3;;"Methyl 4-hydroxybenzoate
-Methylparaben";;;;
-254;102-71-6;;"Triethanolamine
-TEA
-2,2',2''-Nitrilotriethanol";;;;
-255;106-93-4;;"1,2-Dibromoethane
-EDB
-Ethylene dibromide";;;;
-256;108-80-5;;"Cyanuric acid
-1,3,5-Triazine-2,4,6-triol";;;;
-257;108-89-4;;"4-Picoline
-4-Methylpyridine";;;;
-258;109-64-8;;"1,3-Dibromopropane
-Trimethylene bromide";;;;
-259;109-72-9;;n-Butyllithium;;;;
-260;109-83-1;;"2-(Methylamino)ethanol
-N-Methylethanolamine";;;;
-261;111-25-1;;"1-Bromohexane
-n-Hexyl bromide";;;;
-262;111-27-3;;"Hexyl alcohol
-1-Hexanol";;;;
-263;111-83-1;;"1-Bromooctane
-1-Octylbromide";;;;
-264;112-29-8;;"1-Bromodecane
-Decylbromide";;;;
-265;112-38-9;;"Undecylenic acid
-10-Undecenoic acid";;;;
-266;112-43-6;;"10-Undecen-1-ol
-omega-Undecylenyl alcohol";;;;
-267;112-71-0;;"1-Bromotetradecane
-Myristyl bromide
-Tetradecyl bromide";;;;
-268;112-82-3;;"1-Bromohexadecane
-Cetyl bromide
-Hexadecyl bromide";;;;
-269;118-41-2;;3,4,5-Trimethoxybenzoic acid;;;;
-270;121-44-8;;"Triethylamine
-TETN";;;;
-271;123-30-8;;"4-Aminophenol
-4-Hydroxyaniline
-4-Amino-1-hydroxybenzene";;;;
-272;123-31-9;;"Hydroquinone
-1,4-Benzenediol
-1,4-Dihydroxybenzene";;;;
-273;124-09-4;;"1,6-Hexanediamine
-1,6-Diaminohexane
-Hexamethylenediamine";;;;
-274;124-22-1;;"Dodecylamine
-Laurylamine";;;;
-275;141-43-5;;"Ethanolamine
-2-Aminoethanol";;;;
-276;143-15-7;;"1-Bromododecane
-Lauryl bromide";;;;
-277;506-59-2;;Dimethylamine hydrochloride;;;;
-278;538-75-0;;"N,N'-Dicyclohexylcarbodiimide
-DCC";;;;
-279;540-63-6;;"1,2-Ethanedithiol
-Dithioethyleneglycol";;;;
-280;593-51-1;;Methylamine hydrochloride;;;;
-281;603-35-0;;Triphenylphosphine;;;;
-282;627-18-9;;"3-Bromo-1-propanol
-Trimethylene bromohydrin";;;;
-283;627-27-0;;3-Buten-1-ol;;;;
-284;629-03-8;;"1,6-Dibromohexane
-Hexamethylene dibromide";;;;
-285;821-41-0;;5-Hexen-1-ol;;;;
-286;865-47-4;;"Potassium tert-butoxide
-Potassium tert-butylate";;;;
-287;998-40-3;;"Tri-n-butylphosphine
-TBUP
-Tributylphosphane";;;;
-288;1079-66-9;;Chlorodiphenylphosphine;;;;
-289;1122-58-3;;"4-Dimethylaminopyridine
-4-DMAP";;;;
-290;  544-92-3;;Copper(I) cyanide;;;;
-291;  592-41-6;;1-Hexene, 99%, AcroSeal™;;;;
-292; 4111-54-0;;Lithium diisopropylamide  (2.0 M solution);;;;
-293; 75-65-0;;tert-Butanol, 99%;;;;
-294; 928-97-2 ;;trans-3-Hexen-1-ol;;;;
-295; 694-80-4;;1-Bromo-2-chlorobenzene;;;;
-296; 7328-91-8;;2,2-Dimethyl-1,3-propanediamine;;;;
-297;"
+id;cas;code_produit;nom;acronyme;mm;code_nacre;formule
+1;106-49-0;;Tetrathiafulvalene;;;;C7H9N 
+2;127-08-2;;(2-Bromoethyl)benzene;;;;C2H3KO2
+3;107-07-3;;3-Bromopropylamine hydrobromide, 98%;;;;ClCH2CH2OH
+4;86-74-8;;2-Propanol;;;;C12H9N
+5;10035-10-6;;Dimethylacetylenedicarboxylate;;;;HBr
+6;1188-33-6;;Benzyl bromide;;;;C7H17NO2
+7;527-21-9;;Tert-Butylchloride;;;;C6F4O2
+8;501-97-3;;Divinyl sulfone;;;;C9H10O3 
+9;207683-19-0;;S(-)-b-Citronellol, 99+%;;;;NaSH.xH2O
+10;13822-56-5;;1,2-dimethoxyethane, anhydrous;;;;C6H17NO3Si
+11;14040-11-0;;Tungstosilicic acid hydrate;;;;C6O6W
+12;6959-47-3;;Perchloric acid;;;;C6H6ClN ï¿½ HCl 
+13;99-76-3;;Lithium hexafluoroarsenate(V);;;;C8H8O3
+14;30931-67-0;;1,4-Diiodobutane;;;;C18H18N4O6S4.2NH3
+15;1121-60-4;;Potassium nitrosodisulfonate, 50-75%;;;;C6H5NO
+16;108-31-6;;Hydroquinone;;;;C4H2O3
+17;1582-24-7;;N-Ethylmorpholine;;;;C6H2BF5O2
+18;106-50-3;;n-Octadecylphosphonic acid;;;;C6H4(NH2)2
+19;4101-68-2;;4-Nitrobenzyl bromide;;;;Br(CH2)10Br
+20;513-81-5;;Benzenesulfonyl hydrazide;;;;CH2=C(CH3)C(CH3)=CH2
+21;51-79-6;;Vanadium(V) oxytrifluoride, 99%;;;;C3H7NO2
+22;207683-19-0;;S-(-)-1,1'-Bi-(2-naphthol), 99%;;;;NaSH.xH2O
+23;77-92-9;;4,4'-Bis(dimethylamino)benzil;;;;C6H8O7
+24;532-27-4;;3,5-Dibromo-4-methylpyridine, 97%;;;;ClC6H4COCH3
+25;73367-80-3;;4-Nitrophenethylbromide;;;;C12H23BrO2
+26;4549-31-9;;4-Nitrothiophenol;;;;C7H4Br2
+27;25952-53-8;;Benzaldehyde;;;;C8H17N3.HCl
+28;100-01-6;;Methylcinnamate;;;;C6H6N2O2
+29;327-54-8;;tert-Butylamine;;;;C6H2F4 
+30;23868-34-0;;Sodium phosphotungstate tribasic hydrate;;;;C16H37F2N
+31;574-98-1;;2,5-Thiophenedicarboxaldehyde;;;;C10H8BrNO2
+32;513-81-5;;Benzidine;;;;C6H10
+33;4441-56-9;;4-Chlorobenzotrifluoride;;;;C6H13BO2
+34;1940-57-4;;2,6-Dichloro-4-nitrotoluene;;;;C13H9Br
+35;74866-28-7;;4-Nitrobenzenediazonium tetrafluoroborate;;;;C20H12Br2
+36;7446-70-0;;1,1,2,2-Tetrachloroethane-d2;;;;AlCl3
+37;28166-41-8;;4-Bromobutyryl chloride, 97%;;;;C10H7NO3
+38;84-65-1;;1,4-cyclohexanediol;;;;C14H8O2
+39;2032-35-1;;2,2'-Dibromo-1,1'-binaphthyl;;;;C6H13BrO2
+40;106-48-9;;3-Indolepropionic acid;;;;C6H5ClO
+41;7772-99-8;;Tetramethylammonium hexafluorophosphate;;;;Cl2Sn
+42;128-08-5;;2-Bromonaphthalene;;;;C4H4BrNO2
+43;7681-82-5;;Salicylic acid;;;;NaI
+44;151-21-3;;Cadmium acetate monohydrate;;;;CH3(CH2)11OSO3Na
+45;2986-17-6;;Ammonium tetrathiomolybdate(VI);;;;(CH3)2CHNHCSNHCH(CH3)2
+46;  544-92-3;;Copper(I) cyanide;;;;
+47;  592-41-6;;1-Hexene, 99%, AcroSealï¿½;;;;
+48; 4111-54-0;;Lithium diisopropylamide  (2.0 M solution);;;;
+49; 75-65-0;;tert-Butanol, 99%;;;;
+50; 928-97-2 ;;trans-3-Hexen-1-ol;;;;
+51;ï¿½694-80-4;;1-Bromo-2-chlorobenzene;;;;
+52;ï¿½7328-91-8;;2,2-Dimethyl-1,3-propanediamine;;;;
+53;"
 7446-70-0";;Aluminium chloride;;;;
-298;10049-05-5;;Chromium(II) chloride;;;;
-299;100-51-6;;Benzyl alcohol;;;;
-300;100-52-7;;Benzaldehyde;;;;
-301;100-63-0;;Phenylhydrazine;;;;
-302;100-66-3;;Anisole pure 99%;;;;
-303;100-97-0;;Hexamethylenetetramine;;;;
-304;100-99-2;;Triisobutylaluminium 1.0M hexane;;;;
-305;10099-58-8;;Lanthanum (III) chloride anhydrous 99.9%;;;;
-306;10108-64-2;;Cadmium chloride;;;;
-307;10139-47-6;;Zinc iodide;;;;
-308;101-68-8;;Methylene di-p-phenyl diisocyanate 99,5%;;;;
-309;10170-68-0;;Chromium(III) chloride tetrahydrofuran complex (1:3);;;;
-310;7646-78-8;;Tin (IV) Chloride;;;;
-311;7646-79-9;;Cobalt(II) chloride;;;;
-312;7646-85-7;;Zinc chloride;;;;
-313;7647-15-6;;Sodium Bromide;;;;
-314;765-30-0;;Cyclopropylamine 98%;;;;
-315;766-05-2;;Cyclohexanecarbonitrile;;;;
-316;7677-24-9;;Trimethylsilyl cyanide  98% ;;;;
-317;7681-11-0;;Sodium iodide, 99.9%;;;;
-318;791-28-6;;triphenylphosphine oxide;;;;
-319;84030-20-6;;Methyl-1,5,7-triazabicyclo[4.4.0]dec-5-ene;;;;
-320;8403-20-6;;7-Methyl-1,5,7-Triazabicyclo[4.4.0]dec-5-ene;;;;
-321;853-39-4;;decafluorobenzophenone 98%;;;;
-322;86-29-3;;Diphenylacetonitrile;;;;
-323;865-47-4;;Potassium-t-butoxide 95-99%;;;;
-324;865-48-5;;Sodium tert-butoxide 97%;;;;
-325;865-48-5 ;;Sodium tert-butoxide;;;;
-326;86-73-7;;Fluorene 98%;;;;
-327;86-74-8;;carbazole;;;;
-328;86-84-0;;1-Naphthyl isocyanate;;;;
-329;99685-96-8;;Fullerene-C60;;;;
-330;No CAS;;Yttrium chloride  tetrahydrofuran complex;;;;
-331;No CAS;;Nd(N(SiMe3)2)3;;;;
-332;No CAS;;Cp2Hf(CH2Ph)2;;;;
-333;No CAS;;Holnium oxyde;;;;
-334;No CAS ;;Hydrobromic acid solution in 33 % acetic acid;;;;
-335;x;;Dulbecco's Phosphate buffered saline ;;;;
-336;;;Polypropylene glycol diglycidyl ether (Grilonit F704);;;;
-337;106-49-0;;Tetrathiafulvalene;;;;C7H9N 
-338;127-08-2;;(2-Bromoethyl)benzene;;;;C2H3KO2
-339;107-07-3;;3-Bromopropylamine hydrobromide, 98%;;;;ClCH2CH2OH
-340;86-74-8;;2-Propanol;;;;C12H9N
-341;10035-10-6;;Dimethylacetylenedicarboxylate;;;;HBr
-342;1188-33-6;;Benzyl bromide;;;;C7H17NO2
-343;527-21-9;;Tert-Butylchloride;;;;C6F4O2
-344;501-97-3;;Divinyl sulfone;;;;C9H10O3 
-345;207683-19-0;;S(-)-b-Citronellol, 99+%;;;;NaSH.xH2O
-346;13822-56-5;;1,2-dimethoxyethane, anhydrous;;;;C6H17NO3Si
-347;14040-11-0;;Tungstosilicic acid hydrate;;;;C6O6W
-348;6959-47-3;;Perchloric acid;;;;C6H6ClN · HCl 
-349;99-76-3;;Lithium hexafluoroarsenate(V);;;;C8H8O3
-350;30931-67-0;;1,4-Diiodobutane;;;;C18H18N4O6S4.2NH3
-351;1121-60-4;;Potassium nitrosodisulfonate, 50-75%;;;;C6H5NO
-352;108-31-6;;Hydroquinone;;;;C4H2O3
-353;1582-24-7;;N-Ethylmorpholine;;;;C6H2BF5O2
-354;106-50-3;;n-Octadecylphosphonic acid;;;;C6H4(NH2)2
-355;4101-68-2;;4-Nitrobenzyl bromide;;;;Br(CH2)10Br
-356;513-81-5;;Benzenesulfonyl hydrazide;;;;CH2=C(CH3)C(CH3)=CH2
-357;51-79-6;;Vanadium(V) oxytrifluoride, 99%;;;;C3H7NO2
-358;207683-19-0;;S-(-)-1,1'-Bi-(2-naphthol), 99%;;;;NaSH.xH2O
-359;77-92-9;;4,4'-Bis(dimethylamino)benzil;;;;C6H8O7
-360;532-27-4;;3,5-Dibromo-4-methylpyridine, 97%;;;;ClC6H4COCH3
-361;73367-80-3;;4-Nitrophenethylbromide;;;;C12H23BrO2
-362;4549-31-9;;4-Nitrothiophenol;;;;C7H4Br2
-363;25952-53-8;;Benzaldehyde;;;;C8H17N3.HCl
-364;100-01-6;;Methylcinnamate;;;;C6H6N2O2
-365;327-54-8;;tert-Butylamine;;;;C6H2F4 
-366;23868-34-0;;Sodium phosphotungstate tribasic hydrate;;;;C16H37F2N
-367;574-98-1;;2,5-Thiophenedicarboxaldehyde;;;;C10H8BrNO2
-368;513-81-5;;Benzidine;;;;C6H10
-369;4441-56-9;;4-Chlorobenzotrifluoride;;;;C6H13BO2
-370;1940-57-4;;2,6-Dichloro-4-nitrotoluene;;;;C13H9Br
-371;74866-28-7;;4-Nitrobenzenediazonium tetrafluoroborate;;;;C20H12Br2
-372;7446-70-0;;1,1,2,2-Tetrachloroethane-d2;;;;AlCl3
-373;28166-41-8;;4-Bromobutyryl chloride, 97%;;;;C10H7NO3
-374;84-65-1;;1,4-cyclohexanediol;;;;C14H8O2
-375;2032-35-1;;2,2'-Dibromo-1,1'-binaphthyl;;;;C6H13BrO2
-376;106-48-9;;3-Indolepropionic acid;;;;C6H5ClO
-377;7772-99-8;;Tetramethylammonium hexafluorophosphate;;;;Cl2Sn
-378;128-08-5;;2-Bromonaphthalene;;;;C4H4BrNO2
-379;7681-82-5;;Salicylic acid;;;;NaI
-380;151-21-3;;Cadmium acetate monohydrate;;;;CH3(CH2)11OSO3Na
-381;2986-17-6;;Ammonium tetrathiomolybdate(VI);;;;(CH3)2CHNHCSNHCH(CH3)2
-382;03/12/1956;;acide d-glucuronique;;;;C6H10O7
-383;57-44-3;;acide 5,5 diethylbarbiturique;;;;C8H12N2O3
-384;50-78-2;;acide acetylsalicylique;;;;C9H8O4
-385;4431-00-9;;acide aurintricarboxylique;;;;C22H14O9
-386;10043-35-3;;acide boric;;;;H3BO3
-387;77-92-9;;acide citrique;;;;HOC(COOH)(CH2COOH)2
-388;77-92-9;;acide citrique anhydre;;;;C6H8O7
-389;06/05/6100;;Acide citrique tri-potassium;;;;C6H5O7K3
-390;03/04/6132;;Acide citrique tri-sodium;;;;C6H5O7Na3.2H2O
-391;302-95-4;;Acide deoxycholique;;;;C24H39O4Na
-392;141-53-7;;Acide formique;;;;CHO2Na
-393;110-17-8;;Acide fumaric;;;;C4H4O4
-394;41372-22-9;;Acide L(+)lactique;;;;C3H5O3.1/2Ca
-395;56-86-0;;Acide l-glutamique;;;;C5H9NO4
-396;110-16-7;;Acide maleique;;;;C4H4O4
-397;6153-56-6;;Acide oxalique;;;;C2H2O4.2H2O
-398;5965-83-3;;Acide sulfosalyciclique;;;;C7H6O6S.2H2O
-399;79-06-1;;Acrylamide;;;;C3H5NO
-400;73-24-5;;Adenine;;;;C5H5N5
-401;61968-76-1;;Alcian Yellow;;;;C40H46N8S4Cl2
-402;2016-88-8;;Amiloride ;;;;C6H8CIN7O.HCl
-403;74-79-3;;L-Arginine;;;;C6H14N4O2
-404;70-47-3;;L-Aspargine;;;;C4H8N2O3
-405;56-84-8;;Acide L-Aspartic;;;;C4H7NO4
-406;6283-24-5;;p-Aminophenylmercuric acetate;;;;C8H9HgNO2
-407;7783-20-2;;Sulfate ammonium;;;;(NH4)2SO4
-408;110-26-9;;bis-Acrylamide;;;;C7H10N2O2
-409;6104-59-2;;Bleu brillant R;;;;C45H44N3O7S2Na
-410;115-39-9;;Bleu de bromophénol;;;;C19H10Br4O5S
-411;87915-38-6;;Bleu dextran;;;;
-412;1064-48-8;;Bleu naphtol;;;;C22H14N6O9S2Na2
-413;1303-96-4;;Borax;;;;Na2B4O7.10H2O
-414;16940-66-2;;Borohydride de sodium;;;;NaBH4
-415;92-31-9;;Bleu de toluidine;;;;C15H16CIN3S
-416;1330-43-4;;TetraBorate de sodium;;;;Na2B4O7
-417;471-34-1;;Carbonate de calcium;;;;CaCO3
-418;554-13-2;;Carbonate de lithium;;;;Li2CO3
-419;584-08-7;;Carbonate de potassium;;;;K2CO3
-420;12125-02-9;;Chlorure d’ammonium;;;;NH4Cl
-421;10035-04-8;;Chlorure de calcium;;;;CaCl2
-422;10025-73-7;;Chlorure de chromium;;;;CrCl3
-423;69098-14-2;;Chlorure de cobalt;;;;CoCl2
-424;7791-18-6;;Chlorure de magnesium hexahydrate;;;;MgCl2.6H2O
-425;13446-34-9;;Chlorure de manganese;;;;MnCl2.4H2O
-426;7447-40-7;;Chlorure de potassium;;;;KCl
-427;03/04/6132;;Citrate de sodium (microscopie electronique);;;;C6H5Na3O7.2H2O
-428;03/04/6132;;Citrate de sodium;;;;C6H5Na3O7.2H2O
-429;548-62-9;;Crystal violet;;;;C25H30N3Cl
-430;52-89-1;;L-Cysteine;;;;C3H7NO2S.CIH
-431;50-63-5;;Chloroquine diphosphate salt (+ aliquots congel);;;;C18H26CIN3.2H3O4P
-432;9011-18-1;;Dextran sulfate;;;;
-433;14663-23-1;;Dantrolene de sodium;;;;C14H9N4NaO5
-434;6381-92-6;;EDTA;;;;C10H14N2O8Na2.2H2O
-435;67-42-5;;EGTA;;;;C14H24N2O10
-436;;;Elga desinfectant;;;;
-437;6696-41-9;;L-Fucose;;;;C6H12O5
-438;7681-49-4;;Fluoride de sodium;;;;NaF
-439;9000-70-8;;Gelatine poudre;;;;
-440;51811-82-6;;Giemsa;;;;C14H14ClN3S
-441;;;Glass beads - (GBE);;;;
-442;709-50-2;;methyl-ß-D-Glucopyranoside;;;;C7H14O6
-443;66-84-2;;Glucosamine;;;;C6H13NO5.HCl
-444;921-60-8;;L-Glucose;;;;C6H12O6
-445;56-81-5;;Glycerol for molecular biology;;;;C3H8O3
-446;819-83-0;;ß-glycerophosphate   (+ aliquots congel);;;;C3H7O6PNa2
-447;56-40-6;;Glycine;;;;C2H5NO2
-448;7365-45-9;; Hepes;;;;C8H18N2O4S
-449;7365-45-9;;Hepes;;;;C8H18N2O4S
-450;57-09-0;;Hexadecyltrimethylammonium bromide (CTAB);;;;CH3(CH2)15N(Br)(CH3)3
-451;04/02/7048;;L-Histidine;;;;C6H9N3O2.HCl.H2O
-452;50-23-7;;Hydrocortisone;;;;C21H30O5
-453;"92-69-3
-92-69-3";;Hydroxybiphenyl (4-Phenylphenol );;;;C6H5C6H4OH
-454;148-24-3;;8-Hydroxyquinoline;;;;C9H7NO
-455;128-37-0;;Hydroxytoluene de butyl (BHT);;;;C15H24O
-456;68-94-0;;Hypoxanthine    (+ aliquots congel);;;;C5H4N4O
-457;68-94-0;;Hypoxanthine;;;;C5H4N4O
-458;73-32-5;;Isoleucine;;;;C6H13NO2
-459;7681-11-0;;Iodure de potassium;;;;KI
-460;;;Latex beads;;;;
-461;137-16-6;;N-Lauroyl sarcosine;;;;C15H28NO3Na
-462;7786-30-3;;Magnesium chloride Solution;;;;Cl2Mg
-463;3458-28-4;;D-Mannose;;;;C6H12O6
-464;10030-80-5;;L-Mannose;;;;C6H12O6
-465;63-68-3;;L-Methionine;;;;C5H11NO2S
-466;56-49-5;;Methyl Cholanthrene;;;;C21H16
-467;709-50-2;;Methyl glucopyranoside;;;;C7H14O6
-468;617-04-9;;Methyl manno -pyranoside;;;;C7H14O6
-469;122965-43-9;;Methylene Blue;;;;C16H18CIN3S.xH2O
-470;1132-61-2;;MOPS;;;;C7H15NO4S
-471;10099-74-8;;Nitrate de plomb pour microscope electronique;;;;Pb(NO3)2
-472;10099-74-8;;Nitrate de plomb;;;;Pb(NO3)2
-473;7761-88-8;;Nitrate d’argent (silver nitrate);;;;AgNO3
-474;607-57-8;;Nitrofluorene;;;;C13H9NO2
-475;63-91-2;;L-Phenylalanine;;;;C9H11NO2
-476;30525-89-4;;Paraformaldehyde;;;;HO(CH2O)nH
-477;7722-64-7;;Permanganate de potassium;;;;KMnO4
-478;7727-54-0;;Persulfate d’ammonium;;;;(NH4)2S2O8
-479;329-98-6;;Phenyl methyl sulfoxide fluoride (PMSF);;;;C7H7FO2S
-480;14459-95-1;;Potassium hexacyanoferrate (III) trihydrate;;;;C6FeK4N6.3H2O
-481;13746-66-2;;Potassium hexacyanoferrate (III);;;;K3Fe(CN)6
-482;04/11/7758;;Phosphate de potassium;;;;K2HPO4
-483;76836-02-7;;PIPES (piperazine-N,N'-bis 2-ethanesulfonic acide);;;;C8H16N2O6S2Na2
-484;7778-77-0;;Dihydrogenophosphate de potassium;;;;KH2PO4
-485;7790-28-5;;m-Periodate de sodium;;;;NaIO4
-486;9002-92-0;;Polyoxyethylene 23 lauryl ether (Brij™ L23);;;;
-487;6226-79-5;;Ponceau S;;;;C22H12N4O13S4Na4
-488;1310-58-3;;Potassium Hydroxide;;;;KOH
-489;13472-36-1;;Pyrophosphate de sodium;;;;Na4P2O7.10H2O
-490;62758-13-8;;Resazurin;;;;C12H6NNaO4
-491;7558-80-7;;Dihydrogenophosphate de Sodium;;;;NaH2PO4
-492;7558-79-4;;Dihydrogenophosphate de Sodium (2H2O);;;;Na2HPO4.2H2O
-493;10049-21-5;;Dihydrogenophosphate de Sodium (1H2O);;;;NaH2PO4.H2O
-494;13472-35-0;;Dihydrogenophosphate de Sodium (2H2O);;;;NaH2PO4.2H2O
-495;10028-24-7;;Hydrogenophosphate de di-sodium (2H2O);;;;Na2HPO4.2H2O
-496;10039-32-4;;Hydrogenophosphate de di-sodium (12H2O);;;;Na2HPO4.12H2O
-497;7601-54-9;;Phosphate de sodium;;;;Na3PO4
-498;57-50-1;;Saccharose D (+);;;;C12H22O11
-499;8047-15-2;;Saponine;;;;
-500;127-09-3;;Sodium acetate;;;;CH3COONa.3H2O
-501;26628-22-8;;Sodium azide;;;;NaN3
-502;144-55-8;;Sodium bicarbonate;;;;NaHCO3
-503;6131-99-3;;Sodium cacodylate;;;;C2H6O2AsNa.3H2O
-504;497-19-8;;Sodium carbonate;;;;Na2CO3
-505;06/11/5698;;Sodium carbonate;;;;Na2CO3
-506;7647-14-5;;Sodium chloride;;;;NaCl
-507;04/05/6132;;Sodium citrate;;;;C6H5Na3O7.1,5H2O
-508;144-02-5;;Sodium diethyl 5-5 barbiturale (barbital sodique);;;;C8H11N2NaO3
-509;1310-73-2;;Sodium hydroxyde (billes et pastilles);;;;NaOH
-510;13721-39-6;;Sodium orthovanadate;;;;Na3VO4
-511;57-50-1;;Sucrose;;;;C12H22O11
-512;7487-88-9;;Sulfate de magnesium;;;;MgSO4
-513;3520-42-1;;Sulfo rhodamine B;;;;C27H29N2NaO7S2
-514;50-89-5;;Thymidine    (+ aliquots congel);;;;C10H14N2O5
-515;77-86-1;;Tris tampon;;;;C4H11NO3
-516;77-86-1;;Tris ultra pur;;;;C4H11NO3
-517;1185-53-1;;Tris, HCl;;;;NH2C(CH2OH)3 · HCl
-518;73-22-3;;Tryptophan;;;;C11H12N2O2
-519;60-18-4;;Tyrosine ©;;;;C9H11NO3
-520;6159-44-0;;Uranyl acetate;;;;UO2(OCOCH3)2 · 2H2O
-521;57-13-6;;Uree;;;;CH4N2O
-522;2650-17-1;;Xylene cyanole;;;;C25H27N2O6S2Na
-523;64-19-7;;Acide acetique glacial;;;;CH3COOH
-524;9048-46-8;;Acide bicinchoninique (solution);;;;
-525;7697-37-2;;Acide nitrique 90% 25ml;;;;HNO3
-526;604-44-4;;4 Chloro 1 Naphtol 1;;;;ClC10H6OH
-527;09/07/7705;;Chlorure de Titane;;;;TiCl3
-528;;;Coomassie;;;;CASNr
-529;;;Depex (Mounting medium);;;;
-530;64-17-5;;Ethanol 96% (Univ);;;;CH3CH2OH
-531;141-43-5;;Ethanolamine;;;;C2H7NO
-532;60-29-7;;Ether diethylique;;;;(CH3CH2)2O
-533;50-00-0;;Formaldehyde;;;;HCHO
-534;9000-70-8;;Gelatine;;;;
-535;50-01-1;;Guanidine hydrochloride;;;;CH5N3HCl
-536;;;Huile d'immersion;;;;
-537;8042-47-5;;Huile minerale;;;;CASNr
-538;8042-47-5;;Huile minerale;;;;
-539;62-50-0;;Methanesulfonic acide ester;;;;C3H803S
-540;119-36-8;;Methylsalicylate 99%;;;;C8H803
-541;628-63-7;;n Amyl Acetate;;;;C7H14O2
-542;;;N,N,N',N'-Tetramethylharstoff;;;;
-543;9016-45-9;;Nonidet P40;;;;
-544;1312-76-1;;Potassium silicate;;;;K2O5Si2
-545;151-21-3;;Sodium Dodécyl Sulfate (SDS);;;;CH3(CH2)11OSO3Na
-546;1310-73-2;;Sodium hydroxyde (electrophorese);;;;NaOH
-547;60-24-2;;ß-Mercaptoéthanol;;;;HSCH2CH2OH
-548;110-18-9;;Temed;;;;C6H16N2
-549;632-22-4;;Tetramethyl Uree;;;;(CH3)2NCON(CH3)2
-550;9002-93-1;;Triton X100;;;;
-551;9005-64-5;;Tween 20;;;;
-552;57-13-6;;Urée;;;;CH4N2O
-553;7647-01-0;;Acide chlorhydrique;;;;HCl
-554;877-24-7;;Solution tampon pH4.01;;;;
-555;;;Solution tampon pH4.01;;;;
-556;;;Solution tampon pH7.01;;;;
-557;1310-73-2;;Sodium hydroxyde;;;;NaOH
-558;7512-17-6;;N acetyl D glucosamine;;;;C8H15N06
-559;205-023-1;;N acetyl neuraminique acide neuraminique;;;;C11H19NO9
-560;10326-41-7;; acide lactique (D);;;;C3H803
-561;1397-89-3;;Amphotericin B solution;;;;C47H73NO17
-562;69-52-3;;Ampicilline sodique (+ aliquots congel);;;;
-563;54-62-6;;Aminopterine (AMET);;;;C19H20N8O5
-564;;;Anti BrdU (Bromodeoxyuridine);;;;
-565;;;Anti human CD 106;;;;
-566;;;Anti digoxigenine polyclonal (rabbit);;;;
-567;;;Anti E-selectine ELAM 1 CD62;;;;
-568;;;Anti FAK (mouse IgG1);;;;
-569;;;Anti human IL8 (mouse);;;;
-570;;;Anti human VEGF (mouse);;;;
-571;;;Anti human  ICAM 1 (mouse) CD54;;;;
-572;;;Anti human IL6 (mouse);;;;
-573;;;Anti human IL1B (mouse);;;;
-574;;;Anti rabbit  Immunoglobulins FITC (mouse);;;;
-575;;;Anti Integrin ß3;;;;
-576;;;Anti Map Kinase;;;;
-577;;;Anti osteocalcine rabbit;;;;
-578;;;Anti Ptyr HRP;;;;
-579;;;Anti-digoxigenine fluoresceine Fab;;;;
-580;;;Anti-pan cadherin;;;;
-581;;;Anti-rabbit FITC;;;;
-582;;;Anti sialoproteine mouse;;;;
-583;;;Anti a Tubuline (mouse);;;;
-584;;;Anti-tnfx;;;;
-585;;;Bacteria counting kit syto BC;;;;
-586;102185-33-1 et 298-83-9;;BCIP/NBT alkaline phosphatase substrat;;;;C8H4BrClNO4P.2Na et C40H30N10O6.2Cl
-587;245-690-6;;bis Benzimide;;;;C25H24N6O.3HCl
-588;23491-52-3;;bis Benzimide;;;;C27H28N6O.3HCl
-589;59-14-3;;5 bromo 2’ deoxuridine;;;;C9H11BrN2O5
-590;59-14-3;;5 bromo 2’ deoxuridine     (+ aliquots);;;;C9H11BrN2O5
-591;02/05/9001;;Catalase;;;;
-592;;;Cell lysate A431;;;;
-593;205-836-1;;Cocarboxylase;;;;C12H19ClN4O7P2S
-594;7411-49-6;;DAB 3,3’ diaminobenzidine (poudre);;;;C12H14N4.4HCl
-595;;;DAB peroxydase (diamino Benzidine tablette) substr;;;;
-596;28718-90-3;;4,6, diamidino 2 phenylindole DAPI;;;;C16H15N5.2HCl
-597;;;Dichloro dihydro fluorescein di-acetate;;;;H2DCFDA
-598;;;Dichloro1ßD ribofuranosylbenzinidazole (DRB);;;;
-599;;;DIOC dioctadecyloxacarbocyanine;;;;
-600;217-011-3;;DPH (1,6 diphenyl 1,3,5, hextriene );;;;C18H16
-601;;;ECM gel;;;;
-602;62253-63-8;;EGF epidermal growth factor human;;;;
-603;108964-32-5;;Fura 2-AM;;;;C44H47N3O24
-604;;;Fluo 3;;;;C36H25Cl2N2O13
-605;;;Human IL8 standard;;;;
-606;;;Imipenem;;;;
-607;11070-73-8;;Insuline;;;;
-608;;;Lectin from erythrina cristagalli;;;;
-609;68513-95-1;;Lectin from glycine max;;;;
-610;;;Lectin from ulex europaeus urea;;;;
-611;12650-88-3;;Lysozyme;;;;
-612;;;3,3,5’ Tri iodo L Thyronine;;;;
-613;;;3T3/A31 cell lysate;;;;
-614;;;3T3/A31 cell lysate;;;;C15H11I3NNaO4
-615;38597-12-5;;4- methylumbelliferyl aD galactoside;;;;C16H18O8
-616;54322-38-2;;4- methylumbelliferyl aL fucoside;;;;C16H1807
-617;17833-43-1;;4- methylumbelliferyl aD glucoside;;;;C16H18O8
-618;6160-78-7;;4- methylumbelliferyl ßD galactoside;;;;C16H18O8
-619;18997-57-4;;4- methylumbelliferyl ßD glucoside;;;;C16H18O8
-620;10121-91-2;;Monodansyl cadaverine;;;;C17H25N3SO2
-621;35013-72-0;;N hydroxysuccinimidobiotin;;;;C14H19N3O5S
-622;56-57-5;;4nitroquinoline -oxide 4-NQO;;;;C9H6N2O3
-623;;;N Nitroso N ethyl Urea;;;;
-624;249-887-8;;N octyl ßD glycopyranoside (BAPNA);;;;C14H28O6
-625;213-011-2;;Na Benzoyl DL Arginine p Nitroanilide;;;;C19H22N6O4.HCl
-626;70375-22-3;;Na CBZ L arginine 7 amido 4 methyl coumarin;;;;C24H27N5O5.HCl
-627;9001-67-6;;Neuraminidase;;;;
-628;289-285-2;;N p tosyl gly pro arg p nitranilide;;;;C28H14N8O7S.CH3COOH
-629;;;Nystatin;;;;
-630;1071-23-4;;O phosphoryl ethanol amine;;;;C2H8N04P
-631;;;OPI media supplement;;;;
-632;;;Osteoblast growth medium supplement mix;;;;
-633;9101-75-6;;Pepsin;;;;
-634;;;Phalloïdin  (aliquots);;;;
-635;2818-58-8;;Phenyl ßD galactoside;;;;C12H16O6
-636;39450-O1-6;;Proteinase K;;;;
-637;;;Recombinant human TNFalpha (0,5mg/ml);;;;
-638;;;Recombinant human IL1ß;;;;
-639;236-312-0;;Rifampicin;;;;C43H58N4O12
-640;;;Serum de lapin;;;;
-641;;;strips ready pH4-7 IPG strips;;;;
-642;82354-19-6;;Sulfurhodamine 101 acid chloride;;;;C31H29ClN2O6S2
-643;72741-87-8;;Swain sonine;;;;C8H15NO3
-644;;;SYBR green;;;;
-645;67526-95-8;;Thapsigargin;;;;C34H50O12
-646;367-51-1;;Thioglycolic acid (Acide mercaptoactique);;;;C2H3O2SNa
-647;07/07/9002;;Trypsin;;;;
-648;76-03-9;;Acide trichloroacetique (TCA);;;;C2HCl3O2
-649;68-11-1;;Acide mercaptoacetic;;;;
-650;;;Acrylamide / bis solution 40%;;;;
-651;;;AEBSF;;;;
-652;9048-46-8;;Albumine bovine (poudre);;;;
-653;9048-46-8;;Albumine bovine (liquide);;;;
-654;37348-94-0;;Ampholine;;;;
-655;;;anti annexin v fitc;;;;
-656;;;Anti Bromodeoxyuridine (mouse);;;;
-657;;;Anti human C3d complement (rabbit);;;;
-658;;;Anti  CD1a;;;;
-659;;;Anti human CD11b Clone44 (mouse);;;;
-660;;;Anti human CD14 (mouse);;;;
-661;;;Anti human CD18 (mouse);;;;
-662;;;Anti CD18 Ab-1;;;;
-663;;;Anti CD31 kit;;;;
-664;;;Anti human CD 54 (mouse);;;;
-665;;;Anti CD69;;;;
-666;;;Anti collagen IV;;;;
-667;;;Anti collagene I;;;;
-668;;;Anti cytokeratine 8-13;;;;
-669;;;Anti HLA-DR;;;;
-670;;;Anti ICAM;;;;
-671;;;Anti IL8 kit elisa;;;;
-672;;;Anti integrin ß1 IgG1;;;;
-673;;;Anti integrin ß1 IgG;;;;
-674;;;Anti langerin;;;;
-675;;;Anti lapin FITC (pig);;;;
-676;;;Anti lapin HRP (pig);;;;
-677;;;Anti lapin TRITC (pig);;;;
-678;;;Anti LFA 1ß CD18;;;;
-679;;;Anti osteocalcin;;;;
-680;;;Anti p JNK;;;;
-681;;;Anti human  pan cadherin (mouse);;;;
-682;;;Anti sialoprotein;;;;
-683;;;Anti souris biotin (goat);;;;
-684;;;Anti souris FITC (goat);;;;
-685;;;Anti souris HRP (goat);;;;
-686;;;Anti souris TRITC (goat);;;;
-687;;;Anti ß1 integrin;;;;
-688;;;Anti SV40 Large T;;;;
-689;;;Anti human Tcell CD29 (mouse);;;;
-690;;;Anti human CD1a, thymocyte, cortical  (mouse);;;;
-691;;;Anti Tubuline ß Ab1;;;;
-692;38966-21-1;;Aphidicolin;;;;C20H34O4
-693;;;Avidine HRP;;;;
-694;2530-85-0;;Bind silane;;;;
-695;;;Biolyte 3/10 ampholyte;;;;
-696;;;Biorad Protein Assay;;;;
-697;9007-83-4;;Biorad Protein Assay standard 1;;;;
-698;;;Bodipy;;;;
-699;20350-15-6;;Brefeldin A;;;;C16H24O4
-700;;;BrdU Flow Kit FITC;;;;
-701;15686-71-2;;Cephalexin;;;;C16H17N3O4S
-702;56-75-7;;Chloramphenicol;;;;C11H12CI2N2O5
-703;9012-63-9;;Cholera toxine;;;;
-704;;;Crystal mount;;;;
-705;66-81-9;;Cycloheximide;;;;C15H23NO4
-706;94-36-0;;Dibenzoyl peroxyde 75%;;;;C14H10O4
-707;107-06-2;;Dichloroéthane;;;;C2H4Cl2
-708;615-28-1;;Dihydrochloride (o-phenylenediamine);;;;
-709;27565-41-9;;DL –dithiothreitol (DTT);;;;C4H1002S2
-710;03/12/3483;;Dithiothreitol (DTT);;;;C4H1002S2
-711;;;ECL Western Blotting;;;;
-712;;;Edetat;;;;
-713;;;ExtrAvidin FITC;;;;
-714;26873-85-8;;Ficoll;;;;
-715;;;Fluorescein isothiocyanate (FITC);;;;C21H11NO5S
-716;;;Fluospheres;;;;
-717;;;Gene Juice Transfection Reagent;;;;
-718;111-30-8;;Glutaraldéhyde 25%;;;;OCHC3H6HCO
-719;;;Glutaraldéhyde 70%;;;;
-720;819-83-0;;Glycerophosphate Disodium pentahydrate;;;;
-721;28728-55-4;;Hexadimethrine Bromide (+ aliquots congel);;;;
-722;;;Imagene green C12FDG lac Z gene expression;;;;
-723;144-48-9;;Iodoacetamide;;;;C2H4INO
-724;25535-16-4;;Iodure de propidium;;;;C27H34N4I2
-725;108930-17-2;;1-5 isoquinolinylsufonyl 2 methyl piperazine;;;;C14H17N3O2S
-726;;;Lectine from ricinus communis;;;;
-727;18378-89-7;;Mithramycin A;;;;C52H76O24
-728;22373-78-0;;Monensin;;;;C36H61O11Na
-729;;;Mounting medium;;;;
-730;298-93-1;;MTT (Thiazolyl Blue Tetrazolium);;;;C18H16N5SBr
-731;;;N glycosidase F;;;;
-732;759-73-9;;N-nitroso-n-ethylurea;;;;C3H7N3O2
-733;31430-18-9;;Nocodazole;;;;C14H11N3O3S
-734;;;OPD;;;;
-735;20816-12-0;;Osmium tetroxide 4%;;;;OsO4
-736;;;Parcan (hypochloride de sodium);;;;
-737;30827-99-7;;Pefabloc SC;;;;C8H10FNO2S · HCl
-738;62796-28-5;;p nitro phenyl phosphate;;;;C6H4NO6P(C5H14NO2)2
-739;3279-54-7;;Phenyl phosphate;;;;C6H5PO4Na2
-740;90001-83-6;;3, phosphoglyceric phosphokinase;;;;
-741;25322-68-3;;Polyethylene glycol 8000 (Peg);;;;(C2H40)nH20
-742;1405-20-5;;Polymyxin B sulfate;;;;C55H96N16O13 · 2H2SO4
-743;42613-33-2;;Protease;;;;
-744;;;Protein A agarose;;;;
-745;;;Quenching soution;;;;
-746;;;Sigma Marqueur MW 6500 - 205 000;;;;
-747;;;Sigmacote;;;;
-748;;;Biorad Ready Prep 2D Starter kit;;;;
-749;;;Streptavidin AP;;;;
-750;01/07/9002;;Trypsine;;;;
-751;152-11-4;;Verapamil hydrochloride;;;;C27H38N2O4.CIH
-752;;;Vaseline;;;;
-753;;;Western blotting detection reagents;;;;
-754;631-61-8;;Acétate ammonium;;;;NH4C2H3O2
-755;127-08-2;;Acétate de potassium;;;;KC2H3O2
-756;127-09-3;;sodium acetate  anhydre;;;;C2H3O2Na
-757;127-09-3;;sodium acetate anhydre;;;;C2H3O2Na
-758;;;Agar;;;;
-759;9012-36-6;;Agarose Basse température;;;;
-760;;;Ether diethylique;;;;(CH3CH2)2O
-761;107-21-1;;Ethylène glycol;;;;C2H6O2
-762;78-78-4;;Isopentane;;;;C5H12
-763;67-56-1;;Méthanol denature 95%;;;;CH4O
-764;;;Méthanol denature 98%;;;;CH4O
-765;108-95-2;;Phenol;;;;C6H6O
-766;"58-55-9
-25322-68-3";;theophylline anhydre;;;;C7H8N4O2
-767;6131-99-3;;Sodium cacodylate;;;;C2H6AsNaO2.3H2O
-768;;;Anti-phospho-histone H2A.X;;;;
-769;;;Anti atm (H-280);;;;
-770;7647-01-0;;Acide chlorydrique 1N;;;;HCl
-771;;;tris acetate edta  buffer 50X TAE AccuGENE;;;;
-772;333338-18-4;;4-nitro phenyl phosphate (+aliquots);;;;C6H4NNa2O6P.6H2O
-773;9012-36-6;;agarose;;;;
-774;7631-86-9;;silicon dioxide;;;;SiO2
-775;50-81-7;;L-ascorbic acid   (+ aliquots congel);;;;C6H8O6
-776;;;ribozol;;;;
-777;50-76-0;;actinomycine D    (+ aliquots congel);;;;C62H86N12O16
-778;;;Agarose MP;;;;
-779;;;Agarose sample;;;;
-780;;;Agarose SeaKemLe;;;;
-781;;;Agarose Seaplaque;;;;
-782;200-735-9;;Asparagine;;;;C4H8N2O3
-783;;;Billes de verre de broyage;;;;
-784;1239-45-8;;Bromure d’éthidium;;;;C21H20BrN3
-785;7447-41-8;;Chlorure de lithium;;;;LiCl
-786;7647-14-5;;Chlorure de sodium;;;;NaCl
-787;57-09-0;;CTAB (hexadecyl  trimethyl ammonium  bromide);;;;C19H42NBr
-788;06/04/7048;;Cysteine;;;;C3H7NO2S
-789;345909-32-2;;Cysteine;;;;C3H7NO2S
-790;6381-92-6;;EDTA;;;;C10H14N2O8Na2
-791;139-33-3;;EDTA 0,5%  (culture cell);;;;C10H14N2O8Na2
-792;114-07-8;;Erythromycine;;;;C37H67N013
-793;492-62-6;;Glucose;;;;C6H12O6
-794;200-272-2;;Glycine;;;;C2H5NO2
-795;556-50-3;;Glycyl Glycine (Di Glycine);;;;C4H8N2O3
-796;50-01-1;;Guanidine hydrochloride;;;;CH5N3
-797;593-84-à;;Guanidine thiocyanate;;;;CH5N3.CHNS
-798;;;Mixed Bed resin;;;;
-799;;;MOPS;;;;C7H15N04S
-800;1132-61-2;;MOPS;;;;C7H15N04S
-801;9003-39-8;;Polyvinylpyrrolidone;;;;
-802;04/11/7758;;Potassium phosphate;;;;K2HPO4
-803;62758-13-8;;Resazurin;;;;C12H6NO4Na
-804;151-21-3;;Sodium Dodécyl Sulfate SDS 10%;;;;CH3(CH2)11OSO3Na
-805;;;SDS 10%;;;;
-806;;;SDS 10%;;;;C12H25OSO3Na
-807;;;Spermidine;;;;C7H22Cl3N3
-808;302-95-4;;Sodium deoxycholate;;;;C24H39NaO4
-809;;;Sodium phosphate;;;;Na2HPO4
-810;;;Tri reagent;;;;
-811;77-86-1;;Trizma base;;;;C4H11NO3
-812;1185-53-1;;Trizma hydrochloride;;;;C4H11N03.HCl
-813;9005-64-5;;Tween 20 (Poly oxy ethylene sorbitan monolaurate);;;;
-814;6050-17-1;;Xylène cyanol;;;;
-815;7647-01-0;;Acide chlorhydrique 2N;;;;HCl
-816;123-51-3;;Alcool isoamyl;;;;C5H12O
-817;67-56-1;;Alcool methylique;;;;CH3OH
-818;67-66-3;;Chloroforme;;;;CHCl3
-819;50-00-0;;Formaldéhyde;;;;CH2O
-820;68-12-2;;Formamide (NN dimethyl);;;;C3H7NO
-821;75-12-7;;Formamide;;;;HCONH2
-822;75-12-7;;Formamide;;;;CH3NO
-823;56-81-5;;Glycerol;;;;C3H8O3
-824;;;Hydroxyde de sodium 1N;;;;NaOH
-825;67-63-0;;Isopropanol (propanol 2);;;;C3H8O
-826;67-63-0;;Isopropanol (propanol 2);;;;CH3CH(OH)CH3
-827;67-68-5;;dimethyl sulfoxide  dmso;;;;C2H60S
-828;;;Soude;;;;NaOH
-829;631-61-8;;Ammonium acetate;;;;NH4C2H3O2
-830;127-09-3;;sodium acetate;;;;C2H3O2Na
-831;;;Agarose (analytical grade);;;;
-832;;;Agarose (ultra clean);;;;
-833;62625-28-9;;Bleu de bromophénol;;;;C19H9Br4O5Na
-834;6381-92-6;;EDTA;;;;
-835;64-17-5;;alcool ethylique anhydre;;;;C2H6O
-836;56-81-5;;Glycérol;;;;
-837;1310-73-2;;Hydroxyde de sodium;;;;NaOH
-838;67-63-0;;Isopropanol;;;;C3H80
-839;151-21-3;;Sodium Dodécyl Sulfate SDS;;;;CH3(CH2)11OSO3Na
-840;;;SYBR Safe;;;;
-841;2650-17-1;;Xylène cyanol;;;;C25H27N2O6S2Na
-842;631-61-8;;Acétate ammonium;;;;C2H7N02
-843;1609-47-8;;DEPC (Diethyl pyrocarbonate);;;;C6H10O5
-844;7722-84-1;;Peroxyde hydrogene 30%;;;;H2O2
-845;;;Trizol;;;;
-846;69-53-4;;Ampicillin;;;;C16H19N3O4S
-847;2545-40-6;;Acide aspartique;;;;C6H9NO5
-848;;;Acryl/Bis;;;;
-849;;;BCIP/NBT;;;;
-850;21462-39-5;;Clindamycin;;;;
-851;;;DTT (dithiothreitol);;;;(CHOHCH2SH)2
-852;;;Film polaroïd;;;;
-853;367-93-1;;Isopropyl ß-D thiogalactopyranoside;;;;C9H18S05
-854;25389-94-0;;Kanamycin;;;;C18H36N4O11
-855;39450-01-6;;Proteinase K;;;;
-856;9001-99-4;;Ribonuclease;;;;
-857;9001-99-4;;Ribonuclease A;;;;
-858;124-20-9;;Spermidine;;;;C7H19N3
-859;;;Tampon de charge Sigma;;;;
-860;;;Rnase-Free Dnase Set;;;;
-861;;;TransPEI;;;;
-862;;;GEArray;;;;
-863;;;TRAPS;;;;
-864;64-19-7;;Acide acétique glacial;;;;CH3COOH
-865;64-19-7;;Acide acétique 100%;;;;CH3COOH
-866;64-19-7;;Acide acétique;;;;C2H402
-867;64-19-7;;Acide acétique (Purex pour analyse);;;;C2H402
-868;01/01/7647;;Acide chlorhydrique 37%;;;;HCl
-869;7697-37-2;;Acide nitrique 65%;;;;HNO3
-870;7664-38-2;;Acide phosphorique;;;;H3PO4
-871;7664-93-9;;Acide sulfurique 95%;;;;H2SO4
-872;7664-93-9;;Acide sulfurique 95% 97%;;;;H2SO4
-873;7664-41-7;;Ammoniaque 28%;;;;NH3
-874;7664-41-7;;Ammoniaque 33%;;;;NH3
-875;;;Ammonium quaternaire 50%;;;;
-876;1310-73-2;;Hydroxyde de sodium 35%;;;;NaOH
-877;;;Sodium arsenite;;;;
-878;67-64-1;;Acétone;;;;C3H6O
-879;67-63-0;;2 propanol (isopropanol);;;;C3H8O
-880;64-17-5;;Alcool  (univ) absolu;;;;C2H6O
-881;64-17-5;;Alcool 96° (univ);;;;C2H6O
-882;130-22-3;;Alizarin Red;;;;C14H7NaO7S
-883;6-103;;bleu de bromothymol;;;;
-884;1041;;glycerine;;;;
-885;7778-77-0;;potassium phosphate monobasique;;;;H2KO4P
-886;7727-54-0;;ammonium persulfate;;;;(NH4)2S2O8
-887;10034-99-8;;magnesium sulfate;;;;MgSO4-7H2O
-888;;;agarose low melt;;;;
-889;;;sodium hydroxyde 1M;;;;NaOH
-890;;;BBL schaedler agar gélose;;;;
-891;;;bouillon de soja tryptique;;;;
-892;9002-18-0;;agar noble;;;;
-893;200-372-6;;2-méthyl-1,4-naphthochinone;;;;C11H8O2
-894;;;bouillon schaedler;;;;
-895;;;mitis salivarius agar;;;;
-896;202-327-6;;benzoyl peroxide 75%;;;;
-897;;;Hematoxylin solution (Mayer's);;;;
-898;1333-86-4;;carbon black Printex 90;;;;
-899;;;nanoparticules BaSO4;;;;BaSO4
-900;;;nanoparticules TiO2;;;;TiO2
-901;204-040-1;;erythromycin;;;;C37H67NO13
-902;;;hydrocortisone soluble;;;;
-903;25249-16-5;;poly(2-hydroxyethylméthacrylate) Poly HEMA;;;;C6H10O3
-904;819-83-0;;(ß-glycerophosphate)glycerol 2-phospate disodium s;;;;C3H7Na2O6P
-905;;;bleu trypan;;;;
-906;;;agarose sea prep;;;;
-907;;;agarose nuscience GTG;;;;
-908;200-289-5;;glycerol cell culture;;;;C3H8O3
-909;75-57-0;;tetramethylammonium chloride (TMA) 5M;;;;
-910;1320-06-5;;oil red;;;;C26H24N4O
-911;28822-58-4;;isobutyl methylxanthine IBMX ( + aliquots);;;;C10H14N4O2
-912;;;alamar blue;;;;
-913;;;presto blue;;;;
-914;86-87-3;;alpha-naphthaleneacetic acid;;;;C12H10O2
-915;16891-53-5;;dl-lactic acid lithium salt;;;;C3H5O3Li
-916;13463-67-7;;dioxide de titane;;;;TiO2
-917;;;hydroxy apatite babi-hap-n550;;;;
-918;100-43-6;;4-vinylpyridine;;;;C7H7N
-919;;;plasmocin (25mg/ml);;;;
-920;;;hydroxy-apatite nanocrystals BABI-HAP-N20-A;;;;
-921;154804-51-0;;ß-glycerophosphate;;;;C3H7Na2O6P.H2O
-922;1397-89-3;;amphotericin B;;;;C47H73NO17
-923;50-02-2;;dexamethasone (+ aliquots congel);;;;C22H29FO5
-924;;;luria broth;;;;
-925;4311-88-0;;necrostatin-1 (aliquots ethanol ou DMSO);;;;C13H13N3OS
-926;53-86-1;;indomethacine (aliquots dans ethanol à 50mg/ml);;;;C19H16CINO4
-927;16561-29-8;;phorbol 12-myristate 13-acétate (+aliquots);;;;C36H56O8
-928;67-68-5;;diméthyl sulfoxide DMSO;;;;C2H6OS
-929;10125-13-0;;Copper(II) chloride dihydrate;;;;Cl2Cu.2H2O
-930;521-31-3;;luminol;;;;C8H7N3O2
-931;501-98-4;;p-coumaric acid;;;;C9H8O3
-932;111-46-6 et 123-31-9;;GBX developer;;;;
-933;7631-90-5;;GBX fixer;;;;
-934;31282-04-9;;hygromycine b 50mg/ml;;;;C20H37N3O13
-935;;;toxine diphterique;;;;
-936;;;Zvad FMK (+aliquots);;;;C22H30FN3O7
-937;;;TNF alpha;;;;
-938;;;alkaline phosphatase diethanolamine (+ aliquots congel);;;;
-939;;;sybr green mix qpcr;;;;
-940;72-57-1;;bleu trypan;;;;
-941;;;tri-calcium phosphate BABI-TCP-N550;;;;
-942;;;billes de silice;;;;SiO2
-943;;;Cluster silice CMB@SiO2;;;;CMB@SiO2
-944;;;Cluster silice Or Or-CMB@SiO2;;;;Or-CMB@SiO2
-945;1239-45-8;;bromure d'ethidium;;;;C21H20BrN3
-946;;;DuoSet Human CCL3/MIP-1alpha;;;;
-947;;;DuoSet Human CCL2/MCP-1;;;;
-948;;;DuoSet Human IL1Beta/IL-IF2;;;;
-949;;;DuoSet Human IL6   (+ aliquots congel);;;;
-950;;;DuoSet Human TNFalpha   (+ aliquots congel);;;;
-951;;;DuoSet Human CXCL8/IL8   (+ aliquots congel);;;;
-952;;;DuoSet Human OPG/TNFRSF11B   (+ aliquots congel);;;;
-953;;;DuoSet Human HGF;;;;
-954;;;DuoSet Human VEGF;;;;
-955;;;Substrat Reagent Pack;;;;
-956;;;Reagent Diluent Concentrate 2 (10X);;;;
-957;;;serum de chevre (goat);;;;
-958;;;Nanofectin;;;;
-959;;;anti human cytokeratine (souris);;;;
-960;;;Mounting Medium Fluorescent;;;;
-961;;;Immu-Mount;;;;
-962;;;anti human laminin (mouse);;;;
-963;;;anti human fibronectin (souris);;;;
-964;;;Anti mouse IgM FITC (goat);;;;
-965;;;anti human STRO-1 (mouse);;;;
-966;;;Amaxa Human MSC Nucleofactor Kit;;;;
-967;;;amaxa Rat cardiomyocyte Néo Nucléofactor Kit;;;;
-968;;;Flow cellect cell cycle checkpoint H2a DNA Damage;;;;
-969;;;anti human hMMP1 PE (souris);;;;
-970;;;BD Cycle Test Plus DNA;;;;
-971;;;CLONfectin;;;;
-972;;;RetroX Q Vector Set;;;;
-973;;;Supplement Pack Endothelial Cell Growth;;;;
-974;;;OGM Single Quots + SVF;;;;
-975;;;MSCGM Single Quots + SVF;;;;
-976;;;hMSC Osteogenics  Single Quots + SVF;;;;
-977;;;OGM Differentiation Single Quots + SVF;;;;
-978;;;FGM-2  Single Quots + SVF;;;;
-979;;;Trypsin/EDTA;;;;
-980;;;EGM-2MV  Single Quots + SVF;;;;
-981;108321-42-2;;G418;;;;
-982;;;l glutamine;;;;
-983;;;Trysin/Versen;;;;
-984;;;TNS Trypsin neutralizing Solution) (aliquot 30ml);;;;
-985;;;Hepes Bufferd Saline Solution;;;;
-986;;;Trysin EDTA;;;;
-987;58-58-2;;puromycin (10mg/ml) X2ml;;;;C22H29N7O5-2HCl
-988;;;LPS lipopolysaccharides from E.coli (aliquots);;;;
-989;;;HygroGold (+ aliquots);;;;
-990;;;rhFGF-basic Fibroblast Growth Factor;;;;
-991;;;DQ gelatin fluorescein;;;;
-992;;;Zometa Zoledronate (aliquots);;;;
-993;;;CM-H2DCFDA;;;;
-994;;;rhPDGF-BB Platelet Derived Growth Factor BB;;;;
-995;62996-74-1;;Staurosporine (aliquots dans DMSO à 100µg/ml);;;;
-996;;;IgG ImmunoGlobulin G de souris (mouse);;;;
-997;;;anti cytokeratin 14 (aliquots);;;;
-998;;;anti cytokeratin 19 (aliquots);;;;
-999;;;rHIGF-1 Insulin Like Growth Factor (aliquots);;;;
-1000;76204-02-9;;2'-(4- methylumbelliferyl)-?-D-N-acetylneuraminic;;;;C21H24NNaO11.xH2O
-1001;;;Ultraglutamine  (culture cell);;;;
-1002;;;Pyruvate de sodium (culture cell);;;;
-1003;;;Collagen type1 solution  (culture cell);;;;
-1004;;;EDTA 0,02% solution  (culture cell);;;;
-1005;;;D glucose  45% solution (culture cell);;;;
-1006;;;Bicarbonate de Sodium 7,5% solution (Cult cell);;;;
-1007;;;Soc Medium;;;;
-1008;31282-04-9;;Hygromycin B;;;;
-1009;108321-42-2;;G418 salt;;;;
-1010;;;MEM Non Essentiel Amino Acids 100X;;;;
-1011;;;Serum de Veau Fœtal (SVF);;;;
-1012;50-07-7;;Mitomycin C    (slmt en  aliquots DMSO);;;;
-1013;;;Anti-Adherence Rinsing Solution ( AARS);;;;
-1014;67-68-5;;DMSO;;;;C2H6O5
-1015;64-17-5;;Ethanol absolu  (univ);;;;C2H6O
-1016;;;Anti human CD34 BV421 (Mouse);;;;
-1017;;;Anti human CD45 FITC  (Mouse);;;;
-1018;;;Anti human CD73 PE (Mouse);;;;
-1019;;;Anti human CD90 PE-Cy7 (Mouse);;;;
-1020;;;Anti human CD105 APC (Mouse);;;;
-1021;;;Anti human Cytokeratine 14 15 16 19 Alexa Fluor (Mouse);;;;
-1022;;;Anti human Vimentin PE (Mouse);;;;
-1023;1430144;;tert-butoxy-bis(dimethylamino)methane;;;;
-1024; 10026-13-8 ;;Phosphorus pentachloride;;;;
-1025; 105-13-5;;4-Methoxybenzyl alcohol ;;;;
-1026; 107264-09-5 ;;1-Fluoropyridinium tetrafluoroborate;;;;
-1027; 108-46-3;;RESORCINOL;;;;
-1028; 123-76-2 ;;Levulinic acid, 98%;;;;
-1029; 1485-70-7 ;;N-Benzylbenzamide ;;;;
-1030; 2051-49-2;; Hexanoic anhydride -97% ;;;;
-1031; 2133-40-6 ;;L-Proline methyl ester hydrochloride;;;;
-1032; 3840-30-0 ;;3,4,5-Trimethoxybenzyl chloride;;;;
-1033; 40244-90-4;;Chlorodiisopropylphosphine;;;;
-1034; 444-14-4 ;;2-Bromo-4,6-difluoroaniline;;;;
-1035; 591-27-5;;3-aminophenol;;;;
-1036; 6018-89-9 ;; Nickel(II) acetate tetrahydrate99.998% trace metals basis ;;;;
-1037; 628-34-2;;2-Chloroethyl ethyl ether;;;;
-1038; 7650-89-7;;Tribenzylphosphine;;;;
-1039; 7693-26-7;;Potassium hydride ;;;;
-1040; 78-10-4 ;;Tetraethyl orthosilicate;;;;
-1041; 80-56-8 ;;alpha-pinene;;;;
+54;10049-05-5;;Chromium(II) chloride;;;;
+55;100-51-6;;Benzyl alcohol;;;;
+56;100-52-7;;Benzaldehyde;;;;
+57;100-63-0;;Phenylhydrazine;;;;
+58;100-66-3;;Anisole pure 99%;;;;
+59;100-97-0;;Hexamethylenetetramine;;;;
+60;100-99-2;;Triisobutylaluminium 1.0M hexane;;;;
+61;10099-58-8;;Lanthanum (III) chloride anhydrous 99.9%;;;;
+62;10108-64-2;;Cadmium chloride;;;;
+63;10139-47-6;;Zinc iodide;;;;
+64;101-68-8;;Methylene di-p-phenyl diisocyanate 99,5%;;;;
+65;10170-68-0;;Chromium(III) chloride tetrahydrofuran complex (1:3);;;;
+66;7646-78-8;;Tin (IV) Chloride;;;;
+67;7646-79-9;;Cobalt(II) chloride;;;;
+68;7646-85-7;;Zinc chloride;;;;
+70;7647-15-6;;Sodium Bromide;;;;
+71;765-30-0;;Cyclopropylamine 98%;;;;
+72;766-05-2;;Cyclohexanecarbonitrile;;;;
+73;7677-24-9;;Trimethylsilyl cyanide  98% ;;;;
+74;7681-11-0;;Sodium iodide, 99.9%;;;;
+75;791-28-6;;triphenylphosphine oxide;;;;
+76;84030-20-6;;Methyl-1,5,7-triazabicyclo[4.4.0]dec-5-ene;;;;
+77;8403-20-6;;7-Methyl-1,5,7-Triazabicyclo[4.4.0]dec-5-ene;;;;
+78;853-39-4;;decafluorobenzophenone 98%;;;;
+79;86-29-3;;Diphenylacetonitrile;;;;
+80;865-47-4;;Potassium-t-butoxide 95-99%;;;;
+82;865-48-5;;Sodiumï¿½tert-butoxide 97%;;;;
+83;865-48-5 ;;Sodium tert-butoxide;;;;
+84;86-73-7;;Fluorene 98%;;;;
+85;86-74-8;;carbazole;;;;
+86;86-84-0;;1-Naphthyl isocyanate;;;;
+87;99685-96-8;;Fullerene-C60;;;;
+88;68-12-2;;"N,N-Dimethylformamide
+DMF";;73.09;;
+89;74-89-5;;Methylamine;;31.06;;
+90;75-03-6;;IodoEthane (stab with copper);;155.97;;
+91;75-84-3;;"Neopentyl alcohol
+2,2-Dimethyl-1-propanol";;88.15;;
+92;79-41-4;;"Methacrylic acid
+2-Methylpropenoic acid";;86.09;;
+93;80-62-6;;"Methyl methacrylate 
+MMA";;100.12;;
+94;92-69-3;;"4-Phenylphenol
+4-Biphenylol
+4-Hydroxybiphenyl";;170.21;;
+95;92-88-6;;"4,4'-Biphenol
+PPDP
+4,4'-Dihydroxybiphenyl";;186.21;;
+96;92-92-2;;"4-Biphenylcarboxylic acid
+4-Phenylbenzoic acid";;198.22;;
+97;95-01-2;;"2,4-Dihydroxybenzaldehyde
+beta-Resorcylaldehyde";;138.12;;
+98;98-59-9;;"p-Toluenesulfonyl chloride
+Tosyl chloride";;190.64;;
+99;99-24-1;;"Methyl 3,4,5-trihydroxybenzoate
+Methyl gallate";;184.15;;
+100;99-76-3;;"Methyl 4-hydroxybenzoate
+Methylparaben";;152.15;;
+101;102-71-6;;"Triethanolamine
+TEA
+2,2',2''-Nitrilotriethanol";;149.19;;
+102;106-93-4;;"1,2-Dibromoethane
+EDB
+Ethylene dibromide";;187.86;;
+103;108-80-5;;"Cyanuric acid
+1,3,5-Triazine-2,4,6-triol";;129.08;;
+104;108-89-4;;"4-Picoline
+4-Methylpyridine";;93.13;;
+105;109-64-8;;"1,3-Dibromopropane
+Trimethylene bromide";;201.89;;
+106;109-72-9;;n-Butyllithium;;64.06;;
+107;109-83-1;;"2-(Methylamino)ethanol
+N-Methylethanolamine";;75.11;;
+108;111-25-1;;"1-Bromohexane
+n-Hexyl bromide";;165.07;;
+109;111-27-3;;"Hexyl alcohol
+1-Hexanol";;102.18;;
+110;111-83-1;;"1-Bromooctane
+1-Octylbromide";;193.13;;
+111;112-29-8;;"1-Bromodecane
+Decylbromide";;221.18;;
+112;112-38-9;;"Undecylenic acid
+10-Undecenoic acid";;184.28;;
+113;112-43-6;;"10-Undecen-1-ol
+omega-Undecylenyl alcohol";;170.30;;
+114;112-71-0;;"1-Bromotetradecane
+Myristyl bromide
+Tetradecyl bromide";;112-82-3;;
+115;112-82-3;;"1-Bromohexadecane
+Cetyl bromide
+Hexadecyl bromide";;305.34;;
+116;118-41-2;;3,4,5-Trimethoxybenzoic acid;;212.20;;
+117;121-44-8;;"Triethylamine
+TETN";;101.19;;
+118;123-30-8;;"4-Aminophenol
+4-Hydroxyaniline
+4-Amino-1-hydroxybenzene";;109.13;;
+119;123-31-9;;"Hydroquinone
+1,4-Benzenediol
+1,4-Dihydroxybenzene";;110.11;;
+120;124-09-4;;"1,6-Hexanediamine
+1,6-Diaminohexane
+Hexamethylenediamine";;116.21;;
+121;124-22-1;;"Dodecylamine
+Laurylamine";;185.35;;
+122;141-43-5;;"Ethanolamine
+2-Aminoethanol";;61.08;;
+123;143-15-7;;"1-Bromododecane
+Lauryl bromide";;249.23;;
+124;506-59-2;;Dimethylamine hydrochloride;;81.55;;
+125;538-75-0;;"N,N'-Dicyclohexylcarbodiimide
+DCC";;206.33;;
+126;540-63-6;;"1,2-Ethanedithiol
+Dithioethyleneglycol";;94.19;;
+127;593-51-1;;Methylamine hydrochloride;;67.52;;
+128;603-35-0;;Triphenylphosphine;;262.29;;
+129;627-18-9;;"3-Bromo-1-propanol
+Trimethylene bromohydrin";;138.99;;
+130;627-27-0;;3-Buten-1-ol;;72.11;;
+131;629-03-8;;"1,6-Dibromohexane
+Hexamethylene dibromide";;243.97;;
+132;821-41-0;;5-Hexen-1-ol;;100.16;;
+133;865-47-4;;"Potassium tert-butoxide
+Potassium tert-butylate";;112.21;;
+134;998-40-3;;"Tri-n-butylphosphine
+TBUP
+Tributylphosphane";;202.32;;
+135;1079-66-9;;Chlorodiphenylphosphine;;220.64;;
+136;1122-58-3;;"4-Dimethylaminopyridine
+4-DMAP";;122.17;;
+137;100-06-01;;4-metoxyacetophenone 99 %;;;;
+138;100-14-1;;4-nitrobenzyl chloride;;;;
+139;100-19-6;;?-nitroacetophenone 97%;;;;
+140;104-88-1;;4-chlorobenzaldehyde 98,5 %;;;;
+141;104-92-7;;4-bromoanisole;;;;
+142;105-07-07;;4-cyanobenzaldehyde;;;;
+143;2923-28-6 ;;Silver trifluoromethane sulfonate 98% ;;;;
+144;2923-28-6 ;;Silver trifluoromethane sulfonate 99% ;;;;
+145;3002-78-6 ;;5-methyl-1,10-phenanthroline ;;;;
+146;30084-90-3;;Fluorene-2-carboxaldehyde 99%;;;;
+147;3016-97-5;;1,4-dibenzoylbenzene 99 %;;;;
+148;3031-68-3;;HO-CH2-(C?C)2-CH2OH;;;;
+149;30525-89-4;;Paraformaldehyde;;;;
+150;01/11/3083;;1,1,4,7,10,10-hexamethyltriethylentriamin 98 %;;;;
+151;31106-82-8;;2-(brommethyl)pyridine hydrobromide;;;;
+152;311-28-4 ;;Tetrabutylammonium iodide ;;;;
+153;3132-99-8;;3-Bromobenzaldehyde;;;;
+154;3140-93-0 ;;2,3-dibromothiophene ;;;;
+155;31558-41-5;;4-Bromo-2,5-dimethoxybenzaldehyde;;;;
+156;3240-34-4;;Iodobenzene diacetate 98 %;;;;
+157;326-91-0;;1-(2-Thenoyl)-3,3,3-trifluoroacetone;;;;
+158;3319-99-1 ;;2-(2-thienyl)pyridine 99% ;;;;
+159;3344-70-5 ;;1,12-dibromodecane ;;;;
+160;3375-31-3 ;;Palladium acetate ;;;;
+161;03/05/7440;;Palladium(0) on activated charcoal ;;;;
+162;7440-66-6 ;;Zinc dust <10ï¿½ 98% ;;;;
+163;7446-70-0;;Aluminium chloride;;;;
+164;7446-70-0 ;;Aluminium chloride anydrous 98.5% ;;;;
+165;7447-41-8 ;;Lithium chloride 99% ;;;;
+166;7487-94-7 ;;Mercury(II) chloride ;;;;
+167;74-88-4;;Iodomethane;;;;
+168;74-88-4 ;;Iodomethane, 99% ;;;;
+169;74-96-4 ;;Bromoethane  ;;;;
+170;75-15-0 ;;Carbon disulfit ;;;;
+171;75-18-3 ;;Methyl sulfide ;;;;
+172;75-36-5;;Acetyl chloride;;;;
+174;75425-78-0;;1,2-dibromocyclopentene;;;;
+175;7550-35-8 ;;Lithium bromide anydrous 99% ;;;;
+176;94-36-0;;Dibenzoyl peroxide;;;;
+177;947-91-1;;Diphenylacetaldehyd 97 %;;;;
+178;95-14-7 ;;1H-benzotriazole 99% ;;;;
+179;95-54-5 ;;o-phenylenediamine ;;;;
+180;959-28-4;;Trans-1,2-dibenzoylethylene 97 %;;;;
+181;97-51-8;;2-hydroxy-5-nitrobenzaldehyde;;;;
+182;98-03-03;;2-thiophene carboxaldehyde 98 %;;;;
+183;98-54-4;;4-tert-butylphenol;;;;
+184;98-59-9;;TsCl;;;;
+185;98-80-6;;PhB(OH)2;;;;
+186;;;Acetylenedicarboxylic acid;;;;
+187;;;3,4-dibromobenzaldehyde;;;;
+190;;;2-Methyl-2-butanol;;;;
+191;;;4-Bromocatechol;;;;
+192;;;Formaldehyde 37 % wt. in water;;;;
+193;;;1H-Benzimidazole-5-carbaldehyde, 97%;;;;
+194;;;2,1,3-Benzothiadiazole-5-carbaldehyde, 97%;;;;
+195;;;4-Cyanobenzaldehyde;;;;
+196;;;Cyclohexanone 99%;;;;
+197;;;4,4-DIBROMOBENZOPHENONE;;;;
+198;;;4-tert-Butylcyclohexanone;;;;
+199;;;N,N-Dimethylformamide, anhydrous, 99.8%;;;;
+200;;;N,N-Dimethylformamide;;;;
+201;;;N,N-Dimethylethanolamine;;;;
+202;;;2-Ethylhexylamine, 99%;;;;
+203;;;1-Adamantylamine;;;;
+204;;;2,6-Diisopropylaniline, 92%;;;;
+205;;;6-Bromopyridine-2-carbaldehyde, ?95%;;;;
+206;;;6-Methyl-2-pyridinecarboxaldehyde;;;;
+207;;;4-ethynyl-N,N'-dimethylaniline;;;;
+208;;;2,3,3-Trimethylindolenine;;;;
+209;;;3-Methylisoquinoline;;;;
+210;;;1,2-dichloroethane;;;;
+211;;;1-Bromo-2-chlorobenzene;;;;
+212;;;1,1,2,2-Tetrachloroethane-d2;;;;
+213;;;2-Bromonaphthalene, 99%;;;;
+214;;;1,2-Dibromobenzene;;;;
+215;;;1,3-Dibromobenzene;;;;
+216;;;Bromobenzene;;;;
+217;;;1-Bromonaphthalene;;;;
+218;;;Nitromethane;;;;
+219;;;Nitrophthalonitrile;;;;
+220;;;Octadecyl isocyanate;;;;
+221;;;Methyl trifluoromethanesulfonate;;;;
+222;;;chlorodiphenylphosphine, 98 %;;;;
+223;;;ï¿½(S)-(?)-5,5?-Bis(diphenylphosphino)-4,4?-bi-1,3-benzodioxole;;;;
+224;;;Triphenylphosphine hydrobromide, 97%;;;;
+225;;;Phosphate-buffered saline (PBS, 10X), pH 7.4;;;;
+226;;;Hydrochloric acid;;;;
+227;;;Diisobutylaluminium hydride;;;;
+228;;;4-(Trifluoromethyl)phenylboronic acid;;;;
+229;;;Tetrakis(acetonitrile)copper(I) hexafluorophosphate;;;;
+230;;;Bromoferrocene, 95%;;;;
+231;;;Bis(1,5-cyclooctadiene)diiridium(I) dichloride;;;;
+232;;;Potassium hydroxide;;;;
+233;;;Potassium tert-butoxide;;;;
+234;;;n-Butyllithium;;;;
+235;7697-37-2;;Acide nitrique 68%;;;;
+236;7647-01-0;;Acide chlorhydrique 35%;;;;
+237;111-86-4;;octylamine;;;;
+238;121-44-8;;triethylamine;;;;
+239;3030-47-5;;1,1,4,7,7 pentamethyldiethylentriamine;;;;
+240;;;Vert brillant;;;;
+241;;;Naphtol-1-phtaleine;;;;
+242;;;Vert de methyle;;;;
+243;62625-29-0;;Rouge de Cresol;;;;
+244;;;Bleu de cresyl brillant;;;;
+245;56-86-0;;Acide L-glutamique;;;;
+246;13463-67-6;;Titanium (IV) oxide Aeroxide P25;;;;
+247;;;NM105 Titanium (IV) oxide rutile-anatase;;;;
+248;;;NM101 Titanium (IV) dioxide ;;;;
+249;;;NM110 Zn-oxide rutile;;;;
+250;;;NM200 SiO2 amorphe ;;;;
+251;;;NM201 SiO2 amorphe ;;;;
+252;;;NM202 SiO2 amorphe ;;;;
+253;;;NM100 Titanium (IV) oxide pigment;;;;
+254;;;NM102 Titanium (IV) dioxide anatase;;;;
+255;;;NM104 Titanium (IV) oxide, hydrophilic, rutile;;;;
+256;;;NM203 SiO2 amorphe ;;;;
+257;9002-98-6;;polyethyleneimine 60000 50%;;;;
+258;79-10-7;;acide acrylique;;;;
+259;04/01/9003;;polyacide acrylique 3000000;;;;
+260;9003-39-8;;Polyvinylpyrrolidone 55000;;;;
+261;;;carboxy PMMA telechelique 6000;;;;
+262;;;di-carboxy PMMA telechelique 5000;;;;
+263;110-26-9;;N,N' methylene bisacrylamide;;;;
+264;110-26-9;;Bis-N,N' methylene bisacrylamide;;;;
+265;;;Iodure de potassium;;;;
+266;7727-54-0;;Persulfate d'ammonium;;;;
+267;7787-70-4;;copper (I) bromide;;;;
+268;;;Acide citrique, monhydrate;;;;
+269;7487-88-9;;magnesium sulfate ;;;;
+270;110-86-1;;Pyridine;;;;
+271;142-82-5;;n-Heptane;;;;
+272;64-17-5;;Ethanol 96%;;;;
+273;64-17-5;;Ethanol abs;;;;
+274;109-99-9;;Tetrahydrofurane;;;;
+275;75-09-2;;Dichloromethane;;;;
+276;67-64-1;;Acï¿½tone;;;;
+277;;;N-cetylN,N,N trimethylammoniumbromide;;;;
+278;;;Triton X100;;;;
+279;9036-19-5;;Igepal CA-630;;;;
+280;220622-96-8;;Glycolic acid ethoxylate lauryl ether 690;;;;
+281;112-55-0;;1-dodecanthiol;;;;
+282;12612-37-2;;Dowex 50w x2-100;;;;/
+283;/;;Peptidoglycan N-acetylglucosamine deacetylase 4A;;;;NZYTech (CZ02241)
+284;140681-55-6;;1-chloromethyl-4-fluoro-1,4-diazonia-bicyclo[2.2.2]octane bis(tetrafluoroborate);;;;C7H14B2ClF9N2
+285;7446-70-0;;aluminium chloride;;;;AlCl3
+286;/;;competent cell one shot BL21 star;;;;C6010-03 invitrogen
+287;109-66-0;;pentane_synthese_23051-0050_NA.06;;;;C5H12
+288;S1797-10X5ML;;milieu de transformation SOC;;;;sigma 
+289; 74-89-5 ;;Methylamine solution;;;;CH3NH2
+290;-;;x-rhodamine-5(86)-isothiocyanate;;;;-
+291;106;;Tube de dialyse ReadyLyzer - volume 3 ml - 12 - 14 KDa;;;;115782
+292;/;;Vivaspin 20 300kD;;;;Ugap
+293; 78957-07-0 ;;crotonic anhydride;;;;C8 H10 O3
+294;1076-43-3;;Benzene D6_mag_29200-0100_NA.11;;;;C6D6
+295;1634-04-4;;tert-butyl methyl ether;;;;C5H12O
+296;693-02-7;;1-hexyne;;;;C6H10
+297;14014-06-3;;sodium hydroxide deuterie (12N in D2O);;;;DNaO
+298;10043-35-3;;boric acid;;;;BH3O3
+299;DD-17-5255-01;;colonne HisTrap;;;;purification de protÃƒÂ©ines
+300;7726-95-6;;bromine;;;;Br2
+301;-;;Toruzyme 3.0L;;;;enzyme
+302;6867-30-7;;lithium acetylide, ethylenediamine complex;;;;C2HLi.C2H8N2
+303;/;;ELectrolyte sonde PH, KCL 3M;;;;K Cl
+304;9002-84-0;;granular PTFE;;;;PTFE
+305;9001-62-1;;Lipase from Mucor javanicus;;;;-
+306;7440-70-2;;calcium;;;;Ca
+307;7787-35-1;;Baryum manganate;;;;BaMnO4
+308;7789-78-8;;calcium hydride;;;;H2Ca
+309;10022-70-5;;Sodium Hypochlorite Pentahydrate;;;;Na Cl O  Ã‚Â·5H2O
+310;choisir ref sur ugap;;lessive pour linge labo;;;;choisir ref sur ugap
+311;1333-82-0;;chromium (VI) oxide (chromic acid);;;;CrO3
+312;110-82-7;;Cyclohexane pour HPLC 99.9%_NA.06;;;;C6H12
+313;627-19-0;;1-pentyne;;;;C5H8
+314; 43064-96-6;;tetrabutylammonium cynaoborohydride;;;;(CH3CH2CH2CH2)4N(BH3CN) 
+315;-;;Luria Bertani broth;;;;LB
+316;108-24-7;;acetic anhydride;;;;C4H6O3
+317;74-94-2;;borane dimethylamine;;;;C2 H10 B N
+318;775-12-2;;diphenylsilane;;;;C12H12Si
+319;39339-85-0;;Amberlyst A-26(OH);;;;-
+320;7440-31-5;;etain;;;;Sn
+321;1516-08-1 ;;ethanol deuterie D6;;;;C2D6O
+322;06/05/7694;;deuterium chloride 37% dans D2O;;;;ClD
+323;10034-85-2;;iodhydric acid;;;;HI
+324;9001-78-9 ;;phosphatase alcaline from calf intestine;;;;*
+325;9001-62-1;;Lipase from Candida rugosa Type VII;;;;*
+326;W3399D fisher;;marqueur de proteines;;;;benchmark protein ladder
+327;9001-62-1;;Lipase from porcine pancreas;;;;-
+328;7553-56-2;;iodine (bi-sublime);;;;I2
+329;902-18-0;;agar, fine powder;;;;*
+330;666-52-4;;Acetone D6_mag_11200-1000_NA.11;;;;C3D6O
+331;564483-18-7;;m10-methylanthracene-9-carboxaldehyde 96%;;;;C16H12O
+332;2234-16-4;;Cyclohexylbenzene 96%;;;;C12H16
+333;569990-02-4;;Acetonitrile;;;;C2H3N
+334;26386-88-9;;Chlorotrimethylsilane reditilled;;;;(CH3)3SiCl
+335;109-77-3;;Ether diethylique purex;;;;C4H10O
+336;1779-49-3;;Pentane 98%;;;;CH3(CH2)3CH3
+337;04/08/7446;;N-methylformanilid 99%;;;;C8H9ON
+338;3141-69-0;;Sodium cubes in mineral oil 99.95%;;;;Na
+339;99-90-1;;Ethyl chloroformate 99%;;;;
+340;31366-25-3;;t2,2,2-trimethoxy-4,5-dimethyl-1,3,2-dioxaphospholene;;;;
+341;68128-94-9;;c4-Carboxybenzeneboronic acid 97%;;;;
+342;12093-10-6;;Tributyltin chloride 96%;;;;C12H27ClSn
+343;2142-63-4;;Pentane anhydre extra pur;;;;CH3(CH2)3CH2
+344;51760-21-5;;d2,4-dichloro-6-methylpyrimidine;;;;
+345;;;Vinylene trithiocarbonate 98%;;;;C3H2S3
+346;;;Ethylenetrithiocarbonate 97%;;;;C3H4S3
+347;;;Anilin 99%;;;;C6H5NH2
+348;;;d3,3-diethoxy-1-propyne;;;;
+349;;;m6-methyl-2-pyridinecarboxaldï¿½hyde;;;;C7H7NO 
+350;;;Methyl-4-formylbenzoate;;;;
+351;;;Ammonium hydroxyde 25%;;;;NH4OH
+352;;;p4-pyrydin-3-ylbenzaldehyde 97%;;;;C12H9NO
+353;;;h(1-hexadecyl)trimethylammonium chloride;;;;C19H42ClN
+354;;;m2-methylquinoxaline 97%;;;;
+355;;;Nickel acetate tetrahydrate 98%;;;;C4H6NiO4, 4H2O
+356;;;m4'-Methylacetophenone 95%;;;;(CH3)2COC6H4
+357;;;a2,2-azobis-2-methylpropionitrile 0,2M toluene;;;;C8H12N4
+358;;;bN-bromosuccinimide;;;;C4H4BrNO2
+359;;;d4,4'-diformyltriphenylamine;;;;
+360;;;Methyl-4-acetylbenzoate;;;;
+361;;;Trimethyl-1,3,5-benzene tricarboxylate;;;;
+362;;;o1-octanol;;;;
+363;;;a3-aminophtalhydrazide;;;;
+364;;;azodicarboxylic acide diisopropyl ester;;;;
+365;;;bis(tetramethylcyclopentadienyl)iron 97%;;;;
+366;;;d2(dicyclohexylphosphino)2',4',6'-triisopropylbiphenyl;;;;
+367;;;d2'-4'-dichloroacetophenone;;;;
+368;;;d-3,5-dibromobenzaldï¿½hyde;;;;
+369;;;Diphenylphosphonic azide;;;;C12H10N3O3P
+370;;;Malononitrile;;;;C3H2N2
+371;;;Methyltriphenyl phosphonium iodide 97%;;;;C19H18BrP
+372;;;Selenium dioxyde;;;;SeO2
+373;;;b2'-bromoacetophenone;;;;
+374;;;b4-bromoacetophenone 98%;;;;BrC6H4COCH3
+375;;;Tetrathiafulvalene 97%;;;;C6H4S4
+376;;;Formyltetrathiafulvï¿½ne;;;;
+377;;;ferrocencarboxaldehyde;;;;
+378;;;b3'-bromoacï¿½tophï¿½none;;;;
+379;;;Dimethyl 5-bromoisophtalate;;;;

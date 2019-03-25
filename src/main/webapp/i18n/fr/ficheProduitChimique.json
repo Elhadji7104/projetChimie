@@ -2,19 +2,20 @@
     "projetChimieApp": {
         "ficheProduitChimique": {
             "home": {
-                "title": "FicheProduitChimiques",
-                "createLabel": "Créer un nouveau Fiche Produit Chimique",
-                "createOrEditLabel": "Créer ou éditer un Fiche Produit Chimique"
+                "title": "FicheProduitChimique",
+                "createLabel": "Créer une nouvelle Fiche Produit Chimique",
+                "createOrEditLabel": "Créer ou éditer une Fiche Produit Chimique"
             },
-            "created": "Un nouveau Fiche Produit Chimique a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Fiche Produit Chimique avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Fiche Produit Chimique avec l'identifiant {{ param }} a été supprimé",
+            "created": "Une nouvelle Fiche Produit Chimique a été créé avec l'identifiant {{ param }}",
+            "updated": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Fiche Produit Chimique {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer laFiche Produit Chimique {{ id }} ?"
             },
             "detail": {
                 "title": "Fiche Produit Chimique"
             },
+
             "cas": "Cas",
             "codeProduit": "Code Produit",
             "nom": "Nom",

@@ -42,8 +42,6 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
-                console.log(res.body);
-
                 this.refArticleO = [];
                 this.casO = [];
                 this.acronymeO = [];

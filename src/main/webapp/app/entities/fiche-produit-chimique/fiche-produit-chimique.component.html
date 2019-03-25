@@ -23,7 +23,7 @@
            </tr>
           <tr>
               <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                   <p-multiSelect *ngSwitchCase="'cas'" [options]="CasSelect"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'cas'" [options]="CasSelect"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                   <p-multiSelect *ngSwitchCase="'nom'"[options]="NomSelect"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                   <p-multiSelect *ngSwitchCase="'acronyme'"[options]="AcronymeSelect"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
                   <p-multiSelect *ngSwitchCase="'mm'" [options]="MmSelect" [(ngModel)]="mm" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
@@ -31,7 +31,7 @@
                   <p-multiSelect *ngSwitchCase="'formule'"[options]="formuleSelect"  [(ngModel)]="formule" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
 
               </td>
-                          </tr>
+          </tr>
 
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">

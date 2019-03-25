@@ -13,6 +13,7 @@ import { AccountService, IUser, User } from 'app/core';
 import moment = require('moment');
 import { FicheDeCommandeProduitService } from 'app/entities/fiche-de-commande-produit';
 import { FicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'jhi-emprunt-retour',
@@ -31,7 +32,6 @@ export class EmpruntRetourComponent implements OnInit {
     ficheEmpruntProduit: IFicheEmpruntProduit = new FicheEmpruntProduit();
     empruntRetour: MenuItem[];
     choix = true;
-    produitChoix: any;
     quantite: any;
     private user: IUser = new User();
     private ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
@@ -39,7 +39,6 @@ export class EmpruntRetourComponent implements OnInit {
     unite: String = 'Article non choisi';
     private dispo: boolean = true;
     commande: boolean = false;
-    private ficheCommande: FicheDeCommandeProduit;
 
     constructor(
         protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
@@ -49,7 +48,8 @@ export class EmpruntRetourComponent implements OnInit {
         protected accountService: AccountService,
         protected ficheEmpruntProduitService: FicheEmpruntProduitService,
         protected ficheRetourProduitService: FicheRetourProduitService,
-        private messageService: MessageService
+        private messageService: MessageService,
+        protected activatedRoute: ActivatedRoute
     ) {}
 
     loadAll() {
@@ -57,10 +57,10 @@ export class EmpruntRetourComponent implements OnInit {
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
                 for (let value of this.ficheArticles) {
-                    if (value !== undefined && value.refArticle !== undefined) {
+                    if (value !== undefined && value.codeBarre !== undefined) {
                         this.articleOption.push({
                             label:
-                                value.refArticle + ' : ' + value.ficheProduitChimiques[0].cas + ' : ' + value.ficheProduitChimiques[0].nom,
+                                value.codeBarre + ' : ' + value.ficheProduitChimiques[0].cas + ' : ' + value.ficheProduitChimiques[0].nom,
                             value: value
                         });
                     }
@@ -74,6 +74,7 @@ export class EmpruntRetourComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
+
         this.loadAll();
         this.empruntRetour = [
             {
@@ -96,7 +97,10 @@ export class EmpruntRetourComponent implements OnInit {
             this.currentAccount = account;
         });
         this.registerChangeInFicheArticles();
-        //console.log(this.ficheArticles);
+        this.activatedRoute.data.subscribe(({ ficheArticle }) => {
+            this.ficheArticle = ficheArticle;
+        });
+        console.log(this.ficheArticle);
     }
 
     registerChangeInFicheArticles() {
@@ -154,6 +158,7 @@ export class EmpruntRetourComponent implements OnInit {
             this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Erreur' });
         }
     }
+
     actuDispon() {
         this.dispo = true;
         this.commande = false;

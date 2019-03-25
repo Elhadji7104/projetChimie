@@ -7,7 +7,7 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IFicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 import { FicheDeCommandeProduitService } from './fiche-de-commande-produit.service';
-import { Fournisseur, IFournisseur } from 'app/shared/model/fournisseur.model';
+import { IFournisseur } from 'app/shared/model/fournisseur.model';
 import { FournisseurService } from 'app/entities/fournisseur';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
@@ -22,9 +22,6 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     isSaving: boolean;
     articleOption: SelectItem[] = [];
     fournisseurs: IFournisseur[] = [];
-
-    dateDeCommandeDp: any;
-    dateLivraisonDp: any;
     private unite: string;
     private fichearticles: IFicheArticle[];
     private ficheArticle: any;
@@ -43,6 +40,9 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ ficheDeCommandeProduit }) => {
             this.ficheDeCommandeProduit = ficheDeCommandeProduit;
+        });
+        this.activatedRoute.data.subscribe(({ ficheArticle }) => {
+            this.ficheArticle = ficheArticle;
         });
         this.fournisseurService.query().subscribe(
             (res: HttpResponse<IFournisseur[]>) => {

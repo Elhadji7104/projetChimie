@@ -45,6 +45,7 @@ export class FicheArticleUpdateComponent implements OnInit {
     private docSelect: any;
     private classiSelect: any;
     private quantiteSelect: any;
+
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected ficheArticleService: FicheArticleService,
@@ -119,6 +120,7 @@ export class FicheArticleUpdateComponent implements OnInit {
         }
         return this.produitSelect;
     }
+
     getOptionsEtat() {
         this.etatSelect = [];
         this.etatSelect.push({ label: 'SOLIDE', value: 'SOLIDE' });
@@ -126,6 +128,7 @@ export class FicheArticleUpdateComponent implements OnInit {
         this.etatSelect.push({ label: 'GAZEUX', value: 'GAZEUX' });
         return this.etatSelect;
     }
+
     getOptionsDispo() {
         this.dispoSelect = [];
         this.dispoSelect.push({ label: 'DISPONIBLE', value: 'SOLIDE' });
@@ -142,6 +145,7 @@ export class FicheArticleUpdateComponent implements OnInit {
         }
         return this.docSelect;
     }
+
     classiSelected() {
         this.classiSelect = [];
         for (let value of this.classifications) {
@@ -149,7 +153,10 @@ export class FicheArticleUpdateComponent implements OnInit {
         }
         return this.classiSelect;
     }
+
     save() {
+        this.ficheArticle.codeBarre = 'AA' + '-' + this.ficheArticle.refArticle;
+
         this.isSaving = true;
         if (this.ficheArticle.id !== undefined) {
             this.subscribeToSaveResponse(this.ficheArticleService.update(this.ficheArticle));

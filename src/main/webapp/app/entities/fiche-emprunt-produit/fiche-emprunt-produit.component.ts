@@ -38,6 +38,7 @@ export class FicheEmpruntProduitComponent implements OnInit, OnDestroy {
             this.account = account;
         });
         this.registerChangeInFicheEmpruntProduits();
+        this.loadAll();
     }
 
     ngOnDestroy() {

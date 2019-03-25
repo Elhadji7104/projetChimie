@@ -2,26 +2,27 @@
     "projetChimieApp": {
         "ficheProduitChimique": {
             "home": {
-                "title": "Fiche Produit Chimiques",
-                "createLabel": "Create a new Fiche Produit Chimique",
-                "createOrEditLabel": "Create or edit a Fiche Produit Chimique"
+                "title": "Chemical Product Form",
+                "createLabel": "Create a new Fiche Chemical Product Form",
+                "createOrEditLabel": "Create or edit a Chemical Product Form"
             },
-            "created": "A new Fiche Produit Chimique is created with identifier {{ param }}",
-            "updated": "A Fiche Produit Chimique is updated with identifier {{ param }}",
-            "deleted": "A Fiche Produit Chimique is deleted with identifier {{ param }}",
+            "created": "A new Chemical Product Form is created with identifier {{ param }}",
+            "updated": "A Chemical Product Form is updated with identifier {{ param }}",
+            "deleted": "A Chemical Product Formis deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Fiche Produit Chimique {{ id }}?"
+                "question": "Are you sure you want to delete Chemical Product Form {{ id }}?"
             },
             "detail": {
-                "title": "Fiche Produit Chimique"
+                "title": "Chemical Product Form"
             },
+
             "cas": "Cas",
-            "codeProduit": "Code Produit",
+            "codeProduit": "Product Code",
             "nom": "Name",
-            "acronyme": "Acronyme",
+            "acronyme": "Acronym",
             "mm": "Mm",
-            "codeNacre": "Code Nacre",
-            "formule": "Formule brute",
+            "codeNacre": "Mother-of-pearl code",
+            "formule": "gross formulation",
             "listeCmr": "Cmr List",
             "ficheArticle": "Article Form"
         }

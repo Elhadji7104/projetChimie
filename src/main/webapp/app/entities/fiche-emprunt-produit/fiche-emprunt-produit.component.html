@@ -30,13 +30,8 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="ficheEmpruntProduit.id">
-                        <a [routerLink]="['../fiche-article', ficheEmpruntProduit.ficheArticle?.id, 'view' ]" >{{ficheEmpruntProduit.ficheArticle?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="ficheEmpruntProduit.id">
-                        <a [routerLink]="['../fiche-article', ficheEmpruntProduit.ficheArticle?.id, 'view' ]" >{{ficheEmpruntProduit.ficheArticle?.id}}</a>
+                    <div *ngIf="ficheEmpruntProduit.demandeur">
+                        {{ficheEmpruntProduit?.demandeur}}
                     </div>
                 </td>
                 <td class="text-right">

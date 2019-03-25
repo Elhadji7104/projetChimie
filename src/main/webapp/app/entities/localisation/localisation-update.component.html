@@ -24,11 +24,6 @@
                     <input type="text" class="form-control" name="pays" id="field_pays"
                         [(ngModel)]="localisation.pays" />
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.localisation.stock" for="field_stock">Stock de sécurité</label>
-                    <input type="number" class="form-control" name="quantite" id="field_stock"
-                        [(ngModel)]="localisation.stock" />
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

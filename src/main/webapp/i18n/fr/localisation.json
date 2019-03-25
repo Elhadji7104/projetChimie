@@ -2,15 +2,15 @@
     "projetChimieApp": {
         "localisation": {
             "home": {
-                "title": "Localisations",
-                "createLabel": "Créer un nouveau Localisation",
-                "createOrEditLabel": "Créer ou éditer un Localisation"
+                "title": "Localisation",
+                "createLabel": "Créer une nouvelle Localisation",
+                "createOrEditLabel": "Créer ou éditer une Localisation"
             },
-            "created": "Un nouveau Localisation a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Localisation avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Localisation avec l'identifiant {{ param }} a été supprimé",
+            "created": "Une nouvelle Localisation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Localisation avec l'identifiant {{ param }}",
+            "deleted": "Le Localisation avec l'identifiant {{ param }}",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Localisation {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer la Localisation {{ id }} ?"
             },
             "detail": {
                 "title": "Localisation"

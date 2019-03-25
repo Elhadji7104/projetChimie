@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, Route } from '@angular/router';
 import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -11,6 +11,7 @@ import { FicheDeCommandeProduitDetailComponent } from './fiche-de-commande-produ
 import { FicheDeCommandeProduitUpdateComponent } from './fiche-de-commande-produit-update.component';
 import { FicheDeCommandeProduitDeletePopupComponent } from './fiche-de-commande-produit-delete-dialog.component';
 import { IFicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
+import { FicheArticleResolve } from 'app/entities/fiche-article';
 
 @Injectable({ providedIn: 'root' })
 export class FicheDeCommandeProduitResolve implements Resolve<IFicheDeCommandeProduit> {
@@ -71,6 +72,18 @@ export const ficheDeCommandeProduitRoute: Routes = [
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'projetChimieApp.ficheDeCommandeProduit.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'fiche-de-commande-produit/:id/edit',
+        component: FicheDeCommandeProduitUpdateComponent,
+        resolve: {
+            ficheArticle: FicheArticleResolve
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'home.title'
         },
         canActivate: [UserRouteAccessService]
     }
