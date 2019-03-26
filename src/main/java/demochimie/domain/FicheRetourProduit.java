@@ -120,6 +120,7 @@ public class FicheRetourProduit implements Serializable {
             "id=" + getId() +
             ", quantite=" + getQuantite() +
             ", dateRetour='" + getDateRetour() + "'" +
+            ", User='" + getUser()+ "'" +
             "}";
     }
 }

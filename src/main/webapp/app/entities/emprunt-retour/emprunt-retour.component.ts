@@ -197,5 +197,14 @@ export class EmpruntRetourComponent implements OnInit {
                 detail: 'erreur'
             });
         }
+        if (this.ficheArticle.quantite == 0) {
+            this.dispo = false;
+            this.commande = true;
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Article en fin de stock veuillez lancer la commande',
+                detail: 'erreur'
+            });
+        }
     }
 }

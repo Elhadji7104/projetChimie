@@ -60,6 +60,9 @@ public class FicheArticle implements Serializable {
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheRetourProduit> ficheRetourProduits = new HashSet<>();
+    //ajout d'un set de lieu de stockage
+    @OneToMany(mappedBy = "ficheArticle")
+    private Set<TypeLieuStockage> typeLieuStockages = new HashSet<>();
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheDeCommandeProduit> ficheDeCommandeProduits = new HashSet<>();
@@ -69,9 +72,6 @@ public class FicheArticle implements Serializable {
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TypeDeConditionnement> typeDeConditionnements = new HashSet<>();
-    @OneToMany(mappedBy = "ficheArticle")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Localisation> localisations = new HashSet<>();
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "fiche_article_document",
@@ -133,6 +133,14 @@ public class FicheArticle implements Serializable {
     public FicheArticle etatPhysique(String etatPhysique) {
         this.etatPhysique = etatPhysique;
         return this;
+    }
+    //lieu de stockage
+    public Set<TypeLieuStockage> getTypeLieuStockages() {
+        return typeLieuStockages;
+    }
+
+    public void setTypeLieuStockages(Set<TypeLieuStockage> typeLieuStockages) {
+        this.typeLieuStockages = typeLieuStockages;
     }
 
     public void setEtatPhysique(String etatPhysique) {
@@ -219,6 +227,17 @@ public class FicheArticle implements Serializable {
         return this;
     }
 
+    public FicheArticle addTypeLieuStockages(TypeLieuStockage  typeLieuStockage){
+        this.typeLieuStockages.add(typeLieuStockage);
+        typeLieuStockage.setFicheArticle(this);
+        return this;
+    }
+
+    public FicheArticle removeTypeLieuStockages(TypeLieuStockage  typeLieuStockage){
+        this.typeLieuStockages.remove(typeLieuStockage);
+        typeLieuStockage.setFicheArticle(this);
+        return this;
+    }
     public FicheArticle addFicheEmpruntProduit(FicheEmpruntProduit ficheEmpruntProduit) {
         this.ficheEmpruntProduits.add(ficheEmpruntProduit);
         ficheEmpruntProduit.setFicheArticle(this);
@@ -334,7 +353,7 @@ public class FicheArticle implements Serializable {
     public void setTypeDeConditionnements(Set<TypeDeConditionnement> typeDeConditionnements) {
         this.typeDeConditionnements = typeDeConditionnements;
     }
-
+    /**
     public Set<Localisation> getLocalisations() {
         return localisations;
     }
@@ -359,7 +378,7 @@ public class FicheArticle implements Serializable {
     public void setLocalisations(Set<Localisation> localisations) {
         this.localisations = localisations;
     }
-
+    **/
     public Set<Document> getDocuments() {
         return documents;
     }

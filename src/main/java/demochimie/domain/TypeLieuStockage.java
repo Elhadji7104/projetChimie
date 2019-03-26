@@ -32,7 +32,9 @@ public class TypeLieuStockage implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("typeLieuStockages")
     private Localisation localisation;
-
+    @ManyToOne
+    @JsonIgnoreProperties("typeLieuStockages")
+    private FicheArticle ficheArticle;
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -49,6 +51,13 @@ public class TypeLieuStockage implements Serializable {
     public TypeLieuStockage libelleLieu(String libelleLieu) {
         this.libelleLieu = libelleLieu;
         return this;
+    }
+    public FicheArticle getFicheArticle() {
+        return ficheArticle;
+    }
+
+    public void setFicheArticle(FicheArticle ficheArticle) {
+        this.ficheArticle = ficheArticle;
     }
 
     public void setLibelleLieu(String libelleLieu) {
@@ -76,7 +85,10 @@ public class TypeLieuStockage implements Serializable {
         this.localisation = localisation;
         return this;
     }
-
+    public TypeLieuStockage ficheArticle(FicheArticle ficheArticle) {
+        this.ficheArticle = ficheArticle;
+        return this;
+    }
     public void setLocalisation(Localisation localisation) {
         this.localisation = localisation;
     }

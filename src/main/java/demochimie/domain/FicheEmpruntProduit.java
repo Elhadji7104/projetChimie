@@ -125,7 +125,7 @@ public class FicheEmpruntProduit implements Serializable {
             "id=" + getId() +
             ", quantite=" + getQuantite() +
             ", dateEmprunt='" + getDateEmprunt() + "'" +
-            ", iDUser='" + getUser()+ "'" +
+            ", User='" + getUser()+ "'" +
             "}";
     }
 }

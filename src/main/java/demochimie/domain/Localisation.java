@@ -41,12 +41,11 @@ public class Localisation implements Serializable {
     @Column(name = "quantite")
     private Float quantite;
 
+
     @OneToMany(mappedBy = "localisation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TypeLieuStockage> typeLieuStockages = new HashSet<>();
-    @ManyToOne
-    @JsonIgnoreProperties("localisations")
-    private FicheArticle ficheArticle;
+
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -130,7 +129,9 @@ public class Localisation implements Serializable {
         this.typeLieuStockages = typeLieuStockages;
         return this;
     }
-
+    public void setTypeLieuStockages(Set<TypeLieuStockage> typeLieuStockages) {
+        this.typeLieuStockages = typeLieuStockages;
+    }
     public Localisation addTypeLieuStockage(TypeLieuStockage typeLieuStockage) {
         this.typeLieuStockages.add(typeLieuStockage);
         typeLieuStockage.setLocalisation(this);
@@ -143,10 +144,7 @@ public class Localisation implements Serializable {
         return this;
     }
 
-    public void setTypeLieuStockages(Set<TypeLieuStockage> typeLieuStockages) {
-        this.typeLieuStockages = typeLieuStockages;
-    }
-
+    /**
     public FicheArticle getFicheArticle() {
         return ficheArticle;
     }
@@ -158,7 +156,7 @@ public class Localisation implements Serializable {
 
     public void setFicheArticle(FicheArticle ficheArticle) {
         this.ficheArticle = ficheArticle;
-    }
+    }**/
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
