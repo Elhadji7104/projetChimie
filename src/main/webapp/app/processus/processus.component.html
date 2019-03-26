@@ -1,0 +1,233 @@
+<h1></h1>
+<jhi-alert-error></jhi-alert-error>
+<h2>Produit Chimique</h2>
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <p class="font-weight-bold">Voulez vous créer une nouvelle fiche ? </p>
+    <p-inputSwitch name="boolean" [(ngModel)]="booleanChimique"></p-inputSwitch>
+    <div *ngIf="booleanChimique">
+        <p-card header="Nouvelle Fiche">
+            <div class="ui-g">
+                <div class="ui-g-4">
+                    <div class="form-group">
+                        <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.cas"
+                               for="field_cas">Cas</label>
+                        <div>
+                            <p-inputMask name="cas" id="field_cas" [(ngModel)]="ficheProduitChimique.cas"
+                                         mask="999 999-99-9"
+                                         required></p-inputMask>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.nom"
+                               for="field_nom">Nom</label>
+                        <div>
+                            <input pInputText name="nom" id="field_nom" type="text" pInputText
+                                   [(ngModel)]="ficheProduitChimique.nom" required>
+                        </div>
+                    </div>
+                    <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.formule"
+                           for="field_formule">Formule brute</label>
+                    <div>
+
+                        <input name="formule" id="field_formule" type="text" pInputText name="formule"
+                               [(ngModel)]="ficheProduitChimique.formule" required/>
+
+                    </div>
+
+
+                </div>
+                <div class="ui-g-4">
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme"
+                               for="field_acronyme">Acronyme</label>
+                        <div>
+                            <input type="text" pInputText name="acronyme" id="field_acronyme"
+                                   [(ngModel)]="ficheProduitChimique.acronyme" value="/">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.mm"
+                               for="field_mm">Mm</label>
+                        <div>
+                            <p-inputMask name="cas" name="mm" id="field_mm" [(ngModel)]="ficheProduitChimique.mm"
+                                         mask="9 999,99 g/mol"></p-inputMask>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre"
+                               for="field_codeNacre">Code Nacre</label>
+                        <div>
+
+                            <p-inputMask name="codeNacre" id="field_codeNacre"
+                                         [(ngModel)]="ficheProduitChimique.codeNacre" value="NA21"
+                                         mask="aa99"></p-inputMask>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div *ngIf="!booleanChimique">
+        <p-card header="Selection Fiche">
+            <label>Choisissez un mode de recherche :</label>
+            <div>
+                <div>
+                    <label>CAS du produit : </label>
+                </div>
+                <p-dropdown name="Cas" [autoWidth]="false" [style]="{'width':'50%'}" [options]="CasSelect"
+                            [(ngModel)]="ficheProduits"
+                            filter="true">
+                    <ng-template let-produit pTemplate="item">
+                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                            <div style="font-size:14px;float:right;margin-top:4px">{{produit.label}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div>
+                <div>
+                    <label>Nom du produit : </label>
+                </div>
+                <p-dropdown name="Nom" [autoWidth]="true" [style]="{'width':'50%'}" [options]="NomSelect"
+                            [(ngModel)]="ficheProduits"
+                            filter="true">
+                    <ng-template let-produit pTemplate="item">
+                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                            <div style="font-size:14px;float:right;margin-top:4px">{{produit.label}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div>
+                <div>
+                    <label>Formule du produit : </label>
+                </div>
+                <p-dropdown name="Formule" [autoWidth]="false" [style]="{'width':'50%'}" [options]="formuleSelect"
+                            [(ngModel)]="ficheProduits"
+                            filter="true">
+                    <ng-template let-produit pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                            <div>{{produit.label}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div>
+                <p></p>
+                <p>Vous avez selectionné le produit :</p>
+                <p></p>
+                <p> Cas : <strong>{{ficheProduits.cas}}</strong></p>
+                <p> Nom : <strong>{{ficheProduits.nom}}</strong></p>
+                <p> Acronyme : <strong>{{ficheProduits.acronyme}}</strong></p>
+                <p> Formule : <strong>{{ficheProduits.formule}}</strong></p>
+            </div>
+        </p-card>
+    </div>
+    <p></p>
+    <h2>Article</h2>
+    <p-card>
+        <div>
+            <div class="p-grid p-dir-rev">
+                <div class="p-col">
+            <div>
+                ref
+                <div>
+                    <input name="ref" id="input" type="text" size="30" pInputText [(ngModel)]="ficheArticle.refArticle"
+                           required>
+                </div>
+            </div>
+                </div>
+                <div class="p-col">
+            <div>Etat
+                <div>
+                    <p-dropdown name="etat" [options]="EtatSelect" [(ngModel)]="ficheArticle.etatPhysique"
+                                placeholder="Select a Etat" optionLabel="Etat" [showClear]="true"></p-dropdown>
+                </div>
+            </div>
+                </div>
+                <div class="p-col">
+            <div>dispo
+                <div>
+                    <p-dropdown name="dispo" [options]="DispoSelect" [(ngModel)]="ficheArticle.disponibliteArticle"
+                                placeholder="Select a Etat" optionLabel="Etat" [showClear]="true"></p-dropdown>
+                </div>
+            </div>
+                </div>
+            </div>
+            <div class="p-grid p-dir-rev">
+                <div class="p-col">
+            <div>
+                SUIVI
+                <div>
+                    <p-inputSwitch name="booleanSuivi" [(ngModel)]="ficheArticle.typeDesuivi"></p-inputSwitch>
+                </div>
+            </div>
+                </div>
+                <div class="p-col">
+            <div>Accessibilite
+                <div>
+                    <p-inputSwitch name="booleanAcces" [(ngModel)]="ficheArticle.accessibilite"></p-inputSwitch>
+                </div>
+            </div>
+                </div>
+                <div class="p-col">
+            <div>
+                document
+                <div>
+                    <input name="doc" id="lien" type="text" size="30" pInputText [(ngModel)]="document">
+                </div>
+            </div>
+                </div>
+                <div class="p-col">
+            <div>Qunatité
+                <div></div>
+                <input name="quantite" id="Quantité" type="text" size="30" pInputText
+                       [(ngModel)]="ficheArticle.quantite">
+            </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-grid p-dir-rev">
+            <div class="p-col">
+        <div>
+            Unité
+            <div>
+                <input name="unites" id="unites" type="text" size="30" pInputText [(ngModel)]="ficheArticle.unites">
+            </div>
+        </div>
+            </div>
+            <div class="p-col">
+        <div>
+            <div class="form-group">
+                <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
+            </div>
+            <div>
+                <p-multiSelect [options]="classiSelect" name="cla" [(ngModel)]="ficheArticle.classifications"
+                               [panelStyle]="{minWidth:'12em'}" required></p-multiSelect>
+            </div>
+        </div>
+            </div>
+            <div class="p-col">
+        <div>
+            Droit d'acces
+            <div>
+                <p-dropdown name="droit" [options]="droitSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"
+                            placeholder="Select a droit" optionLabel="droit" [showClear]="true"></p-dropdown>
+            </div>
+        </div>
+            </div>
+    </p-card>
+    <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                class="btn btn-primary">
+            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
+
+
+
