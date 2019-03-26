@@ -45,6 +45,7 @@ export class FicheArticleUpdateComponent implements OnInit {
     private docSelect: any;
     private classiSelect: any;
     private quantiteSelect: any;
+    booleanProduit: boolean;
 
     constructor(
         protected jhiAlertService: JhiAlertService,

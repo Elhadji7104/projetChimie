@@ -30,6 +30,9 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { ToastModule } from 'primeng/toast';
 import { RechercheComponent } from './recherche/recherche.component';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { ProcessusComponent } from './processus/processus.component';
+import { StepsModule } from 'primeng/steps';
+import { CardModule } from 'primeng/card';
 @NgModule({
     imports: [
         TableModule,
@@ -70,6 +73,21 @@ import { MultiSelectModule } from 'primeng/multiselect';
         InputSwitchModule,
         DropdownModule,
         ButtonModule,
+        SplitButtonModule,
+        StepsModule,
+        CardModule,
+        InputMaskModule,
+        InputTextModule,
+        TableModule,
+        DataTableModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MultiSelectModule,
+        InputMaskModule,
+        InputTextModule,
+        InputSwitchModule,
+        DropdownModule,
+        ButtonModule,
         SplitButtonModule
     ],
     declarations: [
@@ -80,7 +98,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
         ActiveMenuDirective,
         FooterComponent,
         EmpruntRetourComponent,
-        RechercheComponent
+        RechercheComponent,
+        ProcessusComponent
     ],
     providers: [
         {

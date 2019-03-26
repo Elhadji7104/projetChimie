@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
-
+import { StepsModule } from 'primeng/steps';
+import { MenuItem } from 'primeng/api';
 import { LoginModalService, AccountService, Account } from 'app/core';
 
 @Component({

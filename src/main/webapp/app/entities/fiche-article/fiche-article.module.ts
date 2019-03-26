@@ -20,6 +20,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { FieldsetModule } from 'primeng/fieldset';
+import { CardModule } from 'primeng/card';
 const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
 
 @NgModule({
@@ -36,7 +38,9 @@ const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
         InputSwitchModule,
         DropdownModule,
         ButtonModule,
-        SplitButtonModule
+        SplitButtonModule,
+        FieldsetModule,
+        CardModule
     ],
     declarations: [
         FicheArticleComponent,
