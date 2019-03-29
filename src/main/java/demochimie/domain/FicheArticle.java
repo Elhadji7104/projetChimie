@@ -60,9 +60,11 @@ public class FicheArticle implements Serializable {
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheRetourProduit> ficheRetourProduits = new HashSet<>();
+
     //ajout d'un set de lieu de stockage
-    @OneToMany(mappedBy = "ficheArticle")
-    private Set<TypeLieuStockage> typeLieuStockages = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("ficheArticles")
+    private TypeLieuStockage typeLieuStockage;
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheDeCommandeProduit> ficheDeCommandeProduits = new HashSet<>();
@@ -103,6 +105,9 @@ public class FicheArticle implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("ficheArticles")
     private DroitDacceeProduit droitDacceeProduit;
+    @ManyToOne
+    @JsonIgnoreProperties("ficheArticles")
+    private Groupe groupe;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -135,14 +140,22 @@ public class FicheArticle implements Serializable {
         return this;
     }
     //lieu de stockage
-    public Set<TypeLieuStockage> getTypeLieuStockages() {
-        return typeLieuStockages;
+
+    public TypeLieuStockage getTypeLieuStockage() {
+        return typeLieuStockage;
     }
 
-    public void setTypeLieuStockages(Set<TypeLieuStockage> typeLieuStockages) {
-        this.typeLieuStockages = typeLieuStockages;
+    public void setTypeLieuStockage(TypeLieuStockage typeLieuStockage) {
+        this.typeLieuStockage = typeLieuStockage;
     }
 
+    public Groupe getGroupe() {
+        return groupe;
+    }
+
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
+    }
     public void setEtatPhysique(String etatPhysique) {
         this.etatPhysique = etatPhysique;
     }
@@ -224,18 +237,6 @@ public class FicheArticle implements Serializable {
 
     public FicheArticle ficheEmpruntProduits(Set<FicheEmpruntProduit> ficheEmpruntProduits) {
         this.ficheEmpruntProduits = ficheEmpruntProduits;
-        return this;
-    }
-
-    public FicheArticle addTypeLieuStockages(TypeLieuStockage  typeLieuStockage){
-        this.typeLieuStockages.add(typeLieuStockage);
-        typeLieuStockage.setFicheArticle(this);
-        return this;
-    }
-
-    public FicheArticle removeTypeLieuStockages(TypeLieuStockage  typeLieuStockage){
-        this.typeLieuStockages.remove(typeLieuStockage);
-        typeLieuStockage.setFicheArticle(this);
         return this;
     }
     public FicheArticle addFicheEmpruntProduit(FicheEmpruntProduit ficheEmpruntProduit) {

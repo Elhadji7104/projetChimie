@@ -48,6 +48,11 @@ public class Groupe implements Serializable {
     @JsonIgnoreProperties("groupes")
     private DroitDacceeProduit droitDacceeProduit;
 
+    //Un groupe a plusieurs aticles
+    @OneToMany(mappedBy = "groupe")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FicheArticle> ficheArticles = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -65,7 +70,13 @@ public class Groupe implements Serializable {
         this.nomGroupe = nomGroupe;
         return this;
     }
+    public Set<FicheArticle> getFicheArticle() {
+        return ficheArticles;
+    }
 
+    public void setFicheArticle(Set<FicheArticle> ficheArticles) {
+        ficheArticles = ficheArticles;
+    }
     public void setNomGroupe(String nomGroupe) {
         this.nomGroupe = nomGroupe;
     }
