@@ -45,6 +45,20 @@ public class DroitDacceeProduit implements Serializable {
     @JsonIgnoreProperties("droitDacceeProduits")
     private Groupe groupe;
 
+    @ManyToOne
+    @JsonIgnoreProperties("droitDacceeProduits")
+    private FicheArticle ficheArticle;
+
+
+    public FicheArticle getFicheArticle() {
+        return ficheArticle;
+    }
+
+    public void setFicheArticle(FicheArticle ficheArticle) {
+        this.ficheArticle = ficheArticle;
+    }
+
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

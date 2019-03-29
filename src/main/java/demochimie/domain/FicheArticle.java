@@ -1,17 +1,13 @@
 package demochimie.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
-
 import demochimie.domain.enumeration.DisponibliteArticle;
 
 /**
@@ -100,9 +96,28 @@ public class FicheArticle implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "classifications_id", referencedColumnName = "id"))
     private Set<Classification> classifications = new HashSet<>();
 
+    @OneToMany(mappedBy = "ficheArticle")
+    private Set<DroitDacceeProduit> droitDacceeProduit;
+
+    public Set<DroitDacceeProduit> getDroitDacceeProduit() {
+        return droitDacceeProduit;
+    }
+
+    public void setDroitDacceeProduit(Set<DroitDacceeProduit> droitDacceeProduit) {
+        this.droitDacceeProduit = droitDacceeProduit;
+    }
+
     @ManyToOne
-    @JsonIgnoreProperties("ficheArticles")
-    private DroitDacceeProduit droitDacceeProduit;
+    @JsonIgnoreProperties("groupe")
+    private Groupe groupe;
+
+    public Groupe getGroupe() {
+        return groupe;
+    }
+
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
+    }
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -479,18 +494,10 @@ public class FicheArticle implements Serializable {
         this.classifications = classifications;
     }
 
-    public DroitDacceeProduit getDroitDacceeProduit() {
-        return droitDacceeProduit;
-    }
 
-    public FicheArticle droitDacceeProduit(DroitDacceeProduit droitDacceeProduit) {
-        this.droitDacceeProduit = droitDacceeProduit;
-        return this;
-    }
 
-    public void setDroitDacceeProduit(DroitDacceeProduit droitDacceeProduit) {
-        this.droitDacceeProduit = droitDacceeProduit;
-    }
+
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
