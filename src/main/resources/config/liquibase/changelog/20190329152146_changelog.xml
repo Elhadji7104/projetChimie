@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-1">
+        <addColumn tableName="fiche_article">
+            <column name="groupe_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-2">
+        <addColumn tableName="fiche_article">
+            <column name="type_lieu_stockage_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-3">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="fiche_article" constraintName="FKo8pf8rd13i55km7tusc0hscgy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-4">
+        <addForeignKeyConstraint baseColumnNames="type_lieu_stockage_id" baseTableName="fiche_article" constraintName="FKoj0rjl836i20axtu112q3lxkv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_lieu_stockage"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-5">
+        <dropForeignKeyConstraint baseTableName="type_lieu_stockage" constraintName="FK57ntgqfk9blguvte8687m1w1l"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-6">
+        <dropForeignKeyConstraint baseTableName="jhi_user" constraintName="FKaleiti2ln4q03g554hh6fcbh9"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-7">
+        <dropTable tableName="jhi_date_time_wrapper"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-8">
+        <dropColumn columnName="fiche_article_id" tableName="type_lieu_stockage"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553872921165-9">
+        <dropColumn columnName="groupe_id" tableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>

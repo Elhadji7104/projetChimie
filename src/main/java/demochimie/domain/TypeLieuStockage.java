@@ -7,7 +7,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A TypeLieuStockage.
@@ -32,9 +34,11 @@ public class TypeLieuStockage implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("typeLieuStockages")
     private Localisation localisation;
-    @ManyToOne
-    @JsonIgnoreProperties("typeLieuStockages")
-    private FicheArticle ficheArticle;
+
+
+    @OneToMany(mappedBy = "typeLieuStockage")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FicheArticle> ficheArticles = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -51,13 +55,6 @@ public class TypeLieuStockage implements Serializable {
     public TypeLieuStockage libelleLieu(String libelleLieu) {
         this.libelleLieu = libelleLieu;
         return this;
-    }
-    public FicheArticle getFicheArticle() {
-        return ficheArticle;
-    }
-
-    public void setFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticle = ficheArticle;
     }
 
     public void setLibelleLieu(String libelleLieu) {
@@ -85,9 +82,13 @@ public class TypeLieuStockage implements Serializable {
         this.localisation = localisation;
         return this;
     }
-    public TypeLieuStockage ficheArticle(FicheArticle ficheArticle) {
-        this.ficheArticle = ficheArticle;
-        return this;
+
+    public Set<FicheArticle> getFicheArticle() {
+        return ficheArticles;
+    }
+
+    public void setFicheArticles(Set<FicheArticle> ficheArticles) {
+        this.ficheArticles = ficheArticles;
     }
     public void setLocalisation(Localisation localisation) {
         this.localisation = localisation;

@@ -1,13 +1,17 @@
 package demochimie.domain;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
+
 import demochimie.domain.enumeration.DisponibliteArticle;
 
 /**
@@ -56,9 +60,11 @@ public class FicheArticle implements Serializable {
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheRetourProduit> ficheRetourProduits = new HashSet<>();
+
     //ajout d'un set de lieu de stockage
-    @OneToMany(mappedBy = "ficheArticle")
-    private Set<TypeLieuStockage> typeLieuStockages = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("ficheArticles")
+    private TypeLieuStockage typeLieuStockage;
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheDeCommandeProduit> ficheDeCommandeProduits = new HashSet<>();
@@ -96,28 +102,12 @@ public class FicheArticle implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "classifications_id", referencedColumnName = "id"))
     private Set<Classification> classifications = new HashSet<>();
 
-    @OneToMany(mappedBy = "ficheArticle")
-    private Set<DroitDacceeProduit> droitDacceeProduit;
-
-    public Set<DroitDacceeProduit> getDroitDacceeProduit() {
-        return droitDacceeProduit;
-    }
-
-    public void setDroitDacceeProduit(Set<DroitDacceeProduit> droitDacceeProduit) {
-        this.droitDacceeProduit = droitDacceeProduit;
-    }
-
     @ManyToOne
-    @JsonIgnoreProperties("groupe")
+    @JsonIgnoreProperties("ficheArticles")
+    private DroitDacceeProduit droitDacceeProduit;
+    @ManyToOne
+    @JsonIgnoreProperties("ficheArticles")
     private Groupe groupe;
-
-    public Groupe getGroupe() {
-        return groupe;
-    }
-
-    public void setGroupe(Groupe groupe) {
-        this.groupe = groupe;
-    }
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -150,14 +140,22 @@ public class FicheArticle implements Serializable {
         return this;
     }
     //lieu de stockage
-    public Set<TypeLieuStockage> getTypeLieuStockages() {
-        return typeLieuStockages;
+
+    public TypeLieuStockage getTypeLieuStockage() {
+        return typeLieuStockage;
     }
 
-    public void setTypeLieuStockages(Set<TypeLieuStockage> typeLieuStockages) {
-        this.typeLieuStockages = typeLieuStockages;
+    public void setTypeLieuStockage(TypeLieuStockage typeLieuStockage) {
+        this.typeLieuStockage = typeLieuStockage;
     }
 
+    public Groupe getGroupe() {
+        return groupe;
+    }
+
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
+    }
     public void setEtatPhysique(String etatPhysique) {
         this.etatPhysique = etatPhysique;
     }
@@ -239,18 +237,6 @@ public class FicheArticle implements Serializable {
 
     public FicheArticle ficheEmpruntProduits(Set<FicheEmpruntProduit> ficheEmpruntProduits) {
         this.ficheEmpruntProduits = ficheEmpruntProduits;
-        return this;
-    }
-
-    public FicheArticle addTypeLieuStockages(TypeLieuStockage  typeLieuStockage){
-        this.typeLieuStockages.add(typeLieuStockage);
-        typeLieuStockage.setFicheArticle(this);
-        return this;
-    }
-
-    public FicheArticle removeTypeLieuStockages(TypeLieuStockage  typeLieuStockage){
-        this.typeLieuStockages.remove(typeLieuStockage);
-        typeLieuStockage.setFicheArticle(this);
         return this;
     }
     public FicheArticle addFicheEmpruntProduit(FicheEmpruntProduit ficheEmpruntProduit) {
@@ -494,10 +480,18 @@ public class FicheArticle implements Serializable {
         this.classifications = classifications;
     }
 
+    public DroitDacceeProduit getDroitDacceeProduit() {
+        return droitDacceeProduit;
+    }
 
+    public FicheArticle droitDacceeProduit(DroitDacceeProduit droitDacceeProduit) {
+        this.droitDacceeProduit = droitDacceeProduit;
+        return this;
+    }
 
-
-
+    public void setDroitDacceeProduit(DroitDacceeProduit droitDacceeProduit) {
+        this.droitDacceeProduit = droitDacceeProduit;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
