@@ -38,9 +38,9 @@ public class DroitDacceeProduit implements Serializable {
     @OneToMany(mappedBy = "droitDacceeProduit")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Groupe> groupes = new HashSet<>();
-    @OneToMany(mappedBy = "droitDacceeProduit")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<FicheArticle> ficheArticles = new HashSet<>();
+
+    @ManyToOne
+    private FicheArticle ficheArticle ;
     @ManyToOne
     @JsonIgnoreProperties("droitDacceeProduits")
     private Groupe groupe;
@@ -89,6 +89,14 @@ public class DroitDacceeProduit implements Serializable {
         return this;
     }
 
+    public FicheArticle getFicheArticle() {
+        return ficheArticle;
+    }
+
+    public void setFicheArticle(FicheArticle ficheArticle) {
+        this.ficheArticle = ficheArticle;
+    }
+
     public void setEtatDroit(Boolean etatDroit) {
         this.etatDroit = etatDroit;
     }
@@ -118,30 +126,6 @@ public class DroitDacceeProduit implements Serializable {
         this.groupes = groupes;
     }
 
-    public Set<FicheArticle> getFicheArticles() {
-        return ficheArticles;
-    }
-
-    public DroitDacceeProduit ficheArticles(Set<FicheArticle> ficheArticles) {
-        this.ficheArticles = ficheArticles;
-        return this;
-    }
-
-    public DroitDacceeProduit addFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticles.add(ficheArticle);
-        ficheArticle.setDroitDacceeProduit(this);
-        return this;
-    }
-
-    public DroitDacceeProduit removeFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticles.remove(ficheArticle);
-        ficheArticle.setDroitDacceeProduit(null);
-        return this;
-    }
-
-    public void setFicheArticles(Set<FicheArticle> ficheArticles) {
-        this.ficheArticles = ficheArticles;
-    }
 
     public Groupe getGroupe() {
         return groupe;

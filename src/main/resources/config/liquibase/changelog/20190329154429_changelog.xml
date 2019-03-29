@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="EL GORA FALL (generated)" id="1553874283968-1">
+        <addColumn tableName="droit_daccee_produit">
+            <column name="fiche_article_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553874283968-2">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="droit_daccee_produit" constraintName="FKsf9wg5guoxcs3fex7w79enptl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553874283968-3">
+        <dropForeignKeyConstraint baseTableName="fiche_article" constraintName="fk_fiche_article_droit_daccee_produit_id"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553874283968-4">
+        <dropColumn columnName="droit_daccee_produit_id" tableName="fiche_article"/>
+    </changeSet>
+</databaseChangeLog>

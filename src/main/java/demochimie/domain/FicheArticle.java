@@ -102,9 +102,8 @@ public class FicheArticle implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "classifications_id", referencedColumnName = "id"))
     private Set<Classification> classifications = new HashSet<>();
 
-    @ManyToOne
-    @JsonIgnoreProperties("ficheArticles")
-    private DroitDacceeProduit droitDacceeProduit;
+    @OneToMany(mappedBy = "ficheArticle")
+    private Set<DroitDacceeProduit> droitDacceeProduits;
     @ManyToOne
     @JsonIgnoreProperties("ficheArticles")
     private Groupe groupe;
@@ -151,6 +150,15 @@ public class FicheArticle implements Serializable {
 
     public Groupe getGroupe() {
         return groupe;
+    }
+
+
+    public Set<DroitDacceeProduit> getDroitDacceeProduits() {
+        return droitDacceeProduits;
+    }
+
+    public void setDroitDacceeProduits(Set<DroitDacceeProduit> droitDacceeProduits) {
+        this.droitDacceeProduits = droitDacceeProduits;
     }
 
     public void setGroupe(Groupe groupe) {
@@ -480,18 +488,6 @@ public class FicheArticle implements Serializable {
         this.classifications = classifications;
     }
 
-    public DroitDacceeProduit getDroitDacceeProduit() {
-        return droitDacceeProduit;
-    }
-
-    public FicheArticle droitDacceeProduit(DroitDacceeProduit droitDacceeProduit) {
-        this.droitDacceeProduit = droitDacceeProduit;
-        return this;
-    }
-
-    public void setDroitDacceeProduit(DroitDacceeProduit droitDacceeProduit) {
-        this.droitDacceeProduit = droitDacceeProduit;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
