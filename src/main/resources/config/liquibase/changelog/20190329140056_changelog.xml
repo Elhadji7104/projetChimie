@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="EL GORA FALL (generated)" id="1553868070496-1">
+        <addColumn tableName="type_lieu_stockage">
+            <column name="fiche_article_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553868070496-2">
+        <addColumn tableName="fiche_article">
+            <column name="quantite" type="float"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553868070496-3">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="type_lieu_stockage" constraintName="FK57ntgqfk9blguvte8687m1w1l" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553868070496-4">
+        <dropForeignKeyConstraint baseTableName="localisation" constraintName="fk_localisation_fiche_article_id"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553868070496-5">
+        <dropColumn columnName="fiche_article_id" tableName="localisation"/>
+    </changeSet>
+</databaseChangeLog>
