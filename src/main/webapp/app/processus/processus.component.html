@@ -127,96 +127,91 @@
     <p></p>
     <h2>Article</h2>
     <p-card>
-        <div>
-            <div class="p-grid p-dir-rev">
-                <div class="p-col">
-            <div>
-                ref
+
+        <div class="ui-g">
+            <div class="ui-g-4">
                 <div>
-                    <input name="ref" id="input" type="text" size="30" pInputText [(ngModel)]="ficheArticle.refArticle"
-                           required>
+                    ref
+                    <div>
+                        <input  [style]="{'width':'50%'}" name="ref" id="input" type="text" size="30" pInputText
+                               [(ngModel)]="ficheArticle.refArticle"
+                               required>
+                    </div>
                 </div>
             </div>
+            <div class="ui-g-4">
+                <div>Etat
+                    <div>
+                        <p-dropdown [autoWidth]="false" [style]="{'width':'50%'}" name="etat" [options]="getOptionsEtat()" [(ngModel)]="ficheArticle.etatPhysique"
+                                    placeholder="Select a Etat" optionLabel="Etat" [showClear]="true"></p-dropdown>
+                    </div>
                 </div>
-                <div class="p-col">
-            <div>Etat
+            </div>
+
+            <div class="ui-g-4">
+                <div>dispo
+                    <div>
+                        <p-dropdown  [style]="{'width':'50%'}" name="dispo" [options]="DispoSelect"
+                                    [(ngModel)]="ficheArticle.disponibliteArticle"
+                                    placeholder="Select a Disponibilite" optionLabel="Dispo" [showClear]="true"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-g">
+            <div class="ui-g-4">
+                    document
+                    <div>
+                        <input  [style]="{'width':'50%'}" name="doc" id="lien" type="text" size="30" pInputText [(ngModel)]="document">
+                    </div>
+            </div>
+            <div class="ui-g-4">
+                Unité
                 <div>
-                    <p-dropdown name="etat" [options]="EtatSelect" [(ngModel)]="ficheArticle.etatPhysique"
-                                placeholder="Select a Etat" optionLabel="Etat" [showClear]="true"></p-dropdown>
+                    <div>
+                        <p-dropdown [autoWidth]="false" [style]="{'width':'50%'}" name="unites" [options]="unitesSelect" [(ngModel)]="ficheArticle.unites"
+                                    placeholder="Select a unites" optionLabel="unites" [showClear]="true"></p-dropdown>
+                    </div>
                 </div>
             </div>
-                </div>
-                <div class="p-col">
-            <div>dispo
+            <div class="ui-g-4">
+                    <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
                 <div>
-                    <p-dropdown name="dispo" [options]="DispoSelect" [(ngModel)]="ficheArticle.disponibliteArticle"
-                                placeholder="Select a Etat" optionLabel="Etat" [showClear]="true"></p-dropdown>
+                    <p-multiSelect  [style]="{'width':'50%'}" [options]="classiSelect" name="cla" [(ngModel)]="ficheArticle.classifications"
+                                   [panelStyle]="{minWidth:'12em'}" required></p-multiSelect>
                 </div>
             </div>
-                </div>
-            </div>
-            <div class="p-grid p-dir-rev">
-                <div class="p-col">
-            <div>
-                SUIVI
-                <div>
-                    <p-inputSwitch name="booleanSuivi" [(ngModel)]="ficheArticle.typeDesuivi"></p-inputSwitch>
-                </div>
-            </div>
-                </div>
-                <div class="p-col">
-            <div>Accessibilite
-                <div>
-                    <p-inputSwitch name="booleanAcces" [(ngModel)]="ficheArticle.accessibilite"></p-inputSwitch>
-                </div>
-            </div>
-                </div>
-                <div class="p-col">
-            <div>
-                document
-                <div>
-                    <input name="doc" id="lien" type="text" size="30" pInputText [(ngModel)]="document">
-                </div>
-            </div>
-                </div>
-                <div class="p-col">
-            <div>Qunatité
+        </div>
+        <div class="ui-g">
+            <div class="ui-g-4">
+            <div>Quantité
                 <div></div>
-                <input name="quantite" id="Quantité" type="text" size="30" pInputText
+                <input [style]="{'width':'50%'}" name="quantite" id="Quantité" type="text" size="30" pInputText
                        [(ngModel)]="ficheArticle.quantite">
             </div>
+            </div>
+            <div class="ui-g-4">
+                SUIVI
+                <div>
+                    <p-inputSwitch   name="booleanSuivi" [(ngModel)]="ficheArticle.typeDesuivi"></p-inputSwitch>
+                </div>
+            </div>
+            <div class="ui-g-4">
+                <div>Accessibilite
+                    <div>
+                        <p-inputSwitch   name="booleanAcces" [(ngModel)]="ficheArticle.accessibilite"></p-inputSwitch>
+                    </div>
+                </div>
+            </div>
+            <div>
+                Droit d'acces
+                <div>
+                    <p-dropdown [autoWidth]="false" [style]="{'width':'50%'}" name="droit" [options]="droitSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"
+                                placeholder="Select a droit" optionLabel="droit" [showClear]="true"></p-dropdown>
                 </div>
             </div>
         </div>
-        <div class="p-grid p-dir-rev">
-            <div class="p-col">
-        <div>
-            Unité
-            <div>
-                <input name="unites" id="unites" type="text" size="30" pInputText [(ngModel)]="ficheArticle.unites">
-            </div>
-        </div>
-            </div>
-            <div class="p-col">
-        <div>
-            <div class="form-group">
-                <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
-            </div>
-            <div>
-                <p-multiSelect [options]="classiSelect" name="cla" [(ngModel)]="ficheArticle.classifications"
-                               [panelStyle]="{minWidth:'12em'}" required></p-multiSelect>
-            </div>
-        </div>
-            </div>
-            <div class="p-col">
-        <div>
-            Droit d'acces
-            <div>
-                <p-dropdown name="droit" [options]="droitSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"
-                            placeholder="Select a droit" optionLabel="droit" [showClear]="true"></p-dropdown>
-            </div>
-        </div>
-            </div>
     </p-card>
     <div>
         <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">

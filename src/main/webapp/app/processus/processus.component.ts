@@ -7,8 +7,6 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheProduitChimique, IFicheProduitChimique } from 'app/shared/model/fiche-produit-chimique.model';
 import { SelectItem } from 'primeng/api';
-import { IDocument } from 'app/shared/model/document.model';
-import { Document } from 'app/shared/model/document.model';
 import { ClassificationService } from 'app/entities/classification';
 import { DroitDacceeProduitService } from 'app/entities/droit-daccee-produit';
 import { IDroitDacceeProduit } from 'app/shared/model/droit-daccee-produit.model';
@@ -35,7 +33,7 @@ export class ProcessusComponent implements OnInit {
     EtatSelect: SelectItem[];
     private DispoSelect: SelectItem[];
 
-    document: IDocument = new Document();
+    document: string;
     classiSelect: SelectItem[];
     droitSelect: SelectItem[];
     private droit: IDroitDacceeProduit[];
@@ -58,6 +56,7 @@ export class ProcessusComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ ficheProduitChimique }) => {
             this.ficheProduitChimique = ficheProduitChimique;
         });
+
         this.droitService.query().subscribe(
             (res: HttpResponse<IDroitDacceeProduit[]>) => {
                 this.droit = res.body;
@@ -84,7 +83,7 @@ export class ProcessusComponent implements OnInit {
                 this.unites = res.body;
                 this.unitesSelect = [];
                 for (let value of this.unites) {
-                    this.classiSelect.push({ label: value.libelleUnite, value: value.libelleUnite });
+                    this.unitesSelect.push({ label: value.libelleUnite, value: value.libelleUnite });
                 }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -115,22 +114,24 @@ export class ProcessusComponent implements OnInit {
         );
         this.getOptionsEtat();
         this.getOptionsDispo();
+        console.log(this.EtatSelect);
+        console.log(this.DispoSelect);
     }
 
     getOptionsEtat() {
         this.EtatSelect = [];
-        this.EtatSelect.push({ label: 'SOLIDE', value: 'SOLIDE' });
-        this.EtatSelect.push({ label: 'LIQUIDE', value: 'LIQUIDE' });
-        this.EtatSelect.push({ label: 'GAZEUX', value: 'GAZEUX' });
+        this.EtatSelect.push({ label: 'solide', value: 'solide' });
+        this.EtatSelect.push({ label: 'liquide', value: 'liquide' });
+        this.EtatSelect.push({ label: 'gazeux', value: 'gazeux' });
         return this.EtatSelect;
     }
 
     getOptionsDispo() {
         this.DispoSelect = [];
-        this.DispoSelect.push({ label: 'DISPONIBLE', value: 'SOLIDE' });
-        this.DispoSelect.push({ label: 'INDISPONIBLE', value: 'LIQUIDE' });
-        this.DispoSelect.push({ label: 'ENCOMMANDE', value: 'GAZEUX' });
-        this.DispoSelect.push({ label: 'FINDESTOCK', value: 'GAZEUX' });
+        this.DispoSelect.push({ label: 'disponible', value: 'disponible' });
+        this.DispoSelect.push({ label: 'indisponible', value: 'indisponible' });
+        this.DispoSelect.push({ label: 'encommande', value: 'encommande' });
+        this.DispoSelect.push({ label: 'findestock', value: 'findestock' });
         return this.DispoSelect;
     }
 
