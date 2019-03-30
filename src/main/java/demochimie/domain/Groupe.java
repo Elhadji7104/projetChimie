@@ -50,7 +50,6 @@ public class Groupe implements Serializable {
 
     //Un groupe a plusieurs aticles
     @OneToMany(mappedBy = "groupe")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheArticle> ficheArticles = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

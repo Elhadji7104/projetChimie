@@ -26,21 +26,10 @@ public class DroitDacceeProduit implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nom")
-    private String nom;
-
-    @Column(name = "nom_groupe")
-    private String nomGroupe;
-
-    @Column(name = "etat_droit")
-    private Boolean etatDroit;
-
     @OneToMany(mappedBy = "droitDacceeProduit")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Groupe> groupes = new HashSet<>();
 
-    @ManyToOne
-    private FicheArticle ficheArticle ;
     @ManyToOne
     @JsonIgnoreProperties("droitDacceeProduits")
     private Groupe groupe;
@@ -48,15 +37,6 @@ public class DroitDacceeProduit implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("droitDacceeProduits")
     private FicheArticle ficheArticle;
-
-
-    public FicheArticle getFicheArticle() {
-        return ficheArticle;
-    }
-
-    public void setFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticle = ficheArticle;
-    }
 
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -68,40 +48,9 @@ public class DroitDacceeProduit implements Serializable {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
-    }
 
-    public DroitDacceeProduit nom(String nom) {
-        this.nom = nom;
-        return this;
-    }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
 
-    public String getNomGroupe() {
-        return nomGroupe;
-    }
-
-    public DroitDacceeProduit nomGroupe(String nomGroupe) {
-        this.nomGroupe = nomGroupe;
-        return this;
-    }
-
-    public void setNomGroupe(String nomGroupe) {
-        this.nomGroupe = nomGroupe;
-    }
-
-    public Boolean isEtatDroit() {
-        return etatDroit;
-    }
-
-    public DroitDacceeProduit etatDroit(Boolean etatDroit) {
-        this.etatDroit = etatDroit;
-        return this;
-    }
 
     public FicheArticle getFicheArticle() {
         return ficheArticle;
@@ -111,9 +60,6 @@ public class DroitDacceeProduit implements Serializable {
         this.ficheArticle = ficheArticle;
     }
 
-    public void setEtatDroit(Boolean etatDroit) {
-        this.etatDroit = etatDroit;
-    }
 
     public Set<Groupe> getGroupes() {
         return groupes;
@@ -179,8 +125,8 @@ public class DroitDacceeProduit implements Serializable {
     public String toString() {
         return "DroitDacceeProduit{" +
             "id=" + getId() +
-            ", nom='" + getNom() + "'" +
-            ", etatDroit='" + isEtatDroit() + "'" +
+            ", idGroupe='" + getGroupe() + "'" +
+            ", idFicheArticle='" + getFicheArticle() + "'" +
             "}";
     }
 }

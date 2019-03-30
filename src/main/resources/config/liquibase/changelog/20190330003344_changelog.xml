@@ -1,0 +1,321 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-1">
+        <createTable tableName="classification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="classificationPK"/>
+            </column>
+            <column name="nom_classification" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-2">
+        <createTable tableName="document">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="documentPK"/>
+            </column>
+            <column name="lien" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-3">
+        <createTable tableName="droit_daccee_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="droit_daccee_produitPK"/>
+            </column>
+            <column name="fiche_article_id" type="BIGINT"/>
+            <column name="groupe_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-4">
+        <createTable tableName="fiche_article">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_articlePK"/>
+            </column>
+            <column name="accessibilite" type="BIT"/>
+            <column name="code_barre" type="VARCHAR(255)"/>
+            <column name="code_interne" type="VARCHAR(255)"/>
+            <column name="disponiblite_article" type="VARCHAR(255)"/>
+            <column name="etat_physique" type="VARCHAR(255)"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="ref_article" type="VARCHAR(255)"/>
+            <column name="type_desuivi" type="BIT"/>
+            <column name="groupe_id" type="BIGINT"/>
+            <column name="type_lieu_stockage_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-5">
+        <createTable tableName="fiche_article_classification">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="classifications_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-6">
+        <createTable tableName="fiche_article_document">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="documents_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-7">
+        <createTable tableName="fiche_article_fiche_produit_chimique">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fiche_produit_chimiques_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-8">
+        <createTable tableName="fiche_article_unite">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unites_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-9">
+        <createTable tableName="fiche_de_commande_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_de_commande_produitPK"/>
+            </column>
+            <column name="date_de_commande" type="TINYBLOB"/>
+            <column name="date_livraison" type="TINYBLOB"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-10">
+        <createTable tableName="fiche_de_commande_produit_fournisseur">
+            <column name="fiche_de_commande_produits_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fournisseurs_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-11">
+        <createTable tableName="fiche_emprunt_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_emprunt_produitPK"/>
+            </column>
+            <column name="date_emprunt" type="TINYBLOB"/>
+            <column name="quantite" type="DOUBLE"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-12">
+        <createTable tableName="fiche_produit_chimique">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_produit_chimiquePK"/>
+            </column>
+            <column name="acronyme" type="VARCHAR(255)"/>
+            <column name="cas" type="VARCHAR(255)"/>
+            <column name="code_nacre" type="VARCHAR(255)"/>
+            <column name="code_produit" type="VARCHAR(255)"/>
+            <column name="formule" type="VARCHAR(255)"/>
+            <column name="mm" type="VARCHAR(255)"/>
+            <column name="nom" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-13">
+        <createTable tableName="fiche_retour_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_retour_produitPK"/>
+            </column>
+            <column name="date_retour" type="TINYBLOB"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-14">
+        <createTable tableName="fournisseur">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fournisseurPK"/>
+            </column>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="mail" type="VARCHAR(255)"/>
+            <column name="nom_fournisseur" type="VARCHAR(255)"/>
+            <column name="telephone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-15">
+        <createTable tableName="liste_cmr">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="liste_cmrPK"/>
+            </column>
+            <column name="ref_liste" type="VARCHAR(255)"/>
+            <column name="fiche_produit_chimique_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-16">
+        <createTable tableName="liste_groupe_invite">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="liste_groupe_invitePK"/>
+            </column>
+            <column name="nom_groupe" type="VARCHAR(255)"/>
+            <column name="groupe_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-17">
+        <createTable tableName="liste_mots_cles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="liste_mots_clesPK"/>
+            </column>
+            <column name="libelle_mot" type="VARCHAR(255)"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-18">
+        <createTable tableName="localisation">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="localisationPK"/>
+            </column>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="code_postal" type="VARCHAR(255)"/>
+            <column name="pays" type="VARCHAR(255)"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="ville" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-19">
+        <createTable tableName="mail_gestionnaire">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="mail_gestionnairePK"/>
+            </column>
+            <column name="mail" type="VARCHAR(255)"/>
+            <column name="groupe_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-20">
+        <createTable tableName="type_de_conditionnement">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="type_de_conditionnementPK"/>
+            </column>
+            <column name="libelle_conditionnement" type="VARCHAR(255)"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-21">
+        <createTable tableName="type_lieu_stockage">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="type_lieu_stockagePK"/>
+            </column>
+            <column name="libelle_lieu" type="VARCHAR(255)"/>
+            <column name="temperature" type="FLOAT"/>
+            <column name="localisation_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-22">
+        <createTable tableName="unite">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="unitePK"/>
+            </column>
+            <column name="libelle_unite" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-23">
+        <addPrimaryKey columnNames="fiche_articles_id, classifications_id" tableName="fiche_article_classification"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-24">
+        <addPrimaryKey columnNames="fiche_articles_id, documents_id" tableName="fiche_article_document"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-25">
+        <addPrimaryKey columnNames="fiche_articles_id, fiche_produit_chimiques_id" tableName="fiche_article_fiche_produit_chimique"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-26">
+        <addPrimaryKey columnNames="fiche_articles_id, unites_id" tableName="fiche_article_unite"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-27">
+        <addPrimaryKey columnNames="fiche_de_commande_produits_id, fournisseurs_id" tableName="fiche_de_commande_produit_fournisseur"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-28">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_unite" constraintName="FK14x8f87gebo14hofcguxrijxw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-29">
+        <addForeignKeyConstraint baseColumnNames="droit_daccee_produit_id" baseTableName="groupe" constraintName="FK1dcgre8a2flfyfbi59acm9tx1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="droit_daccee_produit"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-30">
+        <addForeignKeyConstraint baseColumnNames="fiche_produit_chimiques_id" baseTableName="fiche_article_fiche_produit_chimique" constraintName="FK1vk87aqpdwv1wmjacqnomgglt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_produit_chimique"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-31">
+        <addForeignKeyConstraint baseColumnNames="classifications_id" baseTableName="fiche_article_classification" constraintName="FK32ecixbteof5brvarf7ycjam4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="classification"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-32">
+        <addForeignKeyConstraint baseColumnNames="unites_id" baseTableName="fiche_article_unite" constraintName="FK3vrq6ocow0sdkkchd5j0li4oj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="unite"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-33">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_classification" constraintName="FK4f2o6uhcv09igludsoy3eyvse" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-34">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="droit_daccee_produit" constraintName="FK5bym088k064imyc08bnh4w64b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-35">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="mail_gestionnaire" constraintName="FK6vd7v13s6v7jnsolxjy7cxaqb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-36">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_fiche_produit_chimique" constraintName="FK7gdksd0l02888td9gbt4tda8j" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-37">
+        <addForeignKeyConstraint baseColumnNames="localisation_id" baseTableName="type_lieu_stockage" constraintName="FK8yo3h6tschmv89693q174bvhx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="localisation"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-38">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_document" constraintName="FK9s9iwe60f2efrfnraietaocd4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-39">
+        <addForeignKeyConstraint baseColumnNames="fiche_de_commande_produits_id" baseTableName="fiche_de_commande_produit_fournisseur" constraintName="FKa7j2eevwt2tldpqkkpdtbqmja" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_de_commande_produit"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-40">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="type_de_conditionnement" constraintName="FKaxi27or5sk3a8vc4xhlei04r8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-41">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="liste_mots_cles" constraintName="FKbap3xvuuaninwlqwygaa5udql" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-42">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="fiche_de_commande_produit" constraintName="FKcnn8fswc04j9p11w8q3kpanev" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-43">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="fiche_emprunt_produit" constraintName="FKfkhrgm6hdfw4vsp7bg61svfyf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-44">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="fiche_retour_produit" constraintName="FKih9te35av44x0ivumr19pvdm0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-45">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="liste_groupe_invite" constraintName="FKik79iuoij9my82rlsnb5rr5qf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-46">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="fiche_emprunt_produit" constraintName="FKil1iksjh4tf0wylyacyiha6rq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-47">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="fiche_retour_produit" constraintName="FKja0x1m9mvg48anc1b8apm9la7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-48">
+        <addForeignKeyConstraint baseColumnNames="documents_id" baseTableName="fiche_article_document" constraintName="FKm1wgoaws8llsai8fuyuuc2ump" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="document"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-49">
+        <addForeignKeyConstraint baseColumnNames="fiche_produit_chimique_id" baseTableName="liste_cmr" constraintName="FKo2hudq90wqkxt2scipo92dpm7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_produit_chimique"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-50">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="fiche_article" constraintName="FKo8pf8rd13i55km7tusc0hscgy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-51">
+        <addForeignKeyConstraint baseColumnNames="type_lieu_stockage_id" baseTableName="fiche_article" constraintName="FKoj0rjl836i20axtu112q3lxkv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_lieu_stockage"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-52">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="droit_daccee_produit" constraintName="FKsf9wg5guoxcs3fex7w79enptl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1553906036674-53">
+        <addForeignKeyConstraint baseColumnNames="fournisseurs_id" baseTableName="fiche_de_commande_produit_fournisseur" constraintName="FKsxjgeiym5fhsepimm4kykgdu6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fournisseur"/>
+    </changeSet>
+</databaseChangeLog>
