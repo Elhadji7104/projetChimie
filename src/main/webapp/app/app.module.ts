@@ -76,19 +76,7 @@ import { CardModule } from 'primeng/card';
         SplitButtonModule,
         StepsModule,
         CardModule,
-        InputMaskModule,
-        InputTextModule,
-        TableModule,
-        DataTableModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        MultiSelectModule,
-        InputMaskModule,
-        InputTextModule,
-        InputSwitchModule,
-        DropdownModule,
-        ButtonModule,
-        SplitButtonModule
+        DropdownModule
     ],
     declarations: [
         JhiMainComponent,

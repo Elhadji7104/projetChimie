@@ -61,8 +61,8 @@ export class ProcessusComponent implements OnInit {
             (res: HttpResponse<IDroitDacceeProduit[]>) => {
                 this.droit = res.body;
                 this.droitSelect = [];
-                for (let value of this.droitSelect) {
-                    this.droitSelect.push({ label: value.label, value: value.label });
+                for (let value of this.droit) {
+                    this.droitSelect.push({ label: value.name, value: value.label });
                 }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -113,6 +113,7 @@ export class ProcessusComponent implements OnInit {
             (res: HttpErrorResponse) => this.onError(res.message)
         );
         this.getOptionsEtat();
+
         this.getOptionsDispo();
         console.log(this.EtatSelect);
         console.log(this.DispoSelect);
@@ -120,19 +121,17 @@ export class ProcessusComponent implements OnInit {
 
     getOptionsEtat() {
         this.EtatSelect = [];
-        this.EtatSelect.push({ label: 'solide', value: 'solide' });
-        this.EtatSelect.push({ label: 'liquide', value: 'liquide' });
-        this.EtatSelect.push({ label: 'gazeux', value: 'gazeux' });
-        return this.EtatSelect;
+        this.EtatSelect.push({ label: 'SOLIDE', value: 'SOLIDE' });
+        this.EtatSelect.push({ label: 'LIQUIDE', value: 'LIQUIDE' });
+        this.EtatSelect.push({ label: 'GAZEUX', value: 'GAZEUX' });
     }
 
     getOptionsDispo() {
         this.DispoSelect = [];
-        this.DispoSelect.push({ label: 'disponible', value: 'disponible' });
-        this.DispoSelect.push({ label: 'indisponible', value: 'indisponible' });
-        this.DispoSelect.push({ label: 'encommande', value: 'encommande' });
-        this.DispoSelect.push({ label: 'findestock', value: 'findestock' });
-        return this.DispoSelect;
+        this.DispoSelect.push({ label: 'DISPONIBLE', value: 'DISPONIBLE' });
+        this.DispoSelect.push({ label: 'INDISPONIBLE', value: 'INDISPONIBLE' });
+        this.DispoSelect.push({ label: 'ENCOMMANDE', value: 'ENCOMMANDE' });
+        this.DispoSelect.push({ label: 'FINDESTOCK', value: 'FINDESTOCK' });
     }
 
     protected onError(errorMessage: string) {

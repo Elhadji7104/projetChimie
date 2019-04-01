@@ -142,8 +142,7 @@
             <div class="ui-g-4">
                 <div>Etat
                     <div>
-                        <p-dropdown [autoWidth]="false" [style]="{'width':'50%'}" name="etat" [options]="getOptionsEtat()" [(ngModel)]="ficheArticle.etatPhysique"
-                                    placeholder="Select a Etat" optionLabel="Etat" [showClear]="true"></p-dropdown>
+                        <p-dropdown name="EtatSelect" [options]="EtatSelect" [(ngModel)]="ficheArticle.etatPhysique"></p-dropdown>
                     </div>
                 </div>
             </div>
@@ -151,9 +150,7 @@
             <div class="ui-g-4">
                 <div>dispo
                     <div>
-                        <p-dropdown  [style]="{'width':'50%'}" name="dispo" [options]="DispoSelect"
-                                    [(ngModel)]="ficheArticle.disponibliteArticle"
-                                    placeholder="Select a Disponibilite" optionLabel="Dispo" [showClear]="true"></p-dropdown>
+                        <p-dropdown name="dispo" [options]="DispoSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"></p-dropdown>
                     </div>
                 </div>
             </div>
@@ -162,24 +159,22 @@
         <div class="ui-g">
             <div class="ui-g-4">
                     document
-                    <div>
-                        <input  [style]="{'width':'50%'}" name="doc" id="lien" type="text" size="30" pInputText [(ngModel)]="document">
-                    </div>
+                <div>
+                    <input  [style]="{'width':'50%'}" name="doc" id="lien" type="text" size="30" pInputText [(ngModel)]="document">
+                </div>
             </div>
             <div class="ui-g-4">
                 Unité
                 <div>
                     <div>
-                        <p-dropdown [autoWidth]="false" [style]="{'width':'50%'}" name="unites" [options]="unitesSelect" [(ngModel)]="ficheArticle.unites"
-                                    placeholder="Select a unites" optionLabel="unites" [showClear]="true"></p-dropdown>
+                        <p-dropdown name="unite" [options]="unitesSelect" [(ngModel)]="ficheArticle.unites"></p-dropdown>
                     </div>
                 </div>
             </div>
             <div class="ui-g-4">
                     <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
                 <div>
-                    <p-multiSelect  [style]="{'width':'50%'}" [options]="classiSelect" name="cla" [(ngModel)]="ficheArticle.classifications"
-                                   [panelStyle]="{minWidth:'12em'}" required></p-multiSelect>
+                    <p-dropdown name="cla" [options]="classiSelect" [(ngModel)]="ficheArticle.classifications"></p-dropdown>
                 </div>
             </div>
         </div>
@@ -207,8 +202,7 @@
             <div>
                 Droit d'acces
                 <div>
-                    <p-dropdown [autoWidth]="false" [style]="{'width':'50%'}" name="droit" [options]="droitSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"
-                                placeholder="Select a droit" optionLabel="droit" [showClear]="true"></p-dropdown>
+                        <p-dropdown name="droit" [options]="droitSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"></p-dropdown>
                 </div>
             </div>
         </div>
