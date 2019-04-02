@@ -9,6 +9,8 @@ import { IUnite } from 'app/shared/model//unite.model';
 import { IFicheProduitChimique } from 'app/shared/model//fiche-produit-chimique.model';
 import { IClassification } from 'app/shared/model//classification.model';
 import { IDroitDacceeProduit } from 'app/shared/model//droit-daccee-produit.model';
+import { ITypeLieuStockage } from 'app/shared/model/type-lieu-stockage.model';
+import { IGroupe } from 'app/shared/model/groupe.model';
 
 export const enum DisponibliteArticle {
     DISPONIBLE = 'DISPONIBLE',
@@ -38,6 +40,8 @@ export interface IFicheArticle {
     ficheProduitChimiques?: IFicheProduitChimique;
     classifications?: IClassification[];
     droitDacceeProduit?: IDroitDacceeProduit;
+    typeDeStockage?: ITypeLieuStockage;
+    groupe?: IGroupe;
 }
 
 export class FicheArticle implements IFicheArticle {
@@ -61,7 +65,9 @@ export class FicheArticle implements IFicheArticle {
         public unites?: IUnite[],
         public ficheProduitChimiques?: IFicheProduitChimique,
         public classifications?: IClassification[],
-        public droitDacceeProduit?: IDroitDacceeProduit
+        public droitDacceeProduit?: IDroitDacceeProduit,
+        public groupe?: IGroupe,
+        public typeDeStockage?: ITypeLieuStockage
     ) {
         this.typeDesuivi = this.typeDesuivi || false;
         this.accessibilite = this.accessibilite || false;

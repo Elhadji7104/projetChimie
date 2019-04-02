@@ -48,10 +48,6 @@ public class DroitDacceeProduit implements Serializable {
         this.id = id;
     }
 
-
-
-
-
     public FicheArticle getFicheArticle() {
         return ficheArticle;
     }
@@ -59,7 +55,6 @@ public class DroitDacceeProduit implements Serializable {
     public void setFicheArticle(FicheArticle ficheArticle) {
         this.ficheArticle = ficheArticle;
     }
-
 
     public Set<Groupe> getGroupes() {
         return groupes;

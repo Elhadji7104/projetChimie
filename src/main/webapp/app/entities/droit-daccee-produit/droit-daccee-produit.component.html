@@ -14,18 +14,17 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe">Nom Groupe</span></th>
-            <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.etatDroit">Etat Droit</span></th>
-            <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe">Groupe</span></th>
+            <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.nom"></span></th>
+            <th><span jhiTranslate="projetChimieApp.droitDacceeProduit.ficheArticle"></span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let droitDacceeProduit of droitDacceeProduits ;trackBy: trackId">
-                <td><a [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'view' ]">{{droitDacceeProduit.nom}}</a></td>
+                <td><a [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'view' ]">{{droitDacceeProduit.groupe}}</a></td>
                 <td>
                     <div *ngIf="droitDacceeProduit.nomGroupe">
-                        <a [routerLink]="['../groupe', droitDacceeProduit.nomGroupe?.id, 'view' ]" >{{droitDacceeProduit.nomGroupe?.id}}</a>
+                        <a [routerLink]="['../groupe', droitDacceeProduit.nomGroupe?.id, 'view' ]" >{{droitDacceeProduit.ficheArticles}}</a>
                     </div>
                 </td>
                 <td>{{droitDacceeProduit.etatDroit}}</td>

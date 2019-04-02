@@ -4,7 +4,8 @@
             "home": {
                 "title": "Articles Form",
                 "createLabel": "Create a new Article Form",
-                "createOrEditLabel": "Create or edit a Article Form"
+                "createOrEditLabel": "Create or edit a Article Form",
+                "choix": "Choose a search mode"
             },
             "created": "A new Article Form is created with identifier {{ param }}",
             "updated": "A Article Form is updated with identifier {{ param }}",
@@ -15,7 +16,7 @@
             "detail": {
                 "title": "Article Form"
             },
-            "refArticle": "Article Ref",
+            "refArticle": "article reference",
             "etatPhysique": "Physical State",
             "codeInterne": "Internal Code",
             "codeBarre": "Bar Code",
@@ -33,7 +34,11 @@
             "unite": "Unity",
             "ficheProduitChimique": "Chemical Product Sheet",
             "classification": "Classification",
-            "droitDacceeProduit": "Product Access Law"
+            "droitDacceeProduit": "Product Access Law",
+            "nom": "name",
+            "Cas": "CAS",
+            "formule": "chemical formula",
+            "acronyme": "acronym"
         }
     }
 }

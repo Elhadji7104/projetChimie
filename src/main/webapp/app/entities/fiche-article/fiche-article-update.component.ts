@@ -4,7 +4,7 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JhiAlertService } from 'ng-jhipster';
 
-import { IFicheArticle } from 'app/shared/model/fiche-article.model';
+import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from './fiche-article.service';
 import { IDocument } from 'app/shared/model/document.model';
 import { DocumentService } from 'app/entities/document';
@@ -24,7 +24,7 @@ import { LocalisationService } from 'app/entities/localisation';
     templateUrl: './fiche-article-update.component.html'
 })
 export class FicheArticleUpdateComponent implements OnInit {
-    ficheArticle: IFicheArticle;
+    ficheArticle: IFicheArticle = new FicheArticle();
     isSaving: boolean;
 
     documents: IDocument[];

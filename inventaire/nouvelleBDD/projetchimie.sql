@@ -130,7 +130,7 @@ INSERT INTO `databasechangelog` (`ID`, `AUTHOR`, `FILENAME`, `DATEEXECUTED`, `OR
 
 CREATE TABLE `databasechangeloglock` (
   `ID` int(11) NOT NULL,
-  `LOCKED` bit(1) NOT NULL,
+  `LOCKED` bit(0) NOT NULL,
   `LOCKGRANTED` datetime DEFAULT NULL,
   `LOCKEDBY` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -4,7 +4,8 @@
             "home": {
                 "title": "FicheArticles",
                 "createLabel": "Créer un nouveau Fiche Article",
-                "createOrEditLabel": "Créer ou éditer un Fiche Article"
+                "createOrEditLabel": "Créer ou éditer un Fiche Article",
+                "choix": "Choisissez un mode de recherche :"
             },
             "created": "Un nouveau Fiche Article a été créé avec l'identifiant {{ param }}",
             "updated": "Le Fiche Article avec l'identifiant {{ param }} a été mis à jour",
@@ -15,7 +16,7 @@
             "detail": {
                 "title": "Fiche Article"
             },
-            "refArticle": "Ref Article",
+            "refArticle": "Référence de l'article",
             "etatPhysique": "Etat Physique",
             "codeInterne": "Code Interne",
             "codeBarre": "Code Barre",
@@ -33,7 +34,11 @@
             "unite": "Unite",
             "ficheProduitChimique": "Fiche Produit Chimique",
             "classification": "Classification",
-            "droitDacceeProduit": "Droit Daccee Produit"
+            "droitDacceeProduit": "Droit Daccee Produit",
+            "nom": "nom",
+            "formule": "formule",
+            "Cas": "CAS du produit",
+            "acronyme": "acronyme"
         }
     }
 }

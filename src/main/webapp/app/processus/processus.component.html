@@ -12,8 +12,8 @@
                         <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.cas"
                                for="field_cas">Cas</label>
                         <div>
-                            <p-inputMask name="cas" id="field_cas" [(ngModel)]="ficheProduitChimique.cas"
-                                         mask="999 999-99-9"
+                            <p-inputMask name="cas" id="field_cas" [(ngModel)]="ficheProduits.cas"
+                                         mask="999999-99-9"
                                          required></p-inputMask>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                                for="field_nom">Nom</label>
                         <div>
                             <input pInputText name="nom" id="field_nom" type="text" pInputText
-                                   [(ngModel)]="ficheProduitChimique.nom" required>
+                                   [(ngModel)]="ficheProduits.nom" required>
                         </div>
                     </div>
                     <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.formule"
@@ -30,7 +30,7 @@
                     <div>
 
                         <input name="formule" id="field_formule" type="text" pInputText name="formule"
-                               [(ngModel)]="ficheProduitChimique.formule" required/>
+                               [(ngModel)]="ficheProduits.formule" required/>
 
                     </div>
 
@@ -42,14 +42,14 @@
                                for="field_acronyme">Acronyme</label>
                         <div>
                             <input type="text" pInputText name="acronyme" id="field_acronyme"
-                                   [(ngModel)]="ficheProduitChimique.acronyme" value="/">
+                                   [(ngModel)]="ficheProduits.acronyme" value="/">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.mm"
                                for="field_mm">Mm</label>
                         <div>
-                            <p-inputMask name="cas" name="mm" id="field_mm" [(ngModel)]="ficheProduitChimique.mm"
+                            <p-inputMask name="cas" name="mm" id="field_mm" [(ngModel)]="ficheProduits.mm"
                                          mask="9 999,99 g/mol"></p-inputMask>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                         <div>
 
                             <p-inputMask name="codeNacre" id="field_codeNacre"
-                                         [(ngModel)]="ficheProduitChimique.codeNacre" value="NA21"
+                                         [(ngModel)]="ficheProduits.codeNacre" value="NA21"
                                          mask="aa99"></p-inputMask>
 
                         </div>
@@ -70,10 +70,10 @@
     </div>
     <div *ngIf="!booleanChimique">
         <p-card header="Selection Fiche">
-            <label>Choisissez un mode de recherche :</label>
+            <span jhiTranslate="projetChimieApp.ficheArticle.home.choix"></span>
             <div>
                 <div>
-                    <label>CAS du produit : </label>
+                    <span jhiTranslate="projetChimieApp.ficheArticle.Cas"></span>
                 </div>
                 <p-dropdown name="Cas" [autoWidth]="false" [style]="{'width':'50%'}" [options]="CasSelect"
                             [(ngModel)]="ficheProduits"
@@ -87,7 +87,7 @@
             </div>
             <div>
                 <div>
-                    <label>Nom du produit : </label>
+                    <span jhiTranslate="projetChimieApp.ficheArticle.nom"></span>
                 </div>
                 <p-dropdown name="Nom" [autoWidth]="true" [style]="{'width':'50%'}" [options]="NomSelect"
                             [(ngModel)]="ficheProduits"
@@ -101,6 +101,7 @@
             </div>
             <div>
                 <div>
+                    <span jhiTranslate="projetChimieApp.ficheArticle.formule"></span>
                     <label>Formule du produit : </label>
                 </div>
                 <p-dropdown name="Formule" [autoWidth]="false" [style]="{'width':'50%'}" [options]="formuleSelect"
@@ -117,10 +118,14 @@
                 <p></p>
                 <p>Vous avez selectionné le produit :</p>
                 <p></p>
-                <p> Cas : <strong>{{ficheProduits.cas}}</strong></p>
-                <p> Nom : <strong>{{ficheProduits.nom}}</strong></p>
-                <p> Acronyme : <strong>{{ficheProduits.acronyme}}</strong></p>
-                <p> Formule : <strong>{{ficheProduits.formule}}</strong></p>
+                <p><span jhiTranslate="projetChimieApp.ficheArticle.Cas"></span> :
+                    <strong>{{ficheProduits.cas}}</strong></p>
+                <p><span jhiTranslate="projetChimieApp.ficheArticle.nom"></span> :
+                    <strong>{{ficheProduits.nom}}</strong></p>
+                <p><span jhiTranslate="projetChimieApp.ficheArticle.acronyme"></span> :
+                    <strong>{{ficheProduits.acronyme}}</strong></p>
+                <p><span jhiTranslate="projetChimieApp.ficheArticle.formule"></span> :
+                    <strong>{{ficheProduits.formule}}</strong></p>
             </div>
         </p-card>
     </div>
@@ -131,26 +136,30 @@
         <div class="ui-g">
             <div class="ui-g-4">
                 <div>
-                    ref
+                    <span jhiTranslate="projetChimieApp.ficheArticle.refArticle"></span>
                     <div>
-                        <input  [style]="{'width':'50%'}" name="ref" id="input" type="text" size="30" pInputText
+                        <input [style]="{'width':'50%'}" name="ref" id="input" type="text" size="30" pInputText
                                [(ngModel)]="ficheArticle.refArticle"
                                required>
                     </div>
                 </div>
             </div>
             <div class="ui-g-4">
-                <div>Etat
+                <div>
+                    <span jhiTranslate="projetChimieApp.ficheArticle.etatPhysique"></span>
                     <div>
-                        <p-dropdown name="EtatSelect" [options]="EtatSelect" [(ngModel)]="ficheArticle.etatPhysique"></p-dropdown>
+                        <p-dropdown name="EtatSelect" [style]="{'width':'50%'}" [options]="EtatSelect"
+                                    [(ngModel)]="ficheArticle.etatPhysique"></p-dropdown>
                     </div>
                 </div>
             </div>
 
             <div class="ui-g-4">
-                <div>dispo
+                <div>
+                    <span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle"></span>
                     <div>
-                        <p-dropdown name="dispo" [options]="DispoSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"></p-dropdown>
+                        <p-dropdown name="dispo" [style]="{'width':'50%'}" [options]="DispoSelect"
+                                    [(ngModel)]="ficheArticle.droitDacceeProduit"></p-dropdown>
                     </div>
                 </div>
             </div>
@@ -158,52 +167,88 @@
 
         <div class="ui-g">
             <div class="ui-g-4">
-                    document
+                <span jhiTranslate="projetChimieApp.ficheArticle.document"></span>
                 <div>
-                    <input  [style]="{'width':'50%'}" name="doc" id="lien" type="text" size="30" pInputText [(ngModel)]="document">
+                    <input [style]="{'width':'50%'}" name="doc" id="lien" type="text" size="30" pInputText
+                           [(ngModel)]="document">
                 </div>
             </div>
             <div class="ui-g-4">
-                Unité
+                <span jhiTranslate="projetChimieApp.ficheArticle.unite"></span>
                 <div>
                     <div>
-                        <p-dropdown name="unite" [options]="unitesSelect" [(ngModel)]="ficheArticle.unites"></p-dropdown>
-                    </div>
+                        <p-dropdown name="unite" [style]="{'width':'50%'}" [options]="unitesSelect"
+                                   ></p-dropdown>
+                    </div> <!--[(ngModel)]="ficheArticle.unites"-->
                 </div>
             </div>
             <div class="ui-g-4">
-                    <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
+                <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
                 <div>
-                    <p-dropdown name="cla" [options]="classiSelect" [(ngModel)]="ficheArticle.classifications"></p-dropdown>
+                    <p-dropdown name="cla" [style]="{'width':'50%'}" [options]="classiSelect"
+                                [(ngModel)]="ficheArticle.classifications"></p-dropdown>
                 </div>
             </div>
         </div>
         <div class="ui-g">
             <div class="ui-g-4">
-            <div>Quantité
-                <div></div>
-                <input [style]="{'width':'50%'}" name="quantite" id="Quantité" type="text" size="30" pInputText
-                       [(ngModel)]="ficheArticle.quantite">
-            </div>
-            </div>
-            <div class="ui-g-4">
-                SUIVI
-                <div>
-                    <p-inputSwitch   name="booleanSuivi" [(ngModel)]="ficheArticle.typeDesuivi"></p-inputSwitch>
+                <div><span jhiTranslate="projetChimieApp.ficheArticle.quantite"></span>
+                    <div></div>
+                    <input [style]="{'width':'50%'}" name="quantite" id="Quantité" type="text" size="30" pInputText
+                           [(ngModel)]="ficheArticle.quantite">
                 </div>
             </div>
             <div class="ui-g-4">
-                <div>Accessibilite
+                <span jhiTranslate="projetChimieApp.ficheArticle.typeDesuivi"></span>
+                <div>
+                    <p-inputSwitch name="booleanSuivi" [(ngModel)]="ficheArticle.typeDesuivi"></p-inputSwitch>
+                </div>
+            </div>
+            <div class="ui-g-4">
+                <div><span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle"></span>
                     <div>
-                        <p-inputSwitch   name="booleanAcces" [(ngModel)]="ficheArticle.accessibilite"></p-inputSwitch>
+                        <p-inputSwitch name="booleanAcces" [(ngModel)]="ficheArticle.accessibilite"></p-inputSwitch>
                     </div>
                 </div>
             </div>
             <div>
-                Droit d'acces
                 <div>
-                        <p-dropdown name="droit" [options]="droitSelect" [(ngModel)]="ficheArticle.droitDacceeProduit"></p-dropdown>
+                    <span jhiTranslate="projetChimieApp.groupe.home.title"></span>
+                    <div>
+                        <p-multiSelect name="droit" [options]="droitSelect"
+                                       [(ngModel)]="ficheArticle.droitDacceeProduit" [filter]="true"></p-multiSelect>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </p-card>
+    <p-card>
+        <div class="ui-g">
+            <div class="ui-g-4">
+                <div>
+                    <span jhiTranslate="projetChimieApp.localisation.home.title"></span>
+                </div>
+                <div>
+                    <p-dropdown name="localisation" [style]="{'width':'50%'}" (onChange)="selectionStockage()"
+                                [options]="localisationSelect" [(ngModel)]="localisation"></p-dropdown>
+                </div>
+            </div>
+            <div class="ui-g-4">
+                <div>
+                    <span jhiTranslate="projetChimieApp.typeLieuStockage.home.title"></span>
+                </div>
+                <div>
+                    <p-dropdown name="stockage" [style]="{'width':'50%'}" [options]="stockageSelect"
+                                [(ngModel)]="ficheArticle.typeDeStockage"></p-dropdown>
+                </div>
+            </div>
+            <div class="ui-g-4">
+                <div>
+                    <span jhiTranslate="projetChimieApp.typeDeConditionnement.home.title"></span>
+                </div>
+                <div>
+                    <p-dropdown name="condictionnement" [style]="{'width':'50%'}" [options]="condictionnementSelect"></p-dropdown>
+                </div><!--  [(ngModel)]="ficheArticle.typeDeConditionnements"-->
             </div>
         </div>
     </p-card>

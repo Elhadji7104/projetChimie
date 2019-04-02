@@ -16,6 +16,7 @@ export class FicheArticleService {
     constructor(protected http: HttpClient) {}
 
     create(ficheArticle: IFicheArticle): Observable<EntityResponseType> {
+        console.log(ficheArticle);
         return this.http.post<IFicheArticle>(this.resourceUrl, ficheArticle, { observe: 'response' });
     }
 
