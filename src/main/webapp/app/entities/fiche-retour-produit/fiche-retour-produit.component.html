@@ -1,12 +1,6 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="projetChimieApp.ficheRetourProduit.home.title">Fiche Retour Produits</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-retour-produit" [routerLink]="['/fiche-retour-produit/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="projetChimieApp.ficheRetourProduit.home.createLabel">
-            Create new Fiche Retour Produit
-            </span>
-        </button>
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
@@ -17,7 +11,7 @@
             <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.quantite">Quantite</span></th>
             <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.dateRetour">Date Retour</span></th>
             <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.ficheArticle">Fiche Article</span></th>
-            <th></th>
+                <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.iDUser">User</span></th><th></th>
             </tr>
             </thead>
             <tbody>
@@ -27,6 +21,11 @@
                 <td>
                     <div *ngIf="ficheRetourProduit.ficheArticle">
                         <a [routerLink]="['../fiche-article', ficheRetourProduit.ficheArticle?.id, 'view' ]" >{{ficheRetourProduit.ficheArticle?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="ficheRetourProduit.user.firstName">
+                        {{ficheRetourProduit?.user.firstName}}
                     </div>
                 </td>
                 <td class="text-right">

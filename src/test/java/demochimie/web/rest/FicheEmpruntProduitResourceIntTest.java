@@ -42,8 +42,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ProjetChimieApp.class)
 public class FicheEmpruntProduitResourceIntTest {
 
-    private static final Double DEFAULT_QUANTITE = 1D;
-    private static final Double UPDATED_QUANTITE = 2D;
+    private static final Float DEFAULT_QUANTITE = 1F;
+    private static final Float UPDATED_QUANTITE = 2F;
 
     private static final LocalDate DEFAULT_DATE_EMPRUNT = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE_EMPRUNT = LocalDate.now(ZoneId.systemDefault());
