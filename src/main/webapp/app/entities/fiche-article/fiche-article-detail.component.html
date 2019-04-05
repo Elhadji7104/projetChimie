@@ -29,10 +29,6 @@
                 <dd>
                     <span jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + ficheArticle.disponibliteArticle}}">{{ficheArticle.disponibliteArticle}}</span>
                 </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.typeDesuivi">Type Desuivi</span></dt>
-                <dd>
-                    <span>{{ficheArticle.typeDesuivi}}</span>
-                </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.accessibilite">Accessibilite</span></dt>
                 <dd>
                     <span>{{ficheArticle.accessibilite}}</span>
@@ -62,11 +58,11 @@
                         <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.localisation">Localisation</span></dt>
+                <dt><span jhiTranslate="ficheArticle.typeLieuStockage">Lieu de Stockage</span></dt>
                 <dd>
-                    <span *ngFor="let localisation  of ficheArticle.localisations; let last = last">
-                            <a [routerLink]="['../localisation', localisation?.id, 'view' ]">{{localisation.adresse}}</a>{{last ? '' : ', '}}
-                        </span>
+                    <span *ngFor="let typeLieuStockage  of ficheArticle.typeLieuStockage; let last = last">
+                            <a [routerLink]="['/typeDeStockage', typeLieuStockage?.id, 'view' ]">{{typeDeStockage}}</a>{{last ? '' : ', '}}
+                      --> </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span></dt>
                 <dd>

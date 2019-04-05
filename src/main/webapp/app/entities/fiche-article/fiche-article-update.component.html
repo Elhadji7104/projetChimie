@@ -6,12 +6,6 @@
                 <jhi-alert-error></jhi-alert-error>
 <p></p>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.typeDesuivi"
-                           >Nouveau Produit Chimique</label>
-                </div> <div class="form-group">
-                <p-inputSwitch name="produit"  [(ngModel)]="booleanProduit"></p-inputSwitch>
-
-                <div class="form-group">
                     <span class="ui-float-label">
                         <input type="text" size="30" name="refArticle" id="field_refArticle2"
                                [(ngModel)]="ficheArticle.refArticle" pInputText required>
@@ -39,16 +33,6 @@
                         <option value="ENCOMMANDE">{{'projetChimieApp.DisponibliteArticle.ENCOMMANDE' | translate}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.typeDesuivi"
-                           for="field_typeDesuivi">Type De suivi</label>
-                </div>
-                <div class="form-group">
-                    <p-inputSwitch name="typeDesuivi" id="field_typeDesuivi"
-                                   [(ngModel)]="ficheArticle.typeDesuivi"></p-inputSwitch>
-
-                </div>
-
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.accessibilite"
                            for="field_accessibilite">Accessibilite</label>
@@ -100,18 +84,25 @@
                         <option [ngValue]="localisationOption.label === ficheArticle.droitDacceeProduit?.id ? ficheArticle.localisations : localisationOption" *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">{{droitDacceeProduitOption.id}}</option>
                     </select>
                 </div>-->
-                <div class="form-group">
+            <div class="form-group">
                     <label jhiTranslate="projetChimieApp.ficheArticle.classification" >Classification *</label>
                 </div><div>
                 <p-multiSelect [options]="classiSelected()" name="cla" [(ngModel)]="ficheArticle.classifications" [panelStyle]="{minWidth:'12em'}" required></p-multiSelect>
             </div>
-                <div class="form-group">
+            <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ficheArticle.typeLieuStockage" for="field_typeDeStockage">Lieu de stockage</label>
+                    <select class="form-control" id="field_typeDeStockage" name="typeDeStockage" [(ngModel)]="ficheArticle.typeDeStockage" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeLieuStockageOption.id === ficheArticle.typeDeStockage ?.id ? ficheArticle.typeDeStockage  :typeLieuStockageOption" *ngFor="let typeLieuStockageOption of typeLieuStockage; trackBy: trackDroitDacceeProduitById">{{typeLieuStockageOption.libelleLieu}}</option>
+                    </select>
+            </div>
+            <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit" for="field_droitDacceeProduit">Droit Daccee Produit</label>
                     <select class="form-control" id="field_droitDacceeProduit" name="droitDacceeProduit" [(ngModel)]="ficheArticle.droitDacceeProduit" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption" *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">{{droitDacceeProduitOption.id}}</option>
                     </select>
-                </div>
+             </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
