@@ -43,7 +43,6 @@ public class FicheArticle implements Serializable {
     @Column(name = "quantite")
     private Float quantite;
 
-
     @Enumerated(EnumType.STRING)
     @Column(name = "disponiblite_article")
     private DisponibliteArticle disponibliteArticle;

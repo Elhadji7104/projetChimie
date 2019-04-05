@@ -25,7 +25,7 @@ public class FicheEmpruntProduit implements Serializable {
     private Long id;
 
     @Column(name = "quantite")
-    private Double quantite;
+    private Float quantite;
 
     @Column(name = "date_emprunt")
     private LocalDate dateEmprunt;
@@ -59,16 +59,16 @@ public class FicheEmpruntProduit implements Serializable {
         this.id = id;
     }
 
-    public Double getQuantite() {
+    public Float getQuantite() {
         return quantite;
     }
 
-    public FicheEmpruntProduit quantite(Double quantite) {
+    public FicheEmpruntProduit quantite(Float quantite) {
         this.quantite = quantite;
         return this;
     }
 
-    public void setQuantite(Double quantite) {
+    public void setQuantite(Float quantite) {
         this.quantite = quantite;
     }
 

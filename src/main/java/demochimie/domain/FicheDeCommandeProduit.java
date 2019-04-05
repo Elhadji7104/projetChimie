@@ -35,6 +35,10 @@ public class FicheDeCommandeProduit implements Serializable {
     @Column(name = "date_livraison")
     private LocalDate dateLivraison;
 
+    @ManyToOne
+    @JsonIgnoreProperties("fiche_de_commande_produit_fournisseur")
+    private User user;
+
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "fiche_de_commande_produit_fournisseur",
@@ -88,6 +92,15 @@ public class FicheDeCommandeProduit implements Serializable {
     public FicheDeCommandeProduit dateLivraison(LocalDate dateLivraison) {
         this.dateLivraison = dateLivraison;
         return this;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setDateLivraison(LocalDate dateLivraison) {
