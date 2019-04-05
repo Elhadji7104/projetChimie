@@ -165,6 +165,7 @@ export class FicheArticleUpdateComponent implements OnInit {
         } else {
             this.subscribeToSaveResponse(this.ficheArticleService.create(this.ficheArticle));
         }
+        console.log(this.ficheArticle);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IFicheArticle>>) {
