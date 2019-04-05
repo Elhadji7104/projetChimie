@@ -17,7 +17,9 @@
             },
             "quantite": "Quantity",
             "dateRetour": "Date Retour",
-            "ficheArticle": "Article Form"
+            "ficheArticle": "Article Form",
+            "iDUser": "ID Utilisateur",
+            "empruntRetour": "Borrowing/Return"
         }
     }
 }
