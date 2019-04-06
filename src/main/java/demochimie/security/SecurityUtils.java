@@ -81,9 +81,31 @@ public final class SecurityUtils {
      * @return true if the current user has the authority, false otherwise
      */
     public static String CurrentGroupeUser() {
-        String login;
         String groupeName = "";
-        login = "ADMIN";
+        String login = "ADMIN";
+
+        Optional<String> user = getCurrentUserLogin();
+        System.out.println(user.toString());
+        switch (user.get()) {
+            case "admin":
+                login = "ADMIN";
+                break;
+            case "securite":
+                login = "SECURITE";
+                break;
+            case "base":
+                login = "CSM";
+                break;
+            case "valideur":
+                login = "CSM";
+                break;
+            case "corint":
+                login = "CORINT";
+                break;
+            case "csm":
+                login = "CSM";
+                break;
+        }
         switch (login) {
             case "CSM":
                 groupeName = "AA";
@@ -115,4 +137,9 @@ public final class SecurityUtils {
         }
         return groupeName;
     }
+    public static void main(String [ ] args)
+    {
+        getCurrentUserLogin();
+    }
+
 }
