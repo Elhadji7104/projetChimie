@@ -76,24 +76,37 @@ public final class SecurityUtils {
 
     /**
      * If the current user has a specific authority (security role).
+     *
      * @param
      * @return true if the current user has the authority, false otherwise
      */
     public static String CurrentGroupeUser() {
-	String login = getCurrentUserLogin()+"";
-    String groupeName="";
-
-    switch(login){
-        case "CSM":
-        groupeName = "AA";
-        case "CORINT":
-        groupeName = "BA";
-        case "V&C":
-        groupeName = "CA";
-        case "MaCSE":
-        groupeName = "DA";
-        break;    
-    }
+        String login = getCurrentUserLogin() + "";
+        String groupeName = "";
+        login = "CORINT";
+        switch (login) {
+            case "CSM":
+                groupeName = "AA";
+                break;
+            case "CORINT":
+                groupeName = "BA";
+                break;
+            case "V&C":
+                groupeName = "CA";
+                break;
+            case "MaCSE":
+                groupeName = "DA";
+                break;
+            case "OMC":
+                groupeName = "EA";
+                break;
+            case "CMET":
+                groupeName = "FA";
+                break;
+            case "CIP":
+                groupeName = "GA";
+                break;
+        }
         return groupeName;
     }
 }
