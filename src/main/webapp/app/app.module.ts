@@ -33,6 +33,11 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { ProcessusComponent } from './processus/processus.component';
 import { StepsModule } from 'primeng/steps';
 import { CardModule } from 'primeng/card';
+import { ProcessusDetailComponent } from './processus/processus-detail/processus-detail.component';
+import { SliderModule } from 'primeng/slider';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { MessagesModule } from 'primeng/messages';
+
 @NgModule({
     imports: [
         TableModule,
@@ -76,7 +81,10 @@ import { CardModule } from 'primeng/card';
         SplitButtonModule,
         StepsModule,
         CardModule,
-        DropdownModule
+        DropdownModule,
+        SliderModule,
+        ConfirmDialogModule,
+        MessagesModule
     ],
     declarations: [
         JhiMainComponent,
@@ -87,7 +95,8 @@ import { CardModule } from 'primeng/card';
         FooterComponent,
         EmpruntRetourComponent,
         RechercheComponent,
-        ProcessusComponent
+        ProcessusComponent,
+        ProcessusDetailComponent
     ],
     providers: [
         {

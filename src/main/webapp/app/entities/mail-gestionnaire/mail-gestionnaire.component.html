@@ -24,7 +24,7 @@
                 <td><a [routerLink]="['/mail-gestionnaire', mailGestionnaire.id, 'view' ]">{{mailGestionnaire.mail}}</a></td>
                 <td>
                     <div *ngIf="mailGestionnaire.groupe">
-                        <a [routerLink]="['../groupe', mailGestionnaire.groupe?.id, 'view' ]" >{{mailGestionnaire.groupe?.id}}</a>
+                        <a [routerLink]="['../groupe', mailGestionnaire.groupe?.id, 'view' ]" >{{mailGestionnaire.groupe?.nomGroupe}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -2,7 +2,7 @@
     "projetChimieApp": {
         "typeLieuStockage": {
             "home": {
-                "title": "TypeLieuStockages",
+                "title": "Reserve/Lieu de stockage",
                 "createLabel": "Créer un nouveau Type Lieu Stockage",
                 "createOrEditLabel": "Créer ou éditer un Type Lieu Stockage"
             },
@@ -15,7 +15,7 @@
             "detail": {
                 "title": "Type Lieu Stockage"
             },
-            "libelleLieu": "Libelle Lieu",
+            "libelleLieu": "Reserve",
             "temperature": "Temperature",
             "localisation": "Localisation"
         }

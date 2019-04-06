@@ -82,15 +82,16 @@ public final class SecurityUtils {
     public static String CurrentGroupeUser() {
 	String login = getCurrentUserLogin()+"";
     String groupeName="";
+
     switch(login){
-        case "ADMIN":
-        groupeName = "groupe1";
-        case "HYGIENE_ET_SECURITE":
-        groupeName = "groupe2";
-        case "VALIDEUR":
-        groupeName = "groupe3";
-        case "GESTIONNAIRE_DE_BASE":
-        groupeName = "groupe4";    
+        case "CSM":
+        groupeName = "AA";
+        case "CORINT":
+        groupeName = "BA";
+        case "V&C":
+        groupeName = "CA";
+        case "MaCSE":
+        groupeName = "DA";
         break;    
     }
         return groupeName;

@@ -1,12 +1,6 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="projetChimieApp.droitDacceeProduit.home.title">Droit Daccee Produits</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-droit-daccee-produit" [routerLink]="['/droit-daccee-produit/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="projetChimieApp.droitDacceeProduit.home.createLabel">
-            Create new Droit Daccee Produit
-            </span>
-        </button>
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
@@ -21,16 +15,10 @@
             </thead>
             <tbody>
             <tr *ngFor="let droitDacceeProduit of droitDacceeProduits ;trackBy: trackId">
-                <td><a [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'view' ]">{{droitDacceeProduit.groupe}}</a></td>
+                <td><a [routerLink]="['/droit-daccee-produit', droitDacceeProduit.id, 'view' ]">{{droitDacceeProduit.groupe.nomGroupe}}</a></td>
                 <td>
-                    <div *ngIf="droitDacceeProduit.nomGroupe">
-                        <a [routerLink]="['../groupe', droitDacceeProduit.nomGroupe?.id, 'view' ]" >{{droitDacceeProduit.ficheArticles}}</a>
-                    </div>
-                </td>
-                <td>{{droitDacceeProduit.etatDroit}}</td>
-                <td>
-                    <div *ngIf="droitDacceeProduit.groupe">
-                        <a [routerLink]="['../groupe', droitDacceeProduit.groupe?.id, 'view' ]" >{{droitDacceeProduit.groupe?.id}}</a>
+                    <div *ngIf="droitDacceeProduit.ficheArticles">
+                        <a a [routerLink]="['/fiche-article', droitDacceeProduit.ficheArticles.id, 'view' ]" >{{droitDacceeProduit.ficheArticles}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -1,6 +1,7 @@
 {
     "projetChimieApp": {
         "ficheRetourProduit": {
+            "iDUser": "ID User",
             "home": {
                 "title": "Fiche Retour Produits",
                 "createLabel": "Create a new Fiche Retour Produit",

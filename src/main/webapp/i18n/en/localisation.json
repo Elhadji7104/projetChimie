@@ -1,6 +1,7 @@
 {
     "projetChimieApp": {
         "localisation": {
+            "stock": "Location of stock",
             "home": {
                 "title": "Location",
                 "createLabel": "Create a new Location",
