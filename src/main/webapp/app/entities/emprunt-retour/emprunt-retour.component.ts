@@ -31,10 +31,10 @@ export class EmpruntRetourComponent implements OnInit {
     ficheArticle: IFicheArticle = new FicheArticle();
     ficheEmpruntProduit: IFicheEmpruntProduit = new FicheEmpruntProduit();
     empruntRetour: MenuItem[];
-    choix = true;
+    choix = false;
     quantite: any;
     private user: IUser = new User();
-    private ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
+    ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
     articleOption: SelectItem[] = [];
     unite: String = 'Article non choisi';
     private dispo: boolean = true;
@@ -80,13 +80,13 @@ export class EmpruntRetourComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
-
         this.loadAll();
         this.empruntRetour = [
             {
                 label: 'Emprunt',
                 icon: 'fa fa-fw fa-bar-chart',
                 command: event => {
+                    event.choix = false;
                     this.choix = false;
                 }
             },
@@ -94,6 +94,7 @@ export class EmpruntRetourComponent implements OnInit {
                 label: 'Retour',
                 icon: 'fa fa-fw fa-calendar',
                 command: event => {
+                    event.choix = true;
                     this.choix = true;
                 }
             }
@@ -106,7 +107,6 @@ export class EmpruntRetourComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ ficheArticle }) => {
             this.ficheArticle = ficheArticle;
         });
-        console.log(this.ficheArticle);
     }
 
     registerChangeInFicheArticles() {
@@ -122,26 +122,24 @@ export class EmpruntRetourComponent implements OnInit {
             this.ficheArticle = result.body;
         });*/
         this.show();
-        console.log(this.ficheRetourProduit);
-        if (this.user === undefined) {
-            this.ficheRetourProduit.user = this.user;
-        }
-
         if (this.ficheArticle.refArticle !== undefined) {
-            if (this.choix) {
+            if (!this.choix) {
                 this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
                 this.user = this.currentAccount;
+                this.ficheEmpruntProduit.user = this.user;
+                console.log(this.ficheEmpruntProduit.user);
                 this.ficheEmpruntProduit.dateEmprunt = moment(new Date(Date.now()));
-                this.ficheEmpruntProduit.quantite = this.quantite * 0.01 * this.pourcentage;
+                this.ficheEmpruntProduit.quantite = this.quantite;
                 this.ficheEmpruntProduitService.create(this.ficheEmpruntProduit).subscribe(result => {
                     console.log(result);
                 });
             } else {
                 this.ficheRetourProduit.ficheArticle = this.ficheArticle;
                 this.user = this.currentAccount;
-
+                this.ficheRetourProduit.user = this.user;
+                console.log(this.ficheRetourProduit.user);
                 this.ficheRetourProduit.dateRetour = moment(new Date(Date.now()));
-                this.ficheRetourProduit.quantite = this.quantite * 0.01 * this.pourcentage;
+                this.ficheRetourProduit.quantite = this.quantite;
                 this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
                     console.log(result);
                 });

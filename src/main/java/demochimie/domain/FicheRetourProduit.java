@@ -25,23 +25,18 @@ public class FicheRetourProduit implements Serializable {
     private Long id;
 
     @Column(name = "quantite")
-    private Float quantite;
+    private float quantite;
 
     @Column(name = "date_retour")
     private LocalDate dateRetour;
 
     @ManyToOne
-    @JsonIgnoreProperties("ficheRetourProduits")
+    @JsonIgnoreProperties({"ficheRetourProduits", "documents", "unites", "ficheProduitChimiques", "classifications"})
     private FicheArticle ficheArticle;
-
 
     @ManyToOne
     @JsonIgnoreProperties("ficheRetourProduits")
     private User user;
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
 
     public User getUser() {
         return user;
@@ -50,20 +45,26 @@ public class FicheRetourProduit implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Float getQuantite() {
+    public float getQuantite() {
         return quantite;
     }
 
-    public FicheRetourProduit quantite(Float quantite) {
+    public FicheRetourProduit quantite(float quantite) {
         this.quantite = quantite;
         return this;
     }
 
-    public void setQuantite(Float quantite) {
+    public void setQuantite(float quantite) {
         this.quantite = quantite;
     }
 
@@ -84,14 +85,15 @@ public class FicheRetourProduit implements Serializable {
         return ficheArticle;
     }
 
+    public void setFicheArticle(FicheArticle ficheArticle) {
+        this.ficheArticle = ficheArticle;
+    }
+
     public FicheRetourProduit ficheArticle(FicheArticle ficheArticle) {
         this.ficheArticle = ficheArticle;
         return this;
     }
 
-    public void setFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticle = ficheArticle;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

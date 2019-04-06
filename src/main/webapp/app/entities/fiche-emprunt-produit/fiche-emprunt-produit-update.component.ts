@@ -44,11 +44,11 @@ export class FicheEmpruntProduitUpdateComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
-        const dateString = Date.now();
+        /* const dateString = Date.now();
         const dateObj = new Date(dateString);
         const momentObj = moment(dateObj);
         this.ficheEmpruntProduit.dateEmprunt = momentObj;
-        this.ficheEmpruntProduit.user = this.account;
+        this.ficheEmpruntProduit.user = this.account;*/
     }
 
     previousState() {

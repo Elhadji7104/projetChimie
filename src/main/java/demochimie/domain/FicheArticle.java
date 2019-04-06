@@ -43,7 +43,6 @@ public class FicheArticle implements Serializable {
     @Column(name = "quantite")
     private Float quantite;
 
-
     @Enumerated(EnumType.STRING)
     @Column(name = "disponiblite_article")
     private DisponibliteArticle disponibliteArticle;
@@ -57,6 +56,7 @@ public class FicheArticle implements Serializable {
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheEmpruntProduit> ficheEmpruntProduits = new HashSet<>();
+
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheRetourProduit> ficheRetourProduits = new HashSet<>();
