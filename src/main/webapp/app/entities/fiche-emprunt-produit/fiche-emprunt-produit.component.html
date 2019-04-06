@@ -25,8 +25,8 @@
                 </td>
                 <td><a [routerLink]="['/fiche-emprunt-produit', ficheEmpruntProduit.id, 'view' ]">{{ficheEmpruntProduit.quantite}}</a></td>
                 <td>
-                    <div *ngIf="ficheEmpruntProduit?.user?.firstName">
-                        {{ficheEmpruntProduit?.user?.firstName}}
+                    <div *ngIf="ficheEmpruntProduit?.user?.login">
+                        {{ficheEmpruntProduit?.user?.login}}
                     </div>
                 </td>
                 <td class="text-right">

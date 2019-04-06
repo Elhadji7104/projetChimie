@@ -1,5 +1,6 @@
 package demochimie.security;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -137,9 +138,44 @@ public final class SecurityUtils {
         }
         return groupeName;
     }
-    public static void main(String [ ] args)
-    {
-        getCurrentUserLogin();
-    }
 
+    /**
+     * Get the JWT of the current user.
+     *
+     * @return the JWT of the current user
+     */
+    public static String getCurrentUserJWTRole() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+       if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN")))
+            .orElse(false)){
+           return "ROLE_ADMIN";
+       }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_USER")))
+            .orElse(false)){
+            return "ROLE_USER";
+        }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_HYGIENE_ET_SECURITE")))
+            .orElse(false)){
+            return "ROLE_HYGIENE_ET_SECURITE";
+        }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_VALIDEUR")))
+            .orElse(false)){
+            return "ROLE_VALIDEUR";
+        }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_GESTIONNAIRE_DE_BASE")))
+            .orElse(false)){
+            return "ROLE_GESTIONNAIRE_DE_BASE";
+        }
+       return null;
+    }
 }

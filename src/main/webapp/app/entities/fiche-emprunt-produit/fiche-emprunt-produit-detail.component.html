@@ -19,6 +19,12 @@
                         <a [routerLink]="['/fiche-article', ficheEmpruntProduit.ficheArticle?.id, 'view']">{{ficheEmpruntProduit.ficheArticle?.refArticle}}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="projetChimieApp.userManagement.login">Login</span></dt>
+                <dd>
+                    <div *ngIf="ficheEmpruntProduit.user">
+                        {{ficheEmpruntProduit.user.login}}
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"
