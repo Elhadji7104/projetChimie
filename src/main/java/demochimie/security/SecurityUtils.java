@@ -11,7 +11,7 @@ import java.util.Optional;
  */
 public final class SecurityUtils {
 
-    private SecurityUtils() {
+    public SecurityUtils() {
     }
 
     /**
@@ -81,9 +81,9 @@ public final class SecurityUtils {
      * @return true if the current user has the authority, false otherwise
      */
     public static String CurrentGroupeUser() {
-        String login = getCurrentUserLogin() + "";
+        String login;
         String groupeName = "";
-        login = "CORINT";
+        login = "ADMIN";
         switch (login) {
             case "CSM":
                 groupeName = "AA";
@@ -105,6 +105,12 @@ public final class SecurityUtils {
                 break;
             case "CIP":
                 groupeName = "GA";
+                break;
+            case "SECURITE":
+                groupeName = "SECURITE";
+                break;
+            case "ADMIN":
+                groupeName = "ADMIN";
                 break;
         }
         return groupeName;
