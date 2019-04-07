@@ -70,7 +70,6 @@ export class FicheProduitChimiquePrintDialogComponent implements OnInit {
         this.ficheProduitChimiqueService.query().subscribe(
             (res: HttpResponse<IFicheProduitChimique[]>) => {
                 this.ficheProduitChimiques = res.body;
-
                 this.createCsvFile();
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -106,12 +105,10 @@ export class FicheProduitChimiquePrintDialogComponent implements OnInit {
             }
         }
     }
-
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 }
-
 @Component({
     selector: 'jhi-fiche-produit-chimique-print-popup',
     template: ''

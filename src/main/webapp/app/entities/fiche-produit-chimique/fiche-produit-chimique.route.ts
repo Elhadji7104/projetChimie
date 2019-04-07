@@ -11,6 +11,7 @@ import { FicheProduitChimiqueDetailComponent } from './fiche-produit-chimique-de
 import { FicheProduitChimiqueUpdateComponent } from './fiche-produit-chimique-update.component';
 import { FicheProduitChimiqueDeletePopupComponent } from './fiche-produit-chimique-delete-dialog.component';
 import { IFicheProduitChimique } from 'app/shared/model/fiche-produit-chimique.model';
+import { FicheProduitChimiquePrintPopupComponent } from 'app/entities/fiche-produit-chimique/fiche-produit-chimique-print-dialog.component';
 
 @Injectable({ providedIn: 'root' })
 export class FicheProduitChimiqueResolve implements Resolve<IFicheProduitChimique> {
@@ -73,6 +74,19 @@ export const ficheProduitChimiqueRoute: Routes = [
             pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
         },
         canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'fiche-produit-chimique/print',
+        component: FicheProduitChimiquePrintPopupComponent,
+        resolve: {
+            ficheProduitChimique: FicheProduitChimiqueResolve
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
     }
 ];
 

@@ -4,7 +4,16 @@
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-produit-chimique" [routerLink]="['/fiche-produit-chimique/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="projetChimieApp.ficheProduitChimique.home.createLabel">
-            Create new Fiche Produit Chimique
+                Create new Fiche Produit Chimique
+            </span>
+        </button>
+        <button id="jh-print-all-entity" class="btn btn-primary float-center jh-print-all-entity create-fiche-produit-chimique"
+            [routerLink]="['/', { outlets: { popup: 'fiche-produit-chimique/print'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge">
+        <fa-icon [icon]="'print'"></fa-icon>
+            <span >
+                Print Fiche Produit Chimique
             </span>
         </button>
     </h2>

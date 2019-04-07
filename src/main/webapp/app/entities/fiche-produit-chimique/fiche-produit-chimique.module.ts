@@ -7,9 +7,11 @@ import {
     FicheProduitChimiqueDetailComponent,
     FicheProduitChimiqueUpdateComponent,
     FicheProduitChimiqueDeletePopupComponent,
+    FicheProduitChimiquePrintPopupComponent,
     FicheProduitChimiqueDeleteDialogComponent,
     ficheProduitChimiqueRoute,
-    ficheProduitChimiquePopupRoute
+    ficheProduitChimiquePopupRoute,
+    FicheProduitChimiquePrintDialogComponent
 } from './';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
@@ -43,13 +45,17 @@ const ENTITY_STATES = [...ficheProduitChimiqueRoute, ...ficheProduitChimiquePopu
         FicheProduitChimiqueDetailComponent,
         FicheProduitChimiqueUpdateComponent,
         FicheProduitChimiqueDeleteDialogComponent,
-        FicheProduitChimiqueDeletePopupComponent
+        FicheProduitChimiqueDeletePopupComponent,
+        FicheProduitChimiquePrintDialogComponent,
+        FicheProduitChimiquePrintPopupComponent
     ],
     entryComponents: [
         FicheProduitChimiqueComponent,
         FicheProduitChimiqueUpdateComponent,
         FicheProduitChimiqueDeleteDialogComponent,
-        FicheProduitChimiqueDeletePopupComponent
+        FicheProduitChimiqueDeletePopupComponent,
+        FicheProduitChimiquePrintDialogComponent,
+        FicheProduitChimiquePrintPopupComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
