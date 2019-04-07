@@ -27,4 +27,9 @@ public interface FicheDeCommandeProduitRepository extends JpaRepository<FicheDeC
     @Query("select fiche_de_commande_produit from FicheDeCommandeProduit fiche_de_commande_produit left join fetch fiche_de_commande_produit.fournisseurs where fiche_de_commande_produit.id =:id")
     Optional<FicheDeCommandeProduit> findOneWithEagerRelationships(@Param("id") Long id);
 
+    @Query(value = "select distinct fiche_de_commande_produit from FicheDeCommandeProduit fiche_de_commande_produit left join fetch fiche_de_commande_produit.fournisseurs left join fetch fiche_de_commande_produit.user where fiche_de_commande_produit.user.login=:login")
+    List<FicheDeCommandeProduit> findAllUser(String login);
+
+    @Query(value = "select distinct fiche_de_commande_produit from FicheDeCommandeProduit fiche_de_commande_produit left join fetch fiche_de_commande_produit.fournisseurs left join fetch fiche_de_commande_produit.ficheArticle where fiche_de_commande_produit.ficheArticle.codeInterne=:groupe")
+    List<FicheDeCommandeProduit> findAllGroupe(String groupe);
 }

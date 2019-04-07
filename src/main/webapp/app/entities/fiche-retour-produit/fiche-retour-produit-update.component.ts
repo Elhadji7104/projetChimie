@@ -44,11 +44,11 @@ export class FicheRetourProduitUpdateComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
-        const dateString = Date.now();
-        const dateObj = new Date(dateString);
-        const momentObj = moment(dateObj);
+        /*var dateString = Date.now();
+        var dateObj = new Date(dateString);
+        var momentObj = moment(dateObj);
         this.ficheRetourProduit.dateRetour = momentObj;
-        this.ficheRetourProduit.user = this.account;
+        this.ficheRetourProduit.user = this.account;*/
     }
 
     previousState() {

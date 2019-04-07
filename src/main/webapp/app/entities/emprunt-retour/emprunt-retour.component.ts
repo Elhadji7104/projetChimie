@@ -31,15 +31,17 @@ export class EmpruntRetourComponent implements OnInit {
     ficheArticle: IFicheArticle = new FicheArticle();
     ficheEmpruntProduit: IFicheEmpruntProduit = new FicheEmpruntProduit();
     empruntRetour: MenuItem[];
-    choix = true;
+    choix = false;
     quantite: any;
     private user: IUser = new User();
-    private ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
+    ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
     articleOption: SelectItem[] = [];
     unite: String = 'Article non choisi';
     private dispo: boolean = true;
     commande: boolean = false;
     private labelString: string;
+    pourcentage: number;
+    numberUser: any;
 
     constructor(
         protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
@@ -63,12 +65,6 @@ export class EmpruntRetourComponent implements OnInit {
                         if (value.codeBarre !== undefined) {
                             this.labelString = this.labelString + value.codeBarre;
                         }
-                        if (value.ficheProduitChimiques.cas !== undefined) {
-                            this.labelString = this.labelString + ';' + value.ficheProduitChimiques.cas;
-                        }
-                        if (value.ficheProduitChimiques.nom !== undefined) {
-                            this.labelString = this.labelString + ';' + value.ficheProduitChimiques.nom;
-                        }
                         this.articleOption.push({
                             label: this.labelString,
                             value: value
@@ -84,13 +80,13 @@ export class EmpruntRetourComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.account = account;
         });
-
         this.loadAll();
         this.empruntRetour = [
             {
                 label: 'Emprunt',
                 icon: 'fa fa-fw fa-bar-chart',
                 command: event => {
+                    event.choix = false;
                     this.choix = false;
                 }
             },
@@ -98,6 +94,7 @@ export class EmpruntRetourComponent implements OnInit {
                 label: 'Retour',
                 icon: 'fa fa-fw fa-calendar',
                 command: event => {
+                    event.choix = true;
                     this.choix = true;
                 }
             }
@@ -110,7 +107,6 @@ export class EmpruntRetourComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ ficheArticle }) => {
             this.ficheArticle = ficheArticle;
         });
-        console.log(this.ficheArticle);
     }
 
     registerChangeInFicheArticles() {
@@ -127,11 +123,11 @@ export class EmpruntRetourComponent implements OnInit {
         });*/
         this.show();
         if (this.ficheArticle.refArticle !== undefined) {
-            if (this.choix) {
+            if (!this.choix) {
                 this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
                 this.user = this.currentAccount;
-                this.ficheEmpruntProduit.demandeur = this.user;
-                console.log(this.ficheEmpruntProduit.demandeur);
+                this.ficheEmpruntProduit.user = this.user;
+                console.log(this.ficheEmpruntProduit.user);
                 this.ficheEmpruntProduit.dateEmprunt = moment(new Date(Date.now()));
                 this.ficheEmpruntProduit.quantite = this.quantite;
                 this.ficheEmpruntProduitService.create(this.ficheEmpruntProduit).subscribe(result => {
@@ -140,8 +136,8 @@ export class EmpruntRetourComponent implements OnInit {
             } else {
                 this.ficheRetourProduit.ficheArticle = this.ficheArticle;
                 this.user = this.currentAccount;
-                this.ficheRetourProduit.demandeur = this.user;
-                console.log(this.ficheRetourProduit.demandeur);
+                this.ficheRetourProduit.user = this.user;
+                console.log(this.ficheRetourProduit.user);
                 this.ficheRetourProduit.dateRetour = moment(new Date(Date.now()));
                 this.ficheRetourProduit.quantite = this.quantite;
                 this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
@@ -172,7 +168,7 @@ export class EmpruntRetourComponent implements OnInit {
     actuDispon() {
         this.dispo = true;
         this.commande = false;
-        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.INDISPONIBLE.toString()) {
+        if (this.ficheArticle.disponibliteArticle === DisponibliteArticle.INDISPONIBLE.toString()) {
             this.dispo = false;
             this.messageService.add({
                 severity: 'error',
@@ -180,7 +176,7 @@ export class EmpruntRetourComponent implements OnInit {
                 detail: 'erreur'
             });
         }
-        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.ENCOMMANDE.toString()) {
+        if (this.ficheArticle.disponibliteArticle === DisponibliteArticle.ENCOMMANDE.toString()) {
             this.dispo = false;
             this.messageService.add({
                 severity: 'error',
@@ -188,7 +184,7 @@ export class EmpruntRetourComponent implements OnInit {
                 detail: 'erreur'
             });
         }
-        if (this.ficheArticle.disponibliteArticle == DisponibliteArticle.FINDESTOCK.toString()) {
+        if (this.ficheArticle.disponibliteArticle === DisponibliteArticle.FINDESTOCK.toString()) {
             this.dispo = false;
             this.commande = true;
             this.messageService.add({
@@ -197,7 +193,7 @@ export class EmpruntRetourComponent implements OnInit {
                 detail: 'erreur'
             });
         }
-        if (this.ficheArticle.quantite == 0) {
+        if (this.ficheArticle.quantite === 0) {
             this.dispo = false;
             this.commande = true;
             this.messageService.add({

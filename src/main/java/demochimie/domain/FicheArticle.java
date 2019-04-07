@@ -56,6 +56,7 @@ public class FicheArticle implements Serializable {
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheEmpruntProduit> ficheEmpruntProduits = new HashSet<>();
+
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheRetourProduit> ficheRetourProduits = new HashSet<>();

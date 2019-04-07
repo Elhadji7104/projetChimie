@@ -25,15 +25,13 @@ public class FicheEmpruntProduit implements Serializable {
     private Long id;
 
     @Column(name = "quantite")
-    private Float quantite;
+    private float quantite;
 
     @Column(name = "date_emprunt")
     private LocalDate dateEmprunt;
 
-
-
     @ManyToOne
-    @JsonIgnoreProperties("ficheEmpruntProduits")
+    @JsonIgnoreProperties({"ficheEmprunt", "documents", "unites", "ficheProduitChimiques", "classifications"})
     private FicheArticle ficheArticle;
 
     @ManyToOne
@@ -48,8 +46,6 @@ public class FicheEmpruntProduit implements Serializable {
         this.user = user;
     }
 
-
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -59,16 +55,16 @@ public class FicheEmpruntProduit implements Serializable {
         this.id = id;
     }
 
-    public Float getQuantite() {
+    public float getQuantite() {
         return quantite;
     }
 
-    public FicheEmpruntProduit quantite(Float quantite) {
+    public FicheEmpruntProduit quantite(float quantite) {
         this.quantite = quantite;
         return this;
     }
 
-    public void setQuantite(Float quantite) {
+    public void setQuantite(float quantite) {
         this.quantite = quantite;
     }
 
@@ -92,6 +88,7 @@ public class FicheEmpruntProduit implements Serializable {
     public void setFicheArticle(FicheArticle ficheArticle) {
         this.ficheArticle = ficheArticle;
     }
+
     public FicheEmpruntProduit ficheArticle(FicheArticle ficheArticle) {
         this.ficheArticle = ficheArticle;
         return this;

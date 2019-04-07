@@ -3,6 +3,7 @@ package demochimie.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import demochimie.domain.FicheRetourProduit;
 import demochimie.repository.FicheRetourProduitRepository;
+import demochimie.security.SecurityUtils;
 import demochimie.web.rest.errors.BadRequestAlertException;
 import demochimie.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -84,8 +85,33 @@ public class FicheRetourProduitResource {
     @GetMapping("/fiche-retour-produits")
     @Timed
     public List<FicheRetourProduit> getAllFicheRetourProduits() {
-        log.debug("REST request to get all FicheRetourProduits");
-        return ficheRetourProduitRepository.findAll();
+
+        SecurityUtils secu = new SecurityUtils();
+        String group = secu.CurrentGroupeUser();
+        String authorite = secu.getCurrentUserJWTRole();
+        if (authorite.equals("ROLE_ADMIN")) {
+            log.debug("REST request to get all FicheRetourProduits");
+            return ficheRetourProduitRepository.findAll();
+        }
+        if (authorite.equals("ROLE_USER")) {
+            log.debug("REST request to get all FicheRetourProduits for Valideur and Base");
+            return ficheRetourProduitRepository.findAllUser(secu.getCurrentUserLogin().get());
+        }
+        if (authorite.equals("ROLE_HYGIENE_ET_SECURITE")) {
+            log.debug("REST request to get all FicheRetourProduits");
+            return ficheRetourProduitRepository.findAll();
+        }
+        if (authorite.equals("ROLE_GESTIONNAIRE_DE_BASE")) {
+            log.debug("REST request to get all FicheRetourProduits for Valideur and Base");
+            return ficheRetourProduitRepository.findAllGroupe(group);
+        }
+        if (authorite.equals("ROLE_VALIDEUR")) {
+            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
+            return ficheRetourProduitRepository.findAllGroupe(group);
+        }
+        else{
+            return null;
+        }
     }
 
     /**

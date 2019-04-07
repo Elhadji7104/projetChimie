@@ -3,6 +3,7 @@ package demochimie.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import demochimie.domain.FicheArticle;
 import demochimie.repository.FicheArticleRepository;
+import demochimie.security.SecurityUtils;
 import demochimie.web.rest.errors.BadRequestAlertException;
 import demochimie.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -85,8 +86,16 @@ public class FicheArticleResource {
     @GetMapping("/fiche-articles")
     @Timed
     public List<FicheArticle> getAllFicheArticles(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
-        log.debug("REST request to get all FicheArticles");
-        return ficheArticleRepository.findAllWithEagerRelationships();
+        SecurityUtils user = new SecurityUtils();
+          String group = user.CurrentGroupeUser();
+        switch (group) {
+            case "SECURITE":
+                return ficheArticleRepository.findAllWithEagerRelationships();
+            case "ADMIN":
+                return ficheArticleRepository.findAllWithEagerRelationships();
+            default:
+                return ficheArticleRepository.findAllWithEagerRelationshipsGroup(group);
+        }
     }
 
     /**

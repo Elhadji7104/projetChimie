@@ -14,7 +14,7 @@
                     <label class="form-control-label" jhiTranslate="projetChimieApp.mailGestionnaire.groupe" for="field_groupe">Groupe</label>
                     <select class="form-control" id="field_groupe" name="groupe" [(ngModel)]="mailGestionnaire.groupe" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="groupeOption.id === mailGestionnaire.groupe?.id ? mailGestionnaire.groupe : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.id}}</option>
+                        <option [ngValue]="groupeOption.id === mailGestionnaire.groupe?.id ? mailGestionnaire.groupe : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.nomGroupe}}</option>
                     </select>
                 </div>
             </div>

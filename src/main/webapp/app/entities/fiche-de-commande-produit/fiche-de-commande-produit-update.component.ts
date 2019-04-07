@@ -7,8 +7,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IFicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 import { FicheDeCommandeProduitService } from './fiche-de-commande-produit.service';
-import { IFournisseur } from 'app/shared/model/fournisseur.model';
-import { FournisseurService } from 'app/entities/fournisseur';
+import { Fournisseur, IFournisseur } from 'app/shared/model/fournisseur.model';
+import { FournisseurComponent, FournisseurService } from 'app/entities/fournisseur';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
 import { SelectItem } from 'primeng/api';
@@ -24,9 +24,10 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     fournisseurs: IFournisseur[] = [];
     private unite: string;
     private fichearticles: IFicheArticle[];
-    private ficheArticle: any;
+    private ficheArticle: IFicheArticle;
     fournisseurOption: SelectItem[] = [];
-    private quantite: number;
+    fournisseur: IFournisseur = new Fournisseur();
+    fourni: IFournisseur[] = [];
     private labelString: string;
 
     constructor(
@@ -49,7 +50,7 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
             (res: HttpResponse<IFournisseur[]>) => {
                 this.fournisseurs = res.body;
                 for (let value of this.fournisseurs) {
-                    this.fournisseurOption.push({ label: value.nomFournisseur, value: value.nomFournisseur });
+                    this.fournisseurOption.push({ label: value.nomFournisseur, value: value });
                 }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -88,8 +89,10 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
 
     save() {
         this.ficheDeCommandeProduit.dateDeCommande = moment(new Date(Date.now()));
-        //this.ficheDeCommandeProduit.ficheArticle = this.ficheArticle;
-        this.ficheDeCommandeProduit.fournisseurs = this.fournisseurs;
+        this.ficheDeCommandeProduit.ficheArticle = this.ficheArticle;
+        this.fourni.push(this.fournisseur);
+        this.ficheDeCommandeProduit.fournisseurs = this.fourni;
+        console.log(this.ficheDeCommandeProduit);
         this.isSaving = true;
         if (this.ficheDeCommandeProduit.id !== undefined) {
             this.subscribeToSaveResponse(this.ficheDeCommandeProduitService.update(this.ficheDeCommandeProduit));

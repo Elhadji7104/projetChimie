@@ -8,24 +8,25 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.quantite">Quantite</span></th>
+
             <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.dateEmprunt">Date Emprunt</span></th>
             <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.ficheArticle">Fiche Article</span></th>
-            <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.iDUser">User</span></th>
+                <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.quantite">Quantite</span></th>
+                <th><span jhiTranslate="projetChimieApp.ficheEmpruntProduit.iDUser">User</span></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let ficheEmpruntProduit of ficheEmpruntProduits ;trackBy: trackId">
-                <td><a [routerLink]="['/fiche-emprunt-produit', ficheEmpruntProduit.id, 'view' ]">{{ficheEmpruntProduit.quantite}}</a></td>
                 <td>{{ficheEmpruntProduit.dateEmprunt | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="ficheEmpruntProduit.ficheArticle">
-                        <a [routerLink]="['../fiche-article', ficheEmpruntProduit.ficheArticle?.id, 'view' ]" >{{ficheEmpruntProduit.ficheArticle?.id}}</a>
+                        <a [routerLink]="['../fiche-article', ficheEmpruntProduit.ficheArticle?.id, 'view' ]" >{{ficheEmpruntProduit.ficheArticle?.codeBarre}}</a>
                     </div>
                 </td>
+                <td><a [routerLink]="['/fiche-emprunt-produit', ficheEmpruntProduit.id, 'view' ]">{{ficheEmpruntProduit.quantite}}</a></td>
                 <td>
-                    <div *ngIf="ficheEmpruntProduit.user.firstName">
-                        {{ficheEmpruntProduit?.user.firstName}}
+                    <div *ngIf="ficheEmpruntProduit?.user?.login">
+                        {{ficheEmpruntProduit?.user?.login}}
                     </div>
                 </td>
                 <td class="text-right">

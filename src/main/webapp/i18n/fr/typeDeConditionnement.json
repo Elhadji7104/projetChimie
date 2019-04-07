@@ -2,7 +2,7 @@
     "projetChimieApp": {
         "typeDeConditionnement": {
             "home": {
-                "title": "TypeDeConditionnements",
+                "title": "Type de Conditionnements",
                 "createLabel": "Créer un nouveau Type De Conditionnement",
                 "createOrEditLabel": "Créer ou éditer un Type De Conditionnement"
             },

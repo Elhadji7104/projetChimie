@@ -1,5 +1,6 @@
 package demochimie.security;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -76,9 +77,11 @@ public final class SecurityUtils {
 
     /**
      * If the current user has a specific authority (security role).
+     *
      * @param
      * @return true if the current user has the authority, false otherwise
      */
+<<<<<<< HEAD
     public static String CurrentGroupeUser(String login) {
 	//String login = getCurrentUserLogin()+"";
     String groupeName="";
@@ -93,6 +96,103 @@ public final class SecurityUtils {
         groupeName = "groupe4";    
         break;    
     }
+=======
+    public static String CurrentGroupeUser() {
+        String groupeName = "";
+        String login = "ADMIN";
+
+        Optional<String> user = getCurrentUserLogin();
+        System.out.println(user.toString());
+        switch (user.get()) {
+            case "admin":
+                login = "ADMIN";
+                break;
+            case "securite":
+                login = "SECURITE";
+                break;
+            case "base":
+                login = "CSM";
+                break;
+            case "valideur":
+                login = "CSM";
+                break;
+            case "corint":
+                login = "CORINT";
+                break;
+            case "csm":
+                login = "CSM";
+                break;
+        }
+        switch (login) {
+            case "CSM":
+                groupeName = "AA";
+                break;
+            case "CORINT":
+                groupeName = "BA";
+                break;
+            case "V&C":
+                groupeName = "CA";
+                break;
+            case "MaCSE":
+                groupeName = "DA";
+                break;
+            case "OMC":
+                groupeName = "EA";
+                break;
+            case "CMET":
+                groupeName = "FA";
+                break;
+            case "CIP":
+                groupeName = "GA";
+                break;
+            case "SECURITE":
+                groupeName = "SECURITE";
+                break;
+            case "ADMIN":
+                groupeName = "ADMIN";
+                break;
+        }
+>>>>>>> 457267508613fc994465374cb2baa9bed7bd64a2
         return groupeName;
+    }
+
+    /**
+     * Get the JWT of the current user.
+     *
+     * @return the JWT of the current user
+     */
+    public static String getCurrentUserJWTRole() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+       if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN")))
+            .orElse(false)){
+           return "ROLE_ADMIN";
+       }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_USER")))
+            .orElse(false)){
+            return "ROLE_USER";
+        }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_HYGIENE_ET_SECURITE")))
+            .orElse(false)){
+            return "ROLE_HYGIENE_ET_SECURITE";
+        }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_VALIDEUR")))
+            .orElse(false)){
+            return "ROLE_VALIDEUR";
+        }
+        if(Optional.ofNullable(securityContext.getAuthentication())
+            .map(authentication -> authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_GESTIONNAIRE_DE_BASE")))
+            .orElse(false)){
+            return "ROLE_GESTIONNAIRE_DE_BASE";
+        }
+       return null;
     }
 }
