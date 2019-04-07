@@ -15,8 +15,8 @@ import java.util.List;
 public interface FicheRetourProduitRepository extends JpaRepository<FicheRetourProduit, Long> {
 
     @Query(value = "select distinct ficheRetourProduit from FicheRetourProduit ficheRetourProduit left join fetch ficheRetourProduit.ficheArticle left join fetch ficheRetourProduit.user where ficheRetourProduit.ficheArticle.codeInterne=:groupe")
-    List<FicheRetourProduit> findAllGroupe(String group);
+    List<FicheRetourProduit> findAllGroupe(String groupe);
 
-    @Query(value = "select distinct ficheRetourProduit from FicheRetourProduit ficheRetourProduit left join fetch ficheRetourProduit.ficheArticle left join fetch ficheRetourProduit.user where ficheRetourProduit.user.login=:groupe")
+    @Query(value = "select distinct ficheRetourProduit from FicheRetourProduit ficheRetourProduit left join fetch ficheRetourProduit.ficheArticle left join fetch ficheRetourProduit.user where ficheRetourProduit.user.login=:login")
     List<FicheRetourProduit> findAllUser(String login);
 }
