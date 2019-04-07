@@ -4,6 +4,7 @@ import demochimie.config.Constants;
 import demochimie.domain.User;
 import demochimie.repository.UserRepository;
 import demochimie.security.AuthoritiesConstants;
+import demochimie.security.SecurityUtils;
 import demochimie.service.MailService;
 import demochimie.service.UserService;
 import demochimie.service.dto.UserDTO;
@@ -65,6 +66,7 @@ public class UserResource {
     private final UserRepository userRepository;
 
     private final MailService mailService;
+    SecurityUtils securityUtils = new SecurityUtils();
 
     public UserResource(UserService userService, UserRepository userRepository, MailService mailService) {
 
@@ -171,6 +173,10 @@ public class UserResource {
         return ResponseUtil.wrapOrNotFound(
             userService.getUserWithAuthoritiesByLogin(login)
                 .map(UserDTO::new));
+    }
+
+    public String getGroupe(){
+        return this.securityUtils.CurrentGroupeUse();
     }
 
     /**

@@ -11,7 +11,7 @@ import java.util.Optional;
  */
 public final class SecurityUtils {
 
-    private SecurityUtils() {
+    public SecurityUtils() {
     }
 
     /**
@@ -79,8 +79,8 @@ public final class SecurityUtils {
      * @param
      * @return true if the current user has the authority, false otherwise
      */
-    public static String CurrentGroupeUser() {
-	String login = getCurrentUserLogin()+"";
+    public static String CurrentGroupeUser(String login) {
+	//String login = getCurrentUserLogin()+"";
     String groupeName="";
     switch(login){
         case "ADMIN":
