@@ -2,12 +2,38 @@
 Main page styles
 ========================================================================== */
 
-.logo-img {
-    height: 150px;
-    width: 300px;
+.logo-img1 {
+    height: 300px;
+    width: 600px;
     display: inline-block;
-    background: url('../../content/images/logoisticfr_0.png') no-repeat center center;
+    background: url('../../content/images/297822.png') no-repeat center center;
     background-size: contain;
+    align: 'center';
+}
+.logo-img2 {
+    height: 300px;
+    width: 600px;
+    display: inline-block;
+    background: url('../../content/images/entry-1137443_960_720.png') no-repeat center center;
+    background-size: contain;
+    align: 'center';
+}
+
+.logo-img3 {
+    height: 300px;
+    width: 600px;
+    display: inline-block;
+    background: url('../../content/images/shopping-cart-307772_960_720.png') no-repeat center center;
+    background-size: contain;
+    align: 'center';
+}
+.logo-img4 {
+    height: 300px;
+    width: 600px;
+    display: inline-block;
+    background: url('../../content/images/storage-38093_960_720.png') no-repeat center center;
+    background-size: contain;
+    align: 'center';
 }
 
 .md-button {
