@@ -9,19 +9,10 @@
                 <dd>
                     <span>{{groupe.nomGroupe}}</span>
                 </dd>
-                <dt><span jhiTranslate="projetChimieApp.groupe.nombreMembre">Nombre Membre</span></dt>
-                <dd>
-                    <span>{{groupe.nombreMembre}}</span>
-                </dd>
+
                 <dt><span jhiTranslate="projetChimieApp.groupe.localGroupe">Local Groupe</span></dt>
                 <dd>
                     <span>{{groupe.localGroupe}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.groupe.droitDacceeProduit">Droit Daccee Produit</span></dt>
-                <dd>
-                    <div *ngIf="groupe.droitDacceeProduit">
-                        <a [routerLink]="['/droit-daccee-produit', groupe.droitDacceeProduit?.id, 'view']">{{groupe.droitDacceeProduit?.nomGroupe}}</a>
-                    </div>
                 </dd>
             </dl>
 

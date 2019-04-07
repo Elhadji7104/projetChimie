@@ -1,9 +1,9 @@
 import { Moment } from 'moment';
 import { IFicheArticle } from 'app/shared/model//fiche-article.model';
-import { IUser, User } from 'app/core';
+import { User } from 'app/core';
 
 export interface IFicheEmpruntProduit {
-    demandeur?: User;
+    user?: User;
     id?: number;
     quantite?: number;
     dateEmprunt?: Moment;
@@ -16,6 +16,6 @@ export class FicheEmpruntProduit implements IFicheEmpruntProduit {
         public quantite?: number,
         public dateEmprunt?: Moment,
         public ficheArticle?: IFicheArticle,
-        public demandeur?: User
+        public user?: User
     ) {}
 }

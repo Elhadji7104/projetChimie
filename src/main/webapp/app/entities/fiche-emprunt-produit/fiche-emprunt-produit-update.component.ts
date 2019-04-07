@@ -35,15 +35,20 @@ export class FicheEmpruntProduitUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ ficheEmpruntProduit }) => {
             this.ficheEmpruntProduit = ficheEmpruntProduit;
         });
+        this.ficheArticleService.query().subscribe(
+            (res: HttpResponse<IFicheArticle[]>) => {
+                this.fichearticles = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
         this.accountService.identity().then(account => {
             this.account = account;
         });
-        const dateString = Date.now();
+        /* const dateString = Date.now();
         const dateObj = new Date(dateString);
         const momentObj = moment(dateObj);
         this.ficheEmpruntProduit.dateEmprunt = momentObj;
-        this.ficheEmpruntProduit.demandeur = this.account;
-        console.log(this.ficheEmpruntProduit.demandeur);
+        this.ficheEmpruntProduit.user = this.account;*/
     }
 
     previousState() {

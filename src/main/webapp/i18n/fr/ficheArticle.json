@@ -29,7 +29,7 @@
             "ficheDeCommandeProduit": "Fiche De Commande Produit",
             "listeMotsCles": "Liste Mots Cles",
             "typeDeConditionnement": "Type De Conditionnement",
-            "localisation": "Localisation",
+            "typeLieuStockage": "Lieu de stockage",
             "document": "Document",
             "unite": "Unite",
             "ficheProduitChimique": "Fiche Produit Chimique",

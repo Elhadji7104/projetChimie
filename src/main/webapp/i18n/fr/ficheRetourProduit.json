@@ -1,6 +1,7 @@
 {
     "projetChimieApp": {
         "ficheRetourProduit": {
+            "iDUser": "ID Utilisateur",
             "home": {
                 "title": "FicheRetourProduits",
                 "createLabel": "Créer un nouveau Fiche Retour Produit",
@@ -17,7 +18,9 @@
             },
             "quantite": "Quantite",
             "dateRetour": "Date Retour",
-            "ficheArticle": "Fiche Article"
+            "ficheArticle": "Fiche Article",
+            "iDUser": "ID Utilisateur",
+            "empruntRetour": "Emprunt/Retour"
         }
     }
 }

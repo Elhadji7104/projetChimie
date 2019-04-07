@@ -3,12 +3,21 @@
 <p-tabMenu [model]="empruntRetour" [activeItem]="activeItem"></p-tabMenu>
 
     <div>
+
         <p></p>
         <div class="first" *ngIf="choix">
-            <h3 class="first">Saisir l'article à retourner :</h3>
+            <div>
+            <span>User</span></div><div>
+            <input type="number" id="user" [(ngModel)]="numberUser" name="user">
+ </div> <h3 class="first">veuillez entrer  à retourner :</h3>
         </div>
         <div class="first" *ngIf="!choix">
-            <h3 class="first">Saisir l'article à emprunter :</h3>
+            <div>
+            <span>veuillez entrer votre login</span>
+            </div>
+            <div>
+            <p-inputMask mask="999999999999" [(ngModel)]="ficheEmpruntProduit.user" placeholder="999999999999"></p-inputMask>
+            </div> <h3 class="first">veuillez entrer l'article à emprunter :</h3>
         </div>
         <div class="first">
             <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" (onChange)="actuUnite();actuDispon()" required>
@@ -18,7 +27,34 @@
                         <div style="font-size:14px;float:right;margin-top:4px">{{art.label}}</div>
                     </div>
                 </ng-template>
-            </p-dropdown>
+                    </p-dropdown>
+            <p></p>
+            <div>
+                <div>
+                    Nom du Produit :
+                </div>
+                <div>
+                    {{ficheArticle?.ficheProduitChimiques[0]?.nom}}
+                </div>
+                <div>
+                    CAS :
+                </div>
+                <div>
+                    {{ficheArticle?.ficheProduitChimiques[0]?.cas}}
+                </div>
+                <div>
+                    Formule :
+                </div>
+                <div>
+                    {{ficheArticle?.ficheProduitChimiques[0]?.formule}}
+                </div>
+                <div>
+                    Acronyme :
+                </div>
+                <div>
+                    {{ficheArticle?.ficheProduitChimiques[0]?.acronyme}}
+                </div>
+            </div>
         </div>
         <div class="first" *ngIf="dispo==false">
             <h3 style="font-size: small;color: red" class="first">L'article n'est plus disponible:</h3>
@@ -30,8 +66,8 @@
             <h3 class="first">Saisir la quantité initial :</h3>
         </div>
         <div class="first">
-            <input [(ngModel)]="quantite"  type="text" size="30" pInputText pKeyFilter="num">
-            {{unite}}
+            <h3 class="first">Quantité: {{quantite}} {{unite}}</h3>
+            <p-slider [(ngModel)]="pourcentage" [style]="{'width':'14em'}"></p-slider>
         </div>
         <p></p>
         <div class="first">

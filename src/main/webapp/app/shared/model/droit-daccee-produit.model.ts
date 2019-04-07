@@ -9,6 +9,7 @@ export interface IDroitDacceeProduit {
     groupes?: IGroupe[];
     ficheArticles?: IFicheArticle[];
     groupe?: IGroupe;
+    ficheArticle?: IFicheArticle;
 }
 
 export class DroitDacceeProduit implements IDroitDacceeProduit {

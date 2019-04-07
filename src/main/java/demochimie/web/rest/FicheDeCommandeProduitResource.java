@@ -3,6 +3,7 @@ package demochimie.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import demochimie.domain.FicheDeCommandeProduit;
 import demochimie.repository.FicheDeCommandeProduitRepository;
+import demochimie.security.SecurityUtils;
 import demochimie.web.rest.errors.BadRequestAlertException;
 import demochimie.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -85,8 +86,35 @@ public class FicheDeCommandeProduitResource {
     @GetMapping("/fiche-de-commande-produits")
     @Timed
     public List<FicheDeCommandeProduit> getAllFicheDeCommandeProduits(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
-        log.debug("REST request to get all FicheDeCommandeProduits");
-        return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
+
+        SecurityUtils secu = new SecurityUtils();
+        String group = secu.CurrentGroupeUser();
+        String authorite = secu.getCurrentUserJWTRole();
+        if (authorite.equals("ROLE_ADMIN")) {
+            log.debug("REST request to get all FicheDeCommandeProduits");
+            return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
+        }
+        if (authorite.equals("ROLE_USER")) {
+            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
+            return ficheDeCommandeProduitRepository.findAllUser(secu.getCurrentUserLogin().get());
+        }
+        if (authorite.equals("ROLE_HYGIENE_ET_SECURITE")) {
+            log.debug("REST request to get all FicheDeCommandeProduits");
+            return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
+        }
+        if (authorite.equals("ROLE_GESTIONNAIRE_DE_BASE")) {
+            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
+            return ficheDeCommandeProduitRepository.findAllGroupe(group);
+        }
+        if (authorite.equals("ROLE_VALIDEUR")) {
+            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
+            return ficheDeCommandeProduitRepository.findAllGroupe(group);
+        }
+        else{
+            return null;
+        }
+
+
     }
 
     /**

@@ -3,6 +3,11 @@ package demochimie.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import demochimie.domain.FicheEmpruntProduit;
 import demochimie.repository.FicheEmpruntProduitRepository;
+import demochimie.repository.UserRepository;
+import demochimie.security.SecurityUtils;
+import demochimie.service.MailService;
+import demochimie.service.UserService;
+import demochimie.service.dto.UserDTO;
 import demochimie.web.rest.errors.BadRequestAlertException;
 import demochimie.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -16,6 +21,7 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing FicheEmpruntProduit.
@@ -84,9 +90,34 @@ public class FicheEmpruntProduitResource {
     @GetMapping("/fiche-emprunt-produits")
     @Timed
     public List<FicheEmpruntProduit> getAllFicheEmpruntProduits() {
-        log.debug("REST request to get all FicheEmpruntProduits");
-        return ficheEmpruntProduitRepository.findAll();
+        SecurityUtils secu = new SecurityUtils();
+        String group = secu.CurrentGroupeUser();
+        String authorite = secu.getCurrentUserJWTRole();
+        if (authorite.equals("ROLE_ADMIN")) {
+            log.debug("REST request to get all FicheEmpruntProduits");
+            return ficheEmpruntProduitRepository.findAll();
+        }
+        if (authorite.equals("ROLE_USER")) {
+            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
+            return ficheEmpruntProduitRepository.findAllUser(secu.getCurrentUserLogin().get());
+        }
+        if (authorite.equals("ROLE_HYGIENE_ET_SECURITE")) {
+            log.debug("REST request to get all FicheEmpruntProduits");
+            return ficheEmpruntProduitRepository.findAll();
+        }
+        if (authorite.equals("ROLE_GESTIONNAIRE_DE_BASE")) {
+            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
+            return ficheEmpruntProduitRepository.findAllGroupe(group);
+        }
+        if (authorite.equals("ROLE_VALIDEUR")) {
+            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
+            return ficheEmpruntProduitRepository.findAllGroupe(group);
+        }
+        else{
+            return null;
+        }
     }
+
 
     /**
      * GET  /fiche-emprunt-produits/:id : get the "id" ficheEmpruntProduit.

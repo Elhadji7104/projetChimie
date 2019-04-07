@@ -29,7 +29,7 @@
             "ficheDeCommandeProduit": "Product Order Form",
             "listeMotsCles": "Keywords List",
             "typeDeConditionnement": "Packaging Type",
-            "localisation": "Location",
+            "typeLieuStockage": "storage",
             "document": "Document",
             "unite": "Unity",
             "ficheProduitChimique": "Chemical Product Sheet",

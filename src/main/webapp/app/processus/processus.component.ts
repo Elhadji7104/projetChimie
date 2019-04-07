@@ -51,6 +51,7 @@ export class ProcessusComponent implements OnInit {
     private localisation: ILocalisation;
     doc: IDocument = new Document();
     private documentArray: IDocument[];
+    private classiArray: IClassification;
     test: IFicheArticle = new FicheArticle();
 
     constructor(
@@ -179,20 +180,19 @@ export class ProcessusComponent implements OnInit {
         if (this.booleanChimique) {
             this.subscribeToSaveResponseProduit(this.ficheProduitChimiqueService.create(this.ficheProduits));
         }
-        this.ficheArticle.ficheProduitChimiques = this.ficheProduits;
         if (this.document !== undefined) {
             this.doc.lien = this.document;
             this.subscribeToSaveResponseDoc(this.documentService.create(this.doc));
         }
-        this.documentArray = [];
-        this.documentArray.push(this.doc);
+        this.ficheArticle.codeBarre = 'AA' + '-' + this.ficheArticle.refArticle;
+        /* this.documentArray = [];
+        this.documentArray.push(this.doc);*/
         this.ficheArticle.documents = this.documentArray;
-        this.groupeService.find(1).subscribe((res: HttpResponse<IGroupe>) => {
-            this.ficheArticle.groupe = res.body;
-        });
-        this.documentService.find(13).subscribe((res: HttpResponse<IFicheProduitChimique>) => {
-            this.ficheArticle.ficheProduitChimiques = res.body;
-        });
+        this.ficheArticle.classifications = [];
+        this.ficheArticle.classifications.push(this.classiArray);
+
+        /* this.ficheArticle.ficheProduitChimiques = [];
+        this.ficheArticle.ficheProduitChimiques.push(this.ficheProduits);*/
         this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
     }
 

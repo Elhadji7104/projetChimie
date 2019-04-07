@@ -28,13 +28,9 @@
                     <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.formule"
                            for="field_formule">Formule brute</label>
                     <div>
-
                         <input name="formule" id="field_formule" type="text" pInputText name="formule"
                                [(ngModel)]="ficheProduits.formule" required/>
-
                     </div>
-
-
                 </div>
                 <div class="ui-g-4">
                     <div class="form-group">
@@ -61,7 +57,6 @@
                             <p-inputMask name="codeNacre" id="field_codeNacre"
                                          [(ngModel)]="ficheProduits.codeNacre" value="NA21"
                                          mask="aa99"></p-inputMask>
-
                         </div>
                     </div>
                 </div>
@@ -186,7 +181,7 @@
                 <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
                 <div>
                     <p-dropdown name="cla" [style]="{'width':'50%'}" [options]="classiSelect"
-                                [(ngModel)]="ficheArticle.classifications"></p-dropdown>
+                                [(ngModel)]="classiArray"></p-dropdown>
                 </div>
             </div>
         </div>

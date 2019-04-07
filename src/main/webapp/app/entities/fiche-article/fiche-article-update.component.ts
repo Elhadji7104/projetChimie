@@ -18,6 +18,8 @@ import { IDroitDacceeProduit } from 'app/shared/model/droit-daccee-produit.model
 import { DroitDacceeProduitService } from 'app/entities/droit-daccee-produit';
 import { ILocalisation } from 'app/shared/model/localisation.model';
 import { LocalisationService } from 'app/entities/localisation';
+import { ITypeLieuStockage, TypeLieuStockage } from 'app/shared/model/type-lieu-stockage.model';
+import { TypeLieuStockageDeletePopupComponent, TypeLieuStockageService } from 'app/entities/type-lieu-stockage';
 
 @Component({
     selector: 'jhi-fiche-article-update',
@@ -35,7 +37,7 @@ export class FicheArticleUpdateComponent implements OnInit {
 
     classifications: IClassification[];
 
-    localisations: ILocalisation[];
+    typeLieuStockage: ITypeLieuStockage[];
 
     droitdacceeproduits: IDroitDacceeProduit[];
     private unitesSelect: any[];
@@ -44,7 +46,6 @@ export class FicheArticleUpdateComponent implements OnInit {
     private dispoSelect: any;
     private docSelect: any;
     private classiSelect: any;
-    private quantiteSelect: any;
     booleanProduit: boolean;
 
     constructor(
@@ -56,7 +57,7 @@ export class FicheArticleUpdateComponent implements OnInit {
         protected classificationService: ClassificationService,
         protected droitDacceeProduitService: DroitDacceeProduitService,
         protected activatedRoute: ActivatedRoute,
-        protected localisationService: LocalisationService
+        protected typeLieuStockageService: TypeLieuStockageService
     ) {}
 
     ngOnInit() {
@@ -94,9 +95,9 @@ export class FicheArticleUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.localisationService.query().subscribe(
-            (res: HttpResponse<ILocalisation[]>) => {
-                this.localisations = res.body;
+        this.typeLieuStockageService.query().subscribe(
+            (res: HttpResponse<ITypeLieuStockage[]>) => {
+                this.typeLieuStockage = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -164,6 +165,7 @@ export class FicheArticleUpdateComponent implements OnInit {
         } else {
             this.subscribeToSaveResponse(this.ficheArticleService.create(this.ficheArticle));
         }
+        console.log(this.ficheArticle);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IFicheArticle>>) {

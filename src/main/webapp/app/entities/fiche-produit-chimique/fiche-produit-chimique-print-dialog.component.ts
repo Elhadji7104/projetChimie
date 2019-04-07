@@ -8,7 +8,6 @@ import { IFicheProduitChimique } from 'app/shared/model/fiche-produit-chimique.m
 import { FicheProduitChimiqueService } from './fiche-produit-chimique.service';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { SelectItem } from 'primeng/api';
-import * as jsPDF from 'jspdf';
 
 @Component({
     selector: 'jhi-fiche-produit-chimique-print-dialog',
@@ -54,12 +53,13 @@ export class FicheProduitChimiquePrintDialogComponent implements OnInit {
 
         this.activeModal.dismiss('cancel');
     }
+    /*
     printPdf() {
         var doc = new jsPDF();
         doc.text(this.csvString, 10, 10);
         doc.save('Produit_Chimique.pdf');
         this.activeModal.dismiss('cancel');
-    }
+    }*/
 
     ngOnInit() {
         this.loadAll();

@@ -2,11 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
-import { Sort } from '@angular/material';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { AccountService, User } from 'app/core';
 import { FicheArticleService } from './fiche-article.service';
-import { SelectItem, SortEvent } from 'primeng/api';
+import { SelectItem } from 'primeng/api';
 import { ClassificationService } from 'app/entities/classification';
 import { IClassification } from 'app/shared/model/classification.model';
 
@@ -22,14 +21,13 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
     eventSubscriber: Subscription;
     classifi: IClassification[];
 
-    refArticleO: SelectItem[];
-    casO: SelectItem[];
-    acronymeO: SelectItem[];
-    quantiteO: SelectItem[];
-    disponibliteArticleO: SelectItem[];
-    nomO: SelectItem[];
-    classificationO: SelectItem[];
-    localisationO: SelectItem[];
+    refArticleO: SelectItem[] = [];
+    casO: SelectItem[] = [];
+    acronymeO: SelectItem[] = [];
+    quantiteO: SelectItem[] = [];
+    disponibliteArticleO: SelectItem[] = [];
+    nomO: SelectItem[] = [];
+    classificationO: SelectItem[] = [];
 
     constructor(
         protected classificationService: ClassificationService,
@@ -37,19 +35,14 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected accountService: AccountService
-    ) {}
+    ) {
+        this.ficheArticles[0].typeDeStockage.localisation.adresse;
+    }
+
     loadAll() {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
-                this.ficheArticles = res.body;
-                this.refArticleO = [];
-                this.casO = [];
-                this.acronymeO = [];
-                this.quantiteO = [];
-                this.disponibliteArticleO = [];
-                this.nomO = [];
-
-                for (let value of this.ficheArticles) {
+                for (let value of res.body) {
                     if (value !== undefined) {
                         if (
                             value.refArticle !== undefined &&
@@ -119,9 +112,7 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
     loadAllClassi() {
         this.classificationService.query().subscribe(
             (res: HttpResponse<IClassification[]>) => {
-                this.classifi = res.body;
-                this.classificationO = [];
-                for (let value of this.classifi) {
+                for (let value of res.body) {
                     this.classificationO.push({ label: value.nomClassification, value: value.nomClassification });
                 }
             },
@@ -142,7 +133,8 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
             { field: 'acronyme', header: 'Acronyme' },
             { field: 'quantite', header: 'Quantite' },
             { field: 'classification', header: 'Classification' },
-            { field: 'disponibliteArticle', header: 'DisponibliteArticle' }
+            { field: 'disponibliteArticle', header: 'DisponibliteArticle' },
+            { field: 'adresse', header: 'adresse' }
         ];
 
         this.disponibliteArticleO = [

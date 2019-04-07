@@ -5,7 +5,41 @@ Footer
 /* ==========================================================================
 Logo styles
 ========================================================================== */
-.logo-img {
+.logo-img1 {
+    height: 100px;
+    width: 200px;
+    display: inline-block;
+    background: url('../../../content/images/ENSCR_bureautique_transparent.png') no-repeat center center;
+    background-size: contain;
+    align: 'center';
+}
+.logo-img2 {
+    height: 100px;
+    width: 200px;
+    display: inline-block;
+    background: url('../../../content/images/ISCR_CMJN.png') no-repeat center center;
+    background-size: contain;
+    align: 'center';
+}
+
+.logo-img3 {
+    height: 100px;
+    width: 200px;
+    display: inline-block;
+    background: url('../../../content/images/Logo_INSA-Ville_quadri_CMJN.png') no-repeat center center;
+    background-size: contain;
+    align: 'center';
+}
+.logo-img4 {
+    height: 100px;
+    width: 200px;
+    display: inline-block;
+    background: url('../../../content/images/logo-UR1.png') no-repeat center center;
+    background-size: contain;
+    align: 'center';
+}
+
+/*.logo-img {
     height: 150px;
     width: 300px;
     display: inline-block;
@@ -32,3 +66,4 @@ Logo styles
     background: url('../../../content/images/SciencesChimiques.jpg') no-repeat center center;
     background-size: contain;
 }
+*/
