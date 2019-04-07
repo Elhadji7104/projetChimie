@@ -5,25 +5,16 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.nom">Nom</span></dt>
-                <dd>
-                    <span>{{droitDacceeProduit.nom}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.nomGroupe">Nom Groupe</span></dt>
-                <dd>
-                    <div *ngIf="droitDacceeProduit.nomGroupe">
-                        <a [routerLink]="['/groupe', droitDacceeProduit.nomGroupe?.id, 'view']">{{droitDacceeProduit.nomGroupe?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.etatDroit">Etat Droit</span></dt>
-                <dd>
-                    <span>{{droitDacceeProduit.etatDroit}}</span>
-                </dd>
+
                 <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.groupe">Groupe</span></dt>
                 <dd>
                     <div *ngIf="droitDacceeProduit.groupe">
                         <a [routerLink]="['/groupe', droitDacceeProduit.groupe?.id, 'view']">{{droitDacceeProduit.groupe?.nomGroupe}}</a>
                     </div>
+                </dd>
+                <dt><span jhiTranslate="projetChimieApp.droitDacceeProduit.ficheArticle">fiche Article</span></dt>
+                <dd>
+                    <a [routerLink]="['/fiche-article', droitDacceeProduit.ficheArticle.id, 'view' ]" >{{droitDacceeProduit.ficheArticle.codeBarre}}</a>
                 </dd>
             </dl>
 

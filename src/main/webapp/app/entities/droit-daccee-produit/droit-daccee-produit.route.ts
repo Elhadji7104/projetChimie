@@ -49,8 +49,8 @@ export const droitDacceeProduitRoute: Routes = [
             pageTitle: 'projetChimieApp.droitDacceeProduit.home.title'
         },
         canActivate: [UserRouteAccessService]
-    },
-    {
+    }
+    /*  {
         path: 'droit-daccee-produit/new',
         component: DroitDacceeProduitUpdateComponent,
         resolve: {
@@ -73,7 +73,7 @@ export const droitDacceeProduitRoute: Routes = [
             pageTitle: 'projetChimieApp.droitDacceeProduit.home.title'
         },
         canActivate: [UserRouteAccessService]
-    }
+    }*/
 ];
 
 export const droitDacceeProduitPopupRoute: Routes = [

@@ -27,6 +27,7 @@ export class DroitDacceeProduitComponent implements OnInit, OnDestroy {
         this.droitDacceeProduitService.query().subscribe(
             (res: HttpResponse<IDroitDacceeProduit[]>) => {
                 this.droitDacceeProduits = res.body;
+                console.log(res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

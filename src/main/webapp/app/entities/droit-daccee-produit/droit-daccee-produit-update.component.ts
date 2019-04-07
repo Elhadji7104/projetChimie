@@ -8,6 +8,8 @@ import { IDroitDacceeProduit } from 'app/shared/model/droit-daccee-produit.model
 import { DroitDacceeProduitService } from './droit-daccee-produit.service';
 import { IGroupe } from 'app/shared/model/groupe.model';
 import { GroupeService } from 'app/entities/groupe';
+import { FicheArticleService } from 'app/entities/fiche-article';
+import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 
 @Component({
     selector: 'jhi-droit-daccee-produit-update',
@@ -18,12 +20,14 @@ export class DroitDacceeProduitUpdateComponent implements OnInit {
     isSaving: boolean;
 
     groupes: IGroupe[];
+    private articles: IFicheArticle[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected droitDacceeProduitService: DroitDacceeProduitService,
         protected groupeService: GroupeService,
-        protected activatedRoute: ActivatedRoute
+        protected activatedRoute: ActivatedRoute,
+        protected articleService: FicheArticleService
     ) {}
 
     ngOnInit() {
@@ -34,6 +38,12 @@ export class DroitDacceeProduitUpdateComponent implements OnInit {
         this.groupeService.query().subscribe(
             (res: HttpResponse<IGroupe[]>) => {
                 this.groupes = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.articleService.query().subscribe(
+            (res: HttpResponse<IFicheArticle[]>) => {
+                this.articles = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
