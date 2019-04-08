@@ -1,18 +1,20 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="projetChimieApp.ficheProduitChimique.home.title">Fiche Produit Chimiques</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-produit-chimique" [routerLink]="['/processus-metier']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-produit-chimique"
+                [routerLink]="['/processus-metier']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="projetChimieApp.ficheProduitChimique.home.createLabel">
+            <span jhiTranslate="projetChimieApp.ficheProduitChimique.home.createLabel">
                 Create new Fiche Produit Chimique
             </span>
         </button>
-        <button id="jh-print-all-entity" class="btn btn-primary float-center jh-print-all-entity create-fiche-produit-chimique"
-            [routerLink]="['/', { outlets: { popup: 'fiche-produit-chimique/print'} }]"
-            replaceUrl="true"
-            queryParamsHandling="merge">
-        <fa-icon [icon]="'print'"></fa-icon>
-            <span >
+        <button id="jh-print-all-entity"
+                class="btn btn-primary float-center jh-print-all-entity create-fiche-produit-chimique"
+                (click)="exportExcel()"
+                replaceUrl="true"
+                queryParamsHandling="merge">
+            <fa-icon [icon]="'print'"></fa-icon>
+            <span>
                 Print Fiche Produit Chimique
             </span>
         </button>
@@ -20,63 +22,78 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="table-responsive" *ngIf="ficheProduitChimiques">
-        <p-table class="table table-striped" [columns]="cols" [value]="ficheProduitChimiques" sortMode="multiple" #dt  >
+        <p-table class="table table-striped" [columns]="cols" [value]="ficheProduitChimiques" sortMode="multiple" #dt>
             <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th *ngFor="let col of columns" [pSortableColumn]="col.field" (input)="sort($event.target.value,col.field)">
-                    {{col.header}}
-                    <p-sortIcon [field]="col.field" ></p-sortIcon>
-                </th>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field"
+                        (input)="sort($event.target.value,col.field)">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
 
-                <th></th>
-           </tr>
-          <tr>
-              <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                  <p-multiSelect *ngSwitchCase="'cas'" [options]="CasSelect"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'nom'"[options]="NomSelect"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'acronyme'"[options]="AcronymeSelect"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'mm'" [options]="MmSelect" [(ngModel)]="mm" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'codeNacre'"[options]="CodeNacreSelect"  [(ngModel)]="codeNacre" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'formule'"[options]="formuleSelect"  [(ngModel)]="formule" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <p-multiSelect *ngSwitchCase="'cas'" [options]="CasSelect" [(ngModel)]="cas"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'nom'" [options]="NomSelect" [(ngModel)]="nom"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'acronyme'" [options]="AcronymeSelect" [(ngModel)]="acronyme"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'mm'" [options]="MmSelect" [(ngModel)]="mm"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'codeNacre'" [options]="CodeNacreSelect" [(ngModel)]="codeNacre"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                        <p-multiSelect *ngSwitchCase="'formule'" [options]="formuleSelect" [(ngModel)]="formule"
+                                       defaultLabel="All disponibilite"
+                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
 
-              </td>
-          </tr>
+                    </td>
+                </tr>
 
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr>
-                <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.cas}}</a></td>
-                <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.nom}}</a></td>
-                <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.acronyme}}</a></td>
-                <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.mm}}</a></td>
-                <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.codeNacre}}</a></td>
-                <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.formule}}</a></td>
+                <tr>
+                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.cas}}</a></td>
+                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.nom}}</a></td>
+                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.acronyme}}</a></td>
+                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.mm}}</a></td>
+                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.codeNacre}}</a>
+                    </td>
+                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.formule}}</a></td>
 
-                <td>
-                    <div class="table table-striped">
-                        <button type="submit"
-                                [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/fiche-produit-chimique', rowData.id, 'edit' ]"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"  type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'fiche-produit-chimique/'+ rowData.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
+                    <td>
+                        <div class="table table-striped">
+                            <button type="submit"
+                                    [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/fiche-produit-chimique', rowData.id, 'edit' ]"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+                            <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
+                                    type="submit"
+                                    [routerLink]="['/', { outlets: { popup: 'fiche-produit-chimique/'+ rowData.id + '/delete'} }]"
+                                    replaceUrl="true"
+                                    queryParamsHandling="merge"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
             </ng-template>
         </p-table>
     </div>

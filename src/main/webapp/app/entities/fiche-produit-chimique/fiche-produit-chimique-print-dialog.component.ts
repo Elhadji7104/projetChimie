@@ -6,8 +6,7 @@ import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 
 import { IFicheProduitChimique } from 'app/shared/model/fiche-produit-chimique.model';
 import { FicheProduitChimiqueService } from './fiche-produit-chimique.service';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { SelectItem } from 'primeng/api';
+import { ExportExcelService } from 'app/export-excel.service';
 
 @Component({
     selector: 'jhi-fiche-produit-chimique-print-dialog',
@@ -17,24 +16,20 @@ import { SelectItem } from 'primeng/api';
 export class FicheProduitChimiquePrintDialogComponent implements OnInit {
     ficheProduitChimique: IFicheProduitChimique;
     ficheProduitChimiques: IFicheProduitChimique[];
-    CasSelect: SelectItem[];
-    NomSelect: SelectItem[];
-    AcronymeSelect: SelectItem[];
-    MmSelect: SelectItem[];
-    CodeNacreSelect: SelectItem[];
-    formuleSelect: SelectItem[];
     csvString = 'cas;nom;acronyme;mm;codeNacre;formule \n ';
 
     constructor(
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
         protected jhiAlertService: JhiAlertService,
         public activeModal: NgbActiveModal,
-        protected eventManager: JhiEventManager
+        protected eventManager: JhiEventManager,
+        protected exportExcelService: ExportExcelService
     ) {}
 
     clear() {
         this.activeModal.dismiss('cancel');
     }
+
     printCsv() {
         var a = document.createElement('a');
 
@@ -53,6 +48,7 @@ export class FicheProduitChimiquePrintDialogComponent implements OnInit {
 
         this.activeModal.dismiss('cancel');
     }
+
     /*
     printPdf() {
         var doc = new jsPDF();
@@ -67,22 +63,8 @@ export class FicheProduitChimiquePrintDialogComponent implements OnInit {
 
     // methode récupération de toutes les données des fiches produits
     loadAll() {
-        this.ficheProduitChimiqueService.query().subscribe(
-            (res: HttpResponse<IFicheProduitChimique[]>) => {
-                this.ficheProduitChimiques = res.body;
-                this.createCsvFile();
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-    }
-
-    verifiDoublon(label: string, Select: SelectItem[]) {
-        for (const value of Select) {
-            if (value.label === label) {
-                return false;
-            }
-        }
-        return true;
+        this.ficheProduitChimiques = this.exportExcelService.get();
+        this.createCsvFile();
     }
 
     // create CSV file
@@ -105,10 +87,12 @@ export class FicheProduitChimiquePrintDialogComponent implements OnInit {
             }
         }
     }
+
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 }
+
 @Component({
     selector: 'jhi-fiche-produit-chimique-print-popup',
     template: ''
