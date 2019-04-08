@@ -177,7 +177,7 @@ public class UserResource {
     }
 
     public String getGroupe(){
-        return this.securityUtils.CurrentGroupeUse();
+        return this.securityUtils.CurrentGroupeUser();
     }
 
     /**
