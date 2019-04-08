@@ -28,10 +28,6 @@ public class Groupe implements Serializable {
 
     @Column(name = "nom_groupe")
     private String nomGroupe;
-
-    @Column(name = "nombre_membre")
-    private Integer nombreMembre;
-
     @Column(name = "local_groupe")
     private String localGroupe;
 
@@ -47,6 +43,15 @@ public class Groupe implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("groupes")
     private DroitDacceeProduit droitDacceeProduit;
+
+    //un groupe a une liste de classification
+    @OneToMany(mappedBy = "groupe")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Classification> classifications = new HashSet<>();
+    //un groupe a une liste de localisation
+    @OneToMany(mappedBy = "groupe")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Localisation> localisations = new HashSet<>();
 
     //Un groupe a plusieurs aticles
     @OneToMany(mappedBy = "groupe")
@@ -80,19 +85,6 @@ public class Groupe implements Serializable {
         this.nomGroupe = nomGroupe;
     }
 
-    public Integer getNombreMembre() {
-        return nombreMembre;
-    }
-
-    public Groupe nombreMembre(Integer nombreMembre) {
-        this.nombreMembre = nombreMembre;
-        return this;
-    }
-
-    public void setNombreMembre(Integer nombreMembre) {
-        this.nombreMembre = nombreMembre;
-    }
-
     public String getLocalGroupe() {
         return localGroupe;
     }
@@ -100,6 +92,15 @@ public class Groupe implements Serializable {
     public Groupe localGroupe(String localGroupe) {
         this.localGroupe = localGroupe;
         return this;
+    }
+
+
+    public Set<Localisation> getLocalisations() {
+        return localisations;
+    }
+
+    public void setLocalisations(Set<Localisation> localisations) {
+        this.localisations = localisations;
     }
 
     public void setLocalGroupe(String localGroupe) {
@@ -119,6 +120,14 @@ public class Groupe implements Serializable {
         this.droitDacceeProduits.add(droitDacceeProduit);
         droitDacceeProduit.setGroupe(this);
         return this;
+    }
+
+    public Set<Classification> getClassifications() {
+        return classifications;
+    }
+
+    public void setClassifications(Set<Classification> classifications) {
+        this.classifications = classifications;
     }
 
     public Groupe removeDroitDacceeProduit(DroitDacceeProduit droitDacceeProduit) {
@@ -220,7 +229,6 @@ public class Groupe implements Serializable {
         return "Groupe{" +
             "id=" + getId() +
             ", nomGroupe='" + getNomGroupe() + "'" +
-            ", nombreMembre=" + getNombreMembre() +
             ", localGroupe='" + getLocalGroupe() + "'" +
             "}";
     }

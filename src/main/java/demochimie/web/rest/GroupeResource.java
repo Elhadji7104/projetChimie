@@ -102,7 +102,7 @@ public class GroupeResource {
         g.setNomGroupe(this.securityUtils.CurrentGroupeUser());
         return g;
     }
-    /**
+    /**c.
      * GET  /groupes/:id : get the "id" groupe.
      *
      * @param id the id of the groupe to retrieve
