@@ -12,6 +12,7 @@ import { FournisseurComponent, FournisseurService } from 'app/entities/fournisse
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
 import { SelectItem } from 'primeng/api';
+import { AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-fiche-de-commande-produit-update',
@@ -28,9 +29,11 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     fournisseurOption: SelectItem[] = [];
     fournisseur: IFournisseur = new Fournisseur();
     fourni: IFournisseur[] = [];
+    account: Account;
     private labelString: string;
 
     constructor(
+        private accountService: AccountService,
         protected jhiAlertService: JhiAlertService,
         protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
         protected fournisseurService: FournisseurService,
@@ -55,6 +58,9 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        this.accountService.identity().then(account => {
+            this.account = account;
+        });
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.fichearticles = res.body;
@@ -92,6 +98,7 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         this.ficheDeCommandeProduit.ficheArticle = this.ficheArticle;
         this.fourni.push(this.fournisseur);
         this.ficheDeCommandeProduit.fournisseurs = this.fourni;
+        this.ficheDeCommandeProduit.user = this.account;
         console.log(this.ficheDeCommandeProduit);
         this.isSaving = true;
         if (this.ficheDeCommandeProduit.id !== undefined) {
