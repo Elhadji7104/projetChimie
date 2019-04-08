@@ -8,6 +8,9 @@ import { IClassification } from 'app/shared/model/classification.model';
 import { ClassificationService } from './classification.service';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from 'app/entities/fiche-article';
+import { IUser, User } from 'app/core';
+import { IGroupe } from 'app/shared/model/groupe.model';
+import { GroupeService } from 'app/entities/groupe';
 
 @Component({
     selector: 'jhi-classification-update',
@@ -16,18 +19,24 @@ import { FicheArticleService } from 'app/entities/fiche-article';
 export class ClassificationUpdateComponent implements OnInit {
     classification: IClassification;
     isSaving: boolean;
-
+    private user: IUser = new User();
     fichearticles: IFicheArticle[];
+    private curentGroupe;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected classificationService: ClassificationService,
         protected ficheArticleService: FicheArticleService,
-        protected activatedRoute: ActivatedRoute
+        protected activatedRoute: ActivatedRoute,
+        protected groupeService: GroupeService
     ) {}
 
     ngOnInit() {
         this.isSaving = false;
+        this.groupeService.getCurrentGroup().subscribe(data => {
+            this.curentGroupe = data;
+            console.log('datagropue', this.curentGroupe);
+        });
         this.activatedRoute.data.subscribe(({ classification }) => {
             this.classification = classification;
         });
@@ -45,6 +54,7 @@ export class ClassificationUpdateComponent implements OnInit {
 
     save() {
         this.isSaving = true;
+        this.classification.groupe = this.curentGroupe;
         if (this.classification.id !== undefined) {
             this.subscribeToSaveResponse(this.classificationService.update(this.classification));
         } else {

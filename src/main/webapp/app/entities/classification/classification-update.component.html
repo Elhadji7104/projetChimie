@@ -8,6 +8,8 @@
                     <label class="form-control-label" jhiTranslate="projetChimieApp.classification.nomClassification" for="field_nomClassification">Nom Classification</label>
                     <input type="text" class="form-control" name="nomClassification" id="field_nomClassification"
                         [(ngModel)]="classification.nomClassification" />
+                    <input type="hidden" class="form-control" value="{{classification.groupe}}" name="groupe" id="field_groupe"
+                           [(ngModel)]="classification.groupe" />
                 </div>
 
             </div>

@@ -1,6 +1,8 @@
 import { IFicheArticle } from 'app/shared/model//fiche-article.model';
+import { IGroupe } from 'app/shared/model/groupe.model';
 
 export interface IClassification {
+    groupe?: IGroupe;
     id?: number;
     nomClassification?: string;
     ficheArticles?: IFicheArticle[];

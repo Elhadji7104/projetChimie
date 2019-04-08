@@ -35,4 +35,8 @@ export class GroupeService {
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
+
+    getCurrentGroup(): Observable<EntityResponseType> {
+        return this.http.get<IGroupe>(`${this.resourceUrl}/groupe`, { observe: 'response' });
+    }
 }

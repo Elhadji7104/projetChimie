@@ -3,6 +3,7 @@ package demochimie.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import demochimie.domain.Classification;
 import demochimie.repository.ClassificationRepository;
+import demochimie.security.SecurityUtils;
 import demochimie.web.rest.errors.BadRequestAlertException;
 import demochimie.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -85,7 +86,16 @@ public class ClassificationResource {
     @Timed
     public List<Classification> getAllClassifications() {
         log.debug("REST request to get all Classifications");
-        return classificationRepository.findAll();
+        SecurityUtils user = new SecurityUtils();
+        String group = user.CurrentGroupeUser();
+        switch (group) {
+            case "SECURITE":
+                return classificationRepository.findAll();
+            case "ADMIN":
+                return classificationRepository.findAll();
+            default:
+                return classificationRepository.findAllWithEagerRelationshipsGroup(group);
+        }
     }
 
     /**

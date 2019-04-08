@@ -94,7 +94,7 @@ public class GroupeResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of groupes in body
      */
-    @GetMapping("/groupe")
+    @GetMapping("/groupes/groupe")
     @Timed
     public Groupe getCurentGroupe() {
         Groupe g = new Groupe();
