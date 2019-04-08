@@ -34,7 +34,7 @@
                 </td>
                 <td>
                     <div *ngIf="ficheDeCommandeProduit.ficheArticle">
-                        <a [routerLink]="['../fiche-article', ficheDeCommandeProduit.ficheArticle?.id, 'view' ]" >{{ficheDeCommandeProduit.ficheArticle?.refArticle}}</a>
+                        <a [routerLink]="['../fiche-article', ficheDeCommandeProduit.ficheArticle?.id, 'view' ]" >{{ficheDeCommandeProduit.ficheArticle?.codeBarre}}</a>
                     </div>
                 </td>
                 <td class="text-right">

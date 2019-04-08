@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 
 import { FicheDeCommandeProduit, IFicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
@@ -8,7 +8,7 @@ import { AccountService } from 'app/core';
 import { FicheDeCommandeProduitService } from './fiche-de-commande-produit.service';
 import { FicheArticleService } from 'app/entities/fiche-article';
 import { DisponibliteArticle, FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
-import moment = require('moment');
+import * as moment from 'moment';
 
 @Component({
     selector: 'jhi-fiche-de-commande-produit',
@@ -63,13 +63,23 @@ export class FicheDeCommandeProduitComponent implements OnInit, OnDestroy {
     }
 
     livraison(id) {
+        this.loadAll();
         this.ficheDeCommandeProduitService.find(id).subscribe(fiche => (this.ficheDeCommandeProduit = fiche.body));
-
-        this.ficheArticle = this.ficheDeCommandeProduit.ficheArticle;
+        //this.ficheArticle = this.ficheDeCommandeProduit.ficheArticle;
         this.ficheDeCommandeProduit.dateLivraison = moment(new Date(Date.now()));
-        this.ficheDeCommandeProduitService.update(this.ficheDeCommandeProduit);
+        this.subscribeToSaveResponse(this.ficheDeCommandeProduitService.update(this.ficheDeCommandeProduit));
         console.log(this.ficheDeCommandeProduit);
         //this.ficheArticle.disponibliteArticle = DisponibliteArticle.DISPONIBLE;
         //this.ficheArticleService.update(this.ficheArticle)
     }
+    protected subscribeToSaveResponse(result: Observable<HttpResponse<IFicheDeCommandeProduit>>) {
+        result.subscribe(
+            (res: HttpResponse<IFicheDeCommandeProduit>) => this.onSaveSuccess(),
+            (res: HttpErrorResponse) => this.onSaveError()
+        );
+    }
+
+    protected onSaveSuccess() {}
+
+    protected onSaveError() {}
 }

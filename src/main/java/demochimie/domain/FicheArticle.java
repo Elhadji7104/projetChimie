@@ -68,9 +68,7 @@ public class FicheArticle implements Serializable {
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheDeCommandeProduit> ficheDeCommandeProduits = new HashSet<>();
-    @OneToMany(mappedBy = "ficheArticle")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<ListeMotsCles> listeMotsCles = new HashSet<>();
+
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TypeDeConditionnement> typeDeConditionnements = new HashSet<>();
@@ -313,30 +311,7 @@ public class FicheArticle implements Serializable {
         this.ficheDeCommandeProduits = ficheDeCommandeProduits;
     }
 
-    public Set<ListeMotsCles> getListeMotsCles() {
-        return listeMotsCles;
-    }
 
-    public FicheArticle listeMotsCles(Set<ListeMotsCles> listeMotsCles) {
-        this.listeMotsCles = listeMotsCles;
-        return this;
-    }
-
-    public FicheArticle addListeMotsCles(ListeMotsCles listeMotsCles) {
-        this.listeMotsCles.add(listeMotsCles);
-        listeMotsCles.setFicheArticle(this);
-        return this;
-    }
-
-    public FicheArticle removeListeMotsCles(ListeMotsCles listeMotsCles) {
-        this.listeMotsCles.remove(listeMotsCles);
-        listeMotsCles.setFicheArticle(null);
-        return this;
-    }
-
-    public void setListeMotsCles(Set<ListeMotsCles> listeMotsCles) {
-        this.listeMotsCles = listeMotsCles;
-    }
 
     public Set<TypeDeConditionnement> getTypeDeConditionnements() {
         return typeDeConditionnements;

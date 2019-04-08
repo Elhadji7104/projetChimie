@@ -60,7 +60,6 @@ public class CacheConfiguration {
             cm.createCache(demochimie.domain.FicheProduitChimique.class.getName(), jcacheConfiguration);
             cm.createCache(demochimie.domain.FicheProduitChimique.class.getName() + ".listeCmrs", jcacheConfiguration);
             cm.createCache(demochimie.domain.FicheProduitChimique.class.getName() + ".ficheArticles", jcacheConfiguration);
-            cm.createCache(demochimie.domain.ListeMotsCles.class.getName(), jcacheConfiguration);
             cm.createCache(demochimie.domain.FicheDeCommandeProduit.class.getName(), jcacheConfiguration);
             cm.createCache(demochimie.domain.FicheDeCommandeProduit.class.getName() + ".fournisseurs", jcacheConfiguration);
             cm.createCache(demochimie.domain.FicheEmpruntProduit.class.getName(), jcacheConfiguration);

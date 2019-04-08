@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="EL GORA FALL (generated)" id="1554723530982-1">
+        <addColumn tableName="type_de_conditionnement">
+            <column name="groupe_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1554723530982-2">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="type_de_conditionnement" constraintName="FK51pe371htxyheaf1w0ghuhpf9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1554723530982-3">
+        <dropForeignKeyConstraint baseTableName="liste_mots_cles" constraintName="fk_liste_mots_cles_fiche_article_id"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1554723530982-4">
+        <dropTable tableName="liste_mots_cles"/>
+    </changeSet>
+</databaseChangeLog>

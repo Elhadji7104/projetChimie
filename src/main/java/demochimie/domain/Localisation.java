@@ -41,6 +41,10 @@ public class Localisation implements Serializable {
     @Column(name = "quantite")
     private Float quantite;
 
+    @ManyToOne
+    @JsonIgnoreProperties("localisation")
+    private Groupe groupe;
+
 
     @OneToMany(mappedBy = "localisation")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -144,6 +148,13 @@ public class Localisation implements Serializable {
         return this;
     }
 
+    public Groupe getGroupe() {
+        return groupe;
+    }
+
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
+    }
     /**
     public FicheArticle getFicheArticle() {
         return ficheArticle;

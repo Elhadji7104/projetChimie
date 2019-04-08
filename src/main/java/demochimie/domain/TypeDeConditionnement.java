@@ -30,6 +30,19 @@ public class TypeDeConditionnement implements Serializable {
     @JsonIgnoreProperties("typeDeConditionnements")
     private FicheArticle ficheArticle;
 
+    @ManyToOne
+    @JsonIgnoreProperties("typeDeConditionnements")
+    private Groupe groupe;
+
+    public Groupe getGroupe() {
+        return groupe;
+    }
+
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
+    }
+
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

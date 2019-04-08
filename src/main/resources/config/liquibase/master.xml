@@ -52,7 +52,9 @@
     <include file="config/liquibase/changelog/20190401091247_changelog.xml" relativeToChangelogFile="false"/>
     -->
     <include file="config/liquibase/changelog/20190405110508_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190408111639_changelog.xml" relativeToChangelogFile="false"/>
 
+    <include file="config/liquibase/changelog/20190408113838_changelog.xml" relativeToChangelogFile="false"/>
 
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

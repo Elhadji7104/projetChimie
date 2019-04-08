@@ -92,7 +92,6 @@ public class GroupeResourceIntTest {
     public static Groupe createEntity(EntityManager em) {
         Groupe groupe = new Groupe()
             .nomGroupe(DEFAULT_NOM_GROUPE)
-            .nombreMembre(DEFAULT_NOMBRE_MEMBRE)
             .localGroupe(DEFAULT_LOCAL_GROUPE);
         return groupe;
     }
@@ -118,7 +117,6 @@ public class GroupeResourceIntTest {
         assertThat(groupeList).hasSize(databaseSizeBeforeCreate + 1);
         Groupe testGroupe = groupeList.get(groupeList.size() - 1);
         assertThat(testGroupe.getNomGroupe()).isEqualTo(DEFAULT_NOM_GROUPE);
-        assertThat(testGroupe.getNombreMembre()).isEqualTo(DEFAULT_NOMBRE_MEMBRE);
         assertThat(testGroupe.getLocalGroupe()).isEqualTo(DEFAULT_LOCAL_GROUPE);
     }
 
@@ -195,7 +193,6 @@ public class GroupeResourceIntTest {
         em.detach(updatedGroupe);
         updatedGroupe
             .nomGroupe(UPDATED_NOM_GROUPE)
-            .nombreMembre(UPDATED_NOMBRE_MEMBRE)
             .localGroupe(UPDATED_LOCAL_GROUPE);
 
         restGroupeMockMvc.perform(put("/api/groupes")
@@ -208,7 +205,6 @@ public class GroupeResourceIntTest {
         assertThat(groupeList).hasSize(databaseSizeBeforeUpdate);
         Groupe testGroupe = groupeList.get(groupeList.size() - 1);
         assertThat(testGroupe.getNomGroupe()).isEqualTo(UPDATED_NOM_GROUPE);
-        assertThat(testGroupe.getNombreMembre()).isEqualTo(UPDATED_NOMBRE_MEMBRE);
         assertThat(testGroupe.getLocalGroupe()).isEqualTo(UPDATED_LOCAL_GROUPE);
     }
 
