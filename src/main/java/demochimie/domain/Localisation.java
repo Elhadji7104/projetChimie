@@ -42,7 +42,7 @@ public class Localisation implements Serializable {
     private Float quantite;
 
     @ManyToOne
-    @JsonIgnoreProperties("classifications")
+    @JsonIgnoreProperties("localisation")
     private Groupe groupe;
 
 

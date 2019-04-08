@@ -43,7 +43,10 @@ public class Groupe implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("groupes")
     private DroitDacceeProduit droitDacceeProduit;
-
+    //un groupe a une liste typeDeConditionnements
+    @OneToMany(mappedBy = "groupe")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<TypeDeConditionnement> typeDeConditionnements = new HashSet<>();
     //un groupe a une liste de classification
     @OneToMany(mappedBy = "groupe")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -94,6 +97,14 @@ public class Groupe implements Serializable {
         return this;
     }
 
+
+    public Set<TypeDeConditionnement> getTypeDeConditionnements() {
+        return typeDeConditionnements;
+    }
+
+    public void setTypeDeConditionnements(Set<TypeDeConditionnement> typeDeConditionnements) {
+        this.typeDeConditionnements = typeDeConditionnements;
+    }
 
     public Set<Localisation> getLocalisations() {
         return localisations;
