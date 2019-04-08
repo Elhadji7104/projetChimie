@@ -45,15 +45,12 @@ public class Groupe implements Serializable {
     private DroitDacceeProduit droitDacceeProduit;
     //un groupe a une liste typeDeConditionnements
     @OneToMany(mappedBy = "groupe")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TypeDeConditionnement> typeDeConditionnements = new HashSet<>();
     //un groupe a une liste de classification
     @OneToMany(mappedBy = "groupe")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Classification> classifications = new HashSet<>();
     //un groupe a une liste de localisation
     @OneToMany(mappedBy = "groupe")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Localisation> localisations = new HashSet<>();
 
     //Un groupe a plusieurs aticles
