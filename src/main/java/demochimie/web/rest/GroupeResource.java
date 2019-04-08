@@ -3,6 +3,7 @@ package demochimie.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import demochimie.domain.Groupe;
 import demochimie.repository.GroupeRepository;
+import demochimie.security.SecurityUtils;
 import demochimie.web.rest.errors.BadRequestAlertException;
 import demochimie.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -29,6 +30,7 @@ public class GroupeResource {
     private static final String ENTITY_NAME = "groupe";
 
     private final GroupeRepository groupeRepository;
+    private SecurityUtils securityUtils;
 
     public GroupeResource(GroupeRepository groupeRepository) {
         this.groupeRepository = groupeRepository;
@@ -87,7 +89,19 @@ public class GroupeResource {
         log.debug("REST request to get all Groupes");
         return groupeRepository.findAll();
     }
-
+    /**
+     * GET  /groupes : get curent groupe.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of groupes in body
+     */
+    @GetMapping("/groupe")
+    @Timed
+    public Groupe getCurentGroupe() {
+        Groupe g = new Groupe();
+        log.debug("REST request to get Groupe by login user");
+        g.setNomGroupe(this.securityUtils.CurrentGroupeUser());
+        return g;
+    }
     /**
      * GET  /groupes/:id : get the "id" groupe.
      *

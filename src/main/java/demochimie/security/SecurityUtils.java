@@ -81,7 +81,21 @@ public final class SecurityUtils {
      * @param
      * @return true if the current user has the authority, false otherwise
      */
-
+    /**
+    public static String CurrentGroupeUser(String login) {
+	//String login = getCurrentUserLogin()+"";
+    String groupeName="";
+    switch(login){
+        case "ADMIN":
+        groupeName = "groupe1";
+        case "HYGIENE_ET_SECURITE":
+        groupeName = "groupe2";
+        case "VALIDEUR":
+        groupeName = "groupe3";
+        case "GESTIONNAIRE_DE_BASE":
+        groupeName = "groupe4";    
+        break;    
+    }*/
     public static String CurrentGroupeUser() {
         String groupeName = "";
         String login = "ADMIN";
