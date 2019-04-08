@@ -202,8 +202,8 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
     }
 
     exportExcel() {
-        console.log('passe');
+        console.log(this.ficheProduitChimiques);
         this.exportExcelService.set(this.ficheProduitChimiques);
-        this.router.navigate(['/fiche-produit-chimique/print']);
+        this.router.navigate(['/', { outlets: { popup: 'fiche-produit-chimique/print' } }]);
     }
 }
