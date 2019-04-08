@@ -8,7 +8,7 @@
             </span>
         </button>
         <button id="jh-print-all-entity" class="btn btn-primary float-center jh-print-all-entity create-fiche-produit-chimique"
-            [routerLink]="['/', { outlets: { popup: 'fiche-produit-chimique/print'} }]"
+            (onClic)="exportExcel()""
             replaceUrl="true"
             queryParamsHandling="merge">
         <fa-icon [icon]="'print'"></fa-icon>
@@ -32,12 +32,12 @@
            </tr>
           <tr>
               <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                  <p-multiSelect *ngSwitchCase="'cas'" [options]="CasSelect"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'nom'"[options]="NomSelect"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'acronyme'"[options]="AcronymeSelect"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'mm'" [options]="MmSelect" [(ngModel)]="mm" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'codeNacre'"[options]="CodeNacreSelect"  [(ngModel)]="codeNacre" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                  <p-multiSelect *ngSwitchCase="'formule'"[options]="formuleSelect"  [(ngModel)]="formule" defaultLabel="All disponibilite" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'cas'" [options]="CasSelect"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'nom'"[options]="NomSelect"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'acronyme'"[options]="AcronymeSelect"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'mm'" [options]="MmSelect" [(ngModel)]="mm" defaultLabel="All disponibilite" (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'codeNacre'"[options]="CodeNacreSelect"  [(ngModel)]="codeNacre" defaultLabel="All disponibilite" (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
+                  <p-multiSelect *ngSwitchCase="'formule'"[options]="formuleSelect"  [(ngModel)]="formule" defaultLabel="All disponibilite" (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
 
               </td>
           </tr>

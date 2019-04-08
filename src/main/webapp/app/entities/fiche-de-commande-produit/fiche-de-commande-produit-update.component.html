@@ -9,16 +9,9 @@
                 <label class="form-control-label" jhiTranslate="projetChimieApp.ficheDeCommandeProduit.ficheArticle">fiche
                     Article</label>
                 <div>
-                    <p-dropdown name="article" [options]="articleOption" size="25" [(ngModel)]="ficheArticle"
-                                filter="true"
-                                (onChange)="actuUnite()" required>
 
-                        <ng-template let-art pTemplate="item">
-                            <div class="ui-helper-clearfix" style="vertical-align:middle;height: 25px;">
-                                <div style="font-size:14px;float:right;margin-top:4px">{{art.label}}</div>
-                            </div>
-                        </ng-template>
-                    </p-dropdown>
+
+                    <p-dropdown name="article" filter="true" [style]="{'width':'50%'}" [options]="fichearticles" [(ngModel)]="ficheArticle" optionLabel="codeBarre" [showClear]="true"  ></p-dropdown>
                 </div>
             </div>
 
@@ -26,7 +19,7 @@
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="projetChimieApp.ficheDeCommandeProduit.quantite">Quantite</label>
-                    <div><input name="quantite" type="text" [(ngModel)]="ficheDeCommandeProduit.quantite" size="30"
+                    <div><input [style]="{'width':'50%'}" name="quantite" type="text" [(ngModel)]="ficheDeCommandeProduit.quantite" size="30"
                                 pInputText pKeyFilter="int"
                                 placeholder="Quantite" required>
                     </div>
@@ -36,15 +29,8 @@
                     <label jhiTranslate="projetChimieApp.ficheDeCommandeProduit.fournisseur">Fournisseur</label>
                     <div>
 
-                        <p-dropdown name="fourni" [options]="fournisseurOption" size="30"
-                                    [(ngModel)]="fournisseur" [style]="{'width':'150px'}"
-                                    filter="true" required>
-                            <ng-template let-uni pTemplate="item">
-                                <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-                                    <div>{{uni.label}}</div>
-                                </div>
-                            </ng-template>
-                        </p-dropdown>
+                        <p-dropdown name="fournisseur" filter="true" [style]="{'width':'50%'}" [options]="fournisseurs" [(ngModel)]="fournisseur" optionLabel="nomFournisseur" [showClear]="true" ></p-dropdown>
+
                     </div>
                 </div>
 

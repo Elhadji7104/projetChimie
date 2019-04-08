@@ -2,11 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
-
 import { IFicheProduitChimique } from 'app/shared/model/fiche-produit-chimique.model';
 import { AccountService } from 'app/core';
 import { FicheProduitChimiqueService } from './fiche-produit-chimique.service';
 import { SelectItem } from 'primeng/api';
+import { ExportExcelService } from 'app/export-excel.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'jhi-fiche-produit-chimique',
@@ -23,18 +24,30 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
     MmSelect: SelectItem[];
     CodeNacreSelect: SelectItem[];
     formuleSelect: SelectItem[];
+    private cas: string[] = [];
+    private formule: string[] = [];
+    private mm: string[] = [];
+    private codeNacre: string[] = [];
+    private acronyme: string[] = [];
+    private nom: string[] = [];
+    private ficheProduitChimiquesCopy: IFicheProduitChimique[] = [];
+    private ajouter: IFicheProduitChimique[] = [];
+    private conserve: IFicheProduitChimique[] = [];
 
     constructor(
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
-        protected accountService: AccountService
+        protected accountService: AccountService,
+        protected exportExcelService: ExportExcelService,
+        protected router: Router
     ) {}
 
     loadAll() {
         this.ficheProduitChimiqueService.query().subscribe(
             (res: HttpResponse<IFicheProduitChimique[]>) => {
                 this.ficheProduitChimiques = res.body;
+                this.ficheProduitChimiquesCopy = this.ficheProduitChimiques;
                 this.CasSelect = [];
                 this.NomSelect = [];
                 this.AcronymeSelect = [];
@@ -109,5 +122,88 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
 
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    filter(value, field, test) {
+        switch (field) {
+            case 'cas':
+                this.cas = value;
+                break;
+            case 'nom':
+                this.nom = value;
+                break;
+            case 'acronyme':
+                this.acronyme = value;
+                break;
+            case 'codeNacre':
+                this.codeNacre = value;
+                break;
+            case 'mm':
+                this.mm = value;
+                break;
+            case 'formule':
+                this.formule = value;
+                break;
+        }
+        this.eleverProduitchimique();
+        console.log(this.cas);
+        /* console.log(this.nom);
+         console.log(this.formule);
+         console.log(this.acronyme);
+         console.log(this.mm);
+         console.log(this.codeNacre);*/
+    }
+
+    private eleverProduitchimique() {
+        this.ficheProduitChimiques = this.ficheProduitChimiquesCopy;
+        this.conserve = [];
+        for (let value of this.cas) {
+            console.log(value);
+            console.log(this.ficheProduitChimiques[0].cas);
+            console.log(value.includes(this.ficheProduitChimiques[0].cas));
+            this.ajouter = [];
+            this.ajouter = this.ficheProduitChimiques.filter(fiche => value.includes(fiche.cas));
+            this.ajouterFicheProduitChimique(this.ajouter);
+        }
+        this.ficheProduitChimiques = this.conserve;
+        /*   for (let value of this.ficheProduitChimiques) {
+               this.nom.filter(
+                   nom => nom.includes(value.nom)
+               );
+           }
+           for (let value of this.ficheProduitChimiques) {
+               this.formule.filter(
+                   formule => formule.includes(value.formule)
+               );
+           }
+           for (let value of this.ficheProduitChimiques) {
+               this.acronyme.filter(
+                   acronyme => acronyme.includes(value.acronyme)
+               );
+           }
+           for (let value of this.ficheProduitChimiques) {
+               this.mm.filter(
+                   mm => mm.includes(value)
+               );
+           }
+           for (let value of this.ficheProduitChimiques) {
+               this.codeNacre.filter(
+                   codeNacre => codeNacre.includes(value)
+               );
+           }*/
+    }
+
+    private ajouterFicheProduitChimique(ajouter: IFicheProduitChimique[]) {
+        for (let value of ajouter) {
+            if (!this.conserve.includes(value)) {
+                this.conserve.push(value);
+            }
+        }
+    }
+
+    exportExcel() {
+        console.log('passe');
+        this.exportExcelService.set(this.ficheProduitChimiques);
+        this.router.navigate(['/fiche-produit-chimique/print']);
     }
 }
