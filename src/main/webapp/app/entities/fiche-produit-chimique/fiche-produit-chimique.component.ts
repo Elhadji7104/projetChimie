@@ -33,6 +33,10 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
     private ficheProduitChimiquesCopy: IFicheProduitChimique[] = [];
     private ajouter: IFicheProduitChimique[] = [];
     private conserve: IFicheProduitChimique[] = [];
+    private intersection: IFicheProduitChimique[] = [];
+    private attente: IFicheProduitChimique[] = [];
+    private variable: boolean;
+    private filtre: IFicheProduitChimique[];
 
     constructor(
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
@@ -146,58 +150,57 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
                 break;
         }
         this.eleverProduitchimique();
-        console.log(this.cas);
-        /* console.log(this.nom);
-         console.log(this.formule);
-         console.log(this.acronyme);
-         console.log(this.mm);
-         console.log(this.codeNacre);*/
     }
 
     private eleverProduitchimique() {
-        this.ficheProduitChimiques = this.ficheProduitChimiquesCopy;
-        this.conserve = [];
-        for (let value of this.cas) {
-            console.log(value);
-            console.log(this.ficheProduitChimiques[0].cas);
-            console.log(value.includes(this.ficheProduitChimiques[0].cas));
-            this.ajouter = [];
-            this.ajouter = this.ficheProduitChimiques.filter(fiche => value.includes(fiche.cas));
-            this.ajouterFicheProduitChimique(this.ajouter);
-        }
-        this.ficheProduitChimiques = this.conserve;
-        /*   for (let value of this.ficheProduitChimiques) {
-               this.nom.filter(
-                   nom => nom.includes(value.nom)
-               );
-           }
-           for (let value of this.ficheProduitChimiques) {
-               this.formule.filter(
-                   formule => formule.includes(value.formule)
-               );
-           }
-           for (let value of this.ficheProduitChimiques) {
-               this.acronyme.filter(
-                   acronyme => acronyme.includes(value.acronyme)
-               );
-           }
-           for (let value of this.ficheProduitChimiques) {
-               this.mm.filter(
-                   mm => mm.includes(value)
-               );
-           }
-           for (let value of this.ficheProduitChimiques) {
-               this.codeNacre.filter(
-                   codeNacre => codeNacre.includes(value)
-               );
-           }*/
-    }
+        this.attente = [];
+        for (let value of this.ficheProduitChimiquesCopy) {
+            let casBoolean = false;
+            let nomBoolean = false;
+            let acronymeBoolean = false;
+            let mmBoolean = false;
+            let codeNacreBoolean = false;
+            let formuleBoolean = false;
 
-    private ajouterFicheProduitChimique(ajouter: IFicheProduitChimique[]) {
-        for (let value of ajouter) {
-            if (!this.conserve.includes(value)) {
-                this.conserve.push(value);
+            if (this.cas.includes(value.cas) || this.cas.length === 0) {
+                casBoolean = true;
             }
+
+            if (this.nom.includes(value.nom) || this.nom.length === 0) {
+                nomBoolean = true;
+            }
+
+            if (this.acronyme.includes(value.acronyme) || this.acronyme.length === 0) {
+                acronymeBoolean = true;
+            }
+
+            if (this.mm.includes(value.mm) || this.mm.length === 0) {
+                mmBoolean = true;
+            }
+
+            if (this.codeNacre.includes(value.codeNacre) || this.codeNacre.length === 0) {
+                codeNacreBoolean = true;
+            }
+
+            if (this.formule.includes(value.formule) || this.formule.length === 0) {
+                formuleBoolean = true;
+            }
+
+            if (casBoolean && nomBoolean && acronymeBoolean && formuleBoolean && codeNacreBoolean && mmBoolean) {
+                this.attente.push(value);
+            }
+        }
+        if (
+            this.cas.length === 0 &&
+            this.acronyme.length === 0 &&
+            this.acronyme.length === 0 &&
+            this.mm.length === 0 &&
+            this.codeNacre.length === 0 &&
+            this.formule.length === 0
+        ) {
+            this.ficheProduitChimiques = this.ficheProduitChimiquesCopy;
+        } else {
+            this.ficheProduitChimiques = this.attente;
         }
     }
 

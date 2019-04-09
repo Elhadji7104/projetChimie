@@ -28,6 +28,14 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
     disponibliteArticleO: SelectItem[] = [];
     nomO: SelectItem[] = [];
     classificationO: SelectItem[] = [];
+    classification: any;
+    disponibliteArticle: any;
+    nom: any;
+    acronyme: any;
+    cas: any;
+    refArticle: any;
+    private attente: IFicheArticle[];
+    private ficheArticlesCopy: IFicheArticle[];
 
     constructor(
         protected classificationService: ClassificationService,
@@ -42,6 +50,7 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
     loadAll() {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
+                this.ficheArticlesCopy = res.body;
                 for (let value of res.body) {
                     if (value !== undefined) {
                         if (
@@ -156,5 +165,67 @@ export class FicheArticleComponent implements OnInit, OnDestroy {
 
     onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    filtre(value, field, test) {
+        this.attente = [];
+        for (let value of this.ficheArticlesCopy) {
+            let classificationBoolean = false;
+            let disponibliteArticleBoolean = false;
+            let nomBoolean = false;
+            let acronymeBoolean = false;
+            let casBoolean = false;
+            let refArticleBoolean = false;
+            if (this.classification.length === 0) {
+                classificationBoolean = true;
+            }
+            for (let classi of value.classifications) {
+                if (this.classification.includes(classi)) {
+                    classificationBoolean = true;
+                }
+            }
+
+            if (this.nom.includes(value.ficheProduitChimiques[0].nom) || this.nom.length === 0) {
+                nomBoolean = true;
+            }
+
+            if (this.acronyme.includes(value.ficheProduitChimiques[0].acronyme) || this.acronyme.length === 0) {
+                acronymeBoolean = true;
+            }
+
+            if (this.cas.includes(value.ficheProduitChimiques[0].cas) || this.cas.length === 0) {
+                casBoolean = true;
+            }
+
+            if (this.disponibliteArticle.includes(value.disponibliteArticle) || this.disponibliteArticle.length === 0) {
+                refArticleBoolean = true;
+            }
+
+            if (this.refArticle.includes(value.refArticle) || this.refArticle.length === 0) {
+                disponibliteArticleBoolean = true;
+            }
+
+            if (
+                casBoolean &&
+                nomBoolean &&
+                acronymeBoolean &&
+                disponibliteArticleBoolean &&
+                refArticleBoolean /*&& classificationBoolean*/
+            ) {
+                this.attente.push(value);
+            }
+        }
+        if (
+            this.cas.length === 0 &&
+            this.acronyme.length === 0 &&
+            this.nom.length === 0 &&
+            this.disponibliteArticle.length === 0 &&
+            this.refArticle.length === 0 &&
+            this.classification.length === 0
+        ) {
+            this.ficheArticles = this.ficheArticlesCopy;
+        } else {
+            this.ficheArticles = this.attente;
+        }
     }
 }
