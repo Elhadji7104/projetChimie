@@ -4,6 +4,8 @@ import demochimie.domain.Groupe;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 
 /**
  * Spring Data  repository for the Groupe entity.
@@ -11,5 +13,4 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface GroupeRepository extends JpaRepository<Groupe, Long> {
-    Groupe findByName(String currentGroupeUser);
 }
