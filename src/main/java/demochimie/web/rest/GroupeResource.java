@@ -97,11 +97,12 @@ public class GroupeResource {
     @GetMapping("/groupes/groupe")
     @Timed
     public Groupe getCurentGroupe() {
-        Groupe g = new Groupe();
+        //Groupe g = groupeRepository.findByName(this.securityUtils.CurrentGroupeUser());
+        Groupe g = groupeRepository.findByName(this.securityUtils.CurrentGroupeUser());
         log.debug("REST request to get Groupe by login user");
-        g.setNomGroupe(this.securityUtils.CurrentGroupeUser());
-        return g;
-    }
+
+        //g.setNomGroupe(this.securityUtils.CurrentGroupeUser());
+        return g;    }
     /**c.
      * GET  /groupes/:id : get the "id" groupe.
      *

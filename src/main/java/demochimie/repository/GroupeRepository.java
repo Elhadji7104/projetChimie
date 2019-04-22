@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface GroupeRepository extends JpaRepository<Groupe, Long> {
-
+    Groupe findByName(String currentGroupeUser);
 }

@@ -35,7 +35,7 @@ export class ClassificationUpdateComponent implements OnInit {
         this.isSaving = false;
         this.groupeService.getCurrentGroup().subscribe(data => {
             this.curentGroupe = data;
-            console.log('datagropue', this.curentGroupe);
+            console.log('datagropue', this.curentGroupe.id);
         });
         this.activatedRoute.data.subscribe(({ classification }) => {
             this.classification = classification;
