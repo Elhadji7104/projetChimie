@@ -5,25 +5,25 @@
             <tr></tr>
             <tr></tr>
             <tr></tr>
-            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle.codeBarre}}</h2>
+            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle?.codeBarre}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeBarre">Code Barre</span></dt>
                 <dd>
-                    <span>{{ficheArticle.codeBarre}}</span>
+                    <span>{{ficheArticle?.codeBarre}}</span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat Physique</span></dt>
                 <dd>
-                    <span>{{ficheArticle.etatPhysique}}</span>
+                    <span>{{ficheArticle?.etatPhysique}}</span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeInterne">Code Interne</span></dt>
                 <dd>
-                    <span>{{ficheArticle.codeInterne}}</span>
+                    <span>{{ficheArticle?.codeInterne}}</span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.quantite">Quantité</span></dt>
                 <dd>
-                    <span>{{ficheArticle.quantite}}</span>
+                    <span>{{ficheArticle?.quantite}}</span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponiblite Article</span></dt>
                 <dd>
@@ -35,39 +35,39 @@
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.document">Document</span></dt>
                 <dd>
-                    <span *ngFor="let document of ficheArticle.documents; let last = last">
+                    <span *ngFor="let document of ficheArticle?.documents; let last = last">
                         <button [routerLink]="['/document', document?.id, 'edit' ]" pButton type="button" label="Modifier URL" class="ui-button-rounded ui-button-warning"></button>
                         <button (click)="gotoLien(document.lien)" pButton type="button" label="Securite" class="ui-button-rounded ui-button-danger"></button>
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span></dt>
                 <dd>
-                    <span *ngFor="let unite of ficheArticle.unites; let last = last">
-                        <a [routerLink]="['/unite', unite?.id, 'view' ]">{{unite.libelleUnite}}</a>{{last ? '' : ', '}}
+                    <span *ngFor="let unite of ficheArticle?.unites; let last = last">
+                        <a [routerLink]="['/unite', unite?.id, 'view' ]">{{unite?.libelleUnite}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique">Fiche Produit Chimique</span></dt>
                 <dd>
-                    <span *ngFor="let ficheProduitChimique of ficheArticle.ficheProduitChimiques; let last = last">
+                    <span *ngFor="let ficheProduitChimique of ficheArticle?.ficheProduitChimiques; let last = last">
                         <a [routerLink]="['/fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.nom}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.classification">Classification</span></dt>
                 <dd>
-                    <span *ngFor="let classification of ficheArticle.classifications; let last = last">
+                    <span *ngFor="let classification of ficheArticle?.classifications; let last = last">
                         <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
-                <dt><span jhiTranslate="ficheArticle.typeLieuStockage">Lieu de Stockage</span></dt>
+                <dt><span jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu de Stockage</span></dt>
                 <dd>
-                    <span *ngFor="let typeLieuStockage  of ficheArticle.typeLieuStockage; let last = last">
-                            <a [routerLink]="['/typeDeStockage', typeLieuStockage?.id, 'view' ]">{{typeDeStockage}}</a>{{last ? '' : ', '}}
+                    <span *ngFor="let typeLieuStockage  of ficheArticle?.typeDeStockage; let last = last">
+                            <a [routerLink]="['/typeDeStockage', typeDeStockage?.id, 'view' ]">{{typeDeStockage}}</a>{{last ? '' : ', '}}
                       --> </span>
                 </dd>
                 <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span></dt>
                 <dd>
-                    <div *ngIf="ficheArticle.droitDacceeProduit">
-                        <a [routerLink]="['/droit-daccee-produit', ficheArticle.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.nom}}</a>
+                    <div *ngIf="ficheArticle?.droitDacceeProduit">
+                        <a [routerLink]="['/droit-daccee-produit', ficheArticle?.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.nom}}</a>
                     </div>
                 </dd>
             </dl>

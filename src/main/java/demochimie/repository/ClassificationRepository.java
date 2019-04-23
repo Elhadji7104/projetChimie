@@ -15,6 +15,6 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface ClassificationRepository extends JpaRepository<Classification, Long> {
-    @Query(value = "select distinct classification from Classification classification   where classification.groupe=:groupe")
+    @Query(value = "select distinct classification from Classification classification   where classification.groupe.nomGroupe=:groupe")
     List<Classification> findAllWithEagerRelationshipsGroup(@Param("groupe") String groupe);
 }

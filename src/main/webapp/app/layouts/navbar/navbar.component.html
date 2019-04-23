@@ -167,19 +167,6 @@
                             <span jhiTranslate="global.menu.research/borrowing.ficheProduitChimique">Fiche Produit Chimique</span>
                         </a>
                     </li>
-
-                    <li>
-                        <a class="dropdown-item" routerLink="document" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.research/borrowing.document">Document</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="processus-metier" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.research/borrowing.document">CreationFiche</span>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">

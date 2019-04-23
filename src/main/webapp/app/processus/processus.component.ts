@@ -55,6 +55,7 @@ export class ProcessusComponent implements OnInit {
     private typeCond: ITypeDeConditionnement;
     private classiArray: IClassification;
     test: IFicheArticle = new FicheArticle();
+    private codeInterne: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -141,6 +142,15 @@ export class ProcessusComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+
+        this.groupeService.getCurrentGroup().subscribe(
+            (res: HttpResponse<IGroupe>) => {
+                console.log(res.body.nomGroupe);
+                this.ficheArticle.codeInterne = res.body.nomGroupe;
+                this.codeInterne = res.body.nomGroupe;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     getOptionsEtat() {
@@ -187,20 +197,20 @@ export class ProcessusComponent implements OnInit {
             this.documentArray.ficheArticles.push(this.ficheArticle);
             this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
         }
-        this.ficheArticle.documents.push(this.documentArray);
-        this.ficheArticle.codeBarre = 'AA' + '-' + this.ficheArticle.refArticle;
+
+        this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
 
         // Code Interne a faire avec le REST de groupe
         this.ficheArticle.unites = [];
         this.ficheArticle.unites.push(this.uniteArray);
         this.ficheArticle.classifications = [];
-        this.ficheArticle.classifications.push(this.classiArray);
-        // this.ficheArticle.groupe = this.groupe2;
 
         if (this.ficheArticle.id !== undefined) {
             this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
         } else {
-            this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
+            console.log(this.ficheArticleService.create(this.ficheArticle));
+
+            console.log(this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle)));
         }
         console.log(this.ficheArticle);
         //this.router.navigateByUrl('/processus-metier/' + this.ficheArticle.refArticle + '/view');
