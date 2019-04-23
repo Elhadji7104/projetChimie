@@ -55,8 +55,6 @@ export class FicheArticle implements IFicheArticle {
         public disponibliteArticle?: DisponibliteArticle,
         public typeDesuivi?: boolean,
         public accessibilite?: boolean,
-        public ficheEmpruntProduits?: IFicheEmpruntProduit[],
-        public ficheRetourProduits?: IFicheRetourProduit[],
         public ficheDeCommandeProduits?: IFicheDeCommandeProduit[],
         public listeMotsCles?: IListeMotsCles[],
         public typeDeConditionnements?: ITypeDeConditionnement[],

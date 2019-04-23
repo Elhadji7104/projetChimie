@@ -60,6 +60,30 @@
                             <span jhiTranslate="global.menu.yearbook.mailGestionnaire">Mail Gestionnaire</span>
                         </a>
                     </li>
+                    <li>
+                        <a *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE']" class="dropdown-item" routerLink="classification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.management of the base.classification">Classification</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE']" class="dropdown-item" routerLink="type-de-conditionnement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.management of the base.typeDeConditionnement">Type De Conditionnement</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE']" class="dropdown-item" routerLink="unite" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.management of the base.unite">Unite</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE']" class="dropdown-item" routerLink="type-lieu-stockage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.management of the base.typeLieuStockage">Type Lieu Stockage</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_HYGIENE_ET_SECURITE']" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -85,7 +109,7 @@
                 </ul>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-            <li  ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
@@ -113,30 +137,7 @@
                             <span jhiTranslate="global.menu.management of the base.ficheRetourProduit">Fiche Retour Produit</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="classification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.management of the base.classification">Classification</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="type-de-conditionnement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.management of the base.typeDeConditionnement">Type De Conditionnement</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="unite" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.management of the base.unite">Unite</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="type-lieu-stockage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.management of the base.typeLieuStockage">Type Lieu Stockage</span>
-                        </a>
-                    </li>
+
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
