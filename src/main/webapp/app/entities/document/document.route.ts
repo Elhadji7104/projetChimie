@@ -33,7 +33,7 @@ export const documentRoute: Routes = [
         path: 'document',
         component: DocumentComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_VALIDEUR', 'ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.document.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const documentRoute: Routes = [
             document: DocumentResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_VALIDEUR', 'ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.document.home.title'
         },
         canActivate: [UserRouteAccessService]

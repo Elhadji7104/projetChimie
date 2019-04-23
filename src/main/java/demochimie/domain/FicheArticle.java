@@ -63,13 +63,14 @@ public class FicheArticle implements Serializable {
 
     //ajout d'un set de lieu de stockage
     @ManyToOne
-    @JsonIgnoreProperties("ficheArticles")
+    @JsonIgnoreProperties("ficheArticle")
     private TypeLieuStockage typeLieuStockage;
     @OneToMany(mappedBy = "ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FicheDeCommandeProduit> ficheDeCommandeProduits = new HashSet<>();
 
     @OneToMany(mappedBy = "ficheArticle")
+    @JsonIgnoreProperties("ficheArticle")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TypeDeConditionnement> typeDeConditionnements = new HashSet<>();
     @ManyToMany

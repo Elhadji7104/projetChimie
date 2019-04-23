@@ -154,7 +154,7 @@
                     <span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle"></span>
                     <div>
                         <p-dropdown name="dispo" [style]="{'width':'50%'}" [options]="DispoSelect"
-                                    [(ngModel)]="ficheArticle.droitDacceeProduit"></p-dropdown>
+                                    [(ngModel)]="ficheArticle.disponibliteArticle"></p-dropdown>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                 <span jhiTranslate="projetChimieApp.ficheArticle.document"></span>
                 <div>
                     <input [style]="{'width':'50%'}" name="doc" id="lien" type="text" size="30" pInputText
-                           [(ngModel)]="document">
+                           [(ngModel)]="documentInput">
                 </div>
             </div>
             <div class="ui-g-4">
@@ -173,12 +173,12 @@
                 <div>
                     <div>
                         <p-dropdown name="unite" [style]="{'width':'50%'}" [options]="unitesSelect"
-                                   ></p-dropdown>
-                    </div> <!--[(ngModel)]="ficheArticle.unites"-->
+                                    [(ngModel)]="uniteArray"></p-dropdown>
+                    </div>
                 </div>
             </div>
             <div class="ui-g-4">
-                <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification *</label>
+                <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification</label>
                 <div>
                     <p-dropdown name="cla" [style]="{'width':'50%'}" [options]="classiSelect"
                                 [(ngModel)]="classiArray"></p-dropdown>
@@ -211,7 +211,7 @@
                     <span jhiTranslate="projetChimieApp.groupe.home.title"></span>
                     <div>
                         <p-multiSelect name="droit" [options]="droitSelect"
-                                       [(ngModel)]="ficheArticle.droitDacceeProduit" [filter]="true"></p-multiSelect>
+                                       [(ngModel)]="groupe"></p-multiSelect>
                     </div>
                 </div>
             </div>
@@ -242,8 +242,9 @@
                     <span jhiTranslate="projetChimieApp.typeDeConditionnement.home.title"></span>
                 </div>
                 <div>
-                    <p-dropdown name="condictionnement" [style]="{'width':'50%'}" [options]="condictionnementSelect"></p-dropdown>
-                </div><!--  [(ngModel)]="ficheArticle.typeDeConditionnements"-->
+                    <p-dropdown name="condictionnement" [style]="{'width':'50%'}" [options]="condictionnementSelect"
+                                [(ngModel)]="typeCond" ></p-dropdown>
+                </div>
             </div>
         </div>
     </p-card>
@@ -251,9 +252,10 @@
         <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
             <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+        <button type="submit"
                 class="btn btn-primary">
-            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <fa-icon [icon]="'save'"></fa-icon>
+            <span jhiTranslate="entity.action.save">Save</span>
         </button>
     </div>
 </form>

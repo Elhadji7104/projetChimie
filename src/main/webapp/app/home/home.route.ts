@@ -59,7 +59,7 @@ export const PROCESSUS: Route = {
 };
 
 export const PROCESSUSDETAIL: Route = {
-    path: 'processus-metier/:id/view',
+    path: 'processus-metier/:refArticle/view',
     component: ProcessusDetailComponent,
     resolve: {
         ficheArticle: FicheArticleResolve

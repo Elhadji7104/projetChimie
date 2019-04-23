@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JhiAlertService } from 'ng-jhipster';
 import { FicheProduitChimiqueService } from 'app/entities/fiche-produit-chimique';
 import { FicheArticleService } from 'app/entities/fiche-article';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheProduitChimique, IFicheProduitChimique } from 'app/shared/model/fiche-produit-chimique.model';
@@ -42,15 +42,17 @@ export class ProcessusComponent implements OnInit {
     EtatSelect: SelectItem[] = [];
     private DispoSelect: SelectItem[] = [];
     private condictionnementSelect: SelectItem[] = [];
-    private document: string;
+    private documentInput: string;
     private classiSelect: SelectItem[] = [];
     private droitSelect: SelectItem[] = [];
     private unitesSelect: SelectItem[] = [];
     private localisationSelect: SelectItem[] = [];
     private stockageSelect: SelectItem[] = [];
     private localisation: ILocalisation;
-    doc: IDocument = new Document();
-    private documentArray: IDocument[];
+    private documentArray: IDocument = new Document();
+    private uniteArray: IUnite;
+    private groupe2: IGroupe;
+    private typeCond: ITypeDeConditionnement;
     private classiArray: IClassification;
     test: IFicheArticle = new FicheArticle();
 
@@ -77,7 +79,6 @@ export class ProcessusComponent implements OnInit {
 
         this.groupeService.query().subscribe(
             (res: HttpResponse<IGroupe[]>) => {
-                console.log(res.body);
                 for (let value of res.body) {
                     this.droitSelect.push({ label: value.nomGroupe, value: value });
                 }
@@ -104,9 +105,8 @@ export class ProcessusComponent implements OnInit {
 
         this.uniteService.query().subscribe(
             (res: HttpResponse<IUnite[]>) => {
-                console.log(res.body);
                 for (let value of res.body) {
-                    this.unitesSelect.push({ label: value.libelleUnite, value: value.libelleUnite });
+                    this.unitesSelect.push({ label: value.libelleUnite, value: value });
                 }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -132,6 +132,7 @@ export class ProcessusComponent implements OnInit {
         this.getOptionsEtat();
 
         this.getOptionsDispo();
+
         this.condictionnementService.query().subscribe(
             (res: HttpResponse<ITypeDeConditionnement[]>) => {
                 for (let value of res.body) {
@@ -160,13 +161,9 @@ export class ProcessusComponent implements OnInit {
     }
 
     selectionStockage() {
-        console.log('passer');
         this.stockageService.query().subscribe(
             (res: HttpResponse<ITypeLieuStockage[]>) => {
                 for (let value of res.body) {
-                    console.log(value.localisation.id);
-                    console.log(this.localisation.id);
-                    console.log(value.localisation.id === this.localisation.id);
                     if (value.localisation.id === this.localisation.id) {
                         this.stockageSelect.push({ label: value.libelleLieu, value: value });
                     }
@@ -177,23 +174,36 @@ export class ProcessusComponent implements OnInit {
     }
 
     save() {
+        this.ficheArticle.ficheProduitChimiques = [];
+        this.ficheArticle.ficheProduitChimiques.push(this.ficheProduits);
         if (this.booleanChimique) {
             this.subscribeToSaveResponseProduit(this.ficheProduitChimiqueService.create(this.ficheProduits));
         }
-        if (this.document !== undefined) {
-            this.doc.lien = this.document;
-            this.subscribeToSaveResponseDoc(this.documentService.create(this.doc));
+
+        this.ficheArticle.documents = [];
+        if (this.documentInput !== undefined) {
+            this.documentArray.lien = this.documentInput;
+            this.documentArray.ficheArticles = [];
+            this.documentArray.ficheArticles.push(this.ficheArticle);
+            this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
         }
+        this.ficheArticle.documents.push(this.documentArray);
         this.ficheArticle.codeBarre = 'AA' + '-' + this.ficheArticle.refArticle;
-        /* this.documentArray = [];
-        this.documentArray.push(this.doc);*/
-        this.ficheArticle.documents = this.documentArray;
+
+        // Code Interne a faire avec le REST de groupe
+        this.ficheArticle.unites = [];
+        this.ficheArticle.unites.push(this.uniteArray);
         this.ficheArticle.classifications = [];
         this.ficheArticle.classifications.push(this.classiArray);
+        // this.ficheArticle.groupe = this.groupe2;
 
-        /* this.ficheArticle.ficheProduitChimiques = [];
-        this.ficheArticle.ficheProduitChimiques.push(this.ficheProduits);*/
-        this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
+        if (this.ficheArticle.id !== undefined) {
+            this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
+        } else {
+            this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
+        }
+        console.log(this.ficheArticle);
+        //this.router.navigateByUrl('/processus-metier/' + this.ficheArticle.refArticle + '/view');
     }
 
     protected subscribeToSaveResponseProduit(result: Observable<HttpResponse<IFicheProduitChimique>>) {
@@ -205,6 +215,7 @@ export class ProcessusComponent implements OnInit {
 
     protected subscribeToSaveResponseArticle(result: Observable<HttpResponse<IFicheArticle>>) {
         result.subscribe((res: HttpResponse<IFicheArticle>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
+        console.log(this.isSaving);
     }
 
     protected subscribeToSaveResponseDoc(result: Observable<HttpResponse<IDocument>>) {
@@ -212,7 +223,7 @@ export class ProcessusComponent implements OnInit {
     }
 
     protected onSaveSuccess() {
-        this.isSaving = false;
+        this.isSaving = true;
         this.previousState();
     }
 
