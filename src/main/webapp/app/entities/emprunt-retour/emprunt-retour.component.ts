@@ -14,6 +14,7 @@ import moment = require('moment');
 import { FicheDeCommandeProduitService } from 'app/entities/fiche-de-commande-produit';
 import { FicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 import { ActivatedRoute } from '@angular/router';
+import { IDocument } from 'app/shared/model/document.model';
 
 @Component({
     selector: 'jhi-emprunt-retour',
@@ -44,7 +45,6 @@ export class EmpruntRetourComponent implements OnInit {
     numberUser: any;
 
     constructor(
-        protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
         protected ficheArticleService: FicheArticleService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
@@ -118,9 +118,17 @@ export class EmpruntRetourComponent implements OnInit {
     }
 
     save() {
-        /*this.ficheArticleService.find(1).subscribe(result => {
-            this.ficheArticle = result.body;
-        });*/
+        this.account = null;
+
+        if (this.account === undefined) {
+            this.ficheArticleService.findUser(this.numberUser).subscribe(
+                (res: HttpResponse<IUser>) => {
+                    this.account = res.body;
+                    console.log('test', res.body);
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        }
         this.show();
         if (this.ficheArticle.refArticle !== undefined) {
             if (!this.choix) {

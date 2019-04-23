@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IFicheArticle } from 'app/shared/model/fiche-article.model';
+import { IUser } from 'app/core';
 
 type EntityResponseType = HttpResponse<IFicheArticle>;
 type EntityArrayResponseType = HttpResponse<IFicheArticle[]>;
@@ -35,5 +36,10 @@ export class FicheArticleService {
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+
+    findUser(login: number): Observable<HttpResponse<any>> {
+        console.log(login);
+        return this.http.get<IUser>(`/api/users/${login}`, { observe: 'response' });
     }
 }

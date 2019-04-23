@@ -5,19 +5,16 @@
     <div>
 
         <p></p>
-        <div class="first" *ngIf="choix">
-            <div>
-            <span>User</span></div><div>
+        <div>
+            <span>User</span></div>
+        <div>
             <input type="number" id="user" [(ngModel)]="numberUser" name="user">
- </div> <h3 class="first">veuillez entrer  à retourner :</h3>
+        </div>
+        <div class="first" *ngIf="choix">
+<h3 class="first">veuillez entrer  à retourner :</h3>
         </div>
         <div class="first" *ngIf="!choix">
-            <div>
-            <span>veuillez entrer votre login</span>
-            </div>
-            <div>
-            <p-inputMask mask="999999999999" [(ngModel)]="ficheEmpruntProduit.user" placeholder="999999999999"></p-inputMask>
-            </div> <h3 class="first">veuillez entrer l'article à emprunter :</h3>
+<h3 class="first">veuillez entrer l'article à emprunter :</h3>
         </div>
         <div class="first">
             <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" (onChange)="actuUnite();actuDispon()" required>
