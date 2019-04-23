@@ -58,7 +58,7 @@
                         <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
-                <dt><span jhiTranslate="ficheArticle.typeLieuStockage">Lieu de Stockage</span></dt>
+                <dt><span jhiTranslate="projetChimieApp.ficheArticle.typeLieuStockage">Lieu de Stockage</span></dt>
                 <dd>
                     <span *ngFor="let typeLieuStockage  of ficheArticle.typeLieuStockage; let last = last">
                             <a [routerLink]="['/typeDeStockage', typeLieuStockage?.id, 'view' ]">{{typeDeStockage}}</a>{{last ? '' : ', '}}

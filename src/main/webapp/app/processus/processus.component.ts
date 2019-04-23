@@ -143,6 +143,17 @@ export class ProcessusComponent implements OnInit {
         );
     }
 
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
+    }
+
     getOptionsEtat() {
         this.EtatSelect.push({ label: 'SOLIDE', value: 'SOLIDE' });
         this.EtatSelect.push({ label: 'LIQUIDE', value: 'LIQUIDE' });
@@ -175,7 +186,7 @@ export class ProcessusComponent implements OnInit {
 
     save() {
         this.ficheArticle.ficheProduitChimiques = [];
-        this.ficheArticle.ficheProduitChimiques.push(this.ficheProduits);
+        //this.ficheArticle.ficheProduitChimiques[0] = this.ficheProduits;
         if (this.booleanChimique) {
             this.subscribeToSaveResponseProduit(this.ficheProduitChimiqueService.create(this.ficheProduits));
         }
@@ -184,18 +195,18 @@ export class ProcessusComponent implements OnInit {
         if (this.documentInput !== undefined) {
             this.documentArray.lien = this.documentInput;
             this.documentArray.ficheArticles = [];
-            this.documentArray.ficheArticles.push(this.ficheArticle);
+            this.documentArray.ficheArticles[0] = this.ficheArticle;
             this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
         }
-        this.ficheArticle.documents.push(this.documentArray);
+        //this.ficheArticle.documents[0] = this.documentArray;
         this.ficheArticle.codeBarre = 'AA' + '-' + this.ficheArticle.refArticle;
 
         // Code Interne a faire avec le REST de groupe
         this.ficheArticle.unites = [];
-        this.ficheArticle.unites.push(this.uniteArray);
+        this.ficheArticle.unites[0] = this.uniteArray;
         this.ficheArticle.classifications = [];
-        this.ficheArticle.classifications.push(this.classiArray);
-        // this.ficheArticle.groupe = this.groupe2;
+        this.ficheArticle.classifications[0] = this.classiArray;
+        this.ficheArticle.groupe = this.groupe2;
 
         if (this.ficheArticle.id !== undefined) {
             this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
