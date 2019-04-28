@@ -5,35 +5,57 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="projetChimieApp.ficheProduitChimique.cas">Cas</span></dt>
-                <dd>
-                    <span>{{ficheProduitChimique.cas}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheProduitChimique.codeProduit">Code Produit</span></dt>
-                <dd>
-                    <span>{{ficheProduitChimique.codeProduit}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheProduitChimique.nom">Nom</span></dt>
-                <dd>
-                    <span>{{ficheProduitChimique.nom}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme">Acronyme</span></dt>
-                <dd>
-                    <span>{{ficheProduitChimique.acronyme}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheProduitChimique.mm">Mm</span></dt>
-                <dd>
-                    <span>{{ficheProduitChimique.mm}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre">Code nacre</span></dt>
-                <dd>
-                    <span>{{ficheProduitChimique.codeNacre}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheProduitChimique.formule">Formule brute</span></dt>
-                <dd>
-                    <span>{{ficheProduitChimique.formule}}</span>
-                </dd>
-            </dl>
+
+
+                    <div class="ui-g">
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-g-4">
+                                    <span class="simple-Application" jhiTranslate="projetChimieApp.ficheProduitChimique.cas">Cas</span>
+                                </div>
+                                <div class="ui-g-8">
+                                    <span class="bold-Application">{{ficheProduitChimique.cas}}</span>
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-g-4">
+                                    <span class="simple-Application" jhiTranslate="projetChimieApp.ficheProduitChimique.nom">Nom</span>
+                                </div>
+                                <div class="ui-g-8">
+                                    <span class="bold-Application">{{ficheProduitChimique.nom}}</span>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-g-4">
+                                   <span class="simple-Application" jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme">Acronyme</span>
+                                </div>
+                                <div class="ui-g-8">
+                                    <span class="bold-Application">{{ficheProduitChimique.acronyme}}</span> </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-g-4">
+                                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheProduitChimique.mm">Mm</span>
+                                </div>
+                                <div class="ui-g-8">
+                                    <span class="bold-Application">{{ficheProduitChimique.mm}}</span>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-g-4">
+                                    <span class="simple-Application" jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre">Code nacre</span>
+                                </div>
+                                <div class="ui-g-8">
+                                    <span class="bold-Application">{{ficheProduitChimique.codeNacre}}</span></div>
+                            </div>
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-g-4">
+                                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheProduitChimique.formule">Formule brute</span>
+                                </div>
+                                <div class="ui-g-8">
+                                    <span class="bold-Application">{{ficheProduitChimique.formule}}</span>
+                                </div>
+                            </div>
+                        </div>
 
             <button type="submit"
                     (click)="previousState()"

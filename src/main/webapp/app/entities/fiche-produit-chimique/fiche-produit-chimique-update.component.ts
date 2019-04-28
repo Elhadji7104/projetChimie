@@ -46,11 +46,18 @@ export class FicheProduitChimiqueUpdateComponent implements OnInit {
     }
 
     save() {
-        this.isSaving = true;
-        if (this.ficheProduitChimique.id !== undefined) {
-            this.subscribeToSaveResponse(this.ficheProduitChimiqueService.update(this.ficheProduitChimique));
-        } else {
-            this.subscribeToSaveResponse(this.ficheProduitChimiqueService.create(this.ficheProduitChimique));
+        if (
+            this.ficheProduitChimique.nom !== undefined ||
+            this.ficheProduitChimique.acronyme !== undefined ||
+            this.ficheProduitChimique.cas !== undefined ||
+            this.ficheProduitChimique.formule !== undefined
+        ) {
+            this.isSaving = true;
+            if (this.ficheProduitChimique.id !== undefined) {
+                this.subscribeToSaveResponse(this.ficheProduitChimiqueService.update(this.ficheProduitChimique));
+            } else {
+                this.subscribeToSaveResponse(this.ficheProduitChimiqueService.create(this.ficheProduitChimique));
+            }
         }
     }
 

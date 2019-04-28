@@ -159,7 +159,6 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
             let mmBoolean = false;
             let codeNacreBoolean = false;
             let formuleBoolean = false;
-
             if (this.cas.includes(value.cas) || this.cas.length === 0) {
                 casBoolean = true;
             }
@@ -191,7 +190,7 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
         if (
             this.cas.length === 0 &&
             this.acronyme.length === 0 &&
-            this.acronyme.length === 0 &&
+            this.nom.length === 0 &&
             this.mm.length === 0 &&
             this.codeNacre.length === 0 &&
             this.formule.length === 0
@@ -202,9 +201,12 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
         }
     }
 
-    exportExcel() {
-        console.log(this.ficheProduitChimiques);
-        this.exportExcelService.set(this.ficheProduitChimiques);
+    exportExcel(select) {
+        if (select) {
+            this.exportExcelService.set(this.ficheProduitChimiques);
+        } else {
+            this.exportExcelService.set(this.ficheProduitChimiquesCopy);
+        }
         this.router.navigate(['/', { outlets: { popup: 'fiche-produit-chimique/print' } }]);
     }
 }

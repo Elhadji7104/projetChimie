@@ -1,55 +1,88 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-fiche-produit-chimique-heading" jhiTranslate="projetChimieApp.ficheProduitChimique.home.createOrEditLabel">Create or edit a Fiche Produit Chimique</h2>
+            <h2 id="jhi-fiche-produit-chimique-heading"
+                jhiTranslate="projetChimieApp.ficheProduitChimique.home.createOrEditLabel">Create or edit a Fiche
+                Produit Chimique</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.cas" for="field_cas">Cas</label>
-                    <div>
-                    <p-inputMask name="cas"  id="field_cas"[(ngModel)]="ficheProduitChimique.cas"  mask="999 999-99-9" required></p-inputMask>
-                </div></div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.nom" for="field_nom">Nom</label>
-                    <div>
-                    <input pInputText  name="nom" id="field_nom" type="text" pInputText [(ngModel)]="ficheProduitChimique.nom" required>
-                </div></div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme" for="field_acronyme">Acronyme</label>
-                    <div>
-                    <input type="text"  pInputText name="acronyme" id="field_acronyme"
-                        [(ngModel)]="ficheProduitChimique.acronyme" value="/" required/>
-                </div></div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.mm" for="field_mm">Mm</label>
-                    <div>
-                    <p-inputMask  name="cas" name="mm" id="field_mm" [(ngModel)]="ficheProduitChimique.mm"  mask="9 999,99 g/mol" required></p-inputMask>
-                </div></div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre" for="field_codeNacre">Code Nacre</label>
-                    <div>
-
-                        <p-inputMask name="codeNacre" id="field_codeNacre"
-                                     [(ngModel)]="ficheProduitChimique.codeNacre" value="NA21"  mask="aa99"></p-inputMask>
-
-                    </div></div>
-                <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.formule" for="field_formule">Formule brute</label>
                 <div>
-
-                    <input name="formule" id="field_formule" type="text"  pInputText name="formule"
-                           [(ngModel)]="ficheProduitChimique.formule" required/>
-
+                        <span class="bold-Application">La modification de cette fiche modifie la fiche de tous les laboratoires de rennes.</span>
                 </div>
+
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            <span class="simple-Application"
+                                jhiTranslate="projetChimieApp.ficheProduitChimique.cas">Cas</span>
+                        </div>
+                        <div class="ui-g-8">
+                            <p-inputMask name="cas" id="field_cas" [(ngModel)]="ficheProduitChimique.cas"
+                                mask="999 999-99-9"></p-inputMask>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            <span class="simple-Application"
+                                jhiTranslate="projetChimieApp.ficheProduitChimique.nom">Nom</span>
+                        </div>
+                        <div class="ui-g-8">
+                            <input pInputText name="nom" id="field_nom" type="text" pInputText
+                                [(ngModel)]="ficheProduitChimique.nom">
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            <span class="simple-Application"
+                                jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme">Acronyme</span>
+                        </div>
+                        <div class="ui-g-8">
+                            <input type="text" pInputText name="acronyme" id="field_acronyme"
+                                [(ngModel)]="ficheProduitChimique.acronyme" value="/" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            <span class="simple-Application"
+                                jhiTranslate="projetChimieApp.ficheProduitChimique.mm">Mm</span>
+                        </div>
+                        <div class="ui-g-8">
+                            <p-inputMask name="mm" name="mm" id="field_mm" [(ngModel)]="ficheProduitChimique.mm"
+                                mask="9 999,99 g/mol"></p-inputMask>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            <span class="simple-Application"
+                                jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre">Code nacre</span>
+                        </div>
+                        <div class="ui-g-8">
+                            <p-inputMask name="codeNacre" id="field_codeNacre"
+                                [(ngModel)]="ficheProduitChimique.codeNacre" value="NA21" mask="aa99"></p-inputMask>
+
+                        </div>
+
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            <span class="simple-Application"
+                                jhiTranslate="projetChimieApp.ficheProduitChimique.formule">Formule brute</span>
+                        </div>
+                        <div class="ui-g-8">
+                            <input name="formule" id="field_formule" type="text" pInputText name="formule"
+                                [(ngModel)]="ficheProduitChimique.formule" />
+                        </div>
+                    </div>
                 </div>
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
-            </div>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                        class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
         </form>
     </div>
 </div>
