@@ -5,86 +5,142 @@
             <tr></tr>
             <tr></tr>
             <tr></tr>
-            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span> {{ficheArticle?.codeBarre}}</h2>
+            <h2><span jhiTranslate="projetChimieApp.ficheArticle.detail.title">Fiche Article</span>
+                {{ficheArticle?.codeBarre}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeBarre">Code Barre</span></dt>
-                <dd>
-                    <span>{{ficheArticle?.codeBarre}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat Physique</span></dt>
-                <dd>
-                    <span>{{ficheArticle?.etatPhysique}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.codeInterne">Code Interne</span></dt>
-                <dd>
-                    <span>{{ficheArticle?.codeInterne}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.quantite">Quantité</span></dt>
-                <dd>
-                    <span>{{ficheArticle?.quantite}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponiblite Article</span></dt>
-                <dd>
-                    <span jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + ficheArticle.disponibliteArticle}}">{{ficheArticle.disponibliteArticle}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.accessibilite">Accessibilite</span></dt>
-                <dd>
-                    <span>{{ficheArticle.accessibilite}}</span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.document">Document</span></dt>
-                <dd>
-                    <span *ngFor="let document of ficheArticle?.documents; let last = last">
-                        <button [routerLink]="['/document', document?.id, 'edit' ]" pButton type="button" label="Modifier URL" class="ui-button-rounded ui-button-warning"></button>
-                        <button (click)="gotoLien(document.lien)" pButton type="button" label="Securite" class="ui-button-rounded ui-button-danger"></button>
-                    </span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span></dt>
-                <dd>
-                    <span *ngFor="let unite of ficheArticle?.unites; let last = last">
-                        <a [routerLink]="['/unite', unite?.id, 'view' ]">{{unite?.libelleUnite}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique">Fiche Produit Chimique</span></dt>
-                <dd>
-                    <span *ngFor="let ficheProduitChimique of ficheArticle?.ficheProduitChimiques; let last = last">
-                        <a [routerLink]="['/fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.nom}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.classification">Classification</span></dt>
-                <dd>
-                    <span *ngFor="let classification of ficheArticle?.classifications; let last = last">
-                        <a [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu de Stockage</span></dt>
-                <dd>
-                    <span *ngFor="let typeLieuStockage  of ficheArticle?.typeDeStockage; let last = last">
-                            <a [routerLink]="['/typeDeStockage', typeDeStockage?.id, 'view' ]">{{typeDeStockage}}</a>{{last ? '' : ', '}}
-                      --> </span>
-                </dd>
-                <dt><span jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span></dt>
-                <dd>
-                    <div *ngIf="ficheArticle?.droitDacceeProduit">
-                        <a [routerLink]="['/droit-daccee-produit', ficheArticle?.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.nom}}</a>
+            <div class="ui-fluid"></div>
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.codeBarre">Code Barre</span>
                     </div>
-                </dd>
-            </dl>
+                    <div class="ui-g-8">
+                        <span class="bold-Application">{{ficheArticle?.codeBarre}}</span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat Physique</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application">{{ficheArticle?.etatPhysique}}</span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.codeInterne">Code Interne</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application">{{ficheArticle?.codeInterne}}</span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.quantite">Quantité</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application">{{ficheArticle?.quantite}}</span> </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponiblite
+                            Article</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application"
+                            jhiTranslate="{{'projetChimieApp.DisponibliteArticle.' + ficheArticle.disponibliteArticle}}">{{ficheArticle.disponibliteArticle}}</span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.accessibilite">Accessibilite</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application">{{ficheArticle.accessibilite}}</span></div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.document">Document</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span *ngFor="let document of ficheArticle?.documents; let last = last">
+                            <button [routerLink]="['/document', document?.id, 'edit' ]" pButton type="button"
+                                label="Modifier URL" class="ui-button-rounded ui-button-warning"></button>
+                            <button (click)="gotoLien(document.lien)" pButton type="button" label="Securite"
+                                class="ui-button-rounded ui-button-danger"></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application" *ngFor="let unite of ficheArticle?.unites; let last = last">
+                            <a
+                                [routerLink]="['/unite', unite?.id, 'view' ]">{{unite?.libelleUnite}}</a>{{last ? '' : ', '}}
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique">Fiche Produit
+                            Chimique</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application" *ngFor="let ficheProduitChimique of ficheArticle?.ficheProduitChimiques; let last = last">
+                            <a
+                                [routerLink]="['/fiche-produit-chimique', ficheProduitChimique?.id, 'view' ]">{{ficheProduitChimique.nom}}</a>{{last ? '' : ', '}}
+                        </span>
+                    </div>
+                </div>
 
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.classification">Classification</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application" *ngFor="let classification of ficheArticle?.classifications; let last = last">
+                            <a
+                                [routerLink]="['/classification', classification?.id, 'view' ]">{{classification.nomClassification}}</a>{{last ? '' : ', '}}
+                        </span>
+                    </div>
+                </div>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu de Stockage</span> </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application" *ngFor="let typeLieuStockage  of ficheArticle?.typeDeStockage; let last = last">
+                            <a
+                                [routerLink]="['/typeDeStockage', typeDeStockage?.id, 'view' ]">{{typeDeStockage}}</a>{{last ? '' : ', '}}
+                        </span>
+                    </div>
+                </div>
 
-            <button type="button"
-                    [routerLink]="['/fiche-article', ficheArticle.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <div class="bold-Application" *ngIf="ficheArticle?.droitDacceeProduit">
+                            <a
+                                [routerLink]="['/droit-daccee-produit', ficheArticle?.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.nom}}</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/fiche-article', ficheArticle.id, 'edit']" class="btn btn-primary">
+            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        </button>
     </div>
 </div>
-
+</div>
