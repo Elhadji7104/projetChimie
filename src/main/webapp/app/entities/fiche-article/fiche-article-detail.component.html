@@ -112,21 +112,32 @@
                     <div class="ui-g-4">
                         <span class="simple-Application" jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu de Stockage</span> </div>
                     <div class="ui-g-8">
-                        <span class="bold-Application" *ngFor="let typeLieuStockage  of ficheArticle?.typeDeStockage; let last = last">
+                        <span class="bold-Application">
                             <a
-                                [routerLink]="['/typeDeStockage', typeDeStockage?.id, 'view' ]">{{typeDeStockage}}</a>{{last ? '' : ', '}}
+                                [routerLink]="['/type-lieu-stockage', ficheArticle?.typeLieuStockage?.id, 'view' ]">{{ficheArticle?.typeLieuStockage?.libelleLieu}}</a>
                         </span>
                     </div>
                 </div>
+                <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            <span class="simple-Application" jhiTranslate="projetChimieApp.localisation.home.title">Localisation</span> </div>
+                        <div class="ui-g-8">
+                            <span class="bold-Application">
+                                <a
+                                    [routerLink]="['/localisation', ficheArticle?.typeLieuStockage?.localisation?.id, 'view' ]">{{ficheArticle?.typeLieuStockage?.localisation?.adresse}}</a>
+                            </span>
+                        </div>
+                    </div>
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-g-4">
                         <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee Produit</span>
                     </div>
                     <div class="ui-g-8">
-                        <div class="bold-Application" *ngIf="ficheArticle?.droitDacceeProduit">
-                            <a
-                                [routerLink]="['/droit-daccee-produit', ficheArticle?.droitDacceeProduit?.id, 'view']">{{ficheArticle.droitDacceeProduit?.nom}}</a>
+                        <div class="bold-Application" *ngIf="droitDacceeProduits">
+                            <span *ngFor="let droit of droitDacceeProduits; let last = last">
+                                <a [routerLink]="['/droit-daccee-produit', droit?.id, 'view']">{{droit?.groupe?.nomGroupe}}</a>{{last ? '' : ', '}}
+                            </span>
                         </div>
                     </div>
                 </div>
