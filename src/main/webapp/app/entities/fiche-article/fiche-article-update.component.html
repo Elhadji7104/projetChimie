@@ -1,114 +1,196 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-fiche-article-heading" jhiTranslate="projetChimieApp.ficheArticle.home.createOrEditLabel">Create or edit a Fiche Article</h2>
+            <h2 id="jhi-fiche-article-heading" jhiTranslate="projetChimieApp.ficheArticle.home.createOrEditLabel">Create
+                or edit a Fiche Article</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-<p></p>
-                <div class="form-group">
-                    <span class="ui-float-label">
+                <p></p>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.refArticle">Reference Article</span>
+                    </div>
+                    <div class="ui-g-8">
                         <input type="text" size="30" name="refArticle" id="field_refArticle2"
-                               [(ngModel)]="ficheArticle.refArticle" pInputText required>
-                        <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.refArticle">Reference Article *</label>
-                    </span>
+                            [(ngModel)]="ficheArticle.refArticle" pInputText required> </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat Physique</label>
-                   <div>
-                    <p-dropdown [options]="getOptionsEtat()"  name="etat" [(ngModel)]="ficheArticle.etatPhysique" [style]="{'width':'150px'}" filter="true">
-                        <ng-template let-uni pTemplate="item">
-                            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-                                <div>{{uni.label}}</div>
-                            </div>
-                        </ng-template>
-                    </p-dropdown>
-                   </div>
-               </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle" for="field_disponibliteArticle">Disponiblite Article *</label>
-                    <select class="form-control" name="disponibliteArticle" [(ngModel)]="ficheArticle.disponibliteArticle" id="field_disponibliteArticle" required>
-                        <option value="DISPONIBLE">{{'projetChimieApp.DisponibliteArticle.DISPONIBLE' | translate}}</option>
-                        <option value="INDISPONIBLE">{{'projetChimieApp.DisponibliteArticle.INDISPONIBLE' | translate}}</option>
-                        <option value="FINDESTOCK">{{'projetChimieApp.DisponibliteArticle.FINDESTOCK' | translate}}</option>
-                        <option value="ENCOMMANDE">{{'projetChimieApp.DisponibliteArticle.ENCOMMANDE' | translate}}</option>
-                    </select>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.etatPhysique">Etat
+                            Physique</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <p-dropdown [options]="getOptionsEtat()" name="etat" [(ngModel)]="ficheArticle.etatPhysique"
+                            [style]="{'width':'150px'}" filter="true">
+                            <ng-template let-uni pTemplate="item">
+                                <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                                    <div>{{uni.label}}</div>
+                                </div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.accessibilite"
-                           for="field_accessibilite">Accessibilite</label>
-                </div> <div class="form-group">
-                <p-inputSwitch name="accessibilite" id="field_accessibilite"
-                               [(ngModel)]="ficheArticle.accessibilite" ></p-inputSwitch>
-
-            </div>
-
-                <div class="form-group">
-                    <label jhiTranslate="projetChimieApp.ficheArticle.document">Document</label>
-                </div>
-                <div class="form-group">
-                    <p-multiSelect [options]="documentSelected()"  name="doc" [(ngModel)]="ficheArticle.documents" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
-                </div>
-
-                <div class="form-group">
-                        <label jhiTranslate="projetChimieApp.ficheArticle.quantite">Quantité *</label>
-                </div>
-                <div class="form-group">
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.quantite">Quantité</span>
+                    </div>
+                    <div class="ui-g-8">
                         <input type="text" size="30" name="quantite" id="field_quantite"
-                               [(ngModel)]="ficheArticle.quantite" pInputText required>
+                            [(ngModel)]="ficheArticle.quantite" pInputText required> </div>
                 </div>
-                <div class="form-group">
-                    <label jhiTranslate="projetChimieApp.ficheArticle.unite" for="field_unite">Unite *</label>
-                    <select class="form-control" id="field_unite" multiple name="unite" [(ngModel)]="ficheArticle.unites">
-                        <option [ngValue]="getSelected(ficheArticle.unites, uniteOption)" *ngFor="let uniteOption of unites; trackBy: trackUniteById">{{uniteOption.libelleUnite}}</option>
-                    </select>
-                <!--    <p-dropdown [options]="getOptions()"  name="option" [(ngModel)]="ficheArticle.unites" [style]="{'width':'150px'}" filter="true" required>
-                        <ng-template let-uni pTemplate="item">
-                            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-                                <div>{{uni.label}}</div>
-                            </div>
-                        </ng-template>
-                    </p-dropdown>-->
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponiblite
+                            Article</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <select class="form-control" name="disponibliteArticle"
+                            [(ngModel)]="ficheArticle.disponibliteArticle" id="field_disponibliteArticle" required>
+                            <option value="DISPONIBLE">{{'projetChimieApp.DisponibliteArticle.DISPONIBLE' | translate}}
+                            </option>
+                            <option value="INDISPONIBLE">
+                                {{'projetChimieApp.DisponibliteArticle.INDISPONIBLE' | translate}}
+                            </option>
+                            <option value="FINDESTOCK">{{'projetChimieApp.DisponibliteArticle.FINDESTOCK' | translate}}
+                            </option>
+                            <option value="ENCOMMANDE">{{'projetChimieApp.DisponibliteArticle.ENCOMMANDE' | translate}}
+                            </option>
+                        </select></div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.accessibilite">Accessibilite</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <p-inputSwitch name="accessibilite" id="field_accessibilite"
+                            [(ngModel)]="ficheArticle.accessibilite"></p-inputSwitch>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.document">Document</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <p-multiSelect [options]="documentSelected()" name="doc" [(ngModel)]="ficheArticle.documents"
+                            [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application" *ngFor="let unite of ficheArticle?.unites; let last = last">
+                            <select class="form-control" id="field_unite" multiple name="unite"
+                                [(ngModel)]="ficheArticle.unites">
+                                <option [ngValue]="getSelected(ficheArticle.unites, uniteOption)"
+                                    *ngFor="let uniteOption of unites; trackBy: trackUniteById">
+                                    {{uniteOption.libelleUnite}}
+                                </option>
+                            </select></span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique">Fiche Produit
+                            Chimique</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application"
+                            *ngFor="let ficheProduitChimique of ficheArticle?.ficheProduitChimiques; let last = last">
+                            <select class="form-control" id="field_ficheProduitChimique" multiple
+                                name="ficheProduitChimique" [(ngModel)]="ficheArticle.ficheProduitChimiques" required>
+                                <option
+                                    [ngValue]="getSelected(ficheArticle.ficheProduitChimiques, ficheProduitChimiqueOption)"
+                                    *ngFor="let ficheProduitChimiqueOption of ficheproduitchimiques; trackBy: trackFicheProduitChimiqueById">
+                                    {{ficheProduitChimiqueOption.id +'  '+ficheProduitChimiqueOption.nom+'  '+ ficheProduitChimiqueOption.formule +'  '+ ficheProduitChimiqueOption.cas+'  '+ ficheProduitChimiqueOption.acronyme }}
+                                </option>
+                            </select> </span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label jhiTranslate="projetChimieApp.ficheArticle.ficheProduitChimique" for="field_ficheProduitChimique">Fiche Produit Chimique *</label>
-                    <select class="form-control" id="field_ficheProduitChimique" multiple name="ficheProduitChimique" [(ngModel)]="ficheArticle.ficheProduitChimiques" required>
-                        <option [ngValue]="getSelected(ficheArticle.ficheProduitChimiques, ficheProduitChimiqueOption)" *ngFor="let ficheProduitChimiqueOption of ficheproduitchimiques; trackBy: trackFicheProduitChimiqueById">{{ficheProduitChimiqueOption.id +'  '+ficheProduitChimiqueOption.nom+'  '+ ficheProduitChimiqueOption.formule +'  '+ ficheProduitChimiqueOption.cas+'  '+ ficheProduitChimiqueOption.acronyme }}</option>
-                    </select>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.classification">Classification</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application"></span>
+                        <p-multiSelect [options]="classiSelected()" name="cla"
+                            [(ngModel)]="ficheArticle.classifications" [panelStyle]="{minWidth:'12em'}" required>
+                        </p-multiSelect>
+                        </span>
+                    </div>
                 </div>
 
-          <!--      <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.localisation" for="field_localisation">Localisation</label>
-                    <select class="form-control" id="field_localisation" name="localisation" [(ngModel)]="ficheArticle.localisations" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="localisationOption.label === ficheArticle.droitDacceeProduit?.id ? ficheArticle.localisations : localisationOption" *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">{{droitDacceeProduitOption.id}}</option>
-                    </select>
-                </div>-->
-            <div class="form-group">
-                    <label jhiTranslate="projetChimieApp.ficheArticle.classification" >Classification *</label>
-                </div><div>
-                <p-multiSelect [options]="classiSelected()" name="cla" [(ngModel)]="ficheArticle.classifications" [panelStyle]="{minWidth:'12em'}" required></p-multiSelect>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application" jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu
+                            de Stockage</span> </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application">
+                            <select class="form-control" id="field_typeDeStockage" name="typeDeStockage"
+                                [(ngModel)]="ficheArticle.typeDeStockage">
+                                <option [ngValue]="null"></option>
+                                <option
+                                    [ngValue]="typeLieuStockageOption.id === ficheArticle.typeDeStockage ?.id ? ficheArticle.typeDeStockage  :typeLieuStockageOption"
+                                    *ngFor="let typeLieuStockageOption of typeLieuStockage; trackBy: trackDroitDacceeProduitById">
+                                    {{typeLieuStockageOption.libelleLieu}}</option>
+                            </select> </span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.localisation.home.title">Localisation</span> </div>
+                    <div class="ui-g-8">
+                        <span class="bold-Application">
+                            <a
+                                [routerLink]="['/localisation', ficheArticle?.typeLieuStockage?.localisation?.id, 'view' ]">{{ficheArticle?.typeLieuStockage?.localisation?.adresse}}</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span class="simple-Application"
+                            jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee
+                            Produit</span>
+                    </div>
+                    <div class="ui-g-8">
+                        <div class="bold-Application" *ngIf="droitDacceeProduits">
+                            <select class="form-control" id="field_droitDacceeProduit" name="droitDacceeProduit"
+                                [(ngModel)]="ficheArticle.droitDacceeProduit">
+                                <option [ngValue]="null"></option>
+                                <option
+                                    [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption"
+                                    *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">
+                                    {{droitDacceeProduitOption.id}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ficheArticle.typeLieuStockage" for="field_typeDeStockage">Lieu de stockage</label>
-                    <select class="form-control" id="field_typeDeStockage" name="typeDeStockage" [(ngModel)]="ficheArticle.typeDeStockage" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="typeLieuStockageOption.id === ficheArticle.typeDeStockage ?.id ? ficheArticle.typeDeStockage  :typeLieuStockageOption" *ngFor="let typeLieuStockageOption of typeLieuStockage; trackBy: trackDroitDacceeProduitById">{{typeLieuStockageOption.libelleLieu}}</option>
-                    </select>
-            </div>
-            <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit" for="field_droitDacceeProduit">Droit Daccee Produit</label>
-                    <select class="form-control" id="field_droitDacceeProduit" name="droitDacceeProduit" [(ngModel)]="ficheArticle.droitDacceeProduit" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption" *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">{{droitDacceeProduitOption.id}}</option>
-                    </select>
-             </div>
-            </div>
+
+
+
+
             <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                    class="btn btn-primary">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
                 </button>
             </div>
