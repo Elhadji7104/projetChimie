@@ -2,180 +2,192 @@
     <h2 id="page-heading">
         <span jhiTranslate="projetChimieApp.ficheArticle.home.title">Fiche Articles</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-article"
-                [routerLink]="['/processus-metier']">
+            [routerLink]="['/processus-metier']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span jhiTranslate="projetChimieApp.ficheArticle.home.createLabel">
-            Create new Fiche Article
+                Create new Fiche Article
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
-    <br/>
+    <br />
     <div class="table-responsive" *ngIf="ficheArticleProduits">
-        <p-table class="table table-striped" [columns]="cols" [value]="ficheArticleProduits" sortMode="multiple" #dt>
-                <ng-template pTemplate="caption"> 
-                    
-                    
-<div class="ui-fluid">
-        <div class="ui-g">
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-4">
-                    Code Barre :
-                </div>
-                <div class="ui-g-8">
-                        <p-multiSelect  [options]="codeBarreO" [(ngModel)]="codeBarre"
-                        defaultLabel="All Code Barre"
-                        (onChange)="filtre($event.value, 'codeBarre', 'in')"></p-multiSelect>
-     
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-4">
-                    Nom Produit Chimique :
-                </div>
-                <div class="ui-g-8">
-                        <p-multiSelect  [options]="nomO" [(ngModel)]="nom"
-                        defaultLabel="All Name"
-                        (onChange)="filtre($event.value, 'nom', 'in')"></p-multiSelect>
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-4">
-                    Acronyme :
-                </div>
-                <div class="ui-g-8">
-                        <p-multiSelect  [options]="acronymeO" [(ngModel)]="acronyme"
-                        defaultLabel="All Acronym"
-                        (onChange)="filtre($event.value, 'acronyme', 'in')"></p-multiSelect>
-        
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-4">
-                    Cas :
-                </div>
-                <div class="ui-g-8">
-                <p-multiSelect  [options]="casO" [(ngModel)]="cas"
-                defaultLabel="All CAS"
-                (onChange)="filtre($event.value, 'cas', 'in')"></p-multiSelect>
-            </div>
-            </div>
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-4">
-                    Formule :
-                </div>
-                <div class="ui-g-8">
-                        <p-multiSelect  [options]="formuleO" [(ngModel)]="formule"
-                        defaultLabel="All Formule"
-                        (onChange)="filtre($event.value, 'formule', 'in')"></p-multiSelect>
-
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-4">
-                    classification :
-                </div>
-                <div class="ui-g-8">
-                        <p-multiSelect 
-                        [(ngModel)]="valeursSelect" [options]="classificationO" defaultLabel="All Class"
-                        (onChange)="filtre($event.value, 'classifications', 'in')"></p-multiSelect>
-          </div>
-            </div>
-            <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-4">
-                    Disponibilite
-                </div>
-                <div class="ui-g-8">
-                        <p-multiSelect  [(ngModel)]="disponibliteArticle"
-                        [options]="disponibliteArticleO" defaultLabel="All disponibilite"
-                        (onChange)="filtre($event.value, 'disponibilite', 'in')"></p-multiSelect>
-</div>
-            </div>  
-            <div class="ui-g-12 ui-md-6">
-                    <div class="ui-g-4">
-                    </div>
-                    <div class="ui-g-8">
-                             </div>
-                </div> 
-            <div class="ui-g-12 ui-md-6">
-                    <div class="ui-g-4">
-                        All CSV
-                    </div>
-                    <div class="ui-g-8">
-                            <button type="button" pButton iconPos="left" label="All Data" (click)="exportCSV(false)" style="float:left"></button>
-           </div>
-                </div> 
-
-                <div class="ui-g-12 ui-md-6">
-                        <div class="ui-g-4">
-                            All CSV
-                        </div>
-                        <div class="ui-g-8">
-                                <button type="button" pButton  iconPos="left" label="Selection Only" (click)="exportCSV(true)" style="float:right"></button>           
+        <p-table class="table table-striped" [columns]="cols" [value]="ficheArticleProduits" sortMode="multiple"
+            [paginator]="true" [rows]="20" #dt>
+            <ng-template pTemplate="caption">
+                <div class="ui-fluid">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                Code Barre :
                             </div>
-                    </div>
+                            <div class="ui-g-8">
+                                <p-multiSelect [options]="codeBarreO" [(ngModel)]="codeBarre"
+                                    defaultLabel="All Code Barre" (onChange)="filtre($event.value, 'codeBarre', 'in')">
+                                </p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                Nom Produit Chimique :
+                            </div>
+                            <div class="ui-g-8">
+                                <p-multiSelect [options]="nomO" [(ngModel)]="nom" defaultLabel="All Name"
+                                    (onChange)="filtre($event.value, 'nom', 'in')"></p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                Acronyme :
+                            </div>
+                            <div class="ui-g-8">
+                                <p-multiSelect [options]="acronymeO" [(ngModel)]="acronyme" defaultLabel="All Acronym"
+                                    (onChange)="filtre($event.value, 'acronyme', 'in')"></p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                Cas :
+                            </div>
+                            <div class="ui-g-8">
+                                <p-multiSelect [options]="casO" [(ngModel)]="cas" defaultLabel="All CAS"
+                                    (onChange)="filtre($event.value, 'cas', 'in')"></p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                Formule :
+                            </div>
+                            <div class="ui-g-8">
+                                <p-multiSelect [options]="formuleO" [(ngModel)]="formule" defaultLabel="All Formule"
+                                    (onChange)="filtre($event.value, 'formule', 'in')"></p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                classification :
+                            </div>
+                            <div class="ui-g-8">
+                                <p-multiSelect [(ngModel)]="valeursSelect" [options]="classificationO"
+                                    defaultLabel="All Class" (onChange)="filtre($event.value, 'classification', 'in')">
+                                </p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                Disponibilite
+                            </div>
+                            <div class="ui-g-8">
+                                <p-multiSelect [(ngModel)]="disponibliteArticle" [options]="disponibliteArticleO"
+                                    defaultLabel="All disponibilite"
+                                    (onChange)="filtre($event.value, 'disponibilite', 'in')"></p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                            </div>
+                            <div class="ui-g-8">
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                All CSV
+                            </div>
+                            <div class="ui-g-8">
+                                <button type="button" pButton iconPos="left" label="All Data" (click)="exportCSV(false)"
+                                    style="float:left"></button>
+                            </div>
+                        </div>
 
-        </div>
-        </ng-template>
-                           
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-4">
+                                Selection CSV
+                            </div>
+                            <div class="ui-g-8">
+                                <button type="button" pButton iconPos="left" label="Selection Only"
+                                    (click)="exportCSV(true)" style="float:right"></button>
+                            </div>
+                        </div>
+
+                    </div>
+            </ng-template>
+
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-                        {{col.header}}
-                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    <th style="width: 8%;" [pSortableColumn]="codeBarre" (input)="sort($event.target.value,codeBarre)">
+                        codeBarre
+                        <p-sortIcon [field]="codeBarre"></p-sortIcon>
+                    </th>
+
+                    <th style="width: 8%;" [pSortableColumn]="cas" (input)="sort($event.target.value,cas)">
+                        cas
+                        <p-sortIcon [field]="cas"></p-sortIcon>
+                    </th>
+
+                    <th style="width: 25%;" [pSortableColumn]="nom" (input)="sort($event.target.value,nom)">
+                        nom
+                        <p-sortIcon [field]="nom"></p-sortIcon>
+                    </th>
+
+                    <th style="width: 25%;" [pSortableColumn]="acronyme" (input)="sort($event.target.value,acronyme)">
+                        acronyme
+                        <p-sortIcon [field]="acronyme"></p-sortIcon>
+                    </th>
+
+                    <th style="width: 10%;" [pSortableColumn]="formule" (input)="sort($event.target.value,formule)">
+                        formule
+                        <p-sortIcon [field]="formule"></p-sortIcon>
                     </th>
                     <th></th>
                 </tr>
-            
+
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
                     <td><a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData?.codeBarre}}</a></td>
                     <td>
                         <a class="form-control-static"
-                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.cas}}</a>
+                            [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.cas}}</a>
                     </td>
                     <td>
                         <a class="form-control-static"
-                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.nom}}</a>
+                            [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.nom}}</a>
                     </td>
                     <td>
                         <a class="form-control-static"
-                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.acronyme}}</a>
+                            [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.acronyme}}</a>
                     </td>
                     <td>
                         <a class="form-control-static"
-                           [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.formule}}</a>
+                            [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.formule}}</a>
                     </td>
+                    <td>
+                        <div class="table table-striped">
 
-                    <td class="text-right">
-                         
                             <div class="btn-group flex-btn-group-container">
-                                <div style="width:20px;height:20px;background-color:green;" 
-                                *ngIf="rowData?.disponibliteArticle === 'DISPONIBLE'"></div>
-                                <div style="width:20px;height:20px;background-color:red;" 
-                                *ngIf="rowData?.disponibliteArticle !== 'DISPONIBLE'"></div>
-                            <button type="submit"
+                                <div style="width:20px;height:20px;background-color:green;"
+                                    *ngIf="rowData?.disponibliteArticle === 'DISPONIBLE'"></div>
+                                <div style="width:20px;height:20px;background-color:red;"
+                                    *ngIf="rowData?.disponibliteArticle !== 'DISPONIBLE'"></div>
+                                <button type="submit"
                                     [routerLink]="['/fiche-de-commande-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-warning btn-sm">
-                                <fa-icon [icon]="'eye'"></fa-icon>
-                                <span class="d-none d-md-inline" >Commander</span>
-                            </button>
-                            <button type="submit"
-                                    [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline">Commander</span>
+                                </button>
+                                <button type="submit" [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-info btn-sm">
-                                <fa-icon [icon]="'eye'"></fa-icon>
-                                <span class="d-none d-md-inline" >Emprunter</span>
-                            </button>
-                            <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                                <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
                                     type="submit"
                                     [routerLink]="['/', { outlets: { popup: 'fiche-article/'+ rowData.idArticle + '/delete'} }]"
-                                    replaceUrl="true"
-                                    queryParamsHandling="merge"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon [icon]="'times'"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
+                                    replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                         </div>
                     </td>
                 </tr>

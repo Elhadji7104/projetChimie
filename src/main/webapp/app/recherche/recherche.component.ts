@@ -179,7 +179,7 @@ export class RechercheComponent implements OnInit {
                 break;
             case 'disponibilite':
                 this.disponibilite = value;
-                console.log(this.disponibilite);
+
                 break;
             case 'cas':
                 this.cas = value;
@@ -199,7 +199,8 @@ export class RechercheComponent implements OnInit {
 
     private eleverProduitchimique() {
         this.ficheArticleProduits = this.ficheArticlesProduitsCopie;
-        /*  this.tableauMultiselection = [];
+        this.tableauMultiselection = [];
+
         for (let value of this.classification) {
             let tableau = this.ficheArticlesProduitsCopie;
             tableau = tableau.filter(
@@ -207,6 +208,7 @@ export class RechercheComponent implements OnInit {
                     fiche.classifications.filter(classe => classe.nomClassification.toLowerCase().indexOf(value.nomClassification) >= 0)
                         .length > 0
             );
+
             for (let choix of tableau) {
                 if (!this.tableauMultiselection.includes(choix)) {
                     this.tableauMultiselection.push(choix);
@@ -214,9 +216,9 @@ export class RechercheComponent implements OnInit {
             }
         }
 
-        if(this.classification.length!==0){
-        this.ficheArticleProduits = this.tableauMultiselection;
-        }*/
+        if (this.classification.length !== 0) {
+            this.ficheArticleProduits = this.tableauMultiselection;
+        }
 
         this.attente = [];
         for (let value of this.ficheArticleProduits) {
@@ -225,19 +227,10 @@ export class RechercheComponent implements OnInit {
             let acronymeBoolean = false;
             let formuleBoolean = false;
             let codeBarreBoolean = false;
-            let classificationBoolean = false;
             let disponibiliteBoolean = false;
 
             if (this.codeBarre.includes(value.codeBarre) || this.codeBarre.length === 0) {
                 codeBarreBoolean = true;
-            }
-            if (this.classification.length === 0) {
-                classificationBoolean = true;
-            }
-            for (let classificat of value.classifications) {
-                if (this.classification.includes(classificat)) {
-                    classificationBoolean = true;
-                }
             }
 
             if (this.disponibilite.includes(value.disponibliteArticle) || this.disponibilite.length === 0) {
@@ -260,22 +253,15 @@ export class RechercheComponent implements OnInit {
                 formuleBoolean = true;
             }
 
-            if (
-                casBoolean &&
-                nomBoolean &&
-                acronymeBoolean &&
-                formuleBoolean &&
-                codeBarreBoolean &&
-                classificationBoolean &&
-                disponibiliteBoolean
-            ) {
+            if (casBoolean && nomBoolean && acronymeBoolean && formuleBoolean && codeBarreBoolean && disponibiliteBoolean) {
                 this.attente.push(value);
             }
         }
+        console.log(this.attente);
         if (
             this.cas.length === 0 &&
             this.acronyme.length === 0 &&
-            this.acronyme.length === 0 &&
+            this.nom.length === 0 &&
             this.codeBarre.length === 0 &&
             this.disponibilite.length === 0 &&
             this.classification.length === 0 &&
