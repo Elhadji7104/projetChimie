@@ -13,6 +13,111 @@
     <br/>
     <div class="table-responsive" *ngIf="ficheArticleProduits">
         <p-table class="table table-striped" [columns]="cols" [value]="ficheArticleProduits" sortMode="multiple" #dt>
+                <ng-template pTemplate="caption"> 
+                    
+                    
+<div class="ui-fluid">
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-4">
+                    Code Barre :
+                </div>
+                <div class="ui-g-8">
+                        <p-multiSelect  [options]="codeBarreO" [(ngModel)]="codeBarre"
+                        defaultLabel="All Code Barre"
+                        (onChange)="filtre($event.value, 'codeBarre', 'in')"></p-multiSelect>
+     
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-4">
+                    Nom Produit Chimique :
+                </div>
+                <div class="ui-g-8">
+                        <p-multiSelect  [options]="nomO" [(ngModel)]="nom"
+                        defaultLabel="All Name"
+                        (onChange)="filtre($event.value, 'nom', 'in')"></p-multiSelect>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-4">
+                    Acronyme :
+                </div>
+                <div class="ui-g-8">
+                        <p-multiSelect  [options]="acronymeO" [(ngModel)]="acronyme"
+                        defaultLabel="All Acronym"
+                        (onChange)="filtre($event.value, 'acronyme', 'in')"></p-multiSelect>
+        
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-4">
+                    Cas :
+                </div>
+                <div class="ui-g-8">
+                <p-multiSelect  [options]="casO" [(ngModel)]="cas"
+                defaultLabel="All CAS"
+                (onChange)="filtre($event.value, 'cas', 'in')"></p-multiSelect>
+            </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-4">
+                    Formule :
+                </div>
+                <div class="ui-g-8">
+                        <p-multiSelect  [options]="formuleO" [(ngModel)]="formule"
+                        defaultLabel="All Formule"
+                        (onChange)="filtre($event.value, 'formule', 'in')"></p-multiSelect>
+
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-4">
+                    classification :
+                </div>
+                <div class="ui-g-8">
+                        <p-multiSelect 
+                        [(ngModel)]="valeursSelect" [options]="classificationO" defaultLabel="All Class"
+                        (onChange)="filtre($event.value, 'classifications', 'in')"></p-multiSelect>
+          </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-4">
+                    Disponibilite
+                </div>
+                <div class="ui-g-8">
+                        <p-multiSelect  [(ngModel)]="disponibliteArticle"
+                        [options]="disponibliteArticleO" defaultLabel="All disponibilite"
+                        (onChange)="filtre($event.value, 'disponibliteArticle', 'in')"></p-multiSelect>
+</div>
+            </div>  
+            <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                    </div>
+                    <div class="ui-g-8">
+                             </div>
+                </div> 
+            <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        All CSV
+                    </div>
+                    <div class="ui-g-8">
+                            <button type="button" pButton iconPos="left" label="All Data" (click)="exportCSV(false)" style="float:left"></button>
+           </div>
+                </div> 
+
+                <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g-4">
+                            All CSV
+                        </div>
+                        <div class="ui-g-8">
+                                <button type="button" pButton  iconPos="left" label="Selection Only" (click)="exportCSV(true)" style="float:right"></button>           
+                            </div>
+                    </div>
+
+        </div>
+        </ng-template>
+                           
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     <th *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -21,31 +126,7 @@
                     </th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td *ngFor="let col of columns" [ngSwitch]="col.field">
-                        <p-multiSelect *ngSwitchCase="'classifications'"
-                                       [(ngModel)]="valeursSelect" [options]="classificationO" defaultLabel="All disponibilite"
-                                       (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'disponibliteArticle'" [(ngModel)]="disponibliteArticle"
-                                       [options]="disponibliteArticleO" defaultLabel="All disponibilite"
-                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'nom'" [options]="nomO" [(ngModel)]="nom"
-                                       defaultLabel="All disponibilite"
-                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'acronyme'" [options]="acronymeO" [(ngModel)]="acronyme"
-                                       defaultLabel="All disponibilite"
-                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'cas'" [options]="casO" [(ngModel)]="cas"
-                                       defaultLabel="All disponibilite"
-                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'codeBarre'" [options]="codeBarreO" [(ngModel)]="codeBarre"
-                                       defaultLabel="All disponibilite"
-                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'formule'" [options]="formuleO" [(ngModel)]="formule"
-                                       defaultLabel="All disponibilite"
-                                       (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-                    </td>
-                </tr>
+            
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
@@ -66,19 +147,17 @@
                         <a class="form-control-static"
                            [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.formule}}</a>
                     </td>
-                    <td>
-                       <span *ngFor="let classification of rowData.classifications; let last = last">
-                            <a class="form-control-static" [routerLink]="['../classification', classification?.id, 'view' ]"> {{classification.nomClassification}}</a>{{last ? '' : ', '}}
-                        </span>
-                    </td>
-                    <td>
-                        <a [routerLink]="['/fiche-article', rowData.idArticle, 'view' ]">{{rowData?.disponibliteArticle}}</a>
-                    </td>
-                    <td>
-                        <div class="table table-striped">
+
+                    <td class="text-right">
+                         
+                            <div class="btn-group flex-btn-group-container">
+                                <div style="width:20px;height:20px;background-color:green;" 
+                                *ngIf="rowData?.disponibliteArticle === 'DISPONIBLE'"></div>
+                                <div style="width:20px;height:20px;background-color:red;" 
+                                *ngIf="rowData?.disponibliteArticle !== 'DISPONIBLE'"></div>
                             <button type="submit"
                                     [routerLink]="['/fiche-de-commande-produit', rowData.idArticle, 'edit' ]"
-                                    class="btn btn-info btn-sm">
+                                    class="btn btn-warning btn-sm">
                                 <fa-icon [icon]="'eye'"></fa-icon>
                                 <span class="d-none d-md-inline" >Commander</span>
                             </button>

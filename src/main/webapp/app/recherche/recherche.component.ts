@@ -8,7 +8,8 @@ import { FicheArticleProduit, IFicheArticleProduit } from 'app/shared/model/fich
 import { SelectItem } from 'primeng/api';
 import { IClassification } from 'app/shared/model/classification.model';
 import { ClassificationService } from 'app/entities/classification';
-
+import { ExportExcelService } from 'app/export-excel.service';
+import { Router } from '@angular/router';
 @Component({
     selector: 'jhi-recherche',
     templateUrl: './recherche.component.html',
@@ -30,16 +31,22 @@ export class RechercheComponent implements OnInit {
     private ficheArticlesProduitsCopie: IFicheArticleProduit[];
     private conserve: IFicheArticleProduit[];
     tableauMultiselection: IFicheArticleProduit[] = [];
+    private codeBarre: any[] = [];
+    private classification: any[] = [];
+    private disponibilite: any[] = [];
+    private cas: any[] = [];
+    private nom: any[] = [];
+    private acronyme: any[] = [];
+    private formule: any[] = [];
+    private attente: any[] = [];
 
     ngOnInit() {
         this.cols = [
-            { field: 'codeBarre', header: 'codeBarre' },
-            { field: 'cas', header: 'cas' },
-            { field: 'nom', header: 'nom' },
-            { field: 'acronyme', header: 'acronyme' },
-            { field: 'formule', header: 'formule' },
-            { field: 'classifications', header: 'classifications' },
-            { field: 'disponibliteArticle', header: 'disponibliteArticle' }
+            { field: 'codeBarre', header: 'Code Barre' },
+            { field: 'cas', header: 'Cas' },
+            { field: 'nom', header: 'Nom' },
+            { field: 'acronyme', header: 'Acronyme' },
+            { field: 'formule', header: 'Formule' }
         ];
         this.loadAll();
         this.loadAllClassi();
@@ -51,7 +58,9 @@ export class RechercheComponent implements OnInit {
         protected ficheArticleService: FicheArticleService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
-        protected accountService: AccountService
+        protected accountService: AccountService,
+        protected exportExcelService: ExportExcelService,
+        protected router: Router
     ) {}
 
     loadAll() {
@@ -160,12 +169,38 @@ export class RechercheComponent implements OnInit {
         this.ficheArticlesProduitsCopie = this.ficheArticleProduits;
     }
 
-    filtre(tab: IClassification[], field: any, sens: any) {
-        console.log(tab);
+    filtre(value, field: any, sens: any) {
+        switch (field) {
+            case 'codeBarre':
+                this.codeBarre = value;
+                break;
+            case 'classification':
+                this.classification = value;
+                break;
+            case 'disponibilite':
+                this.disponibilite = value;
+                console.log(this.disponibilite);
+                break;
+            case 'cas':
+                this.cas = value;
+                break;
+            case 'nom':
+                this.nom = value;
+                break;
+            case 'acronyme':
+                this.acronyme = value;
+                break;
+            case 'formule':
+                this.formule = value;
+                break;
+        }
+        this.eleverProduitchimique();
+    }
 
+    private eleverProduitchimique() {
         this.ficheArticleProduits = this.ficheArticlesProduitsCopie;
-        this.tableauMultiselection = [];
-        for (let value of tab) {
+        /*  this.tableauMultiselection = [];
+        for (let value of this.classification) {
             let tableau = this.ficheArticlesProduitsCopie;
             tableau = tableau.filter(
                 fiche =>
@@ -178,10 +213,77 @@ export class RechercheComponent implements OnInit {
                 }
             }
         }
-        if (this.tableauMultiselection.length === 0) {
+
+        if(this.classification.length!==0){
+        this.ficheArticleProduits = this.tableauMultiselection;
+        }*/
+
+        this.attente = [];
+        for (let value of this.ficheArticleProduits) {
+            let casBoolean = false;
+            let nomBoolean = false;
+            let acronymeBoolean = false;
+            let formuleBoolean = false;
+            let codeBarreBoolean = false;
+            let classificationBoolean = false;
+            let disponibiliteBoolean = false;
+
+            if (this.codeBarre.includes(value.codeBarre) || this.codeBarre.length === 0) {
+                codeBarreBoolean = true;
+            }
+            if (this.classification.length === 0) {
+                classificationBoolean = true;
+            }
+            for (let classificat of value.classifications) {
+                if (this.classification.includes(classificat)) {
+                    classificationBoolean = true;
+                }
+            }
+
+            if (this.disponibilite.includes(value.disponibliteArticle) || this.disponibilite.length === 0) {
+                disponibiliteBoolean = true;
+            }
+
+            if (this.cas.includes(value.cas) || this.cas.length === 0) {
+                casBoolean = true;
+            }
+
+            if (this.nom.includes(value.nom) || this.nom.length === 0) {
+                nomBoolean = true;
+            }
+
+            if (this.acronyme.includes(value.acronyme) || this.acronyme.length === 0) {
+                acronymeBoolean = true;
+            }
+
+            if (this.formule.includes(value.formule) || this.formule.length === 0) {
+                formuleBoolean = true;
+            }
+
+            if (
+                casBoolean &&
+                nomBoolean &&
+                acronymeBoolean &&
+                formuleBoolean &&
+                codeBarreBoolean &&
+                classificationBoolean &&
+                disponibiliteBoolean
+            ) {
+                this.attente.push(value);
+            }
+        }
+        if (
+            this.cas.length === 0 &&
+            this.acronyme.length === 0 &&
+            this.acronyme.length === 0 &&
+            this.codeBarre.length === 0 &&
+            this.disponibilite.length === 0 &&
+            this.classification.length === 0 &&
+            this.formule.length === 0
+        ) {
             this.ficheArticleProduits = this.ficheArticlesProduitsCopie;
         } else {
-            this.ficheArticleProduits = this.tableauMultiselection;
+            this.ficheArticleProduits = this.attente;
         }
     }
 
@@ -192,6 +294,15 @@ export class RechercheComponent implements OnInit {
             }
         }
         return true;
+    }
+
+    exportCSV(select: boolean) {
+        if (select) {
+            this.exportExcelService.set(this.ficheArticlesProduitsCopie);
+        } else {
+            this.exportExcelService.set(this.ficheArticleProduits);
+        }
+        this.router.navigate(['/', { outlets: { popup: 'fiche-produit-chimique/print' } }]);
     }
 
     onError(errorMessage: string) {

@@ -1,0 +1,434 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Sullivan (generated)" id="1554379165745-1">
+        <createTable tableName="classification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="classificationPK"/>
+            </column>
+            <column name="nom_classification" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-2">
+        <createTable tableName="document">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="documentPK"/>
+            </column>
+            <column name="lien" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-3">
+        <createTable tableName="droit_daccee_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="droit_daccee_produitPK"/>
+            </column>
+            <column name="fiche_article_id" type="BIGINT"/>
+            <column name="groupe_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-4">
+        <createTable tableName="fiche_article">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_articlePK"/>
+            </column>
+            <column name="accessibilite" type="BIT"/>
+            <column name="code_barre" type="VARCHAR(255)"/>
+            <column name="code_interne" type="VARCHAR(255)"/>
+            <column name="disponiblite_article" type="VARCHAR(255)"/>
+            <column name="etat_physique" type="VARCHAR(255)"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="ref_article" type="VARCHAR(255)"/>
+            <column name="type_desuivi" type="BIT"/>
+            <column name="groupe_id" type="BIGINT"/>
+            <column name="type_lieu_stockage_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-5">
+        <createTable tableName="fiche_article_classification">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="classifications_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-6">
+        <createTable tableName="fiche_article_document">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="documents_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-7">
+        <createTable tableName="fiche_article_fiche_produit_chimique">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fiche_produit_chimiques_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-8">
+        <createTable tableName="fiche_article_unite">
+            <column name="fiche_articles_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unites_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-9">
+        <createTable tableName="fiche_de_commande_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_de_commande_produitPK"/>
+            </column>
+            <column name="date_de_commande" type="TINYBLOB"/>
+            <column name="date_livraison" type="TINYBLOB"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="demandeur_id" type="BIGINT"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+            <column name="valideur_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-10">
+        <createTable tableName="fiche_de_commande_produit_fournisseur">
+            <column name="fiche_de_commande_produits_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fournisseurs_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-11">
+        <createTable tableName="fiche_emprunt_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_emprunt_produitPK"/>
+            </column>
+            <column name="date_emprunt" type="TINYBLOB"/>
+            <column name="quantite" type="DOUBLE"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-12">
+        <createTable tableName="fiche_produit_chimique">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_produit_chimiquePK"/>
+            </column>
+            <column name="acronyme" type="VARCHAR(255)"/>
+            <column name="cas" type="VARCHAR(255)"/>
+            <column name="code_nacre" type="VARCHAR(255)"/>
+            <column name="code_produit" type="VARCHAR(255)"/>
+            <column name="formule" type="VARCHAR(255)"/>
+            <column name="mm" type="VARCHAR(255)"/>
+            <column name="nom" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-13">
+        <createTable tableName="fiche_retour_produit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fiche_retour_produitPK"/>
+            </column>
+            <column name="date_retour" type="TINYBLOB"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-14">
+        <createTable tableName="fournisseur">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="fournisseurPK"/>
+            </column>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="mail" type="VARCHAR(255)"/>
+            <column name="nom_fournisseur" type="VARCHAR(255)"/>
+            <column name="telephone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-15">
+        <createTable tableName="groupe">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="groupePK"/>
+            </column>
+            <column name="local_groupe" type="VARCHAR(255)"/>
+            <column name="nom_groupe" type="VARCHAR(255)"/>
+            <column name="nombre_membre" type="INT"/>
+            <column name="droit_daccee_produit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-16">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-17">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="TINYBLOB"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-18">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-19">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="activated" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(254)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(6)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reset_date" type="TINYBLOB"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-20">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-21">
+        <createTable tableName="liste_cmr">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="liste_cmrPK"/>
+            </column>
+            <column name="ref_liste" type="VARCHAR(255)"/>
+            <column name="fiche_produit_chimique_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-22">
+        <createTable tableName="liste_groupe_invite">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="liste_groupe_invitePK"/>
+            </column>
+            <column name="nom_groupe" type="VARCHAR(255)"/>
+            <column name="groupe_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-23">
+        <createTable tableName="liste_mots_cles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="liste_mots_clesPK"/>
+            </column>
+            <column name="libelle_mot" type="VARCHAR(255)"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-24">
+        <createTable tableName="localisation">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="localisationPK"/>
+            </column>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="code_postal" type="VARCHAR(255)"/>
+            <column name="pays" type="VARCHAR(255)"/>
+            <column name="quantite" type="FLOAT"/>
+            <column name="ville" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-25">
+        <createTable tableName="mail_gestionnaire">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="mail_gestionnairePK"/>
+            </column>
+            <column name="mail" type="VARCHAR(255)"/>
+            <column name="groupe_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-26">
+        <createTable tableName="type_de_conditionnement">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="type_de_conditionnementPK"/>
+            </column>
+            <column name="libelle_conditionnement" type="VARCHAR(255)"/>
+            <column name="fiche_article_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-27">
+        <createTable tableName="type_lieu_stockage">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="type_lieu_stockagePK"/>
+            </column>
+            <column name="libelle_lieu" type="VARCHAR(255)"/>
+            <column name="temperature" type="FLOAT"/>
+            <column name="localisation_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-28">
+        <createTable tableName="unite">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="unitePK"/>
+            </column>
+            <column name="libelle_unite" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-29">
+        <addPrimaryKey columnNames="fiche_articles_id, classifications_id" tableName="fiche_article_classification"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-30">
+        <addPrimaryKey columnNames="fiche_articles_id, documents_id" tableName="fiche_article_document"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-31">
+        <addPrimaryKey columnNames="fiche_articles_id, fiche_produit_chimiques_id" tableName="fiche_article_fiche_produit_chimique"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-32">
+        <addPrimaryKey columnNames="fiche_articles_id, unites_id" tableName="fiche_article_unite"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-33">
+        <addPrimaryKey columnNames="fiche_de_commande_produits_id, fournisseurs_id" tableName="fiche_de_commande_produit_fournisseur"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-34">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-35">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-36">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-37">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-38">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-39">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_unite" constraintName="FK14x8f87gebo14hofcguxrijxw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-40">
+        <addForeignKeyConstraint baseColumnNames="droit_daccee_produit_id" baseTableName="groupe" constraintName="FK1dcgre8a2flfyfbi59acm9tx1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="droit_daccee_produit"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-41">
+        <addForeignKeyConstraint baseColumnNames="fiche_produit_chimiques_id" baseTableName="fiche_article_fiche_produit_chimique" constraintName="FK1vk87aqpdwv1wmjacqnomgglt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_produit_chimique"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-42">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-43">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-44">
+        <addForeignKeyConstraint baseColumnNames="classifications_id" baseTableName="fiche_article_classification" constraintName="FK32ecixbteof5brvarf7ycjam4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="classification"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-45">
+        <addForeignKeyConstraint baseColumnNames="unites_id" baseTableName="fiche_article_unite" constraintName="FK3vrq6ocow0sdkkchd5j0li4oj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="unite"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-46">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_classification" constraintName="FK4f2o6uhcv09igludsoy3eyvse" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-47">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-48">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="droit_daccee_produit" constraintName="FK5bym088k064imyc08bnh4w64b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-49">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="mail_gestionnaire" constraintName="FK6vd7v13s6v7jnsolxjy7cxaqb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-50">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_fiche_produit_chimique" constraintName="FK7gdksd0l02888td9gbt4tda8j" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-51">
+        <addForeignKeyConstraint baseColumnNames="localisation_id" baseTableName="type_lieu_stockage" constraintName="FK8yo3h6tschmv89693q174bvhx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="localisation"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-52">
+        <addForeignKeyConstraint baseColumnNames="fiche_articles_id" baseTableName="fiche_article_document" constraintName="FK9s9iwe60f2efrfnraietaocd4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-53">
+        <addForeignKeyConstraint baseColumnNames="fiche_de_commande_produits_id" baseTableName="fiche_de_commande_produit_fournisseur" constraintName="FKa7j2eevwt2tldpqkkpdtbqmja" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_de_commande_produit"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-54">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="type_de_conditionnement" constraintName="FKaxi27or5sk3a8vc4xhlei04r8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-55">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="liste_mots_cles" constraintName="FKbap3xvuuaninwlqwygaa5udql" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-56">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="fiche_de_commande_produit" constraintName="FKcnn8fswc04j9p11w8q3kpanev" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-57">
+        <addForeignKeyConstraint baseColumnNames="valideur_id" baseTableName="fiche_de_commande_produit" constraintName="FKenxmdr1pum6w0xt1ldilr9y1m" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-58">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="fiche_emprunt_produit" constraintName="FKfkhrgm6hdfw4vsp7bg61svfyf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-59">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="fiche_retour_produit" constraintName="FKih9te35av44x0ivumr19pvdm0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-60">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="liste_groupe_invite" constraintName="FKik79iuoij9my82rlsnb5rr5qf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-61">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="fiche_emprunt_produit" constraintName="FKil1iksjh4tf0wylyacyiha6rq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-62">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="fiche_retour_produit" constraintName="FKja0x1m9mvg48anc1b8apm9la7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-63">
+        <addForeignKeyConstraint baseColumnNames="documents_id" baseTableName="fiche_article_document" constraintName="FKm1wgoaws8llsai8fuyuuc2ump" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="document"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-64">
+        <addForeignKeyConstraint baseColumnNames="fiche_produit_chimique_id" baseTableName="liste_cmr" constraintName="FKo2hudq90wqkxt2scipo92dpm7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_produit_chimique"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-65">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="fiche_article" constraintName="FKo8pf8rd13i55km7tusc0hscgy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-66">
+        <addForeignKeyConstraint baseColumnNames="type_lieu_stockage_id" baseTableName="fiche_article" constraintName="FKoj0rjl836i20axtu112q3lxkv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_lieu_stockage"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-67">
+        <addForeignKeyConstraint baseColumnNames="demandeur_id" baseTableName="fiche_de_commande_produit" constraintName="FKrnc99aan0uxcwqxr8x5p5bt13" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-68">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="droit_daccee_produit" constraintName="FKsf9wg5guoxcs3fex7w79enptl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379165745-69">
+        <addForeignKeyConstraint baseColumnNames="fournisseurs_id" baseTableName="fiche_de_commande_produit_fournisseur" constraintName="FKsxjgeiym5fhsepimm4kykgdu6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fournisseur"/>
+    </changeSet>
+</databaseChangeLog>

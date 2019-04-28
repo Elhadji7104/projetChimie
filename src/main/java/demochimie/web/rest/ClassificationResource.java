@@ -94,7 +94,9 @@ public class ClassificationResource {
             case "ADMIN":
                 return classificationRepository.findAll();
             default:
-                return classificationRepository.findAllWithEagerRelationshipsGroup(group);
+                // ToDo
+                return classificationRepository.findAll();
+               // return classificationRepository.findAllWithEagerRelationshipsGroup(group);
         }
     }
 

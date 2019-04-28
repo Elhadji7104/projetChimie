@@ -106,8 +106,6 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
             { field: 'cas', header: 'CAS' },
             { field: 'nom', header: 'Nom' },
             { field: 'acronyme', header: 'Acronyme' },
-            { field: 'mm', header: 'MM' },
-            { field: 'codeNacre', header: 'Code Nacre' },
             { field: 'formule', header: 'Formule Brute' }
         ];
     }

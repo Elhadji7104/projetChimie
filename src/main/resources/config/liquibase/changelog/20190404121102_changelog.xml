@@ -1,0 +1,96 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Sullivan (generated)" id="1554379908652-1">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="demandeur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-2">
+        <addColumn tableName="droit_daccee_produit">
+            <column name="fiche_article_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-3">
+        <addColumn tableName="fiche_produit_chimique">
+            <column name="formule" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-4">
+        <addColumn tableName="fiche_article">
+            <column name="groupe_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-5">
+        <addColumn tableName="fiche_article">
+            <column name="quantite" type="float"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-6">
+        <addColumn tableName="fiche_article">
+            <column name="type_lieu_stockage_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-7">
+        <addColumn tableName="fiche_emprunt_produit">
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-8">
+        <addColumn tableName="fiche_retour_produit">
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-9">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="valideur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-10">
+        <addForeignKeyConstraint baseColumnNames="valideur_id" baseTableName="fiche_de_commande_produit" constraintName="FKenxmdr1pum6w0xt1ldilr9y1m" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-11">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="fiche_emprunt_produit" constraintName="FKfkhrgm6hdfw4vsp7bg61svfyf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-12">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="fiche_retour_produit" constraintName="FKih9te35av44x0ivumr19pvdm0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-13">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="liste_groupe_invite" constraintName="FKik79iuoij9my82rlsnb5rr5qf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-14">
+        <addForeignKeyConstraint baseColumnNames="groupe_id" baseTableName="fiche_article" constraintName="FKo8pf8rd13i55km7tusc0hscgy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groupe"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-15">
+        <addForeignKeyConstraint baseColumnNames="type_lieu_stockage_id" baseTableName="fiche_article" constraintName="FKoj0rjl836i20axtu112q3lxkv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_lieu_stockage"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-16">
+        <addForeignKeyConstraint baseColumnNames="demandeur_id" baseTableName="fiche_de_commande_produit" constraintName="FKrnc99aan0uxcwqxr8x5p5bt13" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-17">
+        <addForeignKeyConstraint baseColumnNames="fiche_article_id" baseTableName="droit_daccee_produit" constraintName="FKsf9wg5guoxcs3fex7w79enptl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-18">
+        <dropForeignKeyConstraint baseTableName="fiche_article" constraintName="fk_fiche_article_droit_daccee_produit_id"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-19">
+        <dropForeignKeyConstraint baseTableName="localisation" constraintName="fk_localisation_fiche_article_id"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-20">
+        <dropTable tableName="jhi_date_time_wrapper"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-21">
+        <dropColumn columnName="droit_daccee_produit_id" tableName="fiche_article"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-22">
+        <dropColumn columnName="etat_droit" tableName="droit_daccee_produit"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-23">
+        <dropColumn columnName="fiche_article_id" tableName="localisation"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-24">
+        <dropColumn columnName="nom" tableName="droit_daccee_produit"/>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1554379908652-25">
+        <dropColumn columnName="nom_groupe" tableName="droit_daccee_produit"/>
+    </changeSet>
+</databaseChangeLog>

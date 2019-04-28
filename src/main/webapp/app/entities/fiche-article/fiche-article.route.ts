@@ -6,7 +6,6 @@ import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { FicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from './fiche-article.service';
-import { FicheArticleComponent } from './fiche-article.component';
 import { FicheArticleDetailComponent } from './fiche-article-detail.component';
 import { FicheArticleUpdateComponent } from './fiche-article-update.component';
 import { FicheArticleDeletePopupComponent } from './fiche-article-delete-dialog.component';
@@ -36,7 +35,7 @@ export const ficheArticleRoute: Routes = [
             ficheArticle: FicheArticleResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_VALIDEUR', 'ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.ficheArticle.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -48,7 +47,7 @@ export const ficheArticleRoute: Routes = [
             ficheArticle: FicheArticleResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_VALIDEUR', 'ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.ficheArticle.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -60,7 +59,7 @@ export const ficheArticleRoute: Routes = [
             ficheArticle: FicheArticleResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_VALIDEUR', 'ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.ficheArticle.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -75,7 +74,7 @@ export const ficheArticlePopupRoute: Routes = [
             ficheArticle: FicheArticleResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_VALIDEUR', 'ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.ficheArticle.home.title'
         },
         canActivate: [UserRouteAccessService],

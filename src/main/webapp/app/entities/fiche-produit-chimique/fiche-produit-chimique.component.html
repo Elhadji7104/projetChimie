@@ -9,11 +9,11 @@
             </span>
         </button>
         <button id="jh-print-all-entity"
-                class="btn btn-primary float-center jh-print-all-entity create-fiche-produit-chimique"
-                (click)="exportExcel()"
+        class="btn btn-primary float-right jh-create-entity create-fiche-produit-chimique"
+        (click)="exportExcel()"
                 replaceUrl="true"
                 queryParamsHandling="merge">
-            <fa-icon [icon]="'print'"></fa-icon>
+                <i class="pi pi-print"></i>
             <span>
                 Print Fiche Produit Chimique
             </span>
@@ -44,12 +44,6 @@
                         <p-multiSelect *ngSwitchCase="'acronyme'" [options]="AcronymeSelect" [(ngModel)]="acronyme"
                                        defaultLabel="All disponibilite"
                                        (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'mm'" [options]="MmSelect" [(ngModel)]="mm"
-                                       defaultLabel="All disponibilite"
-                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
-                        <p-multiSelect *ngSwitchCase="'codeNacre'" [options]="CodeNacreSelect" [(ngModel)]="codeNacre"
-                                       defaultLabel="All disponibilite"
-                                       (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
                         <p-multiSelect *ngSwitchCase="'formule'" [options]="formuleSelect" [(ngModel)]="formule"
                                        defaultLabel="All disponibilite"
                                        (onChange)="filter($event.value, col.field, 'in')"></p-multiSelect>
@@ -62,9 +56,7 @@
                 <tr>
                     <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.cas}}</a></td>
                     <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.nom}}</a></td>
-                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.acronyme}}</a></td>
-                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.mm}}</a></td>
-                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.codeNacre}}</a>
+                    <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.acronyme}}</a>
                     </td>
                     <td><a [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]">{{rowData.formule}}</a></td>
 
@@ -72,7 +64,7 @@
                         <div class="table table-striped">
                             <button type="submit"
                                     [routerLink]="['/fiche-produit-chimique', rowData.id, 'view' ]"
-                                    class="btn btn-info btn-sm">
+                                    class="btn btn-info btn-sm" ngbTooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." >
                                 <fa-icon [icon]="'eye'"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>

@@ -10,6 +10,14 @@
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
+                            <p-multiSelect [(ngModel)]="classification" [options]="classificationO" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>-->
+                          <p-multiSelect  [(ngModel)]="disponibliteArticle" [options]="disponibliteArticleO" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect  [options]="nomO"  [(ngModel)]="nom" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect  [options]="quantiteO"  [(ngModel)]="quantite" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect  [options]="acronymeO"  [(ngModel)]="acronyme" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect  [options]="casO"  [(ngModel)]="cas" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+                          <p-multiSelect  [options]="refArticleO"  [(ngModel)]="refArticle" defaultLabel="All disponibilite" (onChange)="filtre($event.value, col.field, 'in')"></p-multiSelect>
+                      
     <div class="table-responsive"  *ngIf="ficheArticles">
         <p-table class="table table-striped" [columns]="cols" [value]="ficheArticles" sortMode="multiple" #dt  >
             <ng-template pTemplate="header" let-columns>

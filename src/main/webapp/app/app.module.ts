@@ -37,7 +37,7 @@ import { ProcessusDetailComponent } from './processus/processus-detail/processus
 import { SliderModule } from 'primeng/slider';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessagesModule } from 'primeng/messages';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
     imports: [
         TableModule,
@@ -84,7 +84,8 @@ import { MessagesModule } from 'primeng/messages';
         DropdownModule,
         SliderModule,
         ConfirmDialogModule,
-        MessagesModule
+        MessagesModule,
+        FontAwesomeModule
     ],
     declarations: [
         JhiMainComponent,
