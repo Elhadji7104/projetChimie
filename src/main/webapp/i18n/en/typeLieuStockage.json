@@ -10,7 +10,7 @@
             "updated": "A Type Lieu Stockage is updated with identifier {{ param }}",
             "deleted": "A Type Lieu Stockage is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Type Lieu Stockage {{ id }}?"
+                "question": "(The place must not be used by any article) Are you sure you want to delete Type Lieu Stockage {{ id }}?"
             },
             "detail": {
                 "title": "Type Lieu Stockage"

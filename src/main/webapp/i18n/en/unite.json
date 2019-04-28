@@ -10,7 +10,7 @@
             "updated": "A Unite is updated with identifier {{ param }}",
             "deleted": "A Unite is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Unite {{ id }}?"
+                "question": "(The unit must not be used by any article) Are you sure you want to delete Unite {{ id }}?"
             },
             "detail": {
                 "title": "Unity"

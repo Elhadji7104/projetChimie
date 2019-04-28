@@ -10,7 +10,7 @@
             "updated": "A Liste Groupe Invite is updated with identifier {{ param }}",
             "deleted": "A Liste Groupe Invite is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Liste Groupe Invite {{ id }}?"
+                "question": "(The group must not be used by any article) Are you sure you want to delete Liste Groupe Invite {{ id }}?"
             },
             "detail": {
                 "title": "Liste Groupe Invite"

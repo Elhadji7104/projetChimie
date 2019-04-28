@@ -10,7 +10,7 @@
             "updated": "A Liste Mots Cles is updated with identifier {{ param }}",
             "deleted": "A Liste Mots Cles is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Liste Mots Cles {{ id }}?"
+                "question": "(The keywords must not be used by any article) Are you sure you want to delete Liste Mots Cles {{ id }}?"
             },
             "detail": {
                 "title": "Liste Mots Cles"

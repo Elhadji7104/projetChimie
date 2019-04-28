@@ -10,7 +10,7 @@
             "updated": "A Classification is updated with identifier {{ param }}",
             "deleted": "A Classification is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Classification {{ id }}?"
+                "question": "(The Classification must not be used by any article) Are you sure you want to delete Classification {{ id }}?"
             },
             "detail": {
                 "title": "Classification"

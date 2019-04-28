@@ -10,7 +10,7 @@
             "updated": "Le Unite avec l'identifiant {{ param }} a été mis à jour",
             "deleted": "Le Unite avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Unite {{ id }} ?"
+                "question": "(L'unité ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer le Unite {{ id }} ?"
             },
             "detail": {
                 "title": "Unite"

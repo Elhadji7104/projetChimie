@@ -10,7 +10,7 @@
             "updated": "Le Classification avec l'identifiant {{ param }} a été mis à jour",
             "deleted": "Le Classification avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Classification {{ id }} ?"
+                "question": "(La classification ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer le Classification {{ id }} ?"
             },
             "detail": {
                 "title": "Classification"

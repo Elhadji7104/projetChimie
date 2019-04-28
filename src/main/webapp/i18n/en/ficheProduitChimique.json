@@ -10,7 +10,7 @@
             "updated": "A Chemical Product Form is updated with identifier {{ param }}",
             "deleted": "A Chemical Product Formis deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Chemical Product Form {{ id }}?"
+                "question": "(The Chemical Product must not be used by any article) Are you sure you want to delete Chemical Product Form {{ id }}?"
             },
             "detail": {
                 "title": "Chemical Product Form"

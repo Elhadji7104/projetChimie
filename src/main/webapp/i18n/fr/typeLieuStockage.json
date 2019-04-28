@@ -10,7 +10,7 @@
             "updated": "Le Type Lieu Stockage avec l'identifiant {{ param }} a été mis à jour",
             "deleted": "Le Type Lieu Stockage avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Type Lieu Stockage {{ id }} ?"
+                "question": "(Le lieu ne doit pas être utilisé par aucun article) Etes-vous certain de vouloir supprimer le Type Lieu Stockage {{ id }} ?"
             },
             "detail": {
                 "title": "Type Lieu Stockage"

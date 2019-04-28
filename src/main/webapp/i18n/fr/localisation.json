@@ -11,7 +11,7 @@
             "updated": "Le Localisation avec l'identifiant {{ param }}",
             "deleted": "Le Localisation avec l'identifiant {{ param }}",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer la Localisation {{ id }} ?"
+                "question": "(La localisation ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer la Localisation {{ id }} ?"
             },
             "detail": {
                 "title": "Localisation"

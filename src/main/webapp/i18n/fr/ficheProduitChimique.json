@@ -10,7 +10,7 @@
             "updated": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été mis à jour",
             "deleted": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer laFiche Produit Chimique {{ id }} ?"
+                "question": "(La fiche ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer laFiche Produit Chimique {{ id }} ?"
             },
             "detail": {
                 "title": "Fiche Produit Chimique"
