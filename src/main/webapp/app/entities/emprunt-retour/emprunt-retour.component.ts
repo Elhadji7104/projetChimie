@@ -10,11 +10,8 @@ import { FicheRetourProduit, IFicheRetourProduit } from 'app/shared/model/fiche-
 import { FicheRetourProduitService } from '../fiche-retour-produit';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountService, IUser, User } from 'app/core';
-import moment = require('moment');
-import { FicheDeCommandeProduitService } from 'app/entities/fiche-de-commande-produit';
-import { FicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 import { ActivatedRoute } from '@angular/router';
-import { IDocument } from 'app/shared/model/document.model';
+import * as moment from 'moment';
 
 @Component({
     selector: 'jhi-emprunt-retour',
