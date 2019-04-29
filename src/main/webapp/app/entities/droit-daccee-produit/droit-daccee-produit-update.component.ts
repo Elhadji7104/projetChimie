@@ -20,7 +20,7 @@ export class DroitDacceeProduitUpdateComponent implements OnInit {
     isSaving: boolean;
 
     groupes: IGroupe[];
-    private articles: IFicheArticle[];
+    articles: IFicheArticle[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
