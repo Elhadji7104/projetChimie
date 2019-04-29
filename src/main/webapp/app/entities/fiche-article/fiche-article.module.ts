@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 
 import { ProjetChimieSharedModule } from 'app/shared';
 import {
-    FicheArticleComponent,
     FicheArticleDetailComponent,
     FicheArticleUpdateComponent,
     FicheArticleDeletePopupComponent,
@@ -43,18 +42,12 @@ const ENTITY_STATES = [...ficheArticleRoute, ...ficheArticlePopupRoute];
         CardModule
     ],
     declarations: [
-        FicheArticleComponent,
         FicheArticleDetailComponent,
         FicheArticleUpdateComponent,
         FicheArticleDeleteDialogComponent,
         FicheArticleDeletePopupComponent
     ],
-    entryComponents: [
-        FicheArticleComponent,
-        FicheArticleUpdateComponent,
-        FicheArticleDeleteDialogComponent,
-        FicheArticleDeletePopupComponent
-    ],
+    entryComponents: [FicheArticleUpdateComponent, FicheArticleDeleteDialogComponent, FicheArticleDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProjetChimieFicheArticleModule {}

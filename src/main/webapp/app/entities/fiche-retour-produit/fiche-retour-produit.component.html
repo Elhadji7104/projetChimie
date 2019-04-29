@@ -16,7 +16,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let ficheRetourProduit of ficheRetourProduits ;trackBy: trackId">
-                <td><a [routerLink]="['/fiche-retour-produit', ficheRetourProduit.id, 'view' ]">{{ficheRetourProduit.quantite}}</a></td>
                 <td>{{ficheRetourProduit.dateRetour | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="ficheRetourProduit.ficheArticle">
@@ -24,8 +23,8 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="ficheRetourProduit.user.firstName">
-                        {{ficheRetourProduit?.user.firstName}}
+                    <div *ngIf="ficheRetourProduit.user?.login">
+                        {{ficheRetourProduit?.user?.login}}
                     </div>
                 </td>
                 <td class="text-right">

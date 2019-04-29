@@ -17,26 +17,26 @@ export class FicheProduitChimiqueComponent implements OnInit, OnDestroy {
     ficheProduitChimiques: IFicheProduitChimique[];
     currentAccount: any;
     eventSubscriber: Subscription;
-    private cols: ({ field: string; header: string })[];
+    cols: ({ field: string; header: string })[];
     CasSelect: SelectItem[];
     NomSelect: SelectItem[];
     AcronymeSelect: SelectItem[];
     MmSelect: SelectItem[];
     CodeNacreSelect: SelectItem[];
     formuleSelect: SelectItem[];
-    private cas: string[] = [];
-    private formule: string[] = [];
-    private mm: string[] = [];
-    private codeNacre: string[] = [];
-    private acronyme: string[] = [];
-    private nom: string[] = [];
-    private ficheProduitChimiquesCopy: IFicheProduitChimique[] = [];
-    private ajouter: IFicheProduitChimique[] = [];
-    private conserve: IFicheProduitChimique[] = [];
-    private intersection: IFicheProduitChimique[] = [];
-    private attente: IFicheProduitChimique[] = [];
-    private variable: boolean;
-    private filtre: IFicheProduitChimique[];
+    cas: string[] = [];
+    formule: string[] = [];
+    mm: string[] = [];
+    codeNacre: string[] = [];
+    acronyme: string[] = [];
+    nom: string[] = [];
+    ficheProduitChimiquesCopy: IFicheProduitChimique[] = [];
+    ajouter: IFicheProduitChimique[] = [];
+    conserve: IFicheProduitChimique[] = [];
+    intersection: IFicheProduitChimique[] = [];
+    attente: IFicheProduitChimique[] = [];
+    variable: boolean;
+    filtre: IFicheProduitChimique[];
 
     constructor(
         protected ficheProduitChimiqueService: FicheProduitChimiqueService,
