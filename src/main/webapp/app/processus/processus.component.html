@@ -9,12 +9,12 @@
             <div class="ui-g">
                 <div class="ui-g-4">
                     <div class="form-group">
+                    </div><span>Un champ doit être au minimum rempli pour être valide</span></div>
                         <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.cas"
                                for="field_cas">Cas</label>
                         <div>
                             <p-inputMask name="cas" id="field_cas" [(ngModel)]="ficheProduits.cas"
-                                         mask="999999-99-9"
-                                         required></p-inputMask>
+                                         mask="999999-99-9"></p-inputMask>
                         </div>
                     </div>
                     <div class="form-group">
@@ -22,14 +22,14 @@
                                for="field_nom">Nom</label>
                         <div>
                             <input pInputText name="nom" id="field_nom" type="text" pInputText
-                                   [(ngModel)]="ficheProduits.nom" required>
+                                   [(ngModel)]="ficheProduits.nom">
                         </div>
                     </div>
                     <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.formule"
                            for="field_formule">Formule brute</label>
                     <div>
                         <input name="formule" id="field_formule" type="text" pInputText name="formule"
-                               [(ngModel)]="ficheProduits.formule" required/>
+                               [(ngModel)]="ficheProduits.formule"/>
                     </div>
                 </div>
                 <div class="ui-g-4">

@@ -195,36 +195,43 @@ export class ProcessusComponent implements OnInit {
     }
 
     save() {
-        this.ficheArticle.ficheProduitChimiques = [];
-        //this.ficheArticle.ficheProduitChimiques[0] = this.ficheProduits;
-        if (this.booleanChimique) {
-            this.subscribeToSaveResponseProduit(this.ficheProduitChimiqueService.create(this.ficheProduits));
-        }
+        if (
+            this.ficheProduits.nom !== undefined ||
+            this.ficheProduits.acronyme !== undefined ||
+            this.ficheProduits.cas !== undefined ||
+            this.ficheProduits.formule !== undefined
+        ) {
+            this.ficheArticle.ficheProduitChimiques = [];
+            //this.ficheArticle.ficheProduitChimiques[0] = this.ficheProduits;
+            if (this.booleanChimique) {
+                this.subscribeToSaveResponseProduit(this.ficheProduitChimiqueService.create(this.ficheProduits));
+            }
 
-        this.ficheArticle.documents = [];
-        if (this.documentInput !== undefined) {
-            this.documentArray.lien = this.documentInput;
-            this.documentArray.ficheArticles = [];
-            this.documentArray.ficheArticles[0] = this.ficheArticle;
-            this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
-        }
-        //this.ficheArticle.documents[0] = this.documentArray;
-        this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
+            this.ficheArticle.documents = [];
+            if (this.documentInput !== undefined) {
+                this.documentArray.lien = this.documentInput;
+                this.documentArray.ficheArticles = [];
+                this.documentArray.ficheArticles[0] = this.ficheArticle;
+                this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
+            }
+            //this.ficheArticle.documents[0] = this.documentArray;
+            this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
 
-        // Code Interne a faire avec le REST de groupe
-        this.ficheArticle.unites = [];
-        this.ficheArticle.unites[0] = this.uniteArray;
-        this.ficheArticle.classifications = [];
-        this.ficheArticle.classifications[0] = this.classiArray;
-        // this.ficheArticle.groupe = this.groupe2;
+            // Code Interne a faire avec le REST de groupe
+            this.ficheArticle.unites = [];
+            this.ficheArticle.unites[0] = this.uniteArray;
+            this.ficheArticle.classifications = [];
+            this.ficheArticle.classifications[0] = this.classiArray;
+            // this.ficheArticle.groupe = this.groupe2;
 
-        if (this.ficheArticle.id !== undefined) {
-            this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
-        } else {
-            this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
+            if (this.ficheArticle.id !== undefined) {
+                this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
+            } else {
+                this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
+            }
+            console.log(this.ficheArticle);
+            //this.router.navigateByUrl('/processus-metier/' + this.ficheArticle.refArticle + '/view');
         }
-        console.log(this.ficheArticle);
-        //this.router.navigateByUrl('/processus-metier/' + this.ficheArticle.refArticle + '/view');
     }
 
     protected subscribeToSaveResponseProduit(result: Observable<HttpResponse<IFicheProduitChimique>>) {
