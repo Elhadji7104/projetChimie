@@ -133,21 +133,24 @@
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-g-4">
-                        <span class="simple-Application" jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu
-                            de Stockage</span> </div>
-                    <div class="ui-g-8">
-                        <span class="bold-Application">
-                            <select class="form-control" id="field_typeDeStockage" name="typeDeStockage"
-                                [(ngModel)]="ficheArticle.typeDeStockage">
-                                <option [ngValue]="null"></option>
-                                <option
-                                    [ngValue]="typeLieuStockageOption.id === ficheArticle.typeDeStockage ?.id ? ficheArticle.typeDeStockage  :typeLieuStockageOption"
-                                    *ngFor="let typeLieuStockageOption of typeLieuStockage; trackBy: trackDroitDacceeProduitById">
-                                    {{typeLieuStockageOption.libelleLieu}}</option>
-                            </select> </span>
+                        <div class="ui-g-4">
+                            <span class="simple-Application"
+                                jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee
+                                Produit</span>
+                        </div>
+                        <div class="ui-g-8">
+                            <div class="bold-Application" *ngIf="droitDacceeProduits">
+                                <select class="form-control" id="field_droitDacceeProduit" name="droitDacceeProduit"
+                                    [(ngModel)]="ficheArticle.droitDacceeProduit">
+                                    <option [ngValue]="null"></option>
+                                    <option
+                                        [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption"
+                                        *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">
+                                        {{droitDacceeProduitOption.id}}</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-g-4">
                         <span class="simple-Application"
@@ -159,26 +162,23 @@
                         </span>
                     </div>
                 </div>
-
                 <div class="ui-g-12 ui-md-6">
-                    <div class="ui-g-4">
-                        <span class="simple-Application"
-                            jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee
-                            Produit</span>
-                    </div>
-                    <div class="ui-g-8">
-                        <div class="bold-Application" *ngIf="droitDacceeProduits">
-                            <select class="form-control" id="field_droitDacceeProduit" name="droitDacceeProduit"
-                                [(ngModel)]="ficheArticle.droitDacceeProduit">
-                                <option [ngValue]="null"></option>
-                                <option
-                                    [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption"
-                                    *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">
-                                    {{droitDacceeProduitOption.id}}</option>
-                            </select>
+                        <div class="ui-g-4">
+                            <span class="simple-Application" jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu
+                                de Stockage</span> </div>
+                        <div class="ui-g-8">
+                            <span class="bold-Application">
+                                <select class="form-control" id="field_typeDeStockage" name="typeDeStockage"
+                                    [(ngModel)]="ficheArticle.typeDeStockage">
+                                    <option [ngValue]="null"></option>
+                                    <option
+                                        [ngValue]="typeLieuStockageOption.id === ficheArticle.typeDeStockage ?.id ? ficheArticle.typeDeStockage  :typeLieuStockageOption"
+                                        *ngFor="let typeLieuStockageOption of typeLieuStockage; trackBy: trackDroitDacceeProduitById">
+                                        {{typeLieuStockageOption.libelleLieu}}</option>
+                                </select> </span>
                         </div>
                     </div>
-                </div>
+               
 
             </div>
 
