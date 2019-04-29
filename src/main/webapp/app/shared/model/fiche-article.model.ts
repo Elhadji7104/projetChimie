@@ -40,7 +40,7 @@ export interface IFicheArticle {
     ficheProduitChimiques?: IFicheProduitChimique[];
     classifications?: IClassification[];
     droitDacceeProduit?: IDroitDacceeProduit;
-    typeDeStockage?: ITypeLieuStockage;
+    typeLieuStockage?: ITypeLieuStockage;
     groupe?: IGroupe;
 }
 
@@ -65,7 +65,7 @@ export class FicheArticle implements IFicheArticle {
         public classifications?: IClassification[],
         public droitDacceeProduit?: IDroitDacceeProduit,
         public groupe?: IGroupe,
-        public typeDeStockage?: ITypeLieuStockage
+        public typeLieuStockage?: ITypeLieuStockage
     ) {
         this.typeDesuivi = this.typeDesuivi || false;
         this.accessibilite = this.accessibilite || false;
