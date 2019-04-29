@@ -10,7 +10,7 @@ import { FicheRetourProduit, IFicheRetourProduit } from 'app/shared/model/fiche-
 import { FicheRetourProduitService } from '../fiche-retour-produit';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountService, IUser, User } from 'app/core';
-import moment = require('moment');
+import * as moment from 'moment';
 import { FicheDeCommandeProduitService } from 'app/entities/fiche-de-commande-produit';
 import { FicheDeCommandeProduit } from 'app/shared/model/fiche-de-commande-produit.model';
 import { ActivatedRoute } from '@angular/router';
