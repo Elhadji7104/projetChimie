@@ -33,29 +33,29 @@ export class ProcessusComponent implements OnInit {
     ficheProduits: IFicheProduitChimique = new FicheProduitChimique();
     ficheProduitChimique: IFicheProduitChimique[];
     booleanChimique: boolean;
-    private isSaving: boolean;
+    isSaving: boolean;
     fichearticles: any;
-    private CasSelect: SelectItem[] = [];
-    private NomSelect: SelectItem[] = [];
-    private formuleSelect: SelectItem[] = [];
+    CasSelect: SelectItem[] = [];
+    NomSelect: SelectItem[] = [];
+    formuleSelect: SelectItem[] = [];
     ficheArticle: IFicheArticle = new FicheArticle();
     EtatSelect: SelectItem[] = [];
-    private DispoSelect: SelectItem[] = [];
-    private condictionnementSelect: SelectItem[] = [];
-    private documentInput: string;
-    private classiSelect: SelectItem[] = [];
-    private droitSelect: SelectItem[] = [];
-    private unitesSelect: SelectItem[] = [];
-    private localisationSelect: SelectItem[] = [];
-    private stockageSelect: SelectItem[] = [];
-    private localisation: ILocalisation;
-    private documentArray: IDocument = new Document();
-    private uniteArray: IUnite;
-    private groupe2: IGroupe;
-    private typeCond: ITypeDeConditionnement;
-    private classiArray: IClassification;
+    DispoSelect: SelectItem[] = [];
+    condictionnementSelect: SelectItem[] = [];
+    documentInput: string;
+    classiSelect: SelectItem[] = [];
+    droitSelect: SelectItem[] = [];
+    unitesSelect: SelectItem[] = [];
+    localisationSelect: SelectItem[] = [];
+    stockageSelect: SelectItem[] = [];
+    localisation: ILocalisation;
+    documentArray: IDocument = new Document();
+    uniteArray: IUnite;
+    groupe: IGroupe;
+    typeCond: ITypeDeConditionnement;
+    classiArray: IClassification;
     test: IFicheArticle = new FicheArticle();
-    private codeInterne: string;
+    codeInterne: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,

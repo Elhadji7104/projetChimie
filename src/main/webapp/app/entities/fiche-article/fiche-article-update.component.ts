@@ -41,18 +41,18 @@ export class FicheArticleUpdateComponent implements OnInit {
 
     typeLieuStockage: ITypeLieuStockage[];
 
-    droitdacceeproduits: IDroitDacceeProduit[];
-    private unitesSelect: any[];
-    private produitSelect: any[];
-    private etatSelect: any[];
-    private dispoSelect: any;
-    private docSelect: any;
-    private classiSelect: any;
+    droitDacceeProduits: IDroitDacceeProduit[];
+    unitesSelect: any[];
+    produitSelect: any[];
+    etatSelect: any[];
+    dispoSelect: any;
+    docSelect: any;
+    classiSelect: any;
     booleanProduit: boolean;
-    private localisationSelect: SelectItem[] = [];
-    private stockageSelect: SelectItem[] = [];
-    private localisation: ILocalisation;
-    private condictionnementSelect: SelectItem[] = [];
+    localisationSelect: SelectItem[] = [];
+    stockageSelect: SelectItem[] = [];
+    localisation: ILocalisation;
+    condictionnementSelect: SelectItem[] = [];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -116,7 +116,7 @@ export class FicheArticleUpdateComponent implements OnInit {
         );
         this.droitDacceeProduitService.query().subscribe(
             (res: HttpResponse<IDroitDacceeProduit[]>) => {
-                this.droitdacceeproduits = res.body;
+                this.droitDacceeProduits = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

@@ -79,23 +79,23 @@
             </ng-template>
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th style="width: 10%;" [pSortableColumn]="cas"
-                        (input)="sort($event.target.value,cas)">
+                    <th style="width: 10%;" [pSortableColumn]="cas">
+                        <!--(input)="sort($event.target.value,cas)"-->
                         cas
                         <p-sortIcon [field]="cas"></p-sortIcon>
                     </th>
-                    <th style="width: 25%;"  [pSortableColumn]="nom"
-                        (input)="sort($event.target.value,nom)">
+                    <th style="width: 25%;"  [pSortableColumn]="nom">
+                        <!--(input)="sort($event.target.value,nom)"-->
                         nom
                         <p-sortIcon [field]="nom"></p-sortIcon>
                     </th>
-                    <th style="width: 25%;"  [pSortableColumn]="acronyme"
-                        (input)="sort($event.target.value,acronyme)">
+                    <th style="width: 25%;"  [pSortableColumn]="acronyme">
+                        <!--(input)="sort($event.target.value,acronyme)"-->
                         acronyme
                         <p-sortIcon [field]="acronyme"></p-sortIcon>
                     </th>
-                    <th style="width: 10%;" [pSortableColumn]="formule"
-                        (input)="sort($event.target.value,formule)">
+                    <th style="width: 10%;" [pSortableColumn]="formule">
+                        <!--(input)="sort($event.target.value,formule)"-->
                         formule
                         <p-sortIcon [field]="formule"></p-sortIcon>
                     </th>

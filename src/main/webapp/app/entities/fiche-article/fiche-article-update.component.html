@@ -145,7 +145,7 @@
                                 <option [ngValue]="null"></option>
                                 <option
                                     [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption"
-                                    *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">
+                                    *ngFor="let droitDacceeProduitOption of droitDacceeProduits; trackBy: trackDroitDacceeProduitById">
                                     {{droitDacceeProduitOption.id}}</option>
                             </select>
                         </div>
@@ -172,7 +172,7 @@
                     <div class="ui-g-8">
                         <div class="bold-Application" *ngIf="droitDacceeProduits">
                             <p-dropdown name="stockage" [style]="{'width':'50%'}" [options]="stockageSelect"
-                                [(ngModel)]="ficheArticle.typeDeStockage"></p-dropdown>
+                                [(ngModel)]="ficheArticle.typeLieuStockage"></p-dropdown>
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                     <div class="ui-g-8">
                         <div class="bold-Application" *ngIf="droitDacceeProduits">
                             <p-dropdown name="condictionnement" [style]="{'width':'50%'}"
-                                [options]="condictionnementSelect" [(ngModel)]="typeCond"></p-dropdown>
+                                [options]="condictionnementSelect" [(ngModel)]="ficheArticle.typeDeConditionnements"></p-dropdown>
                         </div>
                     </div>
                 </div>

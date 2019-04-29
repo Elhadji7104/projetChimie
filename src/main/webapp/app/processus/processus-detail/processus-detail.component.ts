@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
     styles: []
 })
 export class ProcessusDetailComponent implements OnInit {
-    /*ficheArticle: IFicheArticle;*/
+    ficheArticle: IFicheArticle;
 
     constructor(protected activatedRoute: ActivatedRoute) {}
 

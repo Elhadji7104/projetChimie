@@ -16,9 +16,9 @@ import { Router } from '@angular/router';
     styles: []
 })
 export class RechercheComponent implements OnInit {
-    private cols: ({ field: string; header: string })[];
-    private ficheArticles: IFicheArticle[] = [];
-    private ficheArticleProduits: IFicheArticleProduit[] = [];
+    cols: ({ field: string; header: string })[];
+    ficheArticles: IFicheArticle[] = [];
+    ficheArticleProduits: IFicheArticleProduit[] = [];
     codeBarreO: SelectItem[];
     casO: SelectItem[];
     acronymeO: SelectItem[];
@@ -26,19 +26,19 @@ export class RechercheComponent implements OnInit {
     nomO: SelectItem[];
     classificationO: SelectItem[];
     formuleO: SelectItem[];
-    private classifi: any;
-    private valeursSelect: any[];
-    private ficheArticlesProduitsCopie: IFicheArticleProduit[];
-    private conserve: IFicheArticleProduit[];
+    classifi: any;
+    valeursSelect: any[];
+    ficheArticlesProduitsCopie: IFicheArticleProduit[];
+    conserve: IFicheArticleProduit[];
     tableauMultiselection: IFicheArticleProduit[] = [];
-    private codeBarre: any[] = [];
-    private classification: any[] = [];
-    private disponibilite: any[] = [];
-    private cas: any[] = [];
-    private nom: any[] = [];
-    private acronyme: any[] = [];
-    private formule: any[] = [];
-    private attente: any[] = [];
+    codeBarre: any[] = [];
+    classification: any[] = [];
+    disponibliteArticle: any[] = [];
+    cas: any[] = [];
+    nom: any[] = [];
+    acronyme: any[] = [];
+    formule: any[] = [];
+    attente: any[] = [];
 
     ngOnInit() {
         this.cols = [
@@ -178,7 +178,7 @@ export class RechercheComponent implements OnInit {
                 this.classification = value;
                 break;
             case 'disponibilite':
-                this.disponibilite = value;
+                this.disponibliteArticle = value;
 
                 break;
             case 'cas':
@@ -233,7 +233,7 @@ export class RechercheComponent implements OnInit {
                 codeBarreBoolean = true;
             }
 
-            if (this.disponibilite.includes(value.disponibliteArticle) || this.disponibilite.length === 0) {
+            if (this.disponibliteArticle.includes(value.disponibliteArticle) || this.disponibliteArticle.length === 0) {
                 disponibiliteBoolean = true;
             }
 
@@ -263,7 +263,7 @@ export class RechercheComponent implements OnInit {
             this.acronyme.length === 0 &&
             this.nom.length === 0 &&
             this.codeBarre.length === 0 &&
-            this.disponibilite.length === 0 &&
+            this.disponibliteArticle.length === 0 &&
             this.classification.length === 0 &&
             this.formule.length === 0
         ) {

@@ -21,23 +21,23 @@ import * as moment from 'moment';
 })
 export class EmpruntRetourComponent implements OnInit {
     @ViewChild('menuItems') menu: MenuItem[];
-    private activeItem: any;
-    private currentAccount: any;
+    activeItem: any;
+    currentAccount: any;
     eventSubscriber: Subscription;
     ficheArticles: IFicheArticle[];
-    private account: any;
+    account: any;
     ficheArticle: IFicheArticle = new FicheArticle();
     ficheEmpruntProduit: IFicheEmpruntProduit = new FicheEmpruntProduit();
     empruntRetour: MenuItem[];
     choix = false;
     quantite: any;
-    private user: IUser = new User();
+    user: IUser = new User();
     ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
     articleOption: SelectItem[] = [];
     unite: String = 'Article non choisi';
-    private dispo: boolean = true;
+    dispo: boolean = true;
     commande: boolean = false;
-    private labelString: string;
+    labelString: string;
     pourcentage: number;
     numberUser: any;
 
