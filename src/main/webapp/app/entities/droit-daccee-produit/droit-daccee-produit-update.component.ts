@@ -79,6 +79,10 @@ export class DroitDacceeProduitUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
+    trackArticleById(index: number, item: IFicheArticle) {
+        return item.id;
+    }
+
     trackGroupeById(index: number, item: IGroupe) {
         return item.id;
     }

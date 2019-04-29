@@ -65,7 +65,7 @@ export const PROCESSUSDETAIL: Route = {
         ficheArticle: FicheArticleResolve
     },
     data: {
-        authorities: ['ROLE_USER'],
+        authorities: ['ROLE_USER', 'ROLE_ADMIN'],
         pageTitle: 'projetChimieApp.ficheArticle.home.title'
     },
     canActivate: [UserRouteAccessService]
