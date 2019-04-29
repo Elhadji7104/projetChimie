@@ -151,6 +151,41 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="ui-g">
+                            <div class="ui-g-4">
+                                <div>
+                                    <span jhiTranslate="projetChimieApp.localisation.home.title"></span>
+                                </div>
+                                <div>
+                                    <p-dropdown name="localisation" [style]="{'width':'50%'}" (onChange)="selectionStockage()"
+                                                [options]="localisationSelect" [(ngModel)]="localisation"></p-dropdown>
+                                </div>
+                            </div>
+                            <div class="ui-g-4">
+                                <div>
+                                    <span jhiTranslate="projetChimieApp.typeLieuStockage.home.title"></span>
+                                </div>
+                                <div>
+                                    <p-dropdown name="stockage" [style]="{'width':'50%'}" [options]="stockageSelect"
+                                                [(ngModel)]="ficheArticle.typeDeStockage"></p-dropdown>
+                                </div>
+                            </div>
+                            <div class="ui-g-4">
+                                <div>
+                                    <span jhiTranslate="projetChimieApp.typeDeConditionnement.home.title"></span>
+                                </div>
+                                <div>
+                                    <p-dropdown name="condictionnement" [style]="{'width':'50%'}" [options]="condictionnementSelect"
+                                                [(ngModel)]="typeCond" ></p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    <!--
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-g-4">
                         <span class="simple-Application"
@@ -177,14 +212,8 @@
                                         {{typeLieuStockageOption.libelleLieu}}</option>
                                 </select> </span>
                         </div>
-                    </div>
-               
-
+                    </div>-->
             </div>
-
-
-
-
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

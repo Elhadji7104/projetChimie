@@ -20,7 +20,9 @@ import { ILocalisation } from 'app/shared/model/localisation.model';
 import { LocalisationService } from 'app/entities/localisation';
 import { ITypeLieuStockage, TypeLieuStockage } from 'app/shared/model/type-lieu-stockage.model';
 import { TypeLieuStockageDeletePopupComponent, TypeLieuStockageService } from 'app/entities/type-lieu-stockage';
-
+import { ITypeDeConditionnement } from 'app/shared/model/type-de-conditionnement.model';
+import { TypeDeConditionnementService } from 'app/entities/type-de-conditionnement';
+import { SelectItem } from 'primeng/api';
 @Component({
     selector: 'jhi-fiche-article-update',
     templateUrl: './fiche-article-update.component.html'
@@ -47,6 +49,10 @@ export class FicheArticleUpdateComponent implements OnInit {
     private docSelect: any;
     private classiSelect: any;
     booleanProduit: boolean;
+    private localisationSelect: SelectItem[] = [];
+    private stockageSelect: SelectItem[] = [];
+    private localisation: ILocalisation;
+    private condictionnementSelect: SelectItem[] = [];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -57,7 +63,10 @@ export class FicheArticleUpdateComponent implements OnInit {
         protected classificationService: ClassificationService,
         protected droitDacceeProduitService: DroitDacceeProduitService,
         protected activatedRoute: ActivatedRoute,
-        protected typeLieuStockageService: TypeLieuStockageService
+        protected typeLieuStockageService: TypeLieuStockageService,
+        protected lieuService: LocalisationService,
+        protected stockageService: TypeLieuStockageService,
+        protected condictionnementService: TypeDeConditionnementService
     ) {}
 
     ngOnInit() {
@@ -83,6 +92,22 @@ export class FicheArticleUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        this.lieuService.query().subscribe(
+            (res: HttpResponse<ILocalisation[]>) => {
+                for (let value of res.body) {
+                    this.localisationSelect.push({ label: value.adresse, value: value });
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.condictionnementService.query().subscribe(
+            (res: HttpResponse<ITypeDeConditionnement[]>) => {
+                for (let value of res.body) {
+                    this.condictionnementSelect.push({ label: value.libelleConditionnement, value: value });
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
         this.classificationService.query().subscribe(
             (res: HttpResponse<IClassification[]>) => {
                 this.classifications = res.body;
@@ -92,12 +117,6 @@ export class FicheArticleUpdateComponent implements OnInit {
         this.droitDacceeProduitService.query().subscribe(
             (res: HttpResponse<IDroitDacceeProduit[]>) => {
                 this.droitdacceeproduits = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.typeLieuStockageService.query().subscribe(
-            (res: HttpResponse<ITypeLieuStockage[]>) => {
-                this.typeLieuStockage = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -218,5 +237,18 @@ export class FicheArticleUpdateComponent implements OnInit {
             }
         }
         return option;
+    }
+
+    selectionStockage() {
+        this.stockageService.query().subscribe(
+            (res: HttpResponse<ITypeLieuStockage[]>) => {
+                for (let value of res.body) {
+                    if (value.localisation.id === this.localisation.id) {
+                        this.stockageSelect.push({ label: value.libelleLieu, value: value });
+                    }
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 }
