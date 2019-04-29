@@ -133,86 +133,61 @@
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
-                        <div class="ui-g-4">
-                            <span class="simple-Application"
-                                jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee
-                                Produit</span>
-                        </div>
-                        <div class="ui-g-8">
-                            <div class="bold-Application" *ngIf="droitDacceeProduits">
-                                <select class="form-control" id="field_droitDacceeProduit" name="droitDacceeProduit"
-                                    [(ngModel)]="ficheArticle.droitDacceeProduit">
-                                    <option [ngValue]="null"></option>
-                                    <option
-                                        [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption"
-                                        *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">
-                                        {{droitDacceeProduitOption.id}}</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="ui-g">
-                            <div class="ui-g-4">
-                                <div>
-                                    <span jhiTranslate="projetChimieApp.localisation.home.title"></span>
-                                </div>
-                                <div>
-                                    <p-dropdown name="localisation" [style]="{'width':'50%'}" (onChange)="selectionStockage()"
-                                                [options]="localisationSelect" [(ngModel)]="localisation"></p-dropdown>
-                                </div>
-                            </div>
-                            <div class="ui-g-4">
-                                <div>
-                                    <span jhiTranslate="projetChimieApp.typeLieuStockage.home.title"></span>
-                                </div>
-                                <div>
-                                    <p-dropdown name="stockage" [style]="{'width':'50%'}" [options]="stockageSelect"
-                                                [(ngModel)]="ficheArticle.typeDeStockage"></p-dropdown>
-                                </div>
-                            </div>
-                            <div class="ui-g-4">
-                                <div>
-                                    <span jhiTranslate="projetChimieApp.typeDeConditionnement.home.title"></span>
-                                </div>
-                                <div>
-                                    <p-dropdown name="condictionnement" [style]="{'width':'50%'}" [options]="condictionnementSelect"
-                                                [(ngModel)]="typeCond" ></p-dropdown>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    <!--
-                <div class="ui-g-12 ui-md-6">
                     <div class="ui-g-4">
                         <span class="simple-Application"
-                            jhiTranslate="projetChimieApp.localisation.home.title">Localisation</span> </div>
+                            jhiTranslate="projetChimieApp.ficheArticle.droitDacceeProduit">Droit Daccee
+                            Produit</span>
+                    </div>
                     <div class="ui-g-8">
-                        <span class="bold-Application">
-                            <a
-                                [routerLink]="['/localisation', ficheArticle?.typeLieuStockage?.localisation?.id, 'view' ]">{{ficheArticle?.typeLieuStockage?.localisation?.adresse}}</a>
-                        </span>
+                        <div class="bold-Application" *ngIf="droitDacceeProduits">
+                            <select class="form-control" id="field_droitDacceeProduit" name="droitDacceeProduit"
+                                [(ngModel)]="ficheArticle.droitDacceeProduit">
+                                <option [ngValue]="null"></option>
+                                <option
+                                    [ngValue]="droitDacceeProduitOption.id === ficheArticle.droitDacceeProduit?.id ? ficheArticle.droitDacceeProduit : droitDacceeProduitOption"
+                                    *ngFor="let droitDacceeProduitOption of droitdacceeproduits; trackBy: trackDroitDacceeProduitById">
+                                    {{droitDacceeProduitOption.id}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span jhiTranslate="projetChimieApp.localisation.home.title"></span>
+                    </div>
+                    <div class="ui-g-8">
+                        <div class="bold-Application" *ngIf="droitDacceeProduits">
+                            <p-dropdown name="localisation" [style]="{'width':'50%'}" (onChange)="selectionStockage()"
+                                [options]="localisationSelect" [(ngModel)]="localisation"></p-dropdown>
+
+                        </div>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-6">
-                        <div class="ui-g-4">
-                            <span class="simple-Application" jhiTranslate="projetChimieApp.typeLieuStockage.home.title">Lieu
-                                de Stockage</span> </div>
-                        <div class="ui-g-8">
-                            <span class="bold-Application">
-                                <select class="form-control" id="field_typeDeStockage" name="typeDeStockage"
-                                    [(ngModel)]="ficheArticle.typeDeStockage">
-                                    <option [ngValue]="null"></option>
-                                    <option
-                                        [ngValue]="typeLieuStockageOption.id === ficheArticle.typeDeStockage ?.id ? ficheArticle.typeDeStockage  :typeLieuStockageOption"
-                                        *ngFor="let typeLieuStockageOption of typeLieuStockage; trackBy: trackDroitDacceeProduitById">
-                                        {{typeLieuStockageOption.libelleLieu}}</option>
-                                </select> </span>
+                    <div class="ui-g-4">
+                        <span jhiTranslate="projetChimieApp.typeLieuStockage.home.title"></span>
+                    </div>
+                    <div class="ui-g-8">
+                        <div class="bold-Application" *ngIf="droitDacceeProduits">
+                            <p-dropdown name="stockage" [style]="{'width':'50%'}" [options]="stockageSelect"
+                                [(ngModel)]="ficheArticle.typeDeStockage"></p-dropdown>
                         </div>
-                    </div>-->
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-4">
+                        <span jhiTranslate="projetChimieApp.typeDeConditionnement.home.title"></span>
+                    </div>
+                    <div class="ui-g-8">
+                        <div class="bold-Application" *ngIf="droitDacceeProduits">
+                            <p-dropdown name="condictionnement" [style]="{'width':'50%'}"
+                                [options]="condictionnementSelect" [(ngModel)]="typeCond"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">

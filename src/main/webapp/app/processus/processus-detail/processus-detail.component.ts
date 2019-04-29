@@ -8,15 +8,15 @@ import { ActivatedRoute } from '@angular/router';
     styles: []
 })
 export class ProcessusDetailComponent implements OnInit {
-    ficheArticle: IFicheArticle;
+    /*ficheArticle: IFicheArticle;*/
 
     constructor(protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
-        this.activatedRoute.data.subscribe(({ ficheArticle }) => {
+        /* this.activatedRoute.data.subscribe(({ ficheArticle }) => {
             this.ficheArticle = ficheArticle;
             console.log(this.ficheArticle);
-        });
+        });*/
     }
 
     previousState() {
