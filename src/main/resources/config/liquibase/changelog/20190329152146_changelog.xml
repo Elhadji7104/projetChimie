@@ -22,9 +22,9 @@
     <changeSet author="EL GORA FALL (generated)" id="1553872921165-6">
         <dropForeignKeyConstraint baseTableName="jhi_user" constraintName="FKaleiti2ln4q03g554hh6fcbh9"/>
     </changeSet>
-    <changeSet author="EL GORA FALL (generated)" id="1553872921165-7">
+<!--    <changeSet author="EL GORA FALL (generated)" id="1553872921165-7">
         <dropTable tableName="jhi_date_time_wrapper"/>
-    </changeSet>
+    </changeSet>-->
     <changeSet author="EL GORA FALL (generated)" id="1553872921165-8">
         <dropColumn columnName="fiche_article_id" tableName="type_lieu_stockage"/>
     </changeSet>

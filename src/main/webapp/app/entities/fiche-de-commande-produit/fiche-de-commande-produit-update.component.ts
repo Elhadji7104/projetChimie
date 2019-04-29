@@ -52,7 +52,7 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         this.fournisseurService.query().subscribe(
             (res: HttpResponse<IFournisseur[]>) => {
                 this.fournisseurs = res.body;
-                for (let value of this.fournisseurs) {
+                for (const value of this.fournisseurs) {
                     this.fournisseurOption.push({ label: value.nomFournisseur, value: value });
                 }
             },
@@ -64,21 +64,22 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.fichearticles = res.body;
-                for (let value of this.fichearticles) {
+                for (const value of this.fichearticles) {
                     if (value !== undefined && value.ficheProduitChimiques !== undefined) {
                         this.labelString = '';
                         if (value !== undefined && value.ficheProduitChimiques !== undefined) {
                             if (value.codeBarre !== undefined) {
                                 this.labelString = this.labelString.concat(value.codeBarre);
                             }
-                            if (value.ficheProduitChimiques.cas !== undefined) {
-                                this.labelString = this.labelString.concat('; ' + value.ficheProduitChimiques.cas);
+                            if (value.ficheProduitChimiques.map(e => e.cas).join('') !== '') {
+                                this.labelString = this.labelString.concat('; ' + value.ficheProduitChimiques.map(e => e.cas).join(';'));
                             }
-                            if (value.ficheProduitChimiques.nom !== undefined) {
-                                this.labelString = this.labelString.concat('; ' + value.ficheProduitChimiques.nom);
+                            if (value.ficheProduitChimiques.map(e => e.cas).join('') !== '') {
+                                this.labelString = this.labelString.concat('; ' + value.ficheProduitChimiques.map(e => e.nom).join(';'));
                             }
                             this.articleOption.push({
                                 label: this.labelString,
+                                // tslint:disable-next-line:object-literal-shorthand
                                 value: value
                             });
                         }
