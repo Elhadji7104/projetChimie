@@ -121,12 +121,25 @@ public final class SecurityUtils {
             case "csm":
                 login = "CSM";
                 break;
+
+            case "berree":
+                login = "CORINT";
+                break;
+            case "aludwig":
+                login = "CORINT";
+                break;
+            case "cbarrillon":
+                login = "CORINT";
+                break;
+            case "alecorne":
+                login = "CORINT";
+                break;
         }
         switch (login) {
-            case "CSM":
+            case "CORINT":
                 groupeName = "AA";
                 break;
-            case "CORINT":
+            case "CSM":
                 groupeName = "BA";
                 break;
             case "V&C":
