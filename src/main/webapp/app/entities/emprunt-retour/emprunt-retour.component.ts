@@ -3,7 +3,7 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { DisponibliteArticle, FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import { FicheArticleService } from '../fiche-article';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { FicheEmpruntProduitService } from '../fiche-emprunt-produit';
 import { FicheEmpruntProduit, IFicheEmpruntProduit } from 'app/shared/model/fiche-emprunt-produit.model';
 import { FicheRetourProduit, IFicheRetourProduit } from 'app/shared/model/fiche-retour-produit.model';
@@ -30,7 +30,6 @@ export class EmpruntRetourComponent implements OnInit {
     ficheEmpruntProduit: IFicheEmpruntProduit = new FicheEmpruntProduit();
     empruntRetour: MenuItem[];
     choix = false;
-    quantite: any;
     user: IUser = new User();
     ficheRetourProduit: IFicheRetourProduit = new FicheRetourProduit();
     articleOption: SelectItem[] = [];
@@ -38,7 +37,7 @@ export class EmpruntRetourComponent implements OnInit {
     dispo: boolean = true;
     commande: boolean = false;
     labelString: string;
-    pourcentage: number;
+    quantite: number;
     numberUser: any;
 
     constructor(
@@ -121,7 +120,6 @@ export class EmpruntRetourComponent implements OnInit {
             this.ficheArticleService.findUser(this.numberUser).subscribe(
                 (res: HttpResponse<IUser>) => {
                     this.account = res.body;
-                    console.log('test', res.body);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -132,24 +130,28 @@ export class EmpruntRetourComponent implements OnInit {
                 this.ficheEmpruntProduit.ficheArticle = this.ficheArticle;
                 this.user = this.currentAccount;
                 this.ficheEmpruntProduit.user = this.user;
-                console.log(this.ficheEmpruntProduit.user);
                 this.ficheEmpruntProduit.dateEmprunt = moment(new Date(Date.now()));
                 this.ficheEmpruntProduit.quantite = this.quantite;
+                this.ficheArticle.disponibliteArticle = DisponibliteArticle.INDISPONIBLE;
                 this.ficheEmpruntProduitService.create(this.ficheEmpruntProduit).subscribe(result => {
-                    console.log(result);
+                    this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
                 });
             } else {
                 this.ficheRetourProduit.ficheArticle = this.ficheArticle;
                 this.user = this.currentAccount;
                 this.ficheRetourProduit.user = this.user;
-                console.log(this.ficheRetourProduit.user);
                 this.ficheRetourProduit.dateRetour = moment(new Date(Date.now()));
                 this.ficheRetourProduit.quantite = this.quantite;
+                this.ficheArticle.disponibliteArticle = DisponibliteArticle.DISPONIBLE;
                 this.ficheRetourProduitService.create(this.ficheRetourProduit).subscribe(result => {
-                    console.log(result);
+                    this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
                 });
             }
         }
+    }
+
+    protected subscribeToSaveResponseArticle(result: Observable<HttpResponse<IFicheArticle>>) {
+        result.subscribe((res: HttpResponse<IFicheArticle>) => console.log(this.ficheArticle));
     }
 
     actuUnite() {
@@ -174,12 +176,16 @@ export class EmpruntRetourComponent implements OnInit {
         this.dispo = true;
         this.commande = false;
         if (this.ficheArticle.disponibliteArticle === DisponibliteArticle.INDISPONIBLE.toString()) {
-            this.dispo = false;
-            this.messageService.add({
-                severity: 'error',
-                summary: "L'article n'est pas disponible",
-                detail: 'erreur'
-            });
+            if (!this.choix) {
+                this.dispo = false;
+                this.messageService.add({
+                    severity: 'error',
+                    summary: "L'article n'est pas disponible",
+                    detail: 'erreur'
+                });
+            } else {
+                this.dispo = true;
+            }
         }
         if (this.ficheArticle.disponibliteArticle === DisponibliteArticle.ENCOMMANDE.toString()) {
             this.dispo = false;

@@ -64,7 +64,8 @@
         </div>
         <div class="first">
             <h3 class="first">Quantité: {{quantite}} {{unite}}</h3>
-            <p-slider [(ngModel)]="pourcentage" [style]="{'width':'14em'}"></p-slider>
+            <input type="text" pInputText [(ngModel)]="quantite" />
+            <p-slider [(ngModel)]="quantite" [style]="{'width':'14em'}" [max]="1000"></p-slider>
         </div>
         <p></p>
         <div class="first">

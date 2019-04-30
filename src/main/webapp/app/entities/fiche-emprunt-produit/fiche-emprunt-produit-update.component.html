@@ -30,7 +30,7 @@
                             [(ngModel)]="ficheEmpruntProduit.ficheArticle">
                         <option [ngValue]="null"></option>
                         <option
-                            [ngValue]="ficheArticleOption.label === ficheEmpruntProduit.ficheArticle?.id ? ficheEmpruntProduit.ficheArticle : ficheArticleOption"
+                            [ngValue]="ficheArticleOption.codeBarre === ficheEmpruntProduit.ficheArticle?.codeBarre ? ficheEmpruntProduit.ficheArticle : ficheArticleOption"
                             *ngFor="let ficheArticleOption of fichearticles; trackBy: trackFicheArticleById">
                             {{ficheArticleOption.id}}
                         </option>

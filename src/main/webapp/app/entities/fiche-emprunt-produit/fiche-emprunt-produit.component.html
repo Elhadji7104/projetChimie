@@ -23,7 +23,7 @@
                         <a [routerLink]="['../fiche-article', ficheEmpruntProduit.ficheArticle?.id, 'view' ]" >{{ficheEmpruntProduit.ficheArticle?.codeBarre}}</a>
                     </div>
                 </td>
-                <td><a [routerLink]="['/fiche-emprunt-produit', ficheEmpruntProduit.id, 'view' ]">{{ficheEmpruntProduit.quantite}}</a></td>
+                <td>{{ficheEmpruntProduit.quantite}}</td>
                 <td>
                     <div *ngIf="ficheEmpruntProduit?.user?.login">
                         {{ficheEmpruntProduit?.user?.login}}

@@ -8,9 +8,9 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.quantite">Quantite</span></th>
             <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.dateRetour">Date Retour</span></th>
-                <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.ficheArticle">Fiche Article</span></th>
+            <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.dateRetour">Fiche Article</span></th>
+                <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.quantite">Quantite</span></th>
                 <th><span jhiTranslate="projetChimieApp.ficheRetourProduit.iDUser">User</span></th>
             </tr>
             </thead>
@@ -19,9 +19,10 @@
                 <td>{{ficheRetourProduit.dateRetour | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="ficheRetourProduit.ficheArticle">
-                        <a [routerLink]="['../fiche-article', ficheRetourProduit.ficheArticle?.id, 'view' ]" >{{ficheRetourProduit.ficheArticle?.id}}</a>
+                        <a [routerLink]="['../fiche-article', ficheRetourProduit.ficheArticle?.id, 'view' ]" >{{ficheRetourProduit.ficheArticle?.codeBarre}}</a>
                     </div>
                 </td>
+                <td>{{ficheRetourProduit.quantite}}</td>
                 <td>
                     <div *ngIf="ficheRetourProduit.user?.login">
                         {{ficheRetourProduit?.user?.login}}

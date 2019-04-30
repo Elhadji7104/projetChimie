@@ -16,7 +16,7 @@
                 <dt><span jhiTranslate="projetChimieApp.ficheRetourProduit.ficheArticle">Fiche Article</span></dt>
                 <dd>
                     <div *ngIf="ficheRetourProduit.ficheArticle">
-                        <a [routerLink]="['/fiche-article', ficheRetourProduit.ficheArticle?.id, 'view']">{{ficheRetourProduit.ficheArticle?.refArticle}}</a>
+                        <a [routerLink]="['/fiche-article', ficheRetourProduit.ficheArticle?.id, 'view']">{{ficheRetourProduit.ficheArticle?.codeBarre}}</a>
                     </div>
                 </dd>
             </dl>
