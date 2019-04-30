@@ -202,57 +202,68 @@ export class ProcessusComponent implements OnInit {
             this.ficheProduits.formule !== undefined
         ) {
             this.ficheArticle.ficheProduitChimiques = [];
-            //this.ficheArticle.ficheProduitChimiques[0] = this.ficheProduits;
             if (this.booleanChimique) {
                 this.subscribeToSaveResponseProduit(this.ficheProduitChimiqueService.create(this.ficheProduits));
-            }
-
-            this.ficheArticle.documents = [];
-            if (this.documentInput !== undefined) {
-                this.documentArray.lien = this.documentInput;
-                this.documentArray.ficheArticles = [];
-                this.documentArray.ficheArticles[0] = this.ficheArticle;
-                this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
-            }
-            //this.ficheArticle.documents[0] = this.documentArray;
-            this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
-
-            // Code Interne a faire avec le REST de groupe
-            this.ficheArticle.unites = [];
-            this.ficheArticle.unites[0] = this.uniteArray;
-            this.ficheArticle.classifications = [];
-            this.ficheArticle.classifications[0] = this.classiArray;
-            // this.ficheArticle.groupe = this.groupe2;
-
-            if (this.ficheArticle.id !== undefined) {
-                this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
             } else {
-                this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
+                this.ficheArticle.documents = [];
+                if (this.documentInput !== undefined) {
+                    this.documentArray.lien = this.documentInput;
+                    this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
+                } else {
+                    this.createArticle();
+                }
             }
-            console.log(this.ficheArticle);
-            //this.router.navigateByUrl('/processus-metier/' + this.ficheArticle.refArticle + '/view');
+        }
+    }
+
+    private createArticle() {
+        this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
+
+        // Code Interne a faire avec le REST de groupe
+        this.ficheArticle.unites = [];
+        this.ficheArticle.unites[0] = this.uniteArray;
+        this.ficheArticle.classifications = [];
+        this.ficheArticle.classifications[0] = this.classiArray;
+        // this.ficheArticle.groupe = this.groupe2;
+
+        if (this.ficheArticle.id !== undefined) {
+            this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
+        } else {
+            this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
+        }
+        this.isSaving = true;
+        this.previousState();
+    }
+
+    protected onSaveDocument(res: HttpResponse<IDocument>) {
+        this.ficheArticle.documents[0] = res.body;
+        this.createArticle();
+    }
+
+    protected onSaveProduit(res: HttpResponse<IFicheProduitChimique>) {
+        this.ficheArticle.ficheProduitChimiques[0] = res.body;
+        this.ficheArticle.documents = [];
+        if (this.documentInput !== undefined) {
+            this.documentArray.lien = this.documentInput;
+            this.subscribeToSaveResponseDoc(this.documentService.create(this.documentArray));
+        } else {
+            this.createArticle();
         }
     }
 
     protected subscribeToSaveResponseProduit(result: Observable<HttpResponse<IFicheProduitChimique>>) {
         result.subscribe(
-            (res: HttpResponse<IFicheProduitChimique>) => this.onSaveSuccess(),
+            (res: HttpResponse<IFicheProduitChimique>) => this.onSaveProduit(res),
             (res: HttpErrorResponse) => this.onSaveError()
         );
     }
 
     protected subscribeToSaveResponseArticle(result: Observable<HttpResponse<IFicheArticle>>) {
-        result.subscribe((res: HttpResponse<IFicheArticle>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
-        console.log(this.isSaving);
+        result.subscribe((res: HttpResponse<IFicheArticle>) => this.onSaveError(), (res: HttpErrorResponse) => this.onSaveError());
     }
 
     protected subscribeToSaveResponseDoc(result: Observable<HttpResponse<IDocument>>) {
-        result.subscribe((res: HttpResponse<IDocument>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
-    }
-
-    protected onSaveSuccess() {
-        this.isSaving = true;
-        this.previousState();
+        result.subscribe((res: HttpResponse<IDocument>) => this.onSaveDocument(res), (res: HttpErrorResponse) => this.onSaveError());
     }
 
     previousState() {
