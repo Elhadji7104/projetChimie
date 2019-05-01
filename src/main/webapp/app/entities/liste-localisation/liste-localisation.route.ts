@@ -30,7 +30,7 @@ export const listeLocalisationRoute: Routes = [
         path: 'liste-localisation',
         component: ListeLocalisationComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.classification.home.title'
         },
         canActivate: [UserRouteAccessService]

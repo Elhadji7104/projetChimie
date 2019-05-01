@@ -33,7 +33,7 @@ export const listeCmrRoute: Routes = [
         path: 'liste-cmr',
         component: ListeCmrComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.listeCmr.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const listeCmrRoute: Routes = [
             listeCmr: ListeCmrResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.listeCmr.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const listeCmrRoute: Routes = [
             listeCmr: ListeCmrResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.listeCmr.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const listeCmrRoute: Routes = [
             listeCmr: ListeCmrResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.listeCmr.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const listeCmrPopupRoute: Routes = [
             listeCmr: ListeCmrResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.listeCmr.home.title'
         },
         canActivate: [UserRouteAccessService],

@@ -33,7 +33,7 @@ export const listeGroupeInviteRoute: Routes = [
         path: 'liste-groupe-invite',
         component: ListeGroupeInviteComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.listeGroupeInvite.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const listeGroupeInviteRoute: Routes = [
             listeGroupeInvite: ListeGroupeInviteResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.listeGroupeInvite.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const listeGroupeInviteRoute: Routes = [
             listeGroupeInvite: ListeGroupeInviteResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.listeGroupeInvite.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const listeGroupeInviteRoute: Routes = [
             listeGroupeInvite: ListeGroupeInviteResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.listeGroupeInvite.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const listeGroupeInvitePopupRoute: Routes = [
             listeGroupeInvite: ListeGroupeInviteResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.listeGroupeInvite.home.title'
         },
         canActivate: [UserRouteAccessService],

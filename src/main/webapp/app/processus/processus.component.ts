@@ -4,7 +4,7 @@ import { FicheProduitChimiqueService } from 'app/entities/fiche-produit-chimique
 import { FicheArticleService } from 'app/entities/fiche-article';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
+import { FicheArticle, IFicheArticle, DisponibliteArticle } from 'app/shared/model/fiche-article.model';
 import { FicheProduitChimique, IFicheProduitChimique } from 'app/shared/model/fiche-produit-chimique.model';
 import { SelectItem } from 'primeng/api';
 import { ClassificationService } from 'app/entities/classification';
@@ -18,11 +18,14 @@ import { TypeLieuStockageService } from 'app/entities/type-lieu-stockage';
 import { ITypeDeConditionnement } from 'app/shared/model/type-de-conditionnement.model';
 import { TypeDeConditionnementService } from 'app/entities/type-de-conditionnement';
 import { GroupeService } from 'app/entities/groupe';
-import { IGroupe } from 'app/shared/model/groupe.model';
+import { IGroupe, Groupe } from 'app/shared/model/groupe.model';
 import { Observable } from 'rxjs';
 import { DocumentService } from 'app/entities/document';
 import { IDocument, Document } from 'app/shared/model/document.model';
 import { AccountService } from 'app/core';
+import { DroitDacceeProduitService } from 'app/entities/droit-daccee-produit/droit-daccee-produit.service';
+import { DroitDacceeProduit } from 'app/shared/model/droit-daccee-produit.model';
+import { IDroitDacceeProduit } from 'app/shared/model/droit-daccee-produit.model';
 
 @Component({
     selector: 'jhi-processus',
@@ -52,8 +55,9 @@ export class ProcessusComponent implements OnInit {
     documentArray: IDocument = new Document();
     uniteArray: IUnite;
     groupe: IGroupe;
+    droit: IGroupe[];
     typeCond: ITypeDeConditionnement;
-    classiArray: IClassification;
+    classiArray: IClassification[] = [];
     test: IFicheArticle = new FicheArticle();
     codeInterne: string;
 
@@ -69,7 +73,8 @@ export class ProcessusComponent implements OnInit {
         protected stockageService: TypeLieuStockageService,
         protected condictionnementService: TypeDeConditionnementService,
         protected documentService: DocumentService,
-        private accountService: AccountService
+        private accountService: AccountService,
+        protected droitDacceeProduitService: DroitDacceeProduitService
     ) {}
 
     ngOnInit() {
@@ -215,22 +220,39 @@ export class ProcessusComponent implements OnInit {
             }
         }
     }
+    createDroitAcces() {
+        /*  for (let acces of this.droit) {
+            let variable = new DroitDacceeProduit;
+            variable.ficheArticles = [];
+            variable.ficheArticles[0] = this.ficheArticle;
+            variable.groupe = new Groupe();
+            variable.groupe = acces;
+            this.droitDacceeProduitService.create(variable);
+        }*/
+    }
 
     private createArticle() {
+        if (this.ficheArticle.disponibliteArticle === undefined) {
+            this.ficheArticle.disponibliteArticle = DisponibliteArticle.DISPONIBLE;
+        }
+        if (this.ficheArticle.etatPhysique === undefined) {
+            this.ficheArticle.etatPhysique = 'LIQUIDE';
+        }
         this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
-
         // Code Interne a faire avec le REST de groupe
         this.ficheArticle.unites = [];
         this.ficheArticle.unites[0] = this.uniteArray;
         this.ficheArticle.classifications = [];
-        this.ficheArticle.classifications[0] = this.classiArray;
+        this.ficheArticle.classifications = this.classiArray;
+        console.log(this.ficheArticle.classifications);
         // this.ficheArticle.groupe = this.groupe2;
-
+        this.createDroitAcces();
         if (this.ficheArticle.id !== undefined) {
             this.subscribeToSaveResponseArticle(this.ficheArticleService.update(this.ficheArticle));
         } else {
             this.subscribeToSaveResponseArticle(this.ficheArticleService.create(this.ficheArticle));
         }
+
         this.isSaving = true;
         this.previousState();
     }

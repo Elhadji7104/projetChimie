@@ -33,7 +33,8 @@ export const classificationRoute: Routes = [
         path: 'classification',
         component: ClassificationComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
+
             pageTitle: 'projetChimieApp.classification.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +46,8 @@ export const classificationRoute: Routes = [
             classification: ClassificationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
+
             pageTitle: 'projetChimieApp.classification.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +59,8 @@ export const classificationRoute: Routes = [
             classification: ClassificationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
+
             pageTitle: 'projetChimieApp.classification.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +72,8 @@ export const classificationRoute: Routes = [
             classification: ClassificationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
+
             pageTitle: 'projetChimieApp.classification.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +88,8 @@ export const classificationPopupRoute: Routes = [
             classification: ClassificationResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_HYGIENE_ET_SECURITE', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_ADMIN'],
+
             pageTitle: 'projetChimieApp.classification.home.title'
         },
         canActivate: [UserRouteAccessService],

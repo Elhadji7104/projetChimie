@@ -34,7 +34,7 @@ export const ficheProduitChimiqueRoute: Routes = [
         path: 'fiche-produit-chimique',
         component: FicheProduitChimiqueComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -46,7 +46,7 @@ export const ficheProduitChimiqueRoute: Routes = [
             ficheProduitChimique: FicheProduitChimiqueResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -58,7 +58,7 @@ export const ficheProduitChimiqueRoute: Routes = [
             ficheProduitChimique: FicheProduitChimiqueResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -70,7 +70,7 @@ export const ficheProduitChimiqueRoute: Routes = [
             ficheProduitChimique: FicheProduitChimiqueResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -82,7 +82,7 @@ export const ficheProduitChimiqueRoute: Routes = [
             ficheProduitChimique: FicheProduitChimiqueResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -98,7 +98,7 @@ export const ficheProduitChimiquePopupRoute: Routes = [
             ficheProduitChimique: FicheProduitChimiqueResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.ficheProduitChimique.home.title'
         },
         canActivate: [UserRouteAccessService],

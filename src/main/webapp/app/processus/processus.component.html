@@ -9,7 +9,7 @@
             <div class="ui-g">
                 <div class="ui-g-4">
                     <div class="form-group">
-                    </div><span>Un champ doit être au minimum rempli pour être valide</span></div>
+                    <div><span>Un champ doit être au minimum rempli pour être valide</span></div>
                         <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.cas"
                                for="field_cas">Cas</label>
                         <div>
@@ -180,8 +180,10 @@
             <div class="ui-g-4">
                 <label jhiTranslate="projetChimieApp.ficheArticle.classification"> Classification</label>
                 <div>
-                    <p-dropdown name="cla" [style]="{'width':'50%'}" [options]="classiSelect"
-                                [(ngModel)]="classiArray"></p-dropdown>
+                        <p-multiSelect name="cla" [options]="classiSelect"
+                        [(ngModel)]="classiArray"></p-multiSelect>
+   
+
                 </div>
             </div>
         </div>
@@ -204,7 +206,7 @@
                     <span jhiTranslate="projetChimieApp.groupe.home.title"></span>
                     <div>
                         <p-multiSelect name="droit" [options]="droitSelect"
-                                       [(ngModel)]="groupe"></p-multiSelect>
+                                       [(ngModel)]="droit"></p-multiSelect>
                     </div>
                 </div>
             </div>

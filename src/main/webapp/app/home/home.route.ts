@@ -12,7 +12,7 @@ export const HOME_ROUTE: Route = {
     path: '',
     component: HomeComponent,
     data: {
-        authorities: [],
+        authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
         pageTitle: 'home.title'
     }
 };
@@ -21,7 +21,7 @@ export const EMPRUNTPRODUIT: Route = {
     path: 'emprunt-produit',
     component: EmpruntRetourComponent,
     data: {
-        authorities: ['ROLE_USER'],
+        authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
         pageTitle: 'home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -31,7 +31,7 @@ export const RECHERCHE: Route = {
     path: 'recherche',
     component: RechercheComponent,
     data: {
-        authorities: ['ROLE_USER'],
+        authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
         pageTitle: 'home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -43,7 +43,7 @@ export const EMPRUNTPRODUITID: Route = {
         ficheArticle: FicheArticleResolve
     },
     data: {
-        authorities: ['ROLE_USER'],
+        authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
         pageTitle: 'home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -52,7 +52,7 @@ export const PROCESSUS: Route = {
     path: 'processus-metier',
     component: ProcessusComponent,
     data: {
-        authorities: ['ROLE_USER'],
+        authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
         pageTitle: 'home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -65,7 +65,7 @@ export const PROCESSUSDETAIL: Route = {
         ficheArticle: FicheArticleResolve
     },
     data: {
-        authorities: ['ROLE_USER', 'ROLE_ADMIN'],
+        authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
         pageTitle: 'projetChimieApp.ficheArticle.home.title'
     },
     canActivate: [UserRouteAccessService]
