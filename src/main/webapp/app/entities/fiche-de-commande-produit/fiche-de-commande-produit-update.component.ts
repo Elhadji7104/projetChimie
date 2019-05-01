@@ -23,14 +23,14 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     isSaving: boolean;
     articleOption: SelectItem[] = [];
     fournisseurs: IFournisseur[] = [];
-    private unite: string;
-    private fichearticles: IFicheArticle[];
-    private ficheArticle: IFicheArticle;
+    unite: string;
+    fichearticles: IFicheArticle[];
+    ficheArticle: IFicheArticle;
     fournisseurOption: SelectItem[] = [];
     fournisseur: IFournisseur = new Fournisseur();
     fourni: IFournisseur[] = [];
     account: Account;
-    private labelString: string;
+    labelString: string;
 
     constructor(
         private accountService: AccountService,
