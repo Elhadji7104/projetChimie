@@ -8,8 +8,8 @@
                 "createOrEditLabel": "Créer ou éditer une Localisation"
             },
             "created": "Une nouvelle Localisation a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Localisation avec l'identifiant {{ param }}",
-            "deleted": "Le Localisation avec l'identifiant {{ param }}",
+            "updated": "La Localisation avec l'identifiant {{ param }}",
+            "deleted": "La Localisation avec l'identifiant {{ param }}",
             "delete": {
                 "question": "(La localisation ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer la Localisation {{ id }} ?"
             },

@@ -3,19 +3,19 @@
         "classification": {
             "home": {
                 "title": "Classifications",
-                "createLabel": "Créer un nouveau Classification",
-                "createOrEditLabel": "Créer ou éditer un Classification"
+                "createLabel": "Créer une nouvelle Classification",
+                "createOrEditLabel": "Créer ou éditer une Classification"
             },
-            "created": "Un nouveau Classification a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Classification avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Classification avec l'identifiant {{ param }} a été supprimé",
+            "created": "Une nouvelle Classification a été créé avec l'identifiant {{ param }}",
+            "updated": "La Classification avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Classification avec l'identifiant {{ param }} a été supprimée",
             "delete": {
-                "question": "(La classification ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer le Classification {{ id }} ?"
+                "question": "(La classification ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer la Classification {{ id }} ?"
             },
             "detail": {
                 "title": "Classification"
             },
-            "nomClassification": "Nom Classification",
+            "nomClassification": "Nom de la Classification",
             "ficheArticle": "Fiche Article"
         }
     }

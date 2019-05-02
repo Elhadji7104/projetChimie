@@ -4,14 +4,14 @@
             "iDUser": "ID Utilisateur",
             "home": {
                 "title": "FicheRetourProduits",
-                "createLabel": "Créer un nouveau Fiche Retour Produit",
+                "createLabel": "Créer une nouvelle Fiche Retour Produit",
                 "createOrEditLabel": "Créer ou éditer un Fiche Retour Produit"
             },
-            "created": "Un nouveau Fiche Retour Produit a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Fiche Retour Produit avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Fiche Retour Produit avec l'identifiant {{ param }} a été supprimé",
+            "created": "une nouvelle Ficheche Retour Produit a été créé avec l'identifiant {{ param }}",
+            "updated": "La Fiche Retour Produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Fiche Retour Produit avec l'identifiant {{ param }} a été supprimée",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Fiche Retour Produit {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer la Fiche Retour Produit {{ id }} ?"
             },
             "detail": {
                 "title": "Fiche Retour Produit"

@@ -8,7 +8,7 @@
             },
             "created": "Une nouvelle Fiche Produit Chimique a été créé avec l'identifiant {{ param }}",
             "updated": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été supprimé",
+            "deleted": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été supprimée",
             "delete": {
                 "question": "(La fiche ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer laFiche Produit Chimique {{ id }} ?"
             },

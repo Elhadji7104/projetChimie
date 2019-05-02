@@ -3,14 +3,14 @@
         "ficheDeCommandeProduit": {
             "home": {
                 "title": "FicheDeCommandeProduits",
-                "createLabel": "Créer un nouveau Fiche De Commande Produit",
-                "createOrEditLabel": "Créer ou éditer un Fiche De Commande Produit"
+                "createLabel": "Créer une nouvelle Fiche De Commande Produit",
+                "createOrEditLabel": "Créer ou éditer une Fiche De Commande Produit"
             },
-            "created": "Un nouveau Fiche De Commande Produit a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Fiche De Commande Produit avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Fiche De Commande Produit avec l'identifiant {{ param }} a été supprimé",
+            "created": "Une nouvelle Fiche De Commande Produit a été créé avec l'identifiant {{ param }}",
+            "updated": "La Fiche De Commande Produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Fiche De Commande Produit avec l'identifiant {{ param }} a été supprimée",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Fiche De Commande Produit {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer la Fiche De Commande Produit {{ id }} ?"
             },
             "detail": {
                 "title": "Fiche De Commande Produit"
