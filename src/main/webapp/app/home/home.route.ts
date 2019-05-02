@@ -58,6 +58,19 @@ export const PROCESSUS: Route = {
     canActivate: [UserRouteAccessService]
 };
 
+export const PROCESSUSMODIF: Route = {
+    path: 'processus-metier/:refArticle/update',
+    component: ProcessusComponent,
+    resolve: {
+        ficheArticle: FicheArticleResolve
+    },
+    data: {
+        authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
+        pageTitle: 'home.title'
+    },
+    canActivate: [UserRouteAccessService]
+};
+
 export const PROCESSUSDETAIL: Route = {
     path: 'processus-metier/:refArticle/view',
     component: ProcessusDetailComponent,

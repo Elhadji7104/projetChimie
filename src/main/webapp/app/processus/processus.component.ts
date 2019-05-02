@@ -79,8 +79,9 @@ export class ProcessusComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.activatedRoute.data.subscribe(({ ficheProduitChimique }) => {
-            this.ficheProduitChimique = ficheProduitChimique;
+        this.activatedRoute.data.subscribe(({ ficheArticle }) => {
+            console.log(ficheArticle);
+            //this.ficheArticle = ficheArticle;
         });
 
         this.groupeService.query().subscribe(
