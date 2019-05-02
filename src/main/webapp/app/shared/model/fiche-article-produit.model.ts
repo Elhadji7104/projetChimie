@@ -1,5 +1,6 @@
 import { IClassification } from 'app/shared/model//classification.model';
 import { DisponibliteArticle } from 'app/shared/model/fiche-article.model';
+import { ITypeLieuStockage } from './type-lieu-stockage.model';
 
 export interface IFicheArticleProduit {
     idArticle?: number;
@@ -12,6 +13,7 @@ export interface IFicheArticleProduit {
     formule?: string;
     acronyme?: string;
     quantite?: number;
+    typeLieuStockage?: ITypeLieuStockage;
 }
 
 export class FicheArticleProduit implements IFicheArticleProduit {
@@ -25,6 +27,7 @@ export class FicheArticleProduit implements IFicheArticleProduit {
         public nom?: string,
         public formule?: string,
         public acronyme?: string,
-        public quantite?: number
+        public quantite?: number,
+        public typeLieuStockage?: ITypeLieuStockage
     ) {}
 }
