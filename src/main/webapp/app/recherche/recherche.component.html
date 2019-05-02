@@ -13,7 +13,7 @@
     <br />
     <div class="table-responsive" *ngIf="ficheArticleProduits">
         <p-table class="table table-striped" [columns]="cols" [value]="ficheArticleProduits" sortMode="multiple"
-           #dt>
+         #dt>
             <ng-template pTemplate="caption">
                 <div class="ui-fluid">
                     <div class="ui-g">
@@ -114,29 +114,29 @@
 
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th style="width: 8%;" [pSortableColumn]="codeBarre"> <!--(input)="sort($event.target.value,codeBarre)"-->
+                    <th style="width: 9%;" [pSortableColumn]="'codeBarre'"> <!--(input)="sort($event.target.value,codeBarre)"-->
                         codeBarre
-                        <p-sortIcon [field]="codeBarre"></p-sortIcon>
+                        <p-sortIcon [field]="'codeBarre'"></p-sortIcon>
                     </th>
 
-                    <th style="width: 8%;" [pSortableColumn]="cas"> <!--(input)="sort($event.target.value,cas)"-->
+                    <th style="width: 8%;" [pSortableColumn]="'cas'"> <!--(input)="sort($event.target.value,cas)"-->
                         cas
                         <p-sortIcon [field]="cas"></p-sortIcon>
                     </th>
 
-                    <th style="width: 25%;" [pSortableColumn]="nom"> <!--(input)="sort($event.target.value,nom)"-->
+                    <th style="width: 25%;" [pSortableColumn]="'nom'"> <!--(input)="sort($event.target.value,nom)"-->
                         nom
-                        <p-sortIcon [field]="nom"></p-sortIcon>
+                        <p-sortIcon [field]="'nom'"></p-sortIcon>
                     </th>
 
-                    <th style="width: 25%;" [pSortableColumn]="acronyme"> <!--(input)="sort($event.target.value,acronyme)">-->
+                    <th style="width: 22%;" [pSortableColumn]="'acronyme'"> <!--(input)="sort($event.target.value,acronyme)">-->
                         acronyme
-                        <p-sortIcon [field]="acronyme"></p-sortIcon>
+                        <p-sortIcon [field]="'acronyme'"></p-sortIcon>
                     </th>
 
-                    <th style="width: 10%;" [pSortableColumn]="formule"> <!--(input)="sort($event.target.value,formule)">-->
+                    <th style="width: 10%;" [pSortableColumn]="'formule'"> <!--(input)="sort($event.target.value,formule)">-->
                         formule
-                        <p-sortIcon [field]="formule"></p-sortIcon>
+                        <p-sortIcon [field]="'formule'"></p-sortIcon>
                     </th>
                     <th></th>
                 </tr>
@@ -173,13 +173,13 @@
                                     [routerLink]="['/fiche-de-commande-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-warning btn-sm">
                                     <fa-icon [icon]="'eye'"></fa-icon>
-                                    <span class="d-none d-md-inline">Commander</span>
+                                    <span class="d-none d-md-inline">Com</span>
                                 </button>
                                 <button type="submit" [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-info btn-sm" ngbTooltip="Réserve : {{rowData.typeLieuStockage}}"
                                     tooltipClass="my-custom-class">
                                     <fa-icon [icon]="'eye'"></fa-icon>
-                                    <span class="d-none d-md-inline">Emprunter</span>
+                                    <span class="d-none d-md-inline">Emp</span>
                                 </button>
                                 <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
                                     type="submit"

@@ -11,7 +11,7 @@ import { ButtonModule, DataTableModule, DropdownModule, InputSwitchModule, Multi
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'primeng/tooltip';
-
+import { PaginatorModule } from 'primeng/paginator';
 @NgModule({
     imports: [
         ProjetChimieSharedModule,
@@ -29,7 +29,8 @@ import { TooltipModule } from 'primeng/tooltip';
         DropdownModule,
         ButtonModule,
         SplitButtonModule,
-        TooltipModule
+        TooltipModule,
+        PaginatorModule
     ],
     declarations: [HomeComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
