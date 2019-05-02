@@ -1,9 +1,15 @@
 {
     "home": {
         "title": "Welcome !",
+        "title2": "Welcome ",
         "subtitle": "This is your homepage",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
+        },
+        "footer": {
+            "admin": "Administrator :",
+            "description": "The ISCR application is there to organize the storage of chemical products in the various laboratories of the Institut des Sciences Chimiques of Rennes. Here you will be able to perform several tasks such as consulting an item in the database, borrowing, ordering an item, etc...",
+            "partenaires": "Partners"
         }
     }
 }

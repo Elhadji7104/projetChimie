@@ -4,7 +4,7 @@
         <h1 class="display-4" *ngIf="!isAuthenticated()">
             <span jhiTranslate="home.title">Bienvenue</span>
         </h1>
-        <h1 *ngIf="isAuthenticated() && account">Bienvenue {{account.firstName}}</h1>
+        <h1 *ngIf="isAuthenticated() && account"><span jhiTranslate="home.title2">Bienvenue</span> {{account.firstName}}</h1>
 
         <div *ngIf="isAuthenticated()" class="ui-g">
             <div class="ui-g-3">

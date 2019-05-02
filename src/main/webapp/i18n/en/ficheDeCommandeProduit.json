@@ -2,24 +2,24 @@
     "projetChimieApp": {
         "ficheDeCommandeProduit": {
             "home": {
-                "title": "Fiche De Commande Produits",
-                "createLabel": "Create a new Fiche De Commande Produit",
-                "createOrEditLabel": "Create or edit a Fiche De Commande Produit"
+                "title": " Order form",
+                "createLabel": "Create a new order form",
+                "createOrEditLabel": "Create or edit a order form"
             },
-            "created": "A new Fiche De Commande Produit is created with identifier {{ param }}",
-            "updated": "A Fiche De Commande Produit is updated with identifier {{ param }}",
-            "deleted": "A Fiche De Commande Produit is deleted with identifier {{ param }}",
+            "created": "A new order form is created with identifier {{ param }}",
+            "updated": "A order form is updated with identifier {{ param }}",
+            "deleted": "A order form is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Fiche De Commande Produit {{ id }}?"
+                "question": "Are you sure you want to delete the order form {{ id }}?"
             },
             "detail": {
-                "title": "Fiche De Commande Produit"
+                "title": "Order form"
             },
             "quantite": "Quantity",
-            "dateDeCommande": "Date De Commande",
-            "dateLivraison": "Date Livraison",
+            "dateDeCommande": "Order date",
+            "dateLivraison": "Delivery date",
             "fournisseur": "Supplier",
-            "ficheArticle": "Article Form"
+            "ficheArticle": "Item"
         }
     }
 }

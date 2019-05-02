@@ -3,22 +3,22 @@
         "ficheRetourProduit": {
             "iDUser": "ID User",
             "home": {
-                "title": "Fiche Retour Produits",
-                "createLabel": "Create a new Fiche Retour Produit",
-                "createOrEditLabel": "Create or edit a Fiche Retour Produit"
+                "title": "Return item form ",
+                "createLabel": "Create a new return form ",
+                "createOrEditLabel": "Create or edit a return form "
             },
-            "created": "A new Fiche Retour Produit is created with identifier {{ param }}",
-            "updated": "A Fiche Retour Produit is updated with identifier {{ param }}",
-            "deleted": "A Fiche Retour Produit is deleted with identifier {{ param }}",
+            "created": "A new return form  is created with identifier {{ param }}",
+            "updated": "A return form is updated with identifier {{ param }}",
+            "deleted": "A return form is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Fiche Retour Produit {{ id }}?"
+                "question": "Are you sure you want to delete return form {{ id }}?"
             },
             "detail": {
-                "title": "Fiche Retour Produit"
+                "title": "Return Form"
             },
             "quantite": "Quantity",
-            "dateRetour": "Date Retour",
-            "ficheArticle": "Article Form",
+            "dateRetour": "Return date",
+            "ficheArticle": "Item",
             "iDUser": "ID Utilisateur",
             "empruntRetour": "Borrowing/Return"
         }

@@ -1,9 +1,15 @@
 {
     "home": {
         "title": "Bienvenue !",
+        "title2": "Bienvenue ",
         "subtitle": "Ceci est votre page d'accueil",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
+        },
+        "footer": {
+            "admin": "Administrateur :",
+            "description": "L'application ISCR est là pour organiser les stockages de produits chimiques des différents laboratoires de l'institut des Sciences Chimiques de Rennes. Ici vous pourrez donc effectuer plusieurs tâches comme consulter un article présent dans la base de données, effectuer un emprunt, commander un article, etc ...",
+            "partenaires": "Partenaires"
         }
     }
 }

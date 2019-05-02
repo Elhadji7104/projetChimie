@@ -2,18 +2,18 @@
     "projetChimieApp": {
         "groupe": {
             "home": {
-                "title": "Groupes",
-                "createLabel": "Create a new Groupe",
-                "createOrEditLabel": "Create or edit a Groupe"
+                "title": "Groups",
+                "createLabel": "Create a new group",
+                "createOrEditLabel": "Create or edit a group"
             },
-            "created": "A new Groupe is created with identifier {{ param }}",
-            "updated": "A Groupe is updated with identifier {{ param }}",
-            "deleted": "A Groupe is deleted with identifier {{ param }}",
+            "created": "A new group is created with identifier {{ param }}",
+            "updated": "A group is updated with identifier {{ param }}",
+            "deleted": "A group is deleted with identifier {{ param }}",
             "delete": {
-                "question": "(The group must not be used by any article) Are you sure you want to delete Groupe {{ id }}?"
+                "question": "(The group must not be used by any article) Are you sure you want to delete group {{ id }}?"
             },
             "detail": {
-                "title": "Groupe"
+                "title": "Group"
             },
             "nomGroupe": "Group Name",
             "nombreMembre": "Member Number",

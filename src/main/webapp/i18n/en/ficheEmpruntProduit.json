@@ -2,23 +2,23 @@
     "projetChimieApp": {
         "ficheEmpruntProduit": {
             "home": {
-                "title": "Fiche Emprunt Produits",
-                "createLabel": "Create a new Fiche Emprunt Produit",
-                "createOrEditLabel": "Create or edit a Fiche Emprunt Produit"
+                "title": "Borrowing items form",
+                "createLabel": "Create a new borrowing form",
+                "createOrEditLabel": "Create or edit a borrowing form"
             },
-            "created": "A new Fiche Emprunt Produit is created with identifier {{ param }}",
-            "updated": "A Fiche Emprunt Produit is updated with identifier {{ param }}",
-            "deleted": "A Fiche Emprunt Produit is deleted with identifier {{ param }}",
+            "created": "A new borrowing form is created with identifier {{ param }}",
+            "updated": "A borrowing form is updated with identifier {{ param }}",
+            "deleted": "A borrowing form is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Fiche Emprunt Produit {{ id }}?"
+                "question": "Are you sure you want to delete the form {{ id }}?"
             },
             "detail": {
-                "title": "Fiche Emprunt Produit"
+                "title": "Borrowing form"
             },
-            "quantite": "Quantite",
-            "dateEmprunt": "Date Emprunt",
-            "ficheArticle": "Fiche Article",
-            "iDUser": "ID Utilisateur",
+            "quantite": "Quantity",
+            "dateEmprunt": "Borrowing date",
+            "ficheArticle": "Item",
+            "iDUser": "ID User",
             "empruntRetour": "Borrowing/Return"
         }
     }

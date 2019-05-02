@@ -33,7 +33,7 @@ export const localisationRoute: Routes = [
         path: 'localisation',
         component: LocalisationComponent,
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.localisation.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -45,7 +45,7 @@ export const localisationRoute: Routes = [
             localisation: LocalisationResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
+            authorities: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
             pageTitle: 'projetChimieApp.localisation.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -57,7 +57,7 @@ export const localisationRoute: Routes = [
             localisation: LocalisationResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.localisation.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const localisationRoute: Routes = [
             localisation: LocalisationResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.localisation.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const localisationPopupRoute: Routes = [
             localisation: LocalisationResolve
         },
         data: {
-            authorities: ['ROLE_ADMIN', 'ROLE_VALIDEUR', 'ROLE_GESTIONNAIRE_DE_BASE', 'ROLE_HYGIENE_ET_SECURITE'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'projetChimieApp.localisation.home.title'
         },
         canActivate: [UserRouteAccessService],
