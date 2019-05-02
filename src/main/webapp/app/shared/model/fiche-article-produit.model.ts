@@ -13,7 +13,7 @@ export interface IFicheArticleProduit {
     formule?: string;
     acronyme?: string;
     quantite?: number;
-    typeLieuStockage?: ITypeLieuStockage;
+    typeLieuStockage?: string;
 }
 
 export class FicheArticleProduit implements IFicheArticleProduit {
@@ -28,6 +28,6 @@ export class FicheArticleProduit implements IFicheArticleProduit {
         public formule?: string,
         public acronyme?: string,
         public quantite?: number,
-        public typeLieuStockage?: ITypeLieuStockage
+        public typeLieuStockage?: string
     ) {}
 }

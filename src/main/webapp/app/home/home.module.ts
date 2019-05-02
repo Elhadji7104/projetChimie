@@ -10,6 +10,8 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule, DataTableModule, DropdownModule, InputSwitchModule, MultiSelectModule, SplitButtonModule } from 'primeng/primeng';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'primeng/tooltip';
+
 @NgModule({
     imports: [
         ProjetChimieSharedModule,
@@ -26,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         InputSwitchModule,
         DropdownModule,
         ButtonModule,
-        SplitButtonModule
+        SplitButtonModule,
+        TooltipModule
     ],
     declarations: [HomeComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

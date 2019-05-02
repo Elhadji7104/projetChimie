@@ -161,7 +161,6 @@
                         <a class="form-control-static"
                             [routerLink]="['../fiche-produit-chimique', rowData.idProduit, 'view' ]">{{rowData?.formule}}</a>
                     </td>
-
                     <td>
                         <div class="table table-striped">
 
@@ -177,7 +176,7 @@
                                     <span class="d-none d-md-inline">Commander</span>
                                 </button>
                                 <button type="submit" [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
-                                    class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="{{rowData.typeLieuStockage.libelleLieu}}">
+                                    class="btn btn-info btn-sm">
                                     <fa-icon [icon]="'eye'"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
                                 </button>
