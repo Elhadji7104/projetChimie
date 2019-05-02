@@ -18,7 +18,7 @@
             "quantite": "Quantity",
             "dateEmprunt": "Borrowing date",
             "ficheArticle": "Item",
-            "iDUser": "ID User",
+            "iDUser": "User",
             "empruntRetour": "Borrowing/Return"
         }
     }

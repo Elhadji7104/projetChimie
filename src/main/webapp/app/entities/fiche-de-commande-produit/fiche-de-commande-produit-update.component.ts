@@ -27,8 +27,7 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     fichearticles: IFicheArticle[];
     ficheArticle: IFicheArticle;
     fournisseurOption: SelectItem[] = [];
-    fournisseur: IFournisseur = new Fournisseur();
-    fourni: IFournisseur[] = [];
+    fournisseur: IFournisseur;
     account: Account;
     labelString: string;
 
@@ -45,9 +44,6 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ ficheDeCommandeProduit }) => {
             this.ficheDeCommandeProduit = ficheDeCommandeProduit;
-        });
-        this.activatedRoute.data.subscribe(({ ficheArticle }) => {
-            this.ficheArticle = ficheArticle;
         });
         this.fournisseurService.query().subscribe(
             (res: HttpResponse<IFournisseur[]>) => {
@@ -97,8 +93,8 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     save() {
         this.ficheDeCommandeProduit.dateDeCommande = moment(new Date(Date.now()));
         this.ficheDeCommandeProduit.ficheArticle = this.ficheArticle;
-        this.fourni.push(this.fournisseur);
-        this.ficheDeCommandeProduit.fournisseurs = this.fourni;
+        this.ficheDeCommandeProduit.fournisseurs = [];
+        this.ficheDeCommandeProduit.fournisseurs[0] = this.fournisseur;
         this.ficheDeCommandeProduit.user = this.account;
         this.isSaving = true;
         if (this.ficheDeCommandeProduit.id !== undefined) {
