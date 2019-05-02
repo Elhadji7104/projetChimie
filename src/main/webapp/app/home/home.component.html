@@ -1,7 +1,9 @@
 <div class="row">
 
     <div class="col-md-8">
-        <h1 class="display-4" *ngIf="!isAuthenticated()">Bienvenue</h1>
+        <h1 class="display-4" *ngIf="!isAuthenticated()">
+            <span jhiTranslate="home.title">Bienvenue</span>
+        </h1>
         <h1 *ngIf="isAuthenticated() && account">Bienvenue {{account.firstName}}</h1>
 
         <div *ngIf="isAuthenticated()" class="ui-g">
