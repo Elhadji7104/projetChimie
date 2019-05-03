@@ -23,8 +23,6 @@ import { PaginatorModule } from 'primeng/paginator';
         BrowserModule,
         BrowserAnimationsModule,
         MultiSelectModule,
-        InputMaskModule,
-        InputTextModule,
         InputSwitchModule,
         DropdownModule,
         ButtonModule,

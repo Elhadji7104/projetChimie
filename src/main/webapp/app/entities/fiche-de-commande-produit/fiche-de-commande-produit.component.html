@@ -1,73 +1,90 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.home.title">Fiche De Commande Produits</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-de-commande-produit" [routerLink]="['/fiche-de-commande-produit/new']">
+        <button id="jh-create-entity"
+            class="btn btn-primary float-right jh-create-entity create-fiche-de-commande-produit"
+            [routerLink]="['/fiche-de-commande-produit/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="projetChimieApp.ficheDeCommandeProduit.home.createLabel">
-            Create new Fiche De Commande Produit
+            <span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.home.createLabel">
+                Create new Fiche De Commande Produit
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
-    <br/>
+    <br />
     <div class="table-responsive" *ngIf="ficheDeCommandeProduits">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-            <th><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.quantite">Quantite</span></th>
-            <th><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.dateDeCommande">Date De Commande</span></th>
-            <th><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.dateLivraison">Date Livraison</span></th>
-            <th><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.fournisseur">Fournisseur</span></th>
-            <th><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.ficheArticle">Fiche Article</span></th>
-            <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let ficheDeCommandeProduit of ficheDeCommandeProduits ;trackBy: trackId">
-                <td><a [routerLink]="['/fiche-de-commande-produit', ficheDeCommandeProduit.id, 'view' ]">{{ficheDeCommandeProduit.quantite}}</a></td>
-                <td>{{ficheDeCommandeProduit.dateDeCommande | date:'mediumDate'}}</td>
-                <td>{{ficheDeCommandeProduit.dateLivraison | date:'mediumDate'}}</td>
-                <td>
-                    <span *ngFor="let fournisseur of ficheDeCommandeProduit.fournisseurs; let last = last">
-                            <a class="form-control-static" [routerLink]="['../fournisseur', fournisseur?.id, 'view' ]">{{fournisseur.nomFournisseur}}</a>{{last ? '' : ', '}}
+
+        <p-table [value]="ficheDeCommandeProduits">
+            <ng-template pTemplate="header">
+                <tr>
+ 
+                    <th style="width: 10%;" [pSortableColumn]="'quantite'"><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.quantite">Quantite</span><p-sortIcon [field]="'quantite'"></p-sortIcon></th>
+                    <th style="width: 10%;" [pSortableColumn]="'Unite'"><span jhiTranslate="projetChimieApp.unite.detail.title">Unite</span><p-sortIcon [field]="'Unite'"></p-sortIcon></th>
+                    <th style="width: 10%;" [pSortableColumn]="'dateDeCommande'"><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.dateDeCommande">Date De
+                            Commande</span><p-sortIcon [field]="'dateDeCommande'"></p-sortIcon></th>
+                    <th style="width: 10%;" [pSortableColumn]="'dateLivraison'"><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.dateLivraison">Date Livraison</span><p-sortIcon [field]="'dateLivraison'"></p-sortIcon>
+                    </th>
+                    <th style="width: 10%;" [pSortableColumn]="'fournisseur'"><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.fournisseur">Fournisseur</span><p-sortIcon [field]="'fournisseur'"></p-sortIcon></th>
+                    <th style="width: 10%;" [pSortableColumn]="'ficheArticle'"><span jhiTranslate="projetChimieApp.ficheDeCommandeProduit.ficheArticle">Fiche Article</span><p-sortIcon [field]="'ficheArticle'"></p-sortIcon>
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td><a [routerLink]="['/fiche-de-commande-produit', rowData.id, 'view' ]">{{rowData.quantite}}</a>
+                    </td>
+
+                    <td>
+                            <span class="bold-Application" *ngFor="let unite of ficheArticle?.unites; let last = last">
+                                    <a
+                                        [routerLink]="['/unite', unite?.id, 'view' ]">{{unite?.libelleUnite}}</a>{{last ? '' : ', '}}
+                                </span>
+                        <span *ngFor="let unite of rowData?.ficheArticle?.unites; let last = last">
+                            <a
+                                [routerLink]="['/unite', unite?.id, 'view' ]">{{unite?.libelleUnite}}</a>{{last ? '' : ', '}}
                         </span>
-                </td>
-                <td>
-                    <div *ngIf="ficheDeCommandeProduit.ficheArticle">
-                        <a [routerLink]="['../fiche-article', ficheDeCommandeProduit.ficheArticle?.id, 'view' ]" >{{ficheDeCommandeProduit.ficheArticle?.codeBarre}}</a>
-                    </div>
-                </td>
-                <td class="text-right">
-                    <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
-                                class="btn btn-info btn-sm" (click)="livraison(ficheDeCommandeProduit.id)">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" >Livraison</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/fiche-de-commande-produit', ficheDeCommandeProduit.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/fiche-de-commande-produit', ficheDeCommandeProduit.id, 'edit']"
+                    <td><a
+                            [routerLink]="['/fiche-de-commande-produit', rowData.id, 'view' ]"></a>{{rowData.dateDeCommande | date:'mediumDate'}}</a>
+                    </td>
+                    <td><a
+                            [routerLink]="['/fiche-de-commande-produit', rowData.id, 'view' ]"></a>{{rowData.dateLivraison | date:'mediumDate'}}</a>
+                    </td>
+                    <td>
+                        <!--    {{rowData.fournisseurs.nomFournisseur}}
+                        <span *ngFor="let fournisseur of rowData.fournisseurs; let last = last; let isFirst = first;"></span>
+                            <a class="form-control-static"
+                                [routerLink]="['../fournisseur', fournisseur?.id, 'view' ]">{{fournisseur.nomFournisseur}}</a>{{last ? '' : ', '}}
+                        </span>-->
+                    </td>
+                    <td>
+                        <div *ngIf="rowData.ficheArticle">
+                            <a
+                                [routerLink]="['../fiche-article', rowData.ficheArticle?.id, 'view' ]">{{rowData.ficheArticle?.codeBarre}}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" class="btn btn-info btn-sm" (click)="livraison(rowData.id)">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline">Livraison</span>
+                            </button>
+                            <button type="submit" [routerLink]="['/fiche-de-commande-produit', rowData.id, 'edit']"
                                 class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']" type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'fiche-de-commande-produit/'+ ficheDeCommandeProduit.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+                            <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
+                                type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fiche-de-commande-produit/'+ rowData.id + '/delete'} }]"
+                                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
     </div>
 </div>
