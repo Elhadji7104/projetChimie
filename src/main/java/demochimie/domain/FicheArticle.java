@@ -484,7 +484,7 @@ public class FicheArticle implements Serializable {
             ", codeInterne='" + getCodeInterne() + "'" +
             ", codeBarre='" + getCodeBarre() + "'" +
             ", quantite='" + getQuantite() + "'" +
-            ", quantite='" + getUnite() + "'" +
+            ", unite='" + getUnite() + "'" +
             ", disponibliteArticle='" + getDisponibliteArticle() + "'" +
             ", typeDesuivi='" + isTypeDesuivi() + "'" +
             ", accessibilite='" + isAccessibilite() + "'" +

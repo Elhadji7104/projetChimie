@@ -176,7 +176,8 @@
                                     <span class="d-none d-md-inline">Commander</span>
                                 </button>
                                 <button type="submit" [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
-                                    class="btn btn-info btn-sm">
+                                    class="btn btn-info btn-sm" ngbTooltip="Réserve : {{rowData.typeLieuStockage}}"
+                                    tooltipClass="my-custom-class">
                                     <fa-icon [icon]="'eye'"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
                                 </button>

@@ -83,7 +83,7 @@ export class RechercheComponent implements OnInit {
                     ficheArticleProduit.codeBarre = value.codeBarre;
                     ficheArticleProduit.disponibliteArticle = value.disponibliteArticle;
                     ficheArticleProduit.idArticle = value.id;
-
+                    ficheArticleProduit.typeLieuStockage = value.typeLieuStockage.libelleLieu;
                     this.ficheArticleProduits.push(ficheArticleProduit);
                 }
                 this.codeBarreO = [];
