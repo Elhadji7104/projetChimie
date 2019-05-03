@@ -123,22 +123,30 @@ public final class SecurityUtils {
                 break;
 
             case "berree":
-                login = "C1";
+                login = "C2";
                 break;
             case "aludwig":
-                login = "C1";
+                login = "C2";
                 break;
             case "cbarrillon":
-                login = "C1";
+                login = "C2";
                 break;
             case "alecorne":
-                login = "C1";
+                login = "C2";
+                break;
+
+                case "jpguegan":
+                login = "ZZ";
                 break;
         }
         switch (login) {
 
-            case "C1":
-            groupeName = "C1";
+            case "C2":
+            groupeName = "C2";
+            break;
+
+            case "ZZ":
+            groupeName = "ZZ";
             break;
 
             case "CORINT":
