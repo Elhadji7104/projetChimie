@@ -35,11 +35,27 @@ public class FicheDeCommandeProduit implements Serializable {
     @Column(name = "date_livraison")
     private LocalDate dateLivraison;
 
+    public String getLivreur() {
+        return livreur;
+    }
+
+    public void setLivreur(String livreur) {
+        this.livreur = livreur;
+    }
+
     @Column(name = "livreur")
     private String livreur;
     @ManyToOne
     @JsonIgnoreProperties("fiche_de_commande_produit_fournisseur")
     private User user;
+
+    public User getUser_valideur() {
+        return user_valideur;
+    }
+
+    public void setUser_valideur(User user_valideur) {
+        this.user_valideur = user_valideur;
+    }
 
     @ManyToOne
     @JsonIgnoreProperties("fiche_de_commande_produit_fournisseur")
@@ -161,6 +177,9 @@ public class FicheDeCommandeProduit implements Serializable {
             ", quantite=" + getQuantite() +
             ", dateDeCommande='" + getDateDeCommande() + "'" +
             ", dateLivraison='" + getDateLivraison() + "'" +
+            ", valideur='" + getUser_valideur() + "'" +
+            ", demandeur='" + getUser() + "'" +
+            ", livreur='" + getLivreur() + "'" +
             "}";
     }
 }

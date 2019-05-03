@@ -80,6 +80,14 @@ public class FicheArticle implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "documents_id", referencedColumnName = "id"))
     private Set<Document> documents = new HashSet<>();
 
+    public Unite getUnite() {
+        return unite;
+    }
+
+    public void setUnite(Unite unite) {
+        this.unite = unite;
+    }
+
     @OneToOne
     Unite unite;
     /**
@@ -476,6 +484,7 @@ public class FicheArticle implements Serializable {
             ", codeInterne='" + getCodeInterne() + "'" +
             ", codeBarre='" + getCodeBarre() + "'" +
             ", quantite='" + getQuantite() + "'" +
+            ", quantite='" + getUnite() + "'" +
             ", disponibliteArticle='" + getDisponibliteArticle() + "'" +
             ", typeDesuivi='" + isTypeDesuivi() + "'" +
             ", accessibilite='" + isAccessibilite() + "'" +
