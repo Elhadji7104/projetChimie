@@ -28,10 +28,10 @@ export class FicheArticleDetailComponent implements OnInit {
         this.droitDacceeProduitService.query().subscribe(
             (res: HttpResponse<IDroitDacceeProduit[]>) => {
                 this.droitDacceeProduits = res.body.filter(droit => droit.ficheArticle.codeBarre === this.ficheArticle.codeBarre);
-                console.log(this.ficheArticle);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        console.log(this.ficheArticle);
     }
 
     previousState() {

@@ -67,6 +67,7 @@ export class RechercheComponent implements OnInit {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
+                console.log(res.body);
                 for (let value of this.ficheArticles) {
                     let ficheArticleProduit = new FicheArticleProduit();
                     if (value.ficheProduitChimiques[0] !== undefined) {

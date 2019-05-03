@@ -9,7 +9,7 @@ export interface IFicheDeCommandeProduit {
     user?: User;
     dateDeCommande?: Moment;
     dateLivraison?: Moment;
-    fournisseurs?: IFournisseur[];
+    fournisseur?: IFournisseur;
     ficheArticle?: IFicheArticle;
 }
 
@@ -20,7 +20,7 @@ export class FicheDeCommandeProduit implements IFicheDeCommandeProduit {
         public user?: User,
         public dateDeCommande?: Moment,
         public dateLivraison?: Moment,
-        public fournisseurs?: IFournisseur[],
+        public fournisseur?: IFournisseur,
         public ficheArticle?: IFicheArticle
     ) {}
 }

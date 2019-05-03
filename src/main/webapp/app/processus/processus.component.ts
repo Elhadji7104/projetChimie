@@ -85,7 +85,7 @@ export class ProcessusComponent implements OnInit {
 
         this.groupeService.query().subscribe(
             (res: HttpResponse<IGroupe[]>) => {
-                for (let value of res.body) {
+                for (const value of res.body) {
                     this.droitSelect.push({ label: value.nomGroupe, value: value });
                 }
             },
@@ -93,7 +93,7 @@ export class ProcessusComponent implements OnInit {
         );
         this.lieuService.query().subscribe(
             (res: HttpResponse<ILocalisation[]>) => {
-                for (let value of res.body) {
+                for (const value of res.body) {
                     this.localisationSelect.push({ label: value.adresse, value: value });
                 }
             },
@@ -102,7 +102,7 @@ export class ProcessusComponent implements OnInit {
 
         this.classificationService.query().subscribe(
             (res: HttpResponse<IClassification[]>) => {
-                for (let value of res.body) {
+                for (const value of res.body) {
                     this.classiSelect.push({ label: value.nomClassification, value: value });
                 }
             },
@@ -111,7 +111,7 @@ export class ProcessusComponent implements OnInit {
 
         this.uniteService.query().subscribe(
             (res: HttpResponse<IUnite[]>) => {
-                for (let value of res.body) {
+                for (const value of res.body) {
                     this.unitesSelect.push({ label: value.libelleUnite, value: value });
                 }
             },
@@ -119,7 +119,7 @@ export class ProcessusComponent implements OnInit {
         );
         this.ficheProduitChimiqueService.query().subscribe(
             (res: HttpResponse<IFicheProduitChimique[]>) => {
-                for (let value of res.body) {
+                for (const value of res.body) {
                     if (value !== undefined) {
                         if (value.cas !== undefined) {
                             this.CasSelect.push({ label: value.cas, value: value });
@@ -141,7 +141,7 @@ export class ProcessusComponent implements OnInit {
 
         this.condictionnementService.query().subscribe(
             (res: HttpResponse<ITypeDeConditionnement[]>) => {
-                for (let value of res.body) {
+                for (const value of res.body) {
                     this.condictionnementSelect.push({ label: value.libelleConditionnement, value: value });
                 }
             },
@@ -189,7 +189,7 @@ export class ProcessusComponent implements OnInit {
     selectionStockage() {
         this.stockageService.query().subscribe(
             (res: HttpResponse<ITypeLieuStockage[]>) => {
-                for (let value of res.body) {
+                for (const value of res.body) {
                     if (value.localisation.id === this.localisation.id) {
                         this.stockageSelect.push({ label: value.libelleLieu, value: value });
                     }
@@ -240,8 +240,7 @@ export class ProcessusComponent implements OnInit {
         }
         this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
         // Code Interne a faire avec le REST de groupe
-        this.ficheArticle.unites = [];
-        this.ficheArticle.unites[0] = this.uniteArray;
+        this.ficheArticle.unite = this.uniteArray;
         this.ficheArticle.classifications = [];
         this.ficheArticle.classifications = this.classiArray;
         console.log(this.ficheArticle.classifications);

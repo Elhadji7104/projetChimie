@@ -88,14 +88,14 @@
                         <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span>
                     </div>
                     <div class="ui-g-8">
-                        <span class="bold-Application" *ngFor="let unite of ficheArticle?.unites; let last = last">
+
                             <select class="form-control" id="field_unite" multiple name="unite"
-                                [(ngModel)]="ficheArticle.unites">
+                                [(ngModel)]="ficheArticle.unite">
                                 <option [ngValue]="getSelected(ficheArticle.unites, uniteOption)"
                                     *ngFor="let uniteOption of unites; trackBy: trackUniteById">
                                     {{uniteOption.libelleUnite}}
                                 </option>
-                            </select></span>
+                            </select>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-6">

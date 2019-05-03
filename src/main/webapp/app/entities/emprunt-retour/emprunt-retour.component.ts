@@ -55,7 +55,7 @@ export class EmpruntRetourComponent implements OnInit {
         this.ficheArticleService.query().subscribe(
             (res: HttpResponse<IFicheArticle[]>) => {
                 this.ficheArticles = res.body;
-                for (let value of this.ficheArticles) {
+                for (const value of this.ficheArticles) {
                     this.labelString = '';
                     if (value !== undefined && value.ficheProduitChimiques !== undefined) {
                         if (value.codeBarre !== undefined) {
@@ -155,9 +155,7 @@ export class EmpruntRetourComponent implements OnInit {
     }
 
     actuUnite() {
-        if (this.ficheArticle.unites.length !== 0) {
-            this.unite = this.ficheArticle.unites[0].libelleUnite;
-        }
+        this.unite = this.ficheArticle.unite.libelleUnite;
     }
 
     show() {

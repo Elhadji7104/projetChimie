@@ -27,8 +27,7 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     fichearticles: IFicheArticle[];
     ficheArticle: IFicheArticle;
     fournisseurOption: SelectItem[] = [];
-    fournisseur: IFournisseur = new Fournisseur();
-    fourni: IFournisseur[] = [];
+    fournisseur: IFournisseur;
     account: Account;
     labelString: string;
 
@@ -45,9 +44,6 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ ficheDeCommandeProduit }) => {
             this.ficheDeCommandeProduit = ficheDeCommandeProduit;
-        });
-        this.activatedRoute.data.subscribe(({ ficheArticle }) => {
-            this.ficheArticle = ficheArticle;
         });
         this.fournisseurService.query().subscribe(
             (res: HttpResponse<IFournisseur[]>) => {
@@ -97,13 +93,13 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     save() {
         this.ficheDeCommandeProduit.dateDeCommande = moment(new Date(Date.now()));
         this.ficheDeCommandeProduit.ficheArticle = this.ficheArticle;
-        this.fourni.push(this.fournisseur);
-        this.ficheDeCommandeProduit.fournisseurs = this.fourni;
+        this.ficheDeCommandeProduit.fournisseur = this.fournisseur;
         this.ficheDeCommandeProduit.user = this.account;
-        console.log(this.ficheDeCommandeProduit);
+
         this.isSaving = true;
         if (this.ficheDeCommandeProduit.id !== undefined) {
             this.subscribeToSaveResponse(this.ficheDeCommandeProduitService.update(this.ficheDeCommandeProduit));
+            console.log(this.ficheDeCommandeProduit);
         } else {
             this.subscribeToSaveResponse(this.ficheDeCommandeProduitService.create(this.ficheDeCommandeProduit));
         }
@@ -149,8 +145,6 @@ export class FicheDeCommandeProduitUpdateComponent implements OnInit {
     }
 
     actuUnite() {
-        if (this.ficheArticle.unites.length !== 0) {
-            this.unite = this.ficheArticle.unites[0].libelleUnite;
-        }
+        this.unite = this.ficheArticle.unite.libelleUnite;
     }
 }
