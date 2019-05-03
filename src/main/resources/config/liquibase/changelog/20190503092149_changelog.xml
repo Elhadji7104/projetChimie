@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-1">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="fournisseurs_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-2">
+        <addColumn tableName="fiche_article">
+            <column name="unite_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-3">
+        <addForeignKeyConstraint baseColumnNames="unite_id" baseTableName="fiche_article" constraintName="FK3vmuy5a45tg4bko14mdr5upb1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="unite"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-4">
+        <addForeignKeyConstraint baseColumnNames="fournisseurs_id" baseTableName="fiche_de_commande_produit" constraintName="FKm5w2f7ubwcmnb8c5ah98xvwt2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fournisseur"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-5">
+        <dropForeignKeyConstraint baseTableName="fiche_de_commande_produit_fournisseur" constraintName="fiche_de_commande_produit_fourn_fiche_de_commande_produits_id"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-6">
+        <dropForeignKeyConstraint baseTableName="fiche_article_unite" constraintName="fk_fiche_article_unite_fiche_articles_id"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-7">
+        <dropForeignKeyConstraint baseTableName="fiche_article_unite" constraintName="fk_fiche_article_unite_unites_id"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-8">
+        <dropForeignKeyConstraint baseTableName="fiche_de_commande_produit_fournisseur" constraintName="fk_fiche_de_commande_produit_fournisseur_fournisseurs_id"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-9">
+        <dropTable tableName="fiche_article_unite"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556875326394-10">
+        <dropTable tableName="fiche_de_commande_produit_fournisseur"/>
+    </changeSet>
+</databaseChangeLog>

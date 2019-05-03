@@ -27,12 +27,6 @@ public class Unite implements Serializable {
 
     @Column(name = "libelle_unite")
     private String libelleUnite;
-
-    @ManyToMany(mappedBy = "unites")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JsonIgnore
-    private Set<FicheArticle> ficheArticles = new HashSet<>();
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -54,32 +48,6 @@ public class Unite implements Serializable {
     public void setLibelleUnite(String libelleUnite) {
         this.libelleUnite = libelleUnite;
     }
-
-    public Set<FicheArticle> getFicheArticles() {
-        return ficheArticles;
-    }
-
-    public Unite ficheArticles(Set<FicheArticle> ficheArticles) {
-        this.ficheArticles = ficheArticles;
-        return this;
-    }
-
-    public Unite addFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticles.add(ficheArticle);
-        ficheArticle.getUnites().add(this);
-        return this;
-    }
-
-    public Unite removeFicheArticle(FicheArticle ficheArticle) {
-        this.ficheArticles.remove(ficheArticle);
-        ficheArticle.getUnites().remove(this);
-        return this;
-    }
-
-    public void setFicheArticles(Set<FicheArticle> ficheArticles) {
-        this.ficheArticles = ficheArticles;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {

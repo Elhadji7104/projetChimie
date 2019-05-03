@@ -35,16 +35,27 @@ public class FicheDeCommandeProduit implements Serializable {
     @Column(name = "date_livraison")
     private LocalDate dateLivraison;
 
+    @Column(name = "livreur")
+    private String livreur;
     @ManyToOne
     @JsonIgnoreProperties("fiche_de_commande_produit_fournisseur")
     private User user;
 
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "fiche_de_commande_produit_fournisseur",
-               joinColumns = @JoinColumn(name = "fiche_de_commande_produits_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "fournisseurs_id", referencedColumnName = "id"))
-    private Set<Fournisseur> fournisseurs = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("fiche_de_commande_produit_fournisseur")
+    private User user_valideur;
+
+    public Fournisseur getFournisseurs() {
+        return fournisseurs;
+    }
+
+    public void setFournisseurs(Fournisseur fournisseurs) {
+        this.fournisseurs = fournisseurs;
+    }
+
+    @ManyToOne
+    @JsonIgnoreProperties("ficheDeCommandeProduits")
+    private Fournisseur fournisseurs;
 
     @ManyToOne
     @JsonIgnoreProperties("ficheDeCommandeProduits")
@@ -107,30 +118,7 @@ public class FicheDeCommandeProduit implements Serializable {
         this.dateLivraison = dateLivraison;
     }
 
-    public Set<Fournisseur> getFournisseurs() {
-        return fournisseurs;
-    }
 
-    public FicheDeCommandeProduit fournisseurs(Set<Fournisseur> fournisseurs) {
-        this.fournisseurs = fournisseurs;
-        return this;
-    }
-
-    public FicheDeCommandeProduit addFournisseur(Fournisseur fournisseur) {
-        this.fournisseurs.add(fournisseur);
-        fournisseur.getFicheDeCommandeProduits().add(this);
-        return this;
-    }
-
-    public FicheDeCommandeProduit removeFournisseur(Fournisseur fournisseur) {
-        this.fournisseurs.remove(fournisseur);
-        fournisseur.getFicheDeCommandeProduits().remove(this);
-        return this;
-    }
-
-    public void setFournisseurs(Set<Fournisseur> fournisseurs) {
-        this.fournisseurs = fournisseurs;
-    }
 
     public FicheArticle getFicheArticle() {
         return ficheArticle;

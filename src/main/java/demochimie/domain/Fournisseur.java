@@ -37,7 +37,7 @@ public class Fournisseur implements Serializable {
     @Column(name = "telephone")
     private String telephone;
 
-    @ManyToMany(mappedBy = "fournisseurs")
+    @OneToMany(mappedBy = "fournisseurs")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
     private Set<FicheDeCommandeProduit> ficheDeCommandeProduits = new HashSet<>();
@@ -109,18 +109,6 @@ public class Fournisseur implements Serializable {
 
     public Fournisseur ficheDeCommandeProduits(Set<FicheDeCommandeProduit> ficheDeCommandeProduits) {
         this.ficheDeCommandeProduits = ficheDeCommandeProduits;
-        return this;
-    }
-
-    public Fournisseur addFicheDeCommandeProduit(FicheDeCommandeProduit ficheDeCommandeProduit) {
-        this.ficheDeCommandeProduits.add(ficheDeCommandeProduit);
-        ficheDeCommandeProduit.getFournisseurs().add(this);
-        return this;
-    }
-
-    public Fournisseur removeFicheDeCommandeProduit(FicheDeCommandeProduit ficheDeCommandeProduit) {
-        this.ficheDeCommandeProduits.remove(ficheDeCommandeProduit);
-        ficheDeCommandeProduit.getFournisseurs().remove(this);
         return this;
     }
 

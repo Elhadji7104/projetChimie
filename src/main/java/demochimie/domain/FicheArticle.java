@@ -80,13 +80,16 @@ public class FicheArticle implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "documents_id", referencedColumnName = "id"))
     private Set<Document> documents = new HashSet<>();
 
-    @ManyToMany
+    @OneToOne
+    Unite unite;
+    /**
+    @ManyToOne
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "fiche_article_unite",
                joinColumns = @JoinColumn(name = "fiche_articles_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "unites_id", referencedColumnName = "id"))
     private Set<Unite> unites = new HashSet<>();
-
+    **/
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "fiche_article_fiche_produit_chimique",
@@ -389,30 +392,8 @@ public class FicheArticle implements Serializable {
         this.documents = documents;
     }
 
-    public Set<Unite> getUnites() {
-        return unites;
-    }
 
-    public FicheArticle unites(Set<Unite> unites) {
-        this.unites = unites;
-        return this;
-    }
 
-    public FicheArticle addUnite(Unite unite) {
-        this.unites.add(unite);
-        unite.getFicheArticles().add(this);
-        return this;
-    }
-
-    public FicheArticle removeUnite(Unite unite) {
-        this.unites.remove(unite);
-        unite.getFicheArticles().remove(this);
-        return this;
-    }
-
-    public void setUnites(Set<Unite> unites) {
-        this.unites = unites;
-    }
 
     public Set<FicheProduitChimique> getFicheProduitChimiques() {
         return ficheProduitChimiques;

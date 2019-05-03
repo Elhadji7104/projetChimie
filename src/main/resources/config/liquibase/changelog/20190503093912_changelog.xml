@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="EL GORA FALL (generated)" id="1556876367603-1">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="livreur" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556876367603-2">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="user_valideur_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556876367603-3">
+        <addForeignKeyConstraint baseColumnNames="user_valideur_id" baseTableName="fiche_de_commande_produit" constraintName="FKb6g8hm1kg1i7e8tcdjn6vkv3d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="EL GORA FALL (generated)" id="1556876367603-4">
+        <dropTable tableName="jhi_date_time_wrapper"/>
+    </changeSet>
+</databaseChangeLog>
