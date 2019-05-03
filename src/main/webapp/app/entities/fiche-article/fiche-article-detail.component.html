@@ -77,10 +77,7 @@
                         <span class="simple-Application" jhiTranslate="projetChimieApp.ficheArticle.unite">Unite</span>
                     </div>
                     <div class="ui-g-8">
-                        <span class="bold-Application" *ngFor="let unite of ficheArticle?.unites; let last = last">
-                            <a
-                                [routerLink]="['/unite', unite?.id, 'view' ]">{{unite?.libelleUnite}}</a>{{last ? '' : ', '}}
-                        </span>
+                            <a [routerLink]="['/unite', ficheArticle.unite?.id, 'view' ]">{{ficheArticle.unite?.libelleUnite}}</a>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-6">

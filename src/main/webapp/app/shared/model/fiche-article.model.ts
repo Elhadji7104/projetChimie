@@ -36,7 +36,7 @@ export interface IFicheArticle {
     typeDeConditionnements?: ITypeDeConditionnement[];
     localisations?: ILocalisation[];
     documents?: IDocument[];
-    unites?: IUnite[];
+    unite?: IUnite;
     ficheProduitChimiques?: IFicheProduitChimique[];
     classifications?: IClassification[];
     droitDacceeProduit?: IDroitDacceeProduit;
@@ -60,7 +60,7 @@ export class FicheArticle implements IFicheArticle {
         public typeDeConditionnements?: ITypeDeConditionnement[],
         public localisations?: ILocalisation[],
         public documents?: IDocument[],
-        public unites?: IUnite[],
+        public unite?: IUnite,
         public ficheProduitChimiques?: IFicheProduitChimique[],
         public classifications?: IClassification[],
         public droitDacceeProduit?: IDroitDacceeProduit,
