@@ -136,7 +136,7 @@ public final class SecurityUtils {
                 break;
 
                 case "jpguegan":
-                login = "ZZ";
+                login = "Z1";
                 break;
         }
         switch (login) {
@@ -145,8 +145,8 @@ public final class SecurityUtils {
             groupeName = "C2";
             break;
 
-            case "ZZ":
-            groupeName = "ZZ";
+            case "Z1":
+            groupeName = "Z1";
             break;
 
             case "CORINT":
