@@ -1,15 +1,15 @@
 <h1></h1>
 <jhi-alert-error></jhi-alert-error>
-<h2>Produit Chimique</h2>
+<h2><span jhiTranslate="projetChimieApp.ficheProduitChimique.home.title">Produit Chimique</span></h2>
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-    <p class="font-weight-bold">Voulez vous créer une nouvelle fiche ? </p>
+    <p class="font-weight-bold"><span jhiTranslate="projetChimieApp.ficheProduitChimique.home.ask"></span></p>
     <p-inputSwitch name="boolean" [(ngModel)]="booleanChimique"></p-inputSwitch>
     <div *ngIf="booleanChimique">
         <p-card header="Nouvelle Fiche">
             <div class="ui-g">
                 <div class="ui-g-4">
                     <div class="form-group">
-                    <div><span>Un champ doit être au minimum rempli pour être valide</span></div>
+                    <div><span jhiTranslate="projetChimieApp.ficheProduitChimique.champMin"></span></div>
                         <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.cas"
                                for="field_cas">Cas</label>
                         <div>
@@ -111,7 +111,7 @@
             </div>
             <div>
                 <p></p>
-                <p>Vous avez selectionné le produit :</p>
+                <p><span jhiTranslate="projetChimieApp.ficheProduitChimique.selected"></span></p>
                 <p></p>
                 <p><span jhiTranslate="projetChimieApp.ficheArticle.Cas"></span> :
                     <strong>{{ficheProduits.cas}}</strong></p>

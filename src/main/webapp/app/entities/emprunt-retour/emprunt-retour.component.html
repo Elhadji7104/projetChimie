@@ -11,10 +11,10 @@
             <input type="number" [(ngModel)]="numberUser" name="user" id="input" type="user" size="30" pInputText>
         </div>
         <div class="first" *ngIf="choix">
-<h3 class="first">veuillez entrer  à retourner :</h3>
+            <h3 class="first"><span jhiTranslate="global.menu.research/borrowing.emprunt/retour.retour">veuillez entrer l'article à retourner :</span></h3>
         </div>
         <div class="first" *ngIf="!choix">
-<h3 class="first">veuillez entrer l'article à emprunter :</h3>
+            <h3 class="first"><span jhiTranslate="global.menu.research/borrowing.emprunt/retour.emprunt">veuillez entrer l'article à emprunter :</span></h3>
         </div>
         <div class="first">
             <p-dropdown [options]="articleOption" size="25" [(ngModel)]="ficheArticle" filter="true" (onChange)="actuUnite();actuDispon()" required>
@@ -28,25 +28,25 @@
             <p></p>
             <div>
                 <div>
-                    Nom du Produit :
+                    <span jhiTranslate="global.menu.research/borrowing.emprunt/retour.Nom"> Nom du Produit :</span>
                 </div>
                 <div>
                     {{ficheArticle?.ficheProduitChimiques[0]?.nom}}
                 </div>
                 <div>
-                    CAS :
+                    <span jhiTranslate="global.menu.research/borrowing.emprunt/retour.CAS">CAS :</span>
                 </div>
                 <div>
                     {{ficheArticle?.ficheProduitChimiques[0]?.cas}}
                 </div>
                 <div>
-                    Formule :
+                    <span jhiTranslate="global.menu.research/borrowing.emprunt/retour.formule">Formule :</span>
                 </div>
                 <div>
                     {{ficheArticle?.ficheProduitChimiques[0]?.formule}}
                 </div>
                 <div>
-                    Acronyme :
+                    <span jhiTranslate="global.menu.research/borrowing.emprunt/retour.acronyme">Acronyme :</span>
                 </div>
                 <div>
                     {{ficheArticle?.ficheProduitChimiques[0]?.acronyme}}
@@ -54,16 +54,16 @@
             </div>
         </div>
         <div class="first" *ngIf="dispo==false">
-            <h3 style="font-size: small;color: red" class="first">L'article n'est plus disponible:</h3>
+            <h3 style="font-size: small;color: red" class="first"><span jhiTranslate="global.menu.research/borrowing.emprunt/retour.NonDispo">L'article n'est plus disponible:</span></h3>
         </div>
         <div class="first" *ngIf="choix">
-            <h3 class="first">Saisir la quantité retournée (pour alerter des fins de stock) :</h3>
+            <h3 class="first"><span jhiTranslate="global.menu.research/borrowing.emprunt/retour.saisieR">Saisir la quantité retournée (pour alerter des fins de stock) :</span></h3>
         </div>
         <div class="first" *ngIf="!choix">
-            <h3 class="first">Saisir la quantité initial :</h3>
+            <h3 class="first"><span jhiTranslate="global.menu.research/borrowing.emprunt/retour.saisieE">Saisir la quantité initial :</span></h3>
         </div>
         <div class="first">
-            <h3 class="first">Quantité: {{quantite}} {{unite}}</h3>
+            <h3 class="first"><span jhiTranslate="global.menu.research/borrowing.emprunt/retour.quantite">Quantité: {{quantite}} {{unite}}</span></h3>
             <input type="text" pInputText [(ngModel)]="quantite" />
             <p-slider [(ngModel)]="quantite" [style]="{'width':'14em'}" [max]="1000"></p-slider>
         </div>

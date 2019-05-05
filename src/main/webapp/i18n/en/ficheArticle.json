@@ -3,20 +3,20 @@
         "ficheArticle": {
             "home": {
                 "title": "Articles Form",
-                "createLabel": "Create a new Article Form",
-                "createOrEditLabel": "Create or edit a Article Form",
+                "createLabel": "Create a new article form",
+                "createOrEditLabel": "Create or edit a article form",
                 "choix": "Choose a search mode"
             },
-            "created": "A new Article Form is created with identifier {{ param }}",
-            "updated": "A Article Form is updated with identifier {{ param }}",
-            "deleted": "A Article Form is deleted with identifier {{ param }}",
+            "created": "A new article form is created with identifier {{ param }}",
+            "updated": "A article form is updated with identifier {{ param }}",
+            "deleted": "A article form is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Article Form {{ id }}?"
+                "question": "Are you sure you want to delete article form {{ id }}?"
             },
             "detail": {
                 "title": "Article Form"
             },
-            "refArticle": "article reference",
+            "refArticle": "Article reference",
             "etatPhysique": "Physical State",
             "codeInterne": "Internal Code",
             "codeBarre": "Bar Code",
@@ -29,16 +29,16 @@
             "ficheDeCommandeProduit": "Product Order Form",
             "listeMotsCles": "Keywords List",
             "typeDeConditionnement": "Packaging Type",
-            "typeLieuStockage": "storage",
+            "typeLieuStockage": "Storage",
             "document": "Document",
             "unite": "Unity",
             "ficheProduitChimique": "Chemical Product Sheet",
             "classification": "Classification",
             "droitDacceeProduit": "Product Access Law",
-            "nom": "name",
+            "nom": "Name",
             "Cas": "CAS",
-            "formule": "chemical formula",
-            "acronyme": "acronym"
+            "formule": "Chemical formula",
+            "acronyme": "Acronym"
         }
     }
 }

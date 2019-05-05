@@ -4,7 +4,8 @@
             "home": {
                 "title": "Chemical Product Form",
                 "createLabel": "Create a new Fiche Chemical Product Form",
-                "createOrEditLabel": "Create or edit a Chemical Product Form"
+                "createOrEditLabel": "Create or edit a Chemical Product Form",
+                "ask": "Would you like to create a new Chemical product ?"
             },
             "created": "A new Chemical Product Form is created with identifier {{ param }}",
             "updated": "A Chemical Product Form is updated with identifier {{ param }}",
@@ -15,7 +16,8 @@
             "detail": {
                 "title": "Chemical Product Form"
             },
-
+            "champMin": "Please fill at least one blank",
+            "selected": "You have selected this product :",
             "cas": "Cas",
             "codeProduit": "Product Code",
             "nom": "Name",

@@ -3,15 +3,15 @@
         "ficheArticle": {
             "home": {
                 "title": "FicheArticles",
-                "createLabel": "Créer une nouvelle Fiche Article",
-                "createOrEditLabel": "Créer ou éditer une Fiche Article",
+                "createLabel": "Créer une nouvelle fiche frticle",
+                "createOrEditLabel": "Créer ou éditer une fiche frticle",
                 "choix": "Choisissez un mode de recherche :"
             },
-            "created": "Une nouvelle Fiche Article a été créé avec l'identifiant {{ param }}",
-            "updated": "La Fiche Article avec l'identifiant {{ param }} a été mise à jour",
-            "deleted": "La Fiche Article avec l'identifiant {{ param }} a été supprimée",
+            "created": "Une nouvelle fiche article a été créé avec l'identifiant {{ param }}",
+            "updated": "La fiche article avec l'identifiant {{ param }} a été mise à jour",
+            "deleted": "La fiche article avec l'identifiant {{ param }} a été supprimée",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer la Fiche Article {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer la fiche article {{ id }} ?"
             },
             "detail": {
                 "title": "Fiche Article"

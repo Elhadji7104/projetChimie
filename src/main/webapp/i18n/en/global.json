@@ -31,10 +31,22 @@
             },
             "research/borrowing": {
                 "main": "Research/Borrowing",
-                "borrowing/return": "borrowing/return",
+                "borrowing/return": "Borrowing/Return",
                 "ficheArticle": "Article Form",
                 "ficheProduitChimique": "Chemical Product Form",
-                "document": "Document"
+                "document": "Document",
+                "emprunt/retour": {
+                    "emprunt": "Please put the article you will take",
+                    "retour": "Please put the article you will return",
+                    "Nom": "Product name",
+                    "CAS": "CAS",
+                    "formule": "scheme",
+                    "acronyme": "acronym",
+                    "NonDispo": "This product isnt available",
+                    "saisieE": "Put the quantity you are taking",
+                    "saisieR": "Put the quantity you are returning",
+                    "quantite": "Quantity"
+                }
             },
             "account": {
                 "main": "Account",

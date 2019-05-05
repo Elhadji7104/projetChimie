@@ -2,20 +2,20 @@
     "projetChimieApp": {
         "typeLieuStockage": {
             "home": {
-                "title": "Type Lieu Stockages",
-                "createLabel": "Create a new Type Lieu Stockage",
-                "createOrEditLabel": "Create or edit a Type Lieu Stockage"
+                "title": "Location storage type",
+                "createLabel": "Create a new Location storage type",
+                "createOrEditLabel": "Create or edit a Location storage type"
             },
-            "created": "A new Type Lieu Stockage is created with identifier {{ param }}",
-            "updated": "A Type Lieu Stockage is updated with identifier {{ param }}",
-            "deleted": "A Type Lieu Stockage is deleted with identifier {{ param }}",
+            "created": "A new Location storage type is created with identifier {{ param }}",
+            "updated": "A Location storage type is updated with identifier {{ param }}",
+            "deleted": "A Location storage typeis deleted with identifier {{ param }}",
             "delete": {
-                "question": "(The place must not be used by any article) Are you sure you want to delete Type Lieu Stockage {{ id }}?"
+                "question": "(The place must not be used by any article) Are you sure you want to delete Location storage type {{ id }}?"
             },
             "detail": {
-                "title": "Type Lieu Stockage"
+                "title": "Location storage type"
             },
-            "libelleLieu": "Libelle Lieu",
+            "libelleLieu": "Location name",
             "temperature": "Temperature",
             "localisation": "Location"
         }

@@ -2,25 +2,24 @@
     "projetChimieApp": {
         "droitDacceeProduit": {
             "home": {
-                "title": "Droit Daccee Produits",
-                "createLabel": "Create a new Droit Daccee Produit",
-                "createOrEditLabel": "Create or edit a Droit Daccee Produit"
+                "title": "Product access right",
+                "createLabel": "Create a new Product access right",
+                "createOrEditLabel": "Create or edit a Product access right"
             },
-            "created": "A new Droit Daccee Produit is created with identifier {{ param }}",
-            "updated": "A Droit Daccee Produit is updated with identifier {{ param }}",
-            "deleted": "A Droit Daccee Produit is deleted with identifier {{ param }}",
+            "created": "A new Product access right is created with identifier {{ param }}",
+            "updated": "A Product access right is updated with identifier {{ param }}",
+            "deleted": "A Product access right is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Droit Daccee Produit {{ id }}?"
+                "question": "Are you sure you want to delete Product access right {{ id }}?"
             },
             "detail": {
-                "title": "Droit Daccee Produit"
+                "title": "Product access right"
             },
-            "nom": "Nom",
-            "nomGroupe": "Nom Groupe",
-            "etatDroit": "Etat Droit",
-            "groupe": "Groupe",
-            "ficheArticle": "Fiche Article",
-            "groupe": "Groupe"
+            "nom": "Name",
+            "nomGroupe": "Group name",
+            "etatDroit": "Right state",
+            "groupe": "Group",
+            "ficheArticle": "Article"
         }
     }
 }

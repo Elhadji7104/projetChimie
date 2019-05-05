@@ -4,7 +4,8 @@
             "home": {
                 "title": "FicheProduitChimique",
                 "createLabel": "Créer une nouvelle Fiche Produit Chimique",
-                "createOrEditLabel": "Créer ou éditer une Fiche Produit Chimique"
+                "createOrEditLabel": "Créer ou éditer une Fiche Produit Chimique",
+                "ask": "Voulez-vous créer une fiche produit ?"
             },
             "created": "Une nouvelle Fiche Produit Chimique a été créé avec l'identifiant {{ param }}",
             "updated": "La Fiche Produit Chimique avec l'identifiant {{ param }} a été mis à jour",
@@ -15,7 +16,8 @@
             "detail": {
                 "title": "Fiche Produit Chimique"
             },
-
+            "champMin": "Un champ doit être au minimum rempli pour être valide",
+            "selected": "Vous avez selectionné ce produit :",
             "cas": "Cas",
             "codeProduit": "Code Produit",
             "nom": "Nom",
