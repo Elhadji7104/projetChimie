@@ -80,7 +80,7 @@ export const PROCESSUS: Route = {
 };
 
 export const PROCESSUSMODIF: Route = {
-    path: 'processus-metier/:id/update',
+    path: 'processus-metier/:id/edit',
     component: ProcessusComponent,
     resolve: {
         ficheArticle: FicheArticleResolve
