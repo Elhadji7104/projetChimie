@@ -1,33 +1,12 @@
-import { Route, ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
+import { Route } from '@angular/router';
 
 import { HomeComponent } from './';
 import { EmpruntRetourComponent } from '../entities/emprunt-retour/emprunt-retour.component';
 import { UserRouteAccessService } from 'app/core';
 import { RechercheComponent } from 'app/recherche/recherche.component';
-import { FicheArticleDetailComponent, FicheArticleService } from 'app/entities/fiche-article';
+import { FicheArticleDetailComponent, FicheArticleResolve } from 'app/entities/fiche-article';
 import { ProcessusComponent } from 'app/processus/processus.component';
 import { ProcessusDetailComponent } from 'app/processus/processus-detail/processus-detail.component';
-import { HttpResponse } from '@angular/common/http';
-import { FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
-import { Observable, of } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { filter, map } from 'rxjs/operators';
-
-@Injectable({ providedIn: 'root' })
-export class FicheArticleResolve implements Resolve<IFicheArticle> {
-    constructor(private service: FicheArticleService) {}
-
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<FicheArticle> {
-        const id = route.params['id'] ? route.params['id'] : null;
-        if (id) {
-            return this.service.find(id).pipe(
-                filter((response: HttpResponse<FicheArticle>) => response.ok),
-                map((ficheArticle: HttpResponse<FicheArticle>) => ficheArticle.body)
-            );
-        }
-        return of(new FicheArticle());
-    }
-}
 
 export const HOME_ROUTE: Route = {
     path: '',
