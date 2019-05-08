@@ -79,9 +79,23 @@ export class ProcessusComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+
         this.activatedRoute.data.subscribe(({ ficheArticle }) => {
-            console.log(ficheArticle);
-            //this.ficheArticle = ficheArticle;
+            if (ficheArticle) {
+                this.ficheArticle = ficheArticle;
+                console.log(ficheArticle);
+
+                this.ficheProduits = ficheArticle.ficheProduitChimiques;
+                if (ficheArticle.documents[0]) {
+                    this.documentInput = ficheArticle.documents[0].lien;
+                }
+                if (ficheArticle.unites[0]) {
+                    this.uniteArray = ficheArticle.unites[0].libelleUnite;
+                }
+                this.classiArray = ficheArticle.classifications;
+                this.droit = ficheArticle.droitDacceeProduits;
+                this.typeCond = ficheArticle.typeDeConditionnements;
+            }
         });
 
         this.groupeService.query().subscribe(
