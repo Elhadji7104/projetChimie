@@ -79,7 +79,6 @@ export class ProcessusComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-
         this.activatedRoute.data.subscribe(({ ficheArticle }) => {
             if (ficheArticle) {
                 this.ficheArticle = ficheArticle;
@@ -171,6 +170,12 @@ export class ProcessusComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        if (this.ficheProduits.codeNacre === undefined) {
+            this.ficheProduits.codeNacre = 'NA21';
+        }
+        if (this.ficheArticle.quantite === undefined) {
+            this.ficheArticle.quantite = 0;
+        }
     }
 
     getSelected(selectedVals: Array<any>, option: any) {
