@@ -8,7 +8,7 @@
         },
         "footer": {
             "admin": "Administrateur :",
-            "description": "L'application ISCR est là pour organiser les stockages de produits chimiques des différents laboratoires de l'institut des Sciences Chimiques de Rennes. Ici vous pourrez donc effectuer plusieurs tâches comme consulter un article présent dans la base de données, effectuer un emprunt, commander un article, etc ...",
+            "description": "ISCR@Web est une application multiposte de gestion des bases de produits chimiques de l’ISCR. Elle permet de rechercher un produit, de gérer les emprunts de produits et de commander des articles via un panier de commandes pour tous les usagers de l’ISCR disposant d’un sésame valide. Avec cet outil, vous pouvez rechercher un produit dans la base de votre laboratoire, mais également consulter sa disponibilité dans les autres bases de l’ISCR. Elle permet une gestion plus aisée des stocks et un transfert simplifié des commandes vers les fournisseurs. Basée sur une architecture évolutive, cette base est conçue pour être un outil de travail facile d’accès, compatible Windows, Linux, Apple et Androïd Enjoy it ! Et faites nous remonter vos souhaits d’amélioration !",
             "partenaires": "Partenaires"
         }
     }
