@@ -1,20 +1,20 @@
 {
     "projetChimieApp": {
         "localisation": {
-            "stock": "Localisation du stock",
+            "stock": "Base du stock",
             "home": {
-                "title": "Localisation",
-                "createLabel": "Créer une nouvelle Localisation",
-                "createOrEditLabel": "Créer ou éditer une Localisation"
+                "title": "Base",
+                "createLabel": "Créer une nouvelle Base",
+                "createOrEditLabel": "Créer ou éditer une Base"
             },
-            "created": "Une nouvelle Localisation a été créé avec l'identifiant {{ param }}",
-            "updated": "La Localisation avec l'identifiant {{ param }}",
-            "deleted": "La Localisation avec l'identifiant {{ param }}",
+            "created": "Une nouvelle Base a été créé avec l'identifiant {{ param }}",
+            "updated": "La Base avec l'identifiant {{ param }}",
+            "deleted": "La Base avec l'identifiant {{ param }}",
             "delete": {
-                "question": "(La localisation ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer la Localisation {{ id }} ?"
+                "question": "(La Base ne doit pas être utilisée par aucun article) Etes-vous certain de vouloir supprimer la Localisation {{ id }} ?"
             },
             "detail": {
-                "title": "Localisation"
+                "title": "Base"
             },
             "adresse": "Adresse",
             "codePostal": "Code Postal",
