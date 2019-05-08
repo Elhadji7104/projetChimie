@@ -1,6 +1,7 @@
 {
     "projetChimieApp": {
         "ficheArticle": {
+            "recherche": "Which product are you looking for?",
             "home": {
                 "title": "Articles Form",
                 "createLabel": "Create a new article form",
