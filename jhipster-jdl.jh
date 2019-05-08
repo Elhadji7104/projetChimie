@@ -14,7 +14,7 @@ entity DroitDacceeProduit {
 	etatDroit Boolean
 }
 enum DisponibliteArticle {
-DISPONIBLE,INDISPONIBLE, FINDESTOCK,ENCOMMANDE
+DISPONIBLE,INDISPONIBLE, FINDESTOCK,ENCOMMANDE,ENLIVRAISON
 }
 
 entity MailGestionnaire{

@@ -20,7 +20,7 @@
         {
             "fieldName": "disponibliteArticle",
             "fieldType": "DisponibliteArticle",
-            "fieldValues": "DISPONIBLE,INDISPONIBLE,FINDESTOCK,ENCOMMANDE"
+            "fieldValues": "DISPONIBLE,INDISPONIBLE,FINDESTOCK,ENCOMMANDE, ENLIVRAISON"
         },
         {
             "fieldName": "typeDesuivi",

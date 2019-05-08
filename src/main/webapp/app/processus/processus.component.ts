@@ -200,6 +200,7 @@ export class ProcessusComponent implements OnInit {
         this.DispoSelect.push({ label: 'INDISPONIBLE', value: 'INDISPONIBLE' });
         this.DispoSelect.push({ label: 'ENCOMMANDE', value: 'ENCOMMANDE' });
         this.DispoSelect.push({ label: 'FINDESTOCK', value: 'FINDESTOCK' });
+        this.DispoSelect.push({ label: 'ENLIVRAISON', value: 'ENLIVRAISON' });
     }
 
     protected onError(errorMessage: string) {

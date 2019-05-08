@@ -16,7 +16,8 @@ export const enum DisponibliteArticle {
     DISPONIBLE = 'DISPONIBLE',
     INDISPONIBLE = 'INDISPONIBLE',
     FINDESTOCK = 'FINDESTOCK',
-    ENCOMMANDE = 'ENCOMMANDE'
+    ENCOMMANDE = 'ENCOMMANDE',
+    ENLIVRAISON = 'ENLIVRAISON'
 }
 
 export interface IFicheArticle {

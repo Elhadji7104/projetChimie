@@ -152,10 +152,11 @@ export class FicheArticleUpdateComponent implements OnInit {
 
     getOptionsDispo() {
         this.dispoSelect = [];
-        this.dispoSelect.push({ label: 'DISPONIBLE', value: 'SOLIDE' });
-        this.dispoSelect.push({ label: 'INDISPONIBLE', value: 'LIQUIDE' });
-        this.dispoSelect.push({ label: 'ENCOMMANDE', value: 'GAZEUX' });
-        this.dispoSelect.push({ label: 'FINDESTOCK', value: 'GAZEUX' });
+        this.dispoSelect.push({ label: 'DISPONIBLE', value: 'DISPONIBLE' });
+        this.dispoSelect.push({ label: 'INDISPONIBLE', value: 'INDISPONIBLE' });
+        this.dispoSelect.push({ label: 'ENCOMMANDE', value: 'ENCOMMANDE' });
+        this.dispoSelect.push({ label: 'FINDESTOCK', value: 'FINDESTOCK' });
+        this.dispoSelect.push({ label: 'ENLIVRAISON', value: 'ENLIVRAISON' });
         return this.dispoSelect;
     }
 
