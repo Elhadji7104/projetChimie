@@ -1,0 +1,59 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Sullivan (generated)" id="1557591013020-1">
+        <addColumn tableName="fournisseur">
+            <column name="contact_pro" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-2">
+        <addColumn tableName="mail_gestionnaire">
+            <column name="nom" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-3">
+        <addColumn tableName="fournisseur">
+            <column name="nom_pro" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-4">
+        <addColumn tableName="mail_gestionnaire">
+            <column name="prenom" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-5">
+        <addColumn tableName="fournisseur">
+            <column name="prenom_pro" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-6">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="prix_unitaire" type="float"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-7">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="quantite_unitaire" type="float"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-8">
+        <addColumn tableName="fournisseur">
+            <column name="ref_fournisseur" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Sullivan (generated)" id="1557591013020-10">
+        <addColumn tableName="fiche_de_commande_produit">
+            <column name="quantite_flacon" type="float"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Sullivan (generated)" id="1557591013020-9">
+        <addColumn tableName="mail_gestionnaire">
+            <column name="tel" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet author="Sullivan (generated)" id="1557591013020-28">
+        <dropColumn columnName="quantite" tableName="fiche_de_commande_produit"/>
+    </changeSet>
+</databaseChangeLog>

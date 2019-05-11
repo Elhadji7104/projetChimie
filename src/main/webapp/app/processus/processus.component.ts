@@ -80,8 +80,21 @@ export class ProcessusComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ ficheArticle }) => {
-            console.log(ficheArticle);
-            //this.ficheArticle = ficheArticle;
+            if (ficheArticle) {
+                this.ficheArticle = ficheArticle;
+                console.log(ficheArticle);
+
+                this.ficheProduits = ficheArticle.ficheProduitChimiques;
+                if (ficheArticle.documents[0]) {
+                    this.documentInput = ficheArticle.documents[0].lien;
+                }
+                if (ficheArticle.unites[0]) {
+                    this.uniteArray = ficheArticle.unites[0].libelleUnite;
+                }
+                this.classiArray = ficheArticle.classifications;
+                this.droit = ficheArticle.droitDacceeProduits;
+                this.typeCond = ficheArticle.typeDeConditionnements;
+            }
         });
 
         this.groupeService.query().subscribe(
@@ -157,6 +170,12 @@ export class ProcessusComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        if (this.ficheProduits.codeNacre === undefined) {
+            this.ficheProduits.codeNacre = 'NA21';
+        }
+        if (this.ficheArticle.quantite === undefined) {
+            this.ficheArticle.quantite = 0;
+        }
     }
 
     getSelected(selectedVals: Array<any>, option: any) {
@@ -181,6 +200,7 @@ export class ProcessusComponent implements OnInit {
         this.DispoSelect.push({ label: 'INDISPONIBLE', value: 'INDISPONIBLE' });
         this.DispoSelect.push({ label: 'ENCOMMANDE', value: 'ENCOMMANDE' });
         this.DispoSelect.push({ label: 'FINDESTOCK', value: 'FINDESTOCK' });
+        this.DispoSelect.push({ label: 'ENLIVRAISON', value: 'ENLIVRAISON' });
     }
 
     protected onError(errorMessage: string) {
@@ -241,8 +261,7 @@ export class ProcessusComponent implements OnInit {
         }
         this.ficheArticle.codeBarre = this.codeInterne + '-' + this.ficheArticle.refArticle;
         // Code Interne a faire avec le REST de groupe
-        this.ficheArticle.unites = [];
-        this.ficheArticle.unites[0] = this.uniteArray;
+        this.ficheArticle.unite = this.uniteArray;
         this.ficheArticle.classifications = [];
         this.ficheArticle.classifications = this.classiArray;
         console.log(this.ficheArticle.classifications);

@@ -2,20 +2,20 @@
     "projetChimieApp": {
         "typeDeConditionnement": {
             "home": {
-                "title": "Type De Conditionnements",
-                "createLabel": "Create a new Type De Conditionnement",
-                "createOrEditLabel": "Create or edit a Type De Conditionnement"
+                "title": "Packaging type",
+                "createLabel": "Create a new Packaging type",
+                "createOrEditLabel": "Create or edit a Packaging type"
             },
-            "created": "A new Type De Conditionnement is created with identifier {{ param }}",
-            "updated": "A Type De Conditionnement is updated with identifier {{ param }}",
-            "deleted": "A Type De Conditionnement is deleted with identifier {{ param }}",
+            "created": "A new Packaging type is created with identifier {{ param }}",
+            "updated": "A Packaging type is updated with identifier {{ param }}",
+            "deleted": "A Packaging type is deleted with identifier {{ param }}",
             "delete": {
-                "question": "(The conditioning must not be used by any article) Are you sure you want to delete Type De Conditionnement {{ id }}?"
+                "question": "(The conditioning must not be used by any article) Are you sure you want to delete Packaging type {{ id }}?"
             },
             "detail": {
-                "title": "Type De Conditionnement"
+                "title": "Packaging type"
             },
-            "libelleConditionnement": "Libelle Conditionnement",
+            "libelleConditionnement": "Packaging name",
             "ficheArticle": "Article Form"
         }
     }

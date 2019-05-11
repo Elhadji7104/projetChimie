@@ -2,20 +2,20 @@
     "projetChimieApp": {
         "unite": {
             "home": {
-                "title": "Unites",
-                "createLabel": "Create a new Unite",
-                "createOrEditLabel": "Create or edit a Unite"
+                "title": "Unities",
+                "createLabel": "Create a new Unity",
+                "createOrEditLabel": "Create or edit a Unity"
             },
-            "created": "A new Unite is created with identifier {{ param }}",
-            "updated": "A Unite is updated with identifier {{ param }}",
-            "deleted": "A Unite is deleted with identifier {{ param }}",
+            "created": "A new Unity is created with identifier {{ param }}",
+            "updated": "A Unity is updated with identifier {{ param }}",
+            "deleted": "A Unity is deleted with identifier {{ param }}",
             "delete": {
-                "question": "(The unit must not be used by any article) Are you sure you want to delete Unite {{ id }}?"
+                "question": "(The unit must not be used by any article) Are you sure you want to delete unity {{ id }}?"
             },
             "detail": {
                 "title": "Unity"
             },
-            "libelleUnite": "Libelle Unite",
+            "libelleUnite": "Unity name",
             "ficheArticle": "Article Form"
         }
     }

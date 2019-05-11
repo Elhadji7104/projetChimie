@@ -1,17 +1,18 @@
 {
     "projetChimieApp": {
         "ficheArticle": {
+            "recherche": "quel produit recherchez-vous ?",
             "home": {
                 "title": "FicheArticles",
-                "createLabel": "Créer un nouveau Fiche Article",
-                "createOrEditLabel": "Créer ou éditer un Fiche Article",
+                "createLabel": "Créer une nouvelle fiche frticle",
+                "createOrEditLabel": "Créer ou éditer une fiche frticle",
                 "choix": "Choisissez un mode de recherche :"
             },
-            "created": "Un nouveau Fiche Article a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Fiche Article avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Fiche Article avec l'identifiant {{ param }} a été supprimé",
+            "created": "Une nouvelle fiche article a été créé avec l'identifiant {{ param }}",
+            "updated": "La fiche article avec l'identifiant {{ param }} a été mise à jour",
+            "deleted": "La fiche article avec l'identifiant {{ param }} a été supprimée",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Fiche Article {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer la fiche article {{ id }} ?"
             },
             "detail": {
                 "title": "Fiche Article"
@@ -19,7 +20,7 @@
             "refArticle": "Référence de l'article",
             "etatPhysique": "Etat Physique",
             "codeInterne": "Code Interne",
-            "codeBarre": "Code Barre",
+            "codeBarre": "Code interne",
             "quantite": "Quantite ",
             "disponibliteArticle": "Disponiblite Article",
             "typeDesuivi": "Type Desuivi",
@@ -33,7 +34,7 @@
             "document": "Document",
             "unite": "Unite",
             "ficheProduitChimique": "Fiche Produit Chimique",
-            "classification": "Classification",
+            "classification": "Mots-clés",
             "droitDacceeProduit": "Droit Daccee Produit",
             "nom": "nom",
             "formule": "formule",

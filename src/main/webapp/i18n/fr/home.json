@@ -1,9 +1,15 @@
 {
     "home": {
         "title": "Bienvenue !",
+        "title2": "Bienvenue ",
         "subtitle": "Ceci est votre page d'accueil",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
+        },
+        "footer": {
+            "admin": "Administrateur :",
+            "description": "ISCR@Web est une application multiposte de gestion des bases de produits chimiques de l’ISCR. Elle permet de rechercher un produit, de gérer les emprunts de produits et de commander des articles via un panier de commandes pour tous les usagers de l’ISCR disposant d’un sésame valide. Avec cet outil, vous pouvez rechercher un produit dans la base de votre laboratoire, mais également consulter sa disponibilité dans les autres bases de l’ISCR. Elle permet une gestion plus aisée des stocks et un transfert simplifié des commandes vers les fournisseurs. Basée sur une architecture évolutive, cette base est conçue pour être un outil de travail facile d’accès, compatible Windows, Linux, Apple et Androïd Enjoy it ! Et faites nous remonter vos souhaits d’amélioration !",
+            "partenaires": "Partenaires"
         }
     }
 }

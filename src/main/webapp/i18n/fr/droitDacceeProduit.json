@@ -3,17 +3,17 @@
         "droitDacceeProduit": {
             "home": {
                 "title": "DroitDacceeProduits",
-                "createLabel": "Créer un nouveau Droit Daccee Produit",
-                "createOrEditLabel": "Créer ou éditer un Droit Daccee Produit"
+                "createLabel": "Créer un nouveau Droit d'accee Produit",
+                "createOrEditLabel": "Créer ou éditer un Droit d'accee Produit"
             },
-            "created": "Un nouveau Droit Daccee Produit a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Droit Daccee Produit avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Droit Daccee Produit avec l'identifiant {{ param }} a été supprimé",
+            "created": "Un nouveau Droit d'accee Produit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Droit d'accee Produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Droit d'accee Produit avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Droit Daccee Produit {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer le Droit d'accee Produit {{ id }} ?"
             },
             "detail": {
-                "title": "Droit Daccee Produit"
+                "title": "Droit d'accee Produit"
             },
             "nom": "Nom",
             "nomGroupe": "Nom Groupe",

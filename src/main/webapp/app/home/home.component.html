@@ -1,10 +1,12 @@
 <div class="row">
 
     <div class="col-md-8">
-        <h1 class="display-4" *ngIf="!isAuthenticated()">Bienvenue</h1>
-        <h1 *ngIf="isAuthenticated() && account">Bienvenue {{account.firstName}}</h1>
+        <h1 class="display-4" *ngIf="!isAuthenticated()">
+            <span jhiTranslate="home.title">Bienvenue</span>
+        </h1>
+        <h1 *ngIf="isAuthenticated() && account"><span jhiTranslate="home.title2">Bienvenue</span> {{account.firstName}}</h1>
 
-        <div *ngIf="isAuthenticated()" class="ui-g">
+        <div *ngIf="isAuthenticated()" class="ui-g" style="text-align: center;">
             <div class="ui-g-3">
                 <a routerLink="recherche">
                     <span class="logo-img1 img-fluid rounded"></span> </a>
@@ -15,12 +17,24 @@
                 </a>
             </div>
             <div class="ui-g-3">
+                <a routerLink="processus-metier">
+                    <span class="logo-img5 img-fluid rounded"></span>
+                </a>
+            </div>
+        </div>
+        <div *ngIf="isAuthenticated()" class="ui-g" style="text-align: center;">
+            <div class="ui-g-3">
                 <a routerLink="fiche-de-commande-produit/new">
                     <span class="logo-img3 img-fluid rounded"></span>
                 </a>
             </div>
             <div class="ui-g-3">
-                <a routerLink="processus-metier">
+                <a routerLink="fiche-de-commande-produit">
+                    <span class="logo-img6 img-fluid rounded"></span>
+                </a>
+            </div>
+            <div class="ui-g-3">
+                <a routerLink="fiche-emprunt-produit">
                     <span class="logo-img4 img-fluid rounded"></span>
                 </a>
             </div>

@@ -95,20 +95,20 @@ public class FicheDeCommandeProduitResource {
             return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
         }
         if (authorite.equals("ROLE_USER")) {
-            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
-            return ficheDeCommandeProduitRepository.findAllUser(secu.getCurrentUserLogin().get());
+            log.debug("REST request to get all FicheDeCommandeProduits");
+            return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
         }
         if (authorite.equals("ROLE_HYGIENE_ET_SECURITE")) {
             log.debug("REST request to get all FicheDeCommandeProduits");
             return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
         }
         if (authorite.equals("ROLE_GESTIONNAIRE_DE_BASE")) {
-            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
-            return ficheDeCommandeProduitRepository.findAllGroupe(group);
+            log.debug("REST request to get all FicheDeCommandeProduits");
+            return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
         }
         if (authorite.equals("ROLE_VALIDEUR")) {
-            log.debug("REST request to get all FicheEmpruntProduits for Valideur and Base");
-            return ficheDeCommandeProduitRepository.findAllGroupe(group);
+            log.debug("REST request to get all FicheDeCommandeProduits");
+            return ficheDeCommandeProduitRepository.findAllWithEagerRelationships();
         }
         else{
             return null;

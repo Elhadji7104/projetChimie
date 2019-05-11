@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Location"
             },
-            "adresse": "Adress",
+            "adresse": "Address",
             "codePostal": "Postal Code",
             "ville": "City",
-            "pays": "country",
+            "pays": "Country",
             "quantite": "Quantity",
             "typeLieuStockage": "Type Storage Location",
             "ficheArticle": "Article Form"

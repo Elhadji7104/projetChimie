@@ -26,8 +26,14 @@ public class FicheDeCommandeProduit implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "quantite")
-    private Float quantite;
+    @Column(name = "quantite_unitaire")
+    private Float quantiteUnitaire;
+
+    @Column(name = "prix_unitaire")
+    private Float prixUnitaire;
+
+    @Column(name = "quantite_flacon")
+    private Float quantiteFlacon;
 
     @Column(name = "date_de_commande")
     private LocalDate dateDeCommande;
@@ -65,6 +71,22 @@ public class FicheDeCommandeProduit implements Serializable {
         return fournisseurs;
     }
 
+    public Float getQuantiteUnitaire() {
+        return quantiteUnitaire;
+    }
+
+    public void setQuantiteUnitaire(Float quantiteUnitaire) {
+        this.quantiteUnitaire = quantiteUnitaire;
+    }
+
+    public Float getPrixUnitaire() {
+        return prixUnitaire;
+    }
+
+    public void setPrixUnitaire(Float prixUnitaire) {
+        this.prixUnitaire = prixUnitaire;
+    }
+
     public void setFournisseurs(Fournisseur fournisseurs) {
         this.fournisseurs = fournisseurs;
     }
@@ -84,19 +106,6 @@ public class FicheDeCommandeProduit implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Float getQuantite() {
-        return quantite;
-    }
-
-    public FicheDeCommandeProduit quantite(Float quantite) {
-        this.quantite = quantite;
-        return this;
-    }
-
-    public void setQuantite(Float quantite) {
-        this.quantite = quantite;
     }
 
     public LocalDate getDateDeCommande() {
@@ -174,7 +183,6 @@ public class FicheDeCommandeProduit implements Serializable {
     public String toString() {
         return "FicheDeCommandeProduit{" +
             "id=" + getId() +
-            ", quantite=" + getQuantite() +
             ", dateDeCommande='" + getDateDeCommande() + "'" +
             ", dateLivraison='" + getDateLivraison() + "'" +
             ", valideur='" + getUser_valideur() + "'" +

@@ -28,14 +28,42 @@ public class Fournisseur implements Serializable {
     @Column(name = "nom_fournisseur")
     private String nomFournisseur;
 
+    @Column(name = "ref_fournisseur")
+    private String ref_fournisseur;
+
     @Column(name = "adresse")
     private String adresse;
+
+    public String getRef_fournisseur() {
+        return ref_fournisseur;
+    }
+
+    public void setRef_fournisseur(String ref_fournisseur) {
+        this.ref_fournisseur = ref_fournisseur;
+    }
 
     @Column(name = "mail")
     private String mail;
 
     @Column(name = "telephone")
     private String telephone;
+
+    @Column(name = "contact_pro")
+    private String contactPro;
+
+    @Column(name = "nom_pro")
+    private String nomPro;
+
+    public String getContactPro() {
+        return contactPro;
+    }
+
+    public void setContactPro(String contactPro) {
+        this.contactPro = contactPro;
+    }
+
+    @Column(name = "prenom_pro")
+    private String prenomPro;
 
     @OneToMany(mappedBy = "fournisseurs")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -50,6 +78,9 @@ public class Fournisseur implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    
+
 
     public String getNomFournisseur() {
         return nomFournisseur;

@@ -1,5 +1,6 @@
 import { IClassification } from 'app/shared/model//classification.model';
 import { DisponibliteArticle } from 'app/shared/model/fiche-article.model';
+import { ITypeLieuStockage } from './type-lieu-stockage.model';
 
 export interface IFicheArticleProduit {
     idArticle?: number;

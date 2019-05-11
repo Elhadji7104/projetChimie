@@ -9,6 +9,8 @@ import { FicheDeCommandeProduitService } from './fiche-de-commande-produit.servi
 import { FicheArticleService } from 'app/entities/fiche-article';
 import { DisponibliteArticle, FicheArticle, IFicheArticle } from 'app/shared/model/fiche-article.model';
 import * as moment from 'moment';
+import { Unite, IUnite } from 'app/shared/model/unite.model';
+import { UniteService } from '../unite';
 
 @Component({
     selector: 'jhi-fiche-de-commande-produit',
@@ -18,21 +20,31 @@ export class FicheDeCommandeProduitComponent implements OnInit, OnDestroy {
     ficheDeCommandeProduits: IFicheDeCommandeProduit[];
     currentAccount: any;
     eventSubscriber: Subscription;
-    private ficheArticle: IFicheArticle = new FicheArticle();
-    private ficheDeCommandeProduit: IFicheDeCommandeProduit = new FicheDeCommandeProduit();
-
+    ficheArticle: IFicheArticle = new FicheArticle();
+    ficheDeCommandeProduit: IFicheDeCommandeProduit = new FicheDeCommandeProduit();
+    unites: IUnite[] = [];
     constructor(
         protected ficheDeCommandeProduitService: FicheDeCommandeProduitService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected accountService: AccountService,
-        protected ficheArticleService: FicheArticleService
+        protected ficheArticleService: FicheArticleService,
+        protected unitesService: UniteService
     ) {}
 
     loadAll() {
         this.ficheDeCommandeProduitService.query().subscribe(
             (res: HttpResponse<IFicheDeCommandeProduit[]>) => {
                 this.ficheDeCommandeProduits = res.body;
+                console.log(res.body);
+                this.unitesService.query().subscribe(
+                    (res: HttpResponse<IFicheDeCommandeProduit[]>) => {
+                        this.unites = res.body;
+                        console.log(res.body);
+                        console.log(this.unites[0].ficheArticles);
+                    },
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

@@ -8,7 +8,7 @@
             },
             "created": "Un nouveau Liste Cmr a été créé avec l'identifiant {{ param }}",
             "updated": "Le Liste Cmr avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Liste Cmr avec l'identifiant {{ param }} a été supprimé",
+            "deleted": "Le Liste Cmr avec l'identifiant {{ param }} a été supprimée",
             "delete": {
                 "question": "Etes-vous certain de vouloir supprimer le Liste Cmr {{ id }} ?"
             },

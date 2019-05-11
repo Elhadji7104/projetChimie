@@ -23,8 +23,41 @@ public class MailGestionnaire implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
     @Column(name = "mail")
     private String mail;
+
+    @Column(name = "Nom")
+    private String nom;
+
+    @Column(name = "Prenom")
+    private String prenom;
+
+    @Column(name = "Tel")
+    private String tel;
 
     @ManyToOne
     @JsonIgnoreProperties("mailGestionnaires")

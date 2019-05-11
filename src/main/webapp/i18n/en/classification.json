@@ -3,8 +3,8 @@
         "classification": {
             "home": {
                 "title": "Classifications",
-                "createLabel": "Create a new Classification",
-                "createOrEditLabel": "Create or edit a Classification"
+                "createLabel": "Create a new classification",
+                "createOrEditLabel": "Create or edit a classification"
             },
             "created": "A new Classification is created with identifier {{ param }}",
             "updated": "A Classification is updated with identifier {{ param }}",
@@ -15,8 +15,8 @@
             "detail": {
                 "title": "Classification"
             },
-            "nomClassification": "Nom Classification",
-            "ficheArticle": "Fiche Article"
+            "nomClassification": "Classification name",
+            "ficheArticle": "Article form"
         }
     }
 }

@@ -13,13 +13,15 @@
     <br />
     <div class="table-responsive" *ngIf="ficheArticleProduits">
         <p-table class="table table-striped" [columns]="cols" [value]="ficheArticleProduits" sortMode="multiple"
-           #dt>
+         #dt>
             <ng-template pTemplate="caption">
+
+                    <span jhiTranslate="projetChimieApp.ficheArticle.recherche"> question :</span>
                 <div class="ui-fluid">
                     <div class="ui-g">
                         <div class="ui-g-12 ui-md-6">
                             <div class="ui-g-4">
-                                Code Barre :
+                                <span jhiTranslate="projetChimieApp.ficheArticle.codeBarre"> Code Barre :</span>
                             </div>
                             <div class="ui-g-8">
                                 <p-multiSelect [options]="codeBarreO" [(ngModel)]="codeBarre"
@@ -29,7 +31,7 @@
                         </div>
                         <div class="ui-g-12 ui-md-6">
                             <div class="ui-g-4">
-                                Nom Produit Chimique :
+                                <span jhiTranslate="projetChimieApp.ficheArticle.nom"> Nom Produit Chimique :</span>
                             </div>
                             <div class="ui-g-8">
                                 <p-multiSelect [options]="nomO" [(ngModel)]="nom" defaultLabel="All Name"
@@ -38,7 +40,7 @@
                         </div>
                         <div class="ui-g-12 ui-md-6">
                             <div class="ui-g-4">
-                                Acronyme :
+                                <span jhiTranslate="projetChimieApp.ficheArticle.acronyme">Acronyme :</span>
                             </div>
                             <div class="ui-g-8">
                                 <p-multiSelect [options]="acronymeO" [(ngModel)]="acronyme" defaultLabel="All Acronym"
@@ -47,7 +49,7 @@
                         </div>
                         <div class="ui-g-12 ui-md-6">
                             <div class="ui-g-4">
-                                Cas :
+                                <span jhiTranslate="projetChimieApp.ficheArticle.Cas">Cas :</span>
                             </div>
                             <div class="ui-g-8">
                                 <p-multiSelect [options]="casO" [(ngModel)]="cas" defaultLabel="All CAS"
@@ -56,7 +58,7 @@
                         </div>
                         <div class="ui-g-12 ui-md-6">
                             <div class="ui-g-4">
-                                Formule :
+                                <span jhiTranslate="projetChimieApp.ficheArticle.formule">Formule :</span>
                             </div>
                             <div class="ui-g-8">
                                 <p-multiSelect [options]="formuleO" [(ngModel)]="formule" defaultLabel="All Formule"
@@ -65,7 +67,7 @@
                         </div>
                         <div class="ui-g-12 ui-md-6">
                             <div class="ui-g-4">
-                                classification :
+                                <span jhiTranslate="projetChimieApp.ficheArticle.classification">classification :</span>
                             </div>
                             <div class="ui-g-8">
                                 <p-multiSelect [(ngModel)]="valeursSelect" [options]="classificationO"
@@ -75,7 +77,7 @@
                         </div>
                         <div class="ui-g-12 ui-md-6">
                             <div class="ui-g-4">
-                                Disponibilite
+                                <span jhiTranslate="projetChimieApp.ficheArticle.disponibliteArticle">Disponibilite</span>
                             </div>
                             <div class="ui-g-8">
                                 <p-multiSelect [(ngModel)]="disponibliteArticle" [options]="disponibliteArticleO"
@@ -110,33 +112,34 @@
                         </div>
 
                     </div>
+                </div>
             </ng-template>
 
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th style="width: 8%;" [pSortableColumn]="codeBarre"> <!--(input)="sort($event.target.value,codeBarre)"-->
-                        codeBarre
-                        <p-sortIcon [field]="codeBarre"></p-sortIcon>
+                    <th style="width: 9%;" [pSortableColumn]="'codeBarre'"> <!--(input)="sort($event.target.value,codeBarre)"-->
+                        <span jhiTranslate="projetChimieApp.ficheArticle.codeBarre">codeBarre</span>
+                        <p-sortIcon [field]="'codeBarre'"></p-sortIcon>
                     </th>
 
-                    <th style="width: 8%;" [pSortableColumn]="cas"> <!--(input)="sort($event.target.value,cas)"-->
-                        cas
+                    <th style="width: 8%;" [pSortableColumn]="'cas'"> <!--(input)="sort($event.target.value,cas)"-->
+                        <span jhiTranslate="projetChimieApp.ficheArticle.Cas">cas</span>
                         <p-sortIcon [field]="cas"></p-sortIcon>
                     </th>
 
-                    <th style="width: 25%;" [pSortableColumn]="nom"> <!--(input)="sort($event.target.value,nom)"-->
-                        nom
-                        <p-sortIcon [field]="nom"></p-sortIcon>
+                    <th style="width: 25%;" [pSortableColumn]="'nom'"> <!--(input)="sort($event.target.value,nom)"-->
+                        <span jhiTranslate="projetChimieApp.ficheArticle.nom">nom</span>
+                        <p-sortIcon [field]="'nom'"></p-sortIcon>
                     </th>
 
-                    <th style="width: 25%;" [pSortableColumn]="acronyme"> <!--(input)="sort($event.target.value,acronyme)">-->
-                        acronyme
-                        <p-sortIcon [field]="acronyme"></p-sortIcon>
+                    <th style="width: 15%;" [pSortableColumn]="'acronyme'"> <!--(input)="sort($event.target.value,acronyme)">-->
+                        <span jhiTranslate="projetChimieApp.ficheArticle.acronyme">acronyme</span>
+                        <p-sortIcon [field]="'acronyme'"></p-sortIcon>
                     </th>
 
-                    <th style="width: 10%;" [pSortableColumn]="formule"> <!--(input)="sort($event.target.value,formule)">-->
-                        formule
-                        <p-sortIcon [field]="formule"></p-sortIcon>
+                    <th style="width: 10%;" [pSortableColumn]="'formule'"> <!--(input)="sort($event.target.value,formule)">-->
+                        <span jhiTranslate="projetChimieApp.ficheArticle.formule">formule</span>
+                        <p-sortIcon [field]="'formule'"></p-sortIcon>
                     </th>
                     <th></th>
                 </tr>
@@ -173,13 +176,13 @@
                                     [routerLink]="['/fiche-de-commande-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-warning btn-sm">
                                     <fa-icon [icon]="'eye'"></fa-icon>
-                                    <span class="d-none d-md-inline">Commander</span>
+                                    <span class="d-none d-md-inline">Com</span>
                                 </button>
                                 <button type="submit" [routerLink]="['/emprunt-produit', rowData.idArticle, 'edit' ]"
                                     class="btn btn-info btn-sm" ngbTooltip="Réserve : {{rowData.typeLieuStockage}}"
                                     tooltipClass="my-custom-class">
                                     <fa-icon [icon]="'eye'"></fa-icon>
-                                    <span class="d-none d-md-inline">Emprunter</span>
+                                    <span class="d-none d-md-inline">Emp</span>
                                 </button>
                                 <button *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_GESTIONNAIRE_DE_BASE', 'VALIDEUR']"
                                     type="submit"

@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { ProjetChimieSharedModule } from 'app/shared';
-import { HOME_ROUTE, EMPRUNTPRODUIT, HomeComponent, RECHERCHE, EMPRUNTPRODUITID, PROCESSUS, PROCESSUSDETAIL } from './';
+import { HOME_ROUTE, EMPRUNTPRODUIT, HomeComponent, RECHERCHE, EMPRUNTPRODUITID, PROCESSUS, PROCESSUSDETAIL, PROCESSUSMODIF } from './';
 
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
@@ -10,10 +10,12 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule, DataTableModule, DropdownModule, InputSwitchModule, MultiSelectModule, SplitButtonModule } from 'primeng/primeng';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'primeng/tooltip';
+import { PaginatorModule } from 'primeng/paginator';
 @NgModule({
     imports: [
         ProjetChimieSharedModule,
-        RouterModule.forChild([HOME_ROUTE, EMPRUNTPRODUIT, RECHERCHE, EMPRUNTPRODUITID, PROCESSUS, PROCESSUSDETAIL]),
+        RouterModule.forChild([HOME_ROUTE, EMPRUNTPRODUIT, RECHERCHE, EMPRUNTPRODUITID, PROCESSUS, PROCESSUSDETAIL, PROCESSUSMODIF]),
         InputMaskModule,
         InputTextModule,
         TableModule,
@@ -21,12 +23,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BrowserModule,
         BrowserAnimationsModule,
         MultiSelectModule,
-        InputMaskModule,
-        InputTextModule,
         InputSwitchModule,
         DropdownModule,
         ButtonModule,
-        SplitButtonModule
+        SplitButtonModule,
+        TooltipModule,
+        PaginatorModule
     ],
     declarations: [HomeComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

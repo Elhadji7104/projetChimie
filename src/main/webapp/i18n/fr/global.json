@@ -34,7 +34,19 @@
                 "borrowing/return": "Emprunt/Retour",
                 "ficheArticle": "Fiche Article",
                 "ficheProduitChimique": "Fiche Produit Chimique",
-                "document": "Document"
+                "document": "Document",
+                "emprunt/retour": {
+                    "emprunt": "Veuillez saisir l'article à emprunter",
+                    "retour": "Veuillez saisir l'article à rendre",
+                    "Nom": "Nom du produit",
+                    "CAS": "CAS",
+                    "formule": "Formule",
+                    "acronyme": "Acronyme",
+                    "NonDispo": "Ce produit n'est plus disponible",
+                    "saisieE": "Veuillez saisir la quentité voulue",
+                    "saisieR": "Veuillez saisir la quantité rapportée",
+                    "quantite": "Quantité"
+                }
             },
             "account": {
                 "main": "Compte",

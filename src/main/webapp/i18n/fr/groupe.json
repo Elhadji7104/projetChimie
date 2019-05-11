@@ -8,7 +8,7 @@
             },
             "created": "Un nouveau Groupe a été créé avec l'identifiant {{ param }}",
             "updated": "Le Groupe avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Groupe avec l'identifiant {{ param }} a été supprimé",
+            "deleted": "Le Groupe avec l'identifiant {{ param }} a été supprimée",
             "delete": {
                 "question": "(Le groupe ne doit pas être utilisé par aucun article) Etes-vous certain de vouloir supprimer le Groupe {{ id }} ?"
             },

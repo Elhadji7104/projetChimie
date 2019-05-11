@@ -5,7 +5,8 @@
             "DISPONIBLE": "DISPONIBLE",
             "INDISPONIBLE": "INDISPONIBLE",
             "FINDESTOCK": "FINDESTOCK",
-            "ENCOMMANDE": "ENCOMMANDE"
+            "ENCOMMANDE": "ENCOMMANDE",
+            "ENLIVRAISON": "ENLIVRAISON"
         }
     }
 }

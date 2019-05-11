@@ -16,7 +16,7 @@
                 "title": "Supplier"
             },
             "nomFournisseur": "Supplier name",
-            "adresse": "Adress",
+            "adresse": "Address",
             "mail": "Email",
             "telephone": "Phone",
             "ficheDeCommandeProduit": "Product order card"
