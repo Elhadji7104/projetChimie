@@ -10,6 +10,7 @@ import { IClassification } from 'app/shared/model/classification.model';
 import { ClassificationService } from 'app/entities/classification';
 import { ExportExcelService } from 'app/export-excel.service';
 import { Router } from '@angular/router';
+import { ConserveRechercheService } from './conserve-recherche.service';
 @Component({
     selector: 'jhi-recherche',
     templateUrl: './recherche.component.html',
@@ -51,6 +52,28 @@ export class RechercheComponent implements OnInit {
         this.loadAll();
         this.loadAllClassi();
         this.ficheInitial();
+        if (this.conserveRechercheService.getCodeBarre()) {
+            this.codeBarre = this.conserveRechercheService.getCodeBarre();
+        }
+        if (this.conserveRechercheService.getClassification()) {
+            this.classification = this.conserveRechercheService.getClassification();
+        }
+        if (this.conserveRechercheService.getDisponibliteArticle()) {
+            this.disponibliteArticle = this.conserveRechercheService.getDisponibliteArticle();
+        }
+        if (this.conserveRechercheService.getCas()) {
+            this.cas = this.conserveRechercheService.getCas();
+        }
+        if (this.conserveRechercheService.getNom()) {
+            this.nom = this.conserveRechercheService.getNom();
+        }
+        if (this.conserveRechercheService.getAcronyme()) {
+            this.acronyme = this.conserveRechercheService.getAcronyme();
+        }
+        if (this.conserveRechercheService.getFormule()) {
+            this.formule = this.conserveRechercheService.getFormule();
+        }
+        this.enleverProduitchimique();
     }
 
     constructor(
@@ -60,7 +83,8 @@ export class RechercheComponent implements OnInit {
         protected eventManager: JhiEventManager,
         protected accountService: AccountService,
         protected exportExcelService: ExportExcelService,
-        protected router: Router
+        protected router: Router,
+        protected conserveRechercheService: ConserveRechercheService
     ) {}
 
     loadAll() {
@@ -163,6 +187,16 @@ export class RechercheComponent implements OnInit {
     }
 
     filtre(value, field: any, sens: any) {
+        this.conserveRechercheService.conserveFiltre(
+            this.codeBarre,
+            this.classification,
+            this.disponibliteArticle,
+            this.cas,
+            this.nom,
+            this.acronyme,
+            this.formule
+        );
+
         switch (field) {
             case 'codeBarre':
                 this.codeBarre = value;
@@ -187,7 +221,6 @@ export class RechercheComponent implements OnInit {
                 this.formule = value;
                 break;
         }
-        this.enleverProduitchimique();
     }
 
     private enleverProduitchimique() {
@@ -212,7 +245,6 @@ export class RechercheComponent implements OnInit {
         if (this.classification.length !== 0) {
             this.ficheArticleProduits = this.tableauMultiselection;
         }
-
         this.attente = [];
         for (let value of this.ficheArticleProduits) {
             let casBoolean = false;
@@ -250,7 +282,7 @@ export class RechercheComponent implements OnInit {
                 this.attente.push(value);
             }
         }
-        console.log(this.attente);
+
         if (
             this.cas.length === 0 &&
             this.acronyme.length === 0 &&
