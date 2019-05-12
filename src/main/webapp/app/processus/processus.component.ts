@@ -79,6 +79,134 @@ export class ProcessusComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+
+        this.searchArticleBDD();
+
+        this.getDroitDacces();
+
+        this.getLieux();
+
+        this.getMotClef();
+
+        this.getUnites();
+
+        /*   this.ficheProduitChimiqueService.query().subscribe(
+               (res: HttpResponse<IFicheProduitChimique[]>) => {
+                   for (let value of res.body) {
+                       if (value !== undefined) {
+                           if (value.cas !== undefined) {
+                               this.CasSelect.push({ label: value.cas, value: value });
+                           }
+                           if (value.nom !== undefined) {
+                               this.NomSelect.push({ label: value.nom, value: value });
+                           }
+                           if (value.formule !== undefined) {
+                               this.formuleSelect.push({ label: value.formule, value: value });
+                           }
+                       }
+                   }
+               },
+               (res: HttpErrorResponse) => this.onError(res.message)
+           );*/
+        this.getOptionsEtat();
+
+        this.getOptionsDispo();
+
+        this.getStockage();
+
+        this.getConditionnement();
+
+        this.getGroupe();
+    }
+
+    /**
+     * Get Droit d'accés for the option select
+     */
+    getDroitDacces() {
+        this.groupeService.query().subscribe(
+            (res: HttpResponse<IGroupe[]>) => {
+                for (let value of res.body) {
+                    this.droitSelect.push({ label: value.nomGroupe, value: value });
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    /**
+     * Get Lieu for the option select
+     */
+    getLieux() {
+        this.lieuService.query().subscribe(
+            (res: HttpResponse<ILocalisation[]>) => {
+                for (let value of res.body) {
+                    this.localisationSelect.push({ label: value.adresse, value: value });
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    /**
+     * Get mot-clef for the option select
+     */
+    getMotClef() {
+        this.classificationService.query().subscribe(
+            (res: HttpResponse<IClassification[]>) => {
+                for (let value of res.body) {
+                    this.classiSelect.push({ label: value.nomClassification, value: value });
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    /**
+     * Get Unite for the option select
+     */
+    getUnites() {
+        this.uniteService.query().subscribe(
+            (res: HttpResponse<IUnite[]>) => {
+                for (let value of res.body) {
+                    this.unitesSelect.push({ label: value.libelleUnite, value: value });
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    /**
+     * Get Condictionnement for the option select
+     */
+    getConditionnement() {
+        this.condictionnementService.query().subscribe(
+            (res: HttpResponse<ITypeDeConditionnement[]>) => {
+                for (let value of res.body) {
+                    this.condictionnementSelect.push({ label: value.libelleConditionnement, value: value });
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    /**
+     * get groupe, give a letter AA- for the code-Barre
+     */
+    getGroupe() {
+        this.groupeService.getCurrentGroup().subscribe(
+            (res: HttpResponse<IGroupe>) => {
+                console.log(res.body.nomGroupe);
+                this.ficheArticle.codeInterne = res.body.nomGroupe;
+                this.codeInterne = res.body.nomGroupe;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    /**
+     * get article, with URL
+     */
+    searchArticleBDD() {
         this.activatedRoute.data.subscribe(({ ficheArticle }) => {
             if (ficheArticle) {
                 this.ficheArticle = ficheArticle;
@@ -88,8 +216,8 @@ export class ProcessusComponent implements OnInit {
                 if (ficheArticle.documents[0]) {
                     this.documentInput = ficheArticle.documents[0].lien;
                 }
-                if (ficheArticle.unites[0]) {
-                    this.uniteArray = ficheArticle.unites[0].libelleUnite;
+                if (ficheArticle.unite) {
+                    this.uniteArray = ficheArticle.unite.libelleUnite;
                 }
                 this.classiArray = ficheArticle.classifications;
                 this.droit = ficheArticle.droitDacceeProduits;
@@ -97,79 +225,6 @@ export class ProcessusComponent implements OnInit {
             }
         });
 
-        this.groupeService.query().subscribe(
-            (res: HttpResponse<IGroupe[]>) => {
-                for (let value of res.body) {
-                    this.droitSelect.push({ label: value.nomGroupe, value: value });
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.lieuService.query().subscribe(
-            (res: HttpResponse<ILocalisation[]>) => {
-                for (let value of res.body) {
-                    this.localisationSelect.push({ label: value.adresse, value: value });
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-
-        this.classificationService.query().subscribe(
-            (res: HttpResponse<IClassification[]>) => {
-                for (let value of res.body) {
-                    this.classiSelect.push({ label: value.nomClassification, value: value });
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-
-        this.uniteService.query().subscribe(
-            (res: HttpResponse<IUnite[]>) => {
-                for (let value of res.body) {
-                    this.unitesSelect.push({ label: value.libelleUnite, value: value });
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.ficheProduitChimiqueService.query().subscribe(
-            (res: HttpResponse<IFicheProduitChimique[]>) => {
-                for (let value of res.body) {
-                    if (value !== undefined) {
-                        if (value.cas !== undefined) {
-                            this.CasSelect.push({ label: value.cas, value: value });
-                        }
-                        if (value.nom !== undefined) {
-                            this.NomSelect.push({ label: value.nom, value: value });
-                        }
-                        if (value.formule !== undefined) {
-                            this.formuleSelect.push({ label: value.formule, value: value });
-                        }
-                    }
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.getOptionsEtat();
-
-        this.getOptionsDispo();
-
-        this.condictionnementService.query().subscribe(
-            (res: HttpResponse<ITypeDeConditionnement[]>) => {
-                for (let value of res.body) {
-                    this.condictionnementSelect.push({ label: value.libelleConditionnement, value: value });
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-
-        this.groupeService.getCurrentGroup().subscribe(
-            (res: HttpResponse<IGroupe>) => {
-                console.log(res.body.nomGroupe);
-                this.ficheArticle.codeInterne = res.body.nomGroupe;
-                this.codeInterne = res.body.nomGroupe;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
         if (this.ficheProduits.codeNacre === undefined) {
             this.ficheProduits.codeNacre = 'NA21';
         }
@@ -178,23 +233,18 @@ export class ProcessusComponent implements OnInit {
         }
     }
 
-    getSelected(selectedVals: Array<any>, option: any) {
-        if (selectedVals) {
-            for (let i = 0; i < selectedVals.length; i++) {
-                if (option.id === selectedVals[i].id) {
-                    return selectedVals[i];
-                }
-            }
-        }
-        return option;
-    }
-
+    /**
+     *  create Select Option Etat
+     */
     getOptionsEtat() {
         this.EtatSelect.push({ label: 'SOLIDE', value: 'SOLIDE' });
         this.EtatSelect.push({ label: 'LIQUIDE', value: 'LIQUIDE' });
         this.EtatSelect.push({ label: 'GAZEUX', value: 'GAZEUX' });
     }
 
+    /**
+     *  create Select Option Disponibilite
+     */
     getOptionsDispo() {
         this.DispoSelect.push({ label: 'DISPONIBLE', value: 'DISPONIBLE' });
         this.DispoSelect.push({ label: 'INDISPONIBLE', value: 'INDISPONIBLE' });
@@ -203,11 +253,10 @@ export class ProcessusComponent implements OnInit {
         this.DispoSelect.push({ label: 'ENLIVRAISON', value: 'ENLIVRAISON' });
     }
 
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    selectionStockage() {
+    /**
+     *  create Select Option Stockage
+     */
+    getStockage() {
         this.stockageService.query().subscribe(
             (res: HttpResponse<ITypeLieuStockage[]>) => {
                 for (let value of res.body) {
@@ -314,5 +363,9 @@ export class ProcessusComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
+    }
+
+    protected onError(errorMessage: string) {
+        this.jhiAlertService.error(errorMessage, null, null);
     }
 }

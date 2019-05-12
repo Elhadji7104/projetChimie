@@ -90,20 +90,9 @@ public class FicheArticle implements Serializable {
 
     @OneToOne
     Unite unite;
-    /**
+   
     @ManyToOne
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "fiche_article_unite",
-               joinColumns = @JoinColumn(name = "fiche_articles_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "unites_id", referencedColumnName = "id"))
-    private Set<Unite> unites = new HashSet<>();
-    **/
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "fiche_article_fiche_produit_chimique",
-               joinColumns = @JoinColumn(name = "fiche_articles_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "fiche_produit_chimiques_id", referencedColumnName = "id"))
-    private Set<FicheProduitChimique> ficheProduitChimiques = new HashSet<>();
+    FicheProduitChimique ficheProduitChimique;
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -400,32 +389,12 @@ public class FicheArticle implements Serializable {
         this.documents = documents;
     }
 
-
-
-
-    public Set<FicheProduitChimique> getFicheProduitChimiques() {
-        return ficheProduitChimiques;
+    public FicheProduitChimique getFicheProduitChimique() {
+        return this.ficheProduitChimique;
     }
 
-    public FicheArticle ficheProduitChimiques(Set<FicheProduitChimique> ficheProduitChimiques) {
-        this.ficheProduitChimiques = ficheProduitChimiques;
-        return this;
-    }
-
-    public FicheArticle addFicheProduitChimique(FicheProduitChimique ficheProduitChimique) {
-        this.ficheProduitChimiques.add(ficheProduitChimique);
-        ficheProduitChimique.getFicheArticles().add(this);
-        return this;
-    }
-
-    public FicheArticle removeFicheProduitChimique(FicheProduitChimique ficheProduitChimique) {
-        this.ficheProduitChimiques.remove(ficheProduitChimique);
-        ficheProduitChimique.getFicheArticles().remove(this);
-        return this;
-    }
-
-    public void setFicheProduitChimiques(Set<FicheProduitChimique> ficheProduitChimiques) {
-        this.ficheProduitChimiques = ficheProduitChimiques;
+    public void setFicheProduitChimique(FicheProduitChimique ficheProduitChimique) {
+        this.ficheProduitChimique = ficheProduitChimique;
     }
 
     public Set<Classification> getClassifications() {

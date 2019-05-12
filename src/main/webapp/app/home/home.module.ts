@@ -12,6 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'primeng/tooltip';
 import { PaginatorModule } from 'primeng/paginator';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 @NgModule({
     imports: [
         ProjetChimieSharedModule,
@@ -28,7 +29,8 @@ import { PaginatorModule } from 'primeng/paginator';
         ButtonModule,
         SplitButtonModule,
         TooltipModule,
-        PaginatorModule
+        PaginatorModule,
+        AutoCompleteModule
     ],
     declarations: [HomeComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

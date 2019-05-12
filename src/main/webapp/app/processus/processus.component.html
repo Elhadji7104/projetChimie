@@ -2,136 +2,65 @@
 <jhi-alert-error></jhi-alert-error>
 <h2><span jhiTranslate="projetChimieApp.ficheProduitChimique.home.title">Produit Chimique</span></h2>
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-    <p class="font-weight-bold"><span jhiTranslate="projetChimieApp.ficheProduitChimique.home.ask"></span></p>
-    <p-inputSwitch name="boolean" [(ngModel)]="booleanChimique"></p-inputSwitch>
-    <div *ngIf="booleanChimique">
-        <p-card header="Nouvelle Fiche">
-            <div class="ui-g">
-                <div class="ui-g-4">
-                    <div class="form-group">
-<<<<<<< HEAD
-                        <div><span>Un champ doit être au minimum rempli pour être valide</span></div>
-=======
-                    <div><span jhiTranslate="projetChimieApp.ficheProduitChimique.champMin"></span></div>
->>>>>>> master
-                        <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.cas"
-                               for="field_cas">Cas</label>
-                        <div>
-                            <input pInputText name="cas" id="field_cas" type="text" pInputText
-                                         [(ngModel)]="ficheProduits.cas">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.nom"
-                               for="field_nom">Nom</label>
-                        <div>
-                            <input pInputText name="nom" id="field_nom" type="text" pInputText
-                                   [(ngModel)]="ficheProduits.nom">
-                        </div>
-                    </div>
-                    <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.formule"
-                           for="field_formule">Formule brute</label>
-                    <div>
-                        <input name="formule" id="field_formule" type="text" pInputText name="formule"
-                               [(ngModel)]="ficheProduits.formule"/>
-                    </div>
-                </div>
-                <div class="ui-g-4">
-                    <div class="form-group">
-                        <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme"
-                               for="field_acronyme">Acronyme</label>
-                        <div>
-                            <input type="text" pInputText name="acronyme" id="field_acronyme"
-                                   [(ngModel)]="ficheProduits.acronyme" value="/">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.mm"
-                               for="field_mm">Mw</label>
-                        <div>
-                            <p-inputMask name="cas" name="mm" id="field_mm" [(ngModel)]="ficheProduits.mm"
-                                         mask="9 999,99 g/mol"></p-inputMask>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre"
-                               for="field_codeNacre">Code Nacre</label>
-                        <div>
-
-                            <p-inputMask [style]="{'width':'50%'}" name="codeNacre" id="field_codeNacre"
-                                         [(ngModel)]="ficheProduits.codeNacre" value="NA21"
-                                         mask="aa99" value="NA21"></p-inputMask>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </p-card>
-    </div>
-    <div *ngIf="!booleanChimique">
-        <p-card header="Selection Fiche">
-            <span jhiTranslate="projetChimieApp.ficheArticle.home.choix"></span>
-            <div>
-                <div>
-                    <span jhiTranslate="projetChimieApp.ficheArticle.Cas"></span>
-                </div>
-                <p-dropdown name="Cas" [autoWidth]="false" [style]="{'width':'50%'}" [options]="CasSelect"
-                            [(ngModel)]="ficheProduits"
-                            filter="true">
-                    <ng-template let-produit pTemplate="item">
-                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-                            <div style="font-size:14px;float:right;margin-top:4px">{{produit.label}}</div>
-                        </div>
-                    </ng-template>
-                </p-dropdown>
-            </div>
-            <div>
-                <div>
-                    <span jhiTranslate="projetChimieApp.ficheArticle.nom"></span>
-                </div>
-                <p-dropdown name="Nom" [autoWidth]="true" [style]="{'width':'50%'}" [options]="NomSelect"
-                            [(ngModel)]="ficheProduits"
-                            filter="true">
-                    <ng-template let-produit pTemplate="item">
-                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-                            <div style="font-size:14px;float:right;margin-top:4px">{{produit.label}}</div>
-                        </div>
-                    </ng-template>
-                </p-dropdown>
-            </div>
-            <div>
-                <div>
-                    <span jhiTranslate="projetChimieApp.ficheArticle.formule"></span>
-                    <label>Formule du produit : </label>
-                </div>
-                <p-dropdown name="Formule" [autoWidth]="false" [style]="{'width':'50%'}" [options]="formuleSelect"
-                            [(ngModel)]="ficheProduits"
-                            filter="true">
-                    <ng-template let-produit pTemplate="item">
-                        <div class="ui-helper-clearfix">
-                            <div>{{produit.label}}</div>
-                        </div>
-                    </ng-template>
-                </p-dropdown>
-            </div>
-            <div>
-                <p></p>
-                <p><span jhiTranslate="projetChimieApp.ficheProduitChimique.selected"></span></p>
-                <p></p>
-                <p><span jhiTranslate="projetChimieApp.ficheArticle.Cas"></span> :
-                    <strong>{{ficheProduits.cas}}</strong></p>
-                <p><span jhiTranslate="projetChimieApp.ficheArticle.nom"></span> :
-                    <strong>{{ficheProduits.nom}}</strong></p>
-                <p><span jhiTranslate="projetChimieApp.ficheArticle.acronyme"></span> :
-                    <strong>{{ficheProduits.acronyme}}</strong></p>
-                <p><span jhiTranslate="projetChimieApp.ficheArticle.formule"></span> :
-                    <strong>{{ficheProduits.formule}}</strong></p>
-            </div>
-        </p-card>
-    </div>
-    <p></p>
     <h2>Article</h2>
     <p-card>
+        <div class="ui-g">
+            <div class="ui-g-4">
+                <div class="form-group">
+                    <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.cas"
+                           for="field_cas">Cas</label>
+                    <div>
+                            <p-autoComplete [(ngModel)]="ficheProduits.cas" [suggestions]="filteredCASSingle" (completeMethod)="filterCASSingle($event)" field="CAS" [size]="30"
+                            placeholder="CAS" [minLength]="1"></p-autoComplete>
+                        <input pInputText name="cas" id="field_cas" type="text" pInputText
+                                     [(ngModel)]="ficheProduits.cas">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.nom"
+                           for="field_nom">Nom</label>
+                    <div>
+                        <input pInputText name="nom" id="field_nom" type="text" pInputText
+                               [(ngModel)]="ficheProduits.nom">
+                    </div>
+                </div>
+                <label class="font-weight-bold" jhiTranslate="projetChimieApp.ficheProduitChimique.formule"
+                       for="field_formule">Formule brute</label>
+                <div>
+                    <input name="formule" id="field_formule" type="text" pInputText name="formule"
+                           [(ngModel)]="ficheProduits.formule"/>
+                </div>
+            </div>
+            <div class="ui-g-4">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.acronyme"
+                           for="field_acronyme">Acronyme</label>
+                    <div>
+                        <input type="text" pInputText name="acronyme" id="field_acronyme"
+                               [(ngModel)]="ficheProduits.acronyme" value="/">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.mm"
+                           for="field_mm">Mw</label>
+                    <div>
+ 
+                        <p-inputMask name="cas" name="mm" id="field_mm" [(ngModel)]="ficheProduits.mm"
+                                     mask="9 999,99 g/mol"></p-inputMask>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetChimieApp.ficheProduitChimique.codeNacre"
+                           for="field_codeNacre">Code Nacre</label>
+                    <div>
 
+                        <p-inputMask [style]="{'width':'50%'}" name="codeNacre" id="field_codeNacre"
+                                     [(ngModel)]="ficheProduits.codeNacre" value="NA21"
+                                     mask="aa99" value="NA21"></p-inputMask>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="ui-g">
             <div class="ui-g-4">
                 <div>
@@ -223,7 +152,7 @@
                     <span jhiTranslate="projetChimieApp.localisation.home.title"></span>
                 </div>
                 <div>
-                    <p-dropdown name="localisation" [style]="{'width':'50%'}" (onChange)="selectionStockage()"
+                    <p-dropdown name="localisation" [style]="{'width':'50%'}"
                                 [options]="localisationSelect" [(ngModel)]="localisation"></p-dropdown>
                 </div>
             </div>

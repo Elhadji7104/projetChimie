@@ -50,7 +50,7 @@ public class FicheProduitChimique implements Serializable {
     @OneToMany(mappedBy = "ficheProduitChimique")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ListeCmr> listeCmrs = new HashSet<>();
-    @ManyToMany(mappedBy = "ficheProduitChimiques")
+    @OneToMany(mappedBy = "ficheProduitChimique")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
     private Set<FicheArticle> ficheArticles = new HashSet<>();
